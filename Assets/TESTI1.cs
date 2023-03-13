@@ -13,6 +13,6 @@ public class TESTI1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // TESTATAAN PUSHATA PASKAA
     }
 }
