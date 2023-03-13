@@ -8,6 +8,7 @@ public class TESTI2 : MonoBehaviour
     void Start()
     {
         //paskotaan
+        // PASKOTAAN2
     }
 
     // Update is called once per frame
