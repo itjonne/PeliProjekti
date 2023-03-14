@@ -21,6 +21,16 @@ public class CharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            StatModifier damageTaken = new StatModifier(-1, StatModifierType.FlatAtEnd);
+            data.health.AddModifier(damageTaken);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            StatModifier giveHealthPercent = new StatModifier(0.1f, StatModifierType.PercentAdd);
+            data.health.AddModifier(giveHealthPercent);
+        }
         Debug.Log(data.health.Value);
     }
 
