@@ -29,12 +29,13 @@ public class CharacterManager : MonoBehaviour
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (damageDealer != null)
         {
-            data.health -= damageDealer.damage;
+            StatModifier damageTaken = new StatModifier(-damageDealer.damage, StatModifierType.FlatAtEnd);
+            data.health.AddModifier(damageTaken);
             // Ampuu tän eventin, tästä vois ottaa kopin joku muu. Ei implementoitu
             DamageEvent.Invoke();
         }
 
-        if (data.health <= 0)
+        if (data.health.Value <= 0)
         {
             // TODO: Sama
             DeathEvent.Invoke();

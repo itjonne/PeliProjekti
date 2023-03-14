@@ -12,19 +12,19 @@ using UnityEngine;
 public class CharacterDataSO : ScriptableObject
 {
     // DEFAULT VALUES
-     private int _defaultHealth = 100;
-     private int _defaultLevel = 1;
+     private float _defaultHealth = 100;
+     private float _defaultMaxHealth = 999;
+     private float _defaultLevel = 1;
+    private float _defaultMaxLevel = 99;
 
     // ACTUAL VALUES
-    [Range(0, 100)]
-    [SerializeField] public int health;
-    [Range(1,10)]
-    [SerializeField] public int level;
+    [SerializeField] public CharacterStat health;
+    [SerializeField] public CharacterStat level;
 
     public void Reset()
     {
-        health = _defaultHealth;
-        level = _defaultLevel;
+        health = new CharacterStat(_defaultHealth, _defaultMaxHealth);
+        level = new CharacterStat(_defaultLevel, _defaultMaxLevel);
     }
 
 }
