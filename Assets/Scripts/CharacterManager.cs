@@ -21,7 +21,7 @@ public class CharacterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(data.health.Value);
     }
 
     private void OnTriggerEnter(Collider other)
