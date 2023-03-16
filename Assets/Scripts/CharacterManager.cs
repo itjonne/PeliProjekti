@@ -25,13 +25,13 @@ public class CharacterManager : MonoBehaviour
         {
             StatModifier damageTaken = new StatModifier(-1, StatModifierType.FlatAtEnd);
             data.health.AddModifier(damageTaken);
+            Debug.Log(data.health.Value);
         }
         if (Input.GetMouseButtonDown(1))
         {
             StatModifier giveHealthPercent = new StatModifier(0.1f, StatModifierType.PercentAdd);
             data.health.AddModifier(giveHealthPercent);
         }
-        Debug.Log(data.health.Value);
     }
 
     private void OnTriggerEnter(Collider other)
