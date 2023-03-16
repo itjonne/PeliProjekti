@@ -17,7 +17,7 @@ public class CharacterManager : MonoBehaviour
     {
         
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -50,5 +50,5 @@ public class CharacterManager : MonoBehaviour
             // TODO: Sama
             DeathEvent.Invoke();
         }
-    }
+    } */
 }
