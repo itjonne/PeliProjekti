@@ -25,9 +25,14 @@ public class PlayableCharacter : Character
     public override void Follow(Character character)
     {
         Debug.Log(Vector3.Distance(transform.position, character.transform.position));
-        if (Vector3.Distance(transform.position, character.transform.position) > 2f )
+        if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
             transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, 3f * Time.deltaTime));
         }
+    }
+
+    public override void MoveTo(Vector3 position)
+    {
+        transform.position = (Vector3.MoveTowards(transform.position, position, 3f * Time.deltaTime));
     }
 }

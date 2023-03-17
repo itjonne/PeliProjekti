@@ -10,6 +10,7 @@ public abstract class Character : MonoBehaviour
 
     public abstract void Move();
     public abstract void Follow(Character character);
+    public abstract void MoveTo(Vector3 point);
     public void LogHealth()
     {
         Debug.Log(characterData.health.Value);

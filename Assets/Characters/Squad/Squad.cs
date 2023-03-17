@@ -5,10 +5,21 @@ using UnityEngine;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    private Formation _formation;
+    public Formation Formation
+    {
+        get
+        {
+            if (_formation == null) _formation = GetComponent<Formation>();
+            return _formation;
+        }
+        set => _formation = value;
+    }
 
     public void Start()
     {
         squadData.Items.Clear(); // tyhjennet‰‰n eka
+        Formation.Spread = 3f;
 
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         foreach (Character character in characters)
@@ -16,6 +27,7 @@ public class Squad : MonoBehaviour
             Debug.Log(character);
             AddCharacter(character);
         }
+        Formation.FormationSize = characters.Length - 1;
         foreach(Character character in characters)
         {
             if (character.isLeader) ChangeLeader(character);
@@ -44,11 +56,20 @@ public class Squad : MonoBehaviour
 
     private void Update()
     {
+        List<Vector3> positions = Formation.EvaluatePoints(squadData.Items[0].transform);
+        Debug.Log(positions.Count);
+        for (int i = 0; i < positions.Count; i++)
+        {
+            squadData.Items[i + 1].MoveTo(positions[i]);
+        }
+        /*
         for (int i = 0; i < squadData.Items.Count; i++)
         {
             //character.LogHealth();
-            // squadData.Items[i].Move();
-            squadData.Items[i].Follow(squadData.Items[0]);
+            squadData.Items[i].MoveTo();
+
+            // squadData.Items[i].Follow(squadData.Items[0]);
         }
+        */
     }
 }
