@@ -5,8 +5,11 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     [SerializeField] private CharacterDataSO characterData;
+    public bool isLeader;
     // Start is called before the first frame update
+
     public abstract void Move();
+    public abstract void Follow(Character character);
     public void LogHealth()
     {
         Debug.Log(characterData.health.Value);
