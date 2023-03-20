@@ -16,7 +16,7 @@ public class Squad : MonoBehaviour
         set => _formation = value;
     }
 
-    public void Start()
+    public void Awake()
     {
         squadData.Items.Clear(); // tyhjennetään eka
         Formation.Spread = 3f;
@@ -48,19 +48,35 @@ public class Squad : MonoBehaviour
 
     public void ChangeLeader(Character character)
     {
-        int index = squadData.Items.IndexOf(character);
+        Character currentLeader = GetLeader();
+        currentLeader.isLeader = false;
 
-        if (index > 0) squadData.Swap(0, index); // Vaihdetaan jos ei oo johtaja + jos löytyy
-        else Debug.LogError($"Nyt meni pieleen, yritettiin vaihtaa {character} indeksissä {index}");
+        character.isLeader = true;
     }
 
+    public Character GetLeader()
+    {
+        return squadData.Items.Find(item => item.isLeader);
+    }
+
+
+    // Typerästi tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
     private void Update()
     {
-        List<Vector3> positions = Formation.EvaluatePoints(squadData.Items[0].transform);
-        Debug.Log(positions.Count);
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            int leaderIndex = squadData.Items.IndexOf(GetLeader());
+            Debug.Log(leaderIndex); 
+            Debug.Log(squadData.Items.Count);
+            ChangeLeader(leaderIndex >= squadData.Items.Count - 1 ? squadData.Items[0] : squadData.Items[leaderIndex + 1]);
+        }
+
+        List<Vector3> positions = Formation.EvaluatePoints(GetLeader().transform);
+
         for (int i = 0; i < positions.Count; i++)
         {
-            squadData.Items[i + 1].MoveTo(positions[i]);
+            if (!squadData.Items[i].isLeader)
+                squadData.Items[i].MoveTo(positions[i]);
         }
         /*
         for (int i = 0; i < squadData.Items.Count; i++)
@@ -71,5 +87,19 @@ public class Squad : MonoBehaviour
             // squadData.Items[i].Follow(squadData.Items[0]);
         }
         */
+    }
+
+
+    // UI käpistely
+    private void OnGUI()
+    { 
+        for (int i = 0; i < squadData.Items.Count; i++)
+        {
+            GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan väriä
+            GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
+            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].Health.ToString());
+            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].Level.ToString());
+        }
+
     }
 }

@@ -8,11 +8,16 @@ public abstract class Character : MonoBehaviour
     public bool isLeader;
     // Start is called before the first frame update
 
+    // TODO: Onko typerää / miten typerää?
+    public string Name => characterData.Name;
+    public float Health => characterData.Health.Value;
+    public float Level => characterData.Level.Value;
+
     public abstract void Move();
     public abstract void Follow(Character character);
     public abstract void MoveTo(Vector3 point);
     public void LogHealth()
     {
-        Debug.Log(characterData.health.Value);
+        Debug.Log(characterData.Health.Value);
     }
 }

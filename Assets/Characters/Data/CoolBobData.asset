@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973d4c9246e0065448ac79d26c8086f8, type: 3}
   m_Name: CoolBobData
   m_EditorClassIdentifier: 
-  health:
-    baseValue: 20
+  Name: Cool Bob
+  Health:
+    baseValue: 50
     maxValue: 999
-  level:
-    baseValue: 2
-    maxValue: 99
+  Level:
+    baseValue: 1
+    maxValue: 999

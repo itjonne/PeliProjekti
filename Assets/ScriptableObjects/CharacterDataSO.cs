@@ -18,13 +18,15 @@ public class CharacterDataSO : ScriptableObject
     private float _defaultMaxLevel = 99;
 
     // ACTUAL VALUES
-    [SerializeField] public CharacterStat health;
-    [SerializeField] public CharacterStat level;
+    [SerializeField] public string Name;
+    [SerializeField] public CharacterStat Health;
+    [SerializeField] public CharacterStat Level;
 
     public void Reset()
     {
-        health = new CharacterStat(_defaultHealth, _defaultMaxHealth);
-        level = new CharacterStat(_defaultLevel, _defaultMaxLevel);
+        Health = new CharacterStat(_defaultHealth, _defaultMaxHealth);
+        Level = new CharacterStat(_defaultLevel, _defaultMaxLevel);
+        Name = "Default";
     }
 
 }
