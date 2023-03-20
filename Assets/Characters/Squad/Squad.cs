@@ -71,12 +71,26 @@ public class Squad : MonoBehaviour
             ChangeLeader(leaderIndex >= squadData.Items.Count - 1 ? squadData.Items[0] : squadData.Items[leaderIndex + 1]);
         }
 
+        // Lasketaan formaation pisteet
         List<Vector3> positions = Formation.EvaluatePoints(GetLeader().transform);
+        
+        // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
+        List<Character> followers = new List<Character>();
 
+        // lis‰t‰‰n listaan followerit
+        foreach (Character character in squadData.Items)
+        {
+            if (!character.isLeader) followers.Add(character);
+        }
+
+        // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
+        followers.Reverse();
+
+        // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
         {
-            if (!squadData.Items[i].isLeader)
-                squadData.Items[i].MoveTo(positions[i]);
+            
+                followers[i].MoveTo(positions[i]);
         }
         /*
         for (int i = 0; i < squadData.Items.Count; i++)

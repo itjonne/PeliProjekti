@@ -28,6 +28,7 @@ public class SquadMovement : MonoBehaviour
     //Update is called once per frame
     private void Update()
     {
+        _leader = GetComponent<Squad>().GetLeader().gameObject;
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
 
         //Move in the direction we are aiming 
