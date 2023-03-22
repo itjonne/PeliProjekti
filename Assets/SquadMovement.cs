@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SquadMovement : MonoBehaviour
 {
+    
+
     private InputHandler _input;
     private GameObject _leader;
     [SerializeField]
@@ -15,13 +17,15 @@ public class SquadMovement : MonoBehaviour
 
     [SerializeField]
     private Camera camera;
+  
 
-    
     private void Start()
     {
         _input = GetComponent<InputHandler>();
         _leader = GetComponent<Squad>().GetLeader().gameObject;
         Debug.Log(_leader);
+        
+
     }
     
     
