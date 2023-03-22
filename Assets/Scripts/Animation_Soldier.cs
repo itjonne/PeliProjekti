@@ -6,11 +6,20 @@ public class Animation_Soldier : MonoBehaviour
 {
 
 	public Animator animator;
+	private Vector3 velocity;
+	private Vector3 prevPos;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		animator = GetComponent<Animator>();
+
+	}
+
+    private void FixedUpdate()
+    {
+		velocity = (transform.position - prevPos) / Time.deltaTime;
+		prevPos = transform.position;
 	}
 
     // Update is called once per frame
@@ -20,9 +29,8 @@ public class Animation_Soldier : MonoBehaviour
 		//TESTI
 		//if (Input.GetAxisRaw("Horizontal") != 0)
 
-			Debug.Log(gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude);
-		if (gameObject.GetComponentInParent<Rigidbody>().velocity > new Vector3(0,0,0));
-
+		Debug.Log(velocity);
+		if ( velocity.magnitude > 0.01f)
 		{
 			animator.SetBool("Walk", true);
 		}
