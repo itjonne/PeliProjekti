@@ -16,6 +16,7 @@ public abstract class Character : MonoBehaviour
     public abstract void Move();
     public abstract void Follow(Character character);
     public abstract void MoveTo(Vector3 point);
+    public abstract void Attack(Vector3 direction);
     public void LogHealth()
     {
         Debug.Log(characterData.Health.Value);

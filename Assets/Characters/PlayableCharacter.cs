@@ -35,4 +35,9 @@ public class PlayableCharacter : Character
     {
         transform.position = (Vector3.MoveTowards(transform.position, position, 3f * Time.deltaTime));
     }
+
+    public override void Attack(Vector3 direction)
+    {
+
+    }
 }
