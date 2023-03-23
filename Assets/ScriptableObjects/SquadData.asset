@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: SquadData
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 6915009951270406364, guid: 41e0fe00e0a720943ae5120b1f20d76c, type: 3}
-  - {fileID: 7807468014221719690, guid: f8e5d9fdd4aa13e418747fbcbbabb8c4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

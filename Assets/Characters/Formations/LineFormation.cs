@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LineFormation : Formation
 {
-    public override IEnumerable<Vector3> EvaluatePoints(Transform leader)
+    public override List<Vector3> EvaluatePoints(Transform leader)
     {
+        List<Vector3> points = new List<Vector3>();
         for (int i = 1; i <= FormationSize; i++) // Alotetaan ykkösestä ni ei tarvii ehkä säätää
         {
             Vector3 pos = new Vector3(leader.position.x, 0, leader.position.z);
@@ -13,7 +14,8 @@ public class LineFormation : Formation
 
             pos += GetNoise(pos); // Vähän elävöitetään
             pos += i * backwardsVector.normalized * Spread; // Yritetään laittaa spreadin verran aina taakse
-            yield return pos;
+            points.Add(pos);
         }
+        return points;
     }
 }

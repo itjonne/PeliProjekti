@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0f5500a351e24bd4c85e73805b562991
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - leaderTexture: {fileID: 2800000, guid: be423a54b981d38428de82ad12534629, type: 3}
+  - characterTexture: {fileID: 2800000, guid: 9d5365d85f9ac2e46b561528dae6e5ab, type: 3}
+  - squadData: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973d4c9246e0065448ac79d26c8086f8, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  health:
-    baseValue: 100
+  Name: Player
+  Health:
+    baseValue: 10
     maxValue: 999
-  level:
-    baseValue: 1
+  Level:
+    baseValue: 2
     maxValue: 999
