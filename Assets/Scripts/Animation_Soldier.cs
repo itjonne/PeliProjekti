@@ -25,23 +25,11 @@ public class Animation_Soldier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-		//TESTI
-		//if (Input.GetAxisRaw("Horizontal") != 0)
-
 		Debug.Log(velocity);
-		if ( velocity.magnitude > 0.01f)
+		if ( velocity.magnitude > 0.1f)
 		{
 			animator.SetBool("Walk", true);
-		}
-
-
-		//else if (Input.GetAxisRaw("Vertical") != 0)
-		/*
-	
-		*/
-		else
-
+		} else
 		{
 			animator.SetBool("Walk", false);
 		}
