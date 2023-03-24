@@ -35,6 +35,12 @@ public class PlayableCharacter : Character
         transform.position = (Vector3.MoveTowards(transform.position, position, 3f * Time.deltaTime));
     }
 
+    public override void RotateTo(Character target)
+    {
+        transform.rotation = target.transform.rotation;
+
+    }
+
     public override void Attack(Vector3 direction)
     {
 

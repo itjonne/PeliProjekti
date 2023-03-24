@@ -5,6 +5,7 @@ using UnityEngine;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    private InputHandler _input;
     private Formation _formation;
     public Formation Formation
     {
@@ -18,6 +19,7 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
+        _input = GetComponent<InputHandler>();
         squadData.Items.Clear(); // tyhjennet‰‰n eka
         Formation.Spread = 3f;
 
@@ -88,7 +90,8 @@ public class Squad : MonoBehaviour
         for (int i = 0; i < positions.Count; i++)
         {
             
-                followers[i].MoveTo(positions[i]);
+            followers[i].MoveTo(positions[i]);
+            followers[i].RotateTo(GetLeader());
         }
         /*
         for (int i = 0; i < squadData.Items.Count; i++)
