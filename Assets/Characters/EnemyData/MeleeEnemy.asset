@@ -17,5 +17,5 @@ MonoBehaviour:
     baseValue: 100
     maxValue: 999
   MovementSpeed:
-    baseValue: 5.92
+    baseValue: 3.87
     maxValue: 999
