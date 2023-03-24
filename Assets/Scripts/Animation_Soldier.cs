@@ -12,8 +12,7 @@ public class Animation_Soldier : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		animator = GetComponent<Animator>();
-
+		animator = GetComponent<Animator>();		
 	}
 
     private void FixedUpdate()
@@ -22,33 +21,51 @@ public class Animation_Soldier : MonoBehaviour
 		prevPos = transform.position;
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		if ( velocity.magnitude > 0.1f)
+
+
+	// Update is called once per frame
+	void Update()
+	{
+		
+		//Liikkuminen
+
+		Debug.Log(velocity);
+		if (velocity.magnitude > 0.01f)
 		{
 			animator.SetBool("Walk", true);
-		} else
-		{
-			animator.SetBool("Walk", false);
 		}
 
-		//Ampuminen
 
-		if (Input.GetMouseButton(0) )
-		{
-			
-			animator.SetBool("Shoot", true);
-			animator.SetBool("Walk", false);
-		}
+		// if (Input.GetAxisRaw("Vertical") != 0)
 
 		else
 
-        {
-			animator.SetBool("Shoot", false);
+		{
+			animator.SetBool("Walk", false);
 		}
 
+
+		//Ampuminen
+
+		if (Input.GetMouseButton(0))
+		{
+		
+			animator.SetBool("Shoot", true);
+			animator.SetLayerWeight(1, 1f);
+			//animator.SetBool("Walk", false);
+		}
+
+		
+		else if (Input.GetMouseButtonUp(0))
+		{
+	
+			animator.SetBool("Shoot", false);
+			animator.SetLayerWeight(1, 0f);
+		}
+
+		
 	}
+
 
 }
 
