@@ -66,8 +66,6 @@ public class Squad : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             int leaderIndex = squadData.Items.IndexOf(GetLeader());
-            Debug.Log(leaderIndex); 
-            Debug.Log(squadData.Items.Count);
             ChangeLeader(leaderIndex >= squadData.Items.Count - 1 ? squadData.Items[0] : squadData.Items[leaderIndex + 1]);
         }
 

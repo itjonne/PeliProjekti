@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(target.position);
+        target = squad.GetLeader().transform;
         // Define a target position above and behind the target transform
         Vector3 targetPosition = target.TransformPoint(new Vector3(0, 10, 0));
 

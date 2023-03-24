@@ -25,7 +25,6 @@ public class Animation_Soldier : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log(velocity);
 		if ( velocity.magnitude > 0.1f)
 		{
 			animator.SetBool("Walk", true);
