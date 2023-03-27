@@ -739,6 +739,7 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   lastShot: 0
+  _noise: 0
 --- !u!1 &928541412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36886d0cd76d8d04893071a2a94ae1c1, type: 3}
@@ -842,6 +843,7 @@ MonoBehaviour:
   fireRate: 0.1
   damage: 10
   lastShot: 0
+  _noise: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1046,7 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   lastShot: 0
+  _noise: 0
 --- !u!1 &1184889750
 GameObject:
   m_ObjectHideFlags: 0
