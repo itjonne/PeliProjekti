@@ -73,7 +73,7 @@ public class Squad : MonoBehaviour
 
         // Lasketaan formaation pisteet
         List<Vector3> positions = Formation.EvaluatePoints(GetLeader().transform);
-        
+
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
 
@@ -89,10 +89,18 @@ public class Squad : MonoBehaviour
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
         {
-            
+
             followers[i].MoveTo(positions[i]);
             followers[i].RotateTo(GetLeader());
         }
+
+        // Ampuminen
+        if (Input.GetMouseButton(0))
+        {
+            GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+        }
+
+
         /*
         for (int i = 0; i < squadData.Items.Count; i++)
         {

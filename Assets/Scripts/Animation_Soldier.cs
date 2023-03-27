@@ -28,8 +28,6 @@ public class Animation_Soldier : MonoBehaviour
 	{
 		
 		//Liikkuminen
-
-		Debug.Log(velocity);
 		if (velocity.magnitude > 0.01f)
 		{
 			animator.SetBool("Walk", true);
