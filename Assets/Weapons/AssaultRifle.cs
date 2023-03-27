@@ -22,7 +22,7 @@ public class AssaultRifle : Weapon
         if (Time.time > fireRate + lastShot)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10f);
+            bullet.GetComponent<Rigidbody>().velocity = rotation.forward * 10f;
             lastShot = Time.time;
         }
 
