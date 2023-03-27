@@ -86,19 +86,21 @@ public class Squad : MonoBehaviour
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
 
+        // Ampuminen
+        if (Input.GetMouseButton(0))
+        {
+            GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+        }
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
         {
 
             followers[i].MoveTo(positions[i]);
             followers[i].RotateTo(GetLeader());
+            followers[i].GetComponent<Weapon>()?.Shoot(GetLeader().transform);
         }
 
-        // Ampuminen
-        if (Input.GetMouseButton(0))
-        {
-            GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
-        }
+
 
 
         /*
