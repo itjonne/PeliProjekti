@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AssaultRifle : Weapon
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,10 @@ public class AssaultRifle : Weapon
 
     public override void Shoot(Transform rotation)
     {
-        Debug.Log("Shooting");
         if (Time.time > fireRate + lastShot)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            bullet.GetComponent<Rigidbody>().velocity = rotation.forward * 10f;
+            bullet.GetComponent<Rigidbody>().velocity = (rotation.forward + new Vector3(Random.Range(-_noise, _noise),0, Random.Range(-_noise, _noise))) * 10f;
             lastShot = Time.time;
         }
 
