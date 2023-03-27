@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef121c6f811b2a4da09842253cb672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
+  bulletPrefab: {fileID: 1247426512558370029, guid: 85e2dce7116ae2a478ae47be5ffdd021, type: 3}
   fireRate: 1
   damage: 1
   lastShot: 0
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef121c6f811b2a4da09842253cb672b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
+  bulletPrefab: {fileID: 1247426512558370029, guid: 85e2dce7116ae2a478ae47be5ffdd021, type: 3}
   fireRate: 1
   damage: 1
   lastShot: 0
