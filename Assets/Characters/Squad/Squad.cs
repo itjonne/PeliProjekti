@@ -90,6 +90,9 @@ public class Squad : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+            foreach (Character follower in followers) {
+                follower.GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+            }
         }
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
@@ -97,7 +100,6 @@ public class Squad : MonoBehaviour
 
             followers[i].MoveTo(positions[i]);
             followers[i].RotateTo(GetLeader());
-            followers[i].GetComponent<Weapon>()?.Shoot(GetLeader().transform);
         }
 
 
