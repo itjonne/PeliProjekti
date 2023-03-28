@@ -5,6 +5,7 @@ using UnityEngine;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    private InputHandler _input;
     private Formation _formation;
     public Formation Formation
     {
@@ -18,6 +19,7 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
+        _input = GetComponent<InputHandler>();
         squadData.Items.Clear(); // tyhjennet‰‰n eka
         Formation.Spread = 3f;
 
@@ -66,14 +68,12 @@ public class Squad : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             int leaderIndex = squadData.Items.IndexOf(GetLeader());
-            Debug.Log(leaderIndex); 
-            Debug.Log(squadData.Items.Count);
             ChangeLeader(leaderIndex >= squadData.Items.Count - 1 ? squadData.Items[0] : squadData.Items[leaderIndex + 1]);
         }
 
         // Lasketaan formaation pisteet
         List<Vector3> positions = Formation.EvaluatePoints(GetLeader().transform);
-        
+
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
 
@@ -86,12 +86,25 @@ public class Squad : MonoBehaviour
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
 
+        // Ampuminen
+        if (Input.GetMouseButton(0))
+        {
+            GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+            foreach (Character follower in followers) {
+                follower.GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+            }
+        }
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
         {
-            
-                followers[i].MoveTo(positions[i]);
+
+            followers[i].MoveTo(positions[i]);
+            followers[i].RotateTo(GetLeader());
         }
+
+
+
+
         /*
         for (int i = 0; i < squadData.Items.Count; i++)
         {
