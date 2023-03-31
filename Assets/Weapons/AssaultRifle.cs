@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class AssaultRifle : Weapon
 {
@@ -24,6 +25,8 @@ public class AssaultRifle : Weapon
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().velocity = (rotation.forward + new Vector3(Random.Range(-_noise, _noise),0, Random.Range(-_noise, _noise))) * 10f;
             lastShot = Time.time;
+
+            AudioManager.PlaySound(Sounds.sfx_MachineGun);
         }
 
     }

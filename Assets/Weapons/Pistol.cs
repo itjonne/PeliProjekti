@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class Pistol : Weapon
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().velocity = rotation.forward * 10f;
             lastShot = Time.time;
+
+            AudioManager.PlaySound(Sounds.sfx_Pistol);
         }
     }
 }

@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class MeleeEnemy : Enemy
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OSU ", other);
+        JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
         if (other.GetComponent<Character>())
         {
             Debug.Log("NYT OSU");
