@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
   m_Name: sfx_Pistol
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: a2f331ceaeebb254aa600162e217214e, type: 3}
+  file: {fileID: 8300000, guid: d4ae93bcba8700e4ea12cab9055eb26d, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
   lastClipIndex: -1
   category: Gun Shot
-  relativeVolume: 0.094
+  relativeVolume: 0.15
   spatialize: 0
   maxDistance: 0
   priority: 128
