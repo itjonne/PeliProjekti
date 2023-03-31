@@ -8,7 +8,7 @@ public class MapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateMap(9); // Tekee 9x9 mapin
+        GenerateMap(5); // Tekee 9x9 mapin
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMap(int size)
     {
-        float tileWidth = 100f;
+        float tileWidth = 50f;
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
