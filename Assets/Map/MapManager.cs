@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMap(int size)
     {
-        float tileWidth = 10f;
+        float tileWidth = 100f;
         Tile[] tiles = { new RedTile(), new BlueTile(), new TestTile() }; // T‰‰ vaan testi
 
         for (int i = 0; i < size; i++)
