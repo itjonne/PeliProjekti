@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public GameObject[] blocks;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +20,15 @@ public class MapManager : MonoBehaviour
     public void GenerateMap(int size)
     {
         float tileWidth = 100f;
-        Tile[] tiles = { new RedTile(), new BlueTile(), new TestTile() }; // T‰‰ vaan testi
-
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
             {
-                int RandomNum = Random.Range(0, tiles.Length);
-                Tile tile = tiles[RandomNum];
+                int RandomNum = Random.Range(0, blocks.Length);
+                GameObject block = blocks[RandomNum];
                 Vector3 position = new Vector3(i * tileWidth, 0, j * tileWidth);
-                Debug.Log(tile.tileLocation);
-                Instantiate(tile.tilePrefab, position, Quaternion.identity);
+ 
+                Instantiate(block, position, Quaternion.identity);
             }
         }
     }
