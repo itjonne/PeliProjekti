@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8509630746180598821, guid: 5cde30e51c90e08428ccd98dbc836bad, type: 3}
+  enemyPrefab: {fileID: 2235372101358630624, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
   xPosition: -20
   zPosition: 0
   spawnTime: 3
