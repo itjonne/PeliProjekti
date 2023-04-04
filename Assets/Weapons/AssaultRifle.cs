@@ -21,6 +21,7 @@ public class AssaultRifle : Weapon
 
     public override void Shoot(Transform rotation)
     {
+        /*
         if (Time.time > fireRate + lastShot)
         {
             GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
@@ -30,6 +31,7 @@ public class AssaultRifle : Weapon
 
             AudioManager.PlaySound(Sounds.sfx_MachineGun);
         }
+        */
 
     }
 }

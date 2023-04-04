@@ -9,9 +9,17 @@ public class Animation_Soldier : MonoBehaviour
 	private Vector3 velocity;
 	private Vector3 prevPos;
 
+	Vector3 playerToMouse;
+	Vector3 mouseLocation;
+	float directionToMouse;
+
+	GUIStyle myStyle = new GUIStyle(); 
+
 	// Start is called before the first frame update
 	void Start()
     {
+		myStyle.fontSize = 16;
+		myStyle.normal.textColor = Color.cyan;
 		animator = GetComponent<Animator>();		
 	}
 
@@ -26,7 +34,21 @@ public class Animation_Soldier : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
+		RaycastHit hit; 
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		if(Physics.Raycast(ray, out hit))
+        {
+			mouseLocation = hit.point;
+			mouseLocation.y = transform.position.y;
+        }
+
+		playerToMouse = mouseLocation - transform.position;
+
+		Vector3 forward = transform.TransformDirection(Vector3.forward);
+		Vector3 fixedVelocity = velocity;
+		fixedVelocity.y = transform.position.y;
+		directionToMouse = Vector3.Dot(forward.normalized, fixedVelocity.normalized);
+
 		//Liikkuminen
 		if (velocity.magnitude > 0.01f)
 		{
@@ -62,6 +84,14 @@ public class Animation_Soldier : MonoBehaviour
 		}
 
 		
+	}
+
+    private void OnGUI()
+    {
+		if (gameObject.name == "Player")
+		{
+			GUI.Label(new Rect(300, 10, 100, 20), "Suunta: " + directionToMouse, myStyle);
+		}
 	}
 
 
