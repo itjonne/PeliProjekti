@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MeleeEnemy
+  m_Name: EnemyKnife
   m_Shader: {fileID: 4800000, guid: 5112b2fe22bf8c04b9a2f556405ccbdb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 7180816f015fb19469050a3df44718f0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4d1caf65a3995a847932c3923b1828d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -47,11 +47,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 20e5a761815f48e4cb754adb77dae4f1, type: 3}
+        m_Texture: {fileID: 2800000, guid: 33a3c3d5238d7f1488b7b20979f1b128, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 2447520b6f9671844bb36a37944ad331, type: 3}
+        m_Texture: {fileID: 2800000, guid: de28ca0b174ed934aa7ee71eba313edc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 27026374aad0e0543b15d2e5944933e7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c4a976823603a44182e294ce79b6c97, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -68,7 +68,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.59
+    - _GlossMapScale: 0.589
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
