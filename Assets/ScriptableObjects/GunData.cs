@@ -12,6 +12,8 @@ public class GunData : ScriptableObject
     public float damage;
     public float maxDistance;
 
+    public GameObject bulletPrefab;
+
     [Header("Reloading")]
     public int currentAmmo;
     public int magSize;

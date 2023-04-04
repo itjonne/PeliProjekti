@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35f7c26c729192f4493ded4109d2d142, type: 3}
-  m_Name: AR
+  m_Name: MachineGun
   m_EditorClassIdentifier: 
   name: Assault Rifle
   damage: 22
   maxDistance: 200
-  currentAmmo: 24
-  magSize: 31
-  fireRate: 600
-  reloadTime: 1.5
-  reloading: 0
+  bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
+  currentAmmo: 50
+  magSize: 50
+  fireRate: 0.04
+  reloadTime: 4
+  reloading: 1

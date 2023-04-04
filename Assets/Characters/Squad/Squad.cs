@@ -89,9 +89,9 @@ public class Squad : MonoBehaviour
         // Ampuminen
         if (Input.GetMouseButton(0))
         {
-            GetLeader().GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+            GetLeader().GetComponent<Weapons>()?.Shoot(GetLeader().transform);
             foreach (Character follower in followers) {
-                follower.GetComponent<Weapon>()?.Shoot(GetLeader().transform);
+                follower.GetComponent<Weapons>()?.Shoot(GetLeader().transform);
             }
         }
         // Siirret‰‰n hahmot oikeeseen paikkan
