@@ -13,6 +13,7 @@ public class Animation_Soldier : MonoBehaviour
 	Vector3 mouseLocation;
 	float directionToMouse;
 
+
 	GUIStyle myStyle = new GUIStyle(); 
 
 	// Start is called before the first frame update
@@ -40,14 +41,21 @@ public class Animation_Soldier : MonoBehaviour
         {
 			mouseLocation = hit.point;
 			mouseLocation.y = transform.position.y;
-        }
+
+		}
 
 		playerToMouse = mouseLocation - transform.position;
 
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
 		Vector3 fixedVelocity = velocity;
 		fixedVelocity.y = transform.position.y;
+	
 		directionToMouse = Vector3.Dot(forward.normalized, fixedVelocity.normalized);
+
+
+
+
+
 
 		//Liikkuminen
 		if (velocity.magnitude > 0.01f && directionToMouse > 0)
@@ -97,9 +105,10 @@ public class Animation_Soldier : MonoBehaviour
 
     private void OnGUI()
     {
-		if (gameObject.name == "Player")
+		if (gameObject.name == "SOLDIER_full")
 		{
 			GUI.Label(new Rect(300, 10, 100, 20), "Suunta: " + directionToMouse, myStyle);
+	
 		}
 	}
 

@@ -2672,11 +2672,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9567227525c5d243ac32952266505f1, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
-  masterVolume: 0.03
+  masterVolume: 0.5
   masterMuted: 0
-  soundVolume: 0.08
+  soundVolume: 0.56
   soundMuted: 0
-  musicVolume: 0.15
+  musicVolume: 0.51
   musicMuted: 0
   spatialSound: 1
   audioSources: 32
