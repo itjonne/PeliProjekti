@@ -12,6 +12,7 @@ public class Animation_Soldier : MonoBehaviour
 	Vector3 playerToMouse;
 	Vector3 mouseLocation;
 	float directionToMouse;
+	float directionToMouse_x;
 
 
 	GUIStyle myStyle = new GUIStyle(); 
@@ -47,38 +48,61 @@ public class Animation_Soldier : MonoBehaviour
 		playerToMouse = mouseLocation - transform.position;
 
 		Vector3 forward = transform.TransformDirection(Vector3.forward);
+		Vector3 sideway = transform.TransformDirection(Vector3.left);
 		Vector3 fixedVelocity = velocity;
 		fixedVelocity.y = transform.position.y;
 	
 		directionToMouse = Vector3.Dot(forward.normalized, fixedVelocity.normalized);
+		directionToMouse_x = Vector3.Dot(sideway.normalized, fixedVelocity.normalized);
 
-
-
+		//sekoilu
 
 
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f && directionToMouse > 0)
+		if (velocity.magnitude > 0.01f && directionToMouse > 0.5f)
 		{
 			animator.SetBool("Walk", true);
 			animator.SetBool("BackWalk", false);
+			animator.SetBool("Strafe_Left", false);
+			animator.SetBool("Strafe_Right", false);
 		}
 
-
-		// if (Input.GetAxisRaw("Vertical") != 0)
-
-		else if (velocity.magnitude > 0.01f && directionToMouse < 0)
+		else if (velocity.magnitude > 0.01f && directionToMouse < -0.5f)
 
 		{
-			animator.SetBool("BackWalk", true);
 			animator.SetBool("Walk", false);
+			animator.SetBool("BackWalk", true);
+			animator.SetBool("Strafe_Left", false);
+			animator.SetBool("Strafe_Right", false);
 		}
+
+		else if (velocity.magnitude > 0.01f && directionToMouse_x > 0.8f && directionToMouse != 0)
+
+		{
+			animator.SetBool("Walk", false);
+			animator.SetBool("BackWalk", false);
+			animator.SetBool("Strafe_Left", true);
+			animator.SetBool("Strafe_Right", false);
+		}
+
+		else if (velocity.magnitude > 0.01f && directionToMouse_x < -0.8f && directionToMouse != 0)
+
+		{
+			animator.SetBool("Walk", false);
+			animator.SetBool("BackWalk", false);
+			animator.SetBool("Strafe_Left", false);
+			animator.SetBool("Strafe_Right", true);
+		}
+
 
 		else
 
 		{
 			animator.SetBool("Walk", false);
 			animator.SetBool("BackWalk", false);
+			animator.SetBool("Strafe_Left", false);
+			animator.SetBool("Strafe_Right", false);
 		}
 
 
@@ -108,7 +132,7 @@ public class Animation_Soldier : MonoBehaviour
 		if (gameObject.name == "SOLDIER_full")
 		{
 			GUI.Label(new Rect(300, 10, 100, 20), "Suunta: " + directionToMouse, myStyle);
-	
+			GUI.Label(new Rect(300, 30, 100, 20), "Suunta_X: " + directionToMouse_x, myStyle);
 		}
 	}
 
