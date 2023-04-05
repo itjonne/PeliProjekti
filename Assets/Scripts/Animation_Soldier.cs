@@ -50,18 +50,27 @@ public class Animation_Soldier : MonoBehaviour
 		directionToMouse = Vector3.Dot(forward.normalized, fixedVelocity.normalized);
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f)
+		if (velocity.magnitude > 0.01f && directionToMouse > 0)
 		{
 			animator.SetBool("Walk", true);
+			animator.SetBool("BackWalk", false);
 		}
 
 
 		// if (Input.GetAxisRaw("Vertical") != 0)
 
+		else if (velocity.magnitude > 0.01f && directionToMouse < 0)
+
+		{
+			animator.SetBool("BackWalk", true);
+			animator.SetBool("Walk", false);
+		}
+
 		else
 
 		{
 			animator.SetBool("Walk", false);
+			animator.SetBool("BackWalk", false);
 		}
 
 
