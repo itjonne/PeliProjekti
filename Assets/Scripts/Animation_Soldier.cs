@@ -127,6 +127,7 @@ public class Animation_Soldier : MonoBehaviour
 		
 	}
 
+	/*
     private void OnGUI()
     {
 		if (gameObject.name == "SOLDIER_full")
@@ -135,7 +136,7 @@ public class Animation_Soldier : MonoBehaviour
 			GUI.Label(new Rect(300, 30, 100, 20), "Suunta_X: " + directionToMouse_x, myStyle);
 		}
 	}
-
+	*/
 
 }
 
