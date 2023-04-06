@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 74f20a97834039742b4c5223ad66a4cf, type: 2}
 --- !u!1 &112064867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928541412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efbe5b190db4dea49bd28ae49bb1e64d, type: 3}
   m_Name: 
@@ -1013,6 +1013,22 @@ MonoBehaviour:
   damage: 10
   lastShot: 0
   _noise: 0
+  muzzle: {fileID: 1354052769}
+--- !u!114 &928541420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928541412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b613005c3eb2c4cb28880430d4a2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunData: {fileID: 11400000, guid: cc4214eaef833824bb176b4466b21ab1, type: 2}
+  muzzle: {fileID: 1354052769}
+  ammoLeft: 40
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1358,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1987155d48d2034e910a55e16942c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1354052768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1354052769}
+  m_Layer: 0
+  m_Name: muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1354052769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354052768}
+  m_LocalRotation: {x: -0.72102535, y: -0.065793134, z: 0.07587098, w: 0.6855928}
+  m_LocalPosition: {x: -0.00129, y: 0.01254, z: 0.00134}
+  m_LocalScale: {x: 0.009999998, y: 0.010000005, z: 0.010000003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2060757895}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: -101.854, y: 76.368, z: -75.547}
 --- !u!1 &1400928123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36886d0cd76d8d04893071a2a94ae1c1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1649284925}
+    - targetCorrespondingSourceObject: {fileID: -1419330121383211755, guid: 36886d0cd76d8d04893071a2a94ae1c1, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1354052769}
   m_SourcePrefab: {fileID: 100100000, guid: 36886d0cd76d8d04893071a2a94ae1c1, type: 3}
 --- !u!1 &1957752057
 GameObject:
@@ -2332,7 +2382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8509630746180598821, guid: 5cde30e51c90e08428ccd98dbc836bad, type: 3}
+  enemyPrefab: {fileID: 2235372101358630624, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
   xPosition: -20
   zPosition: 0
   spawnTime: 3
@@ -2414,6 +2464,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2060757895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1419330121383211755, guid: 36886d0cd76d8d04893071a2a94ae1c1, type: 3}
+  m_PrefabInstance: {fileID: 1808529044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077978619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,11 +2603,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e9567227525c5d243ac32952266505f1, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
-  masterVolume: 1
+  masterVolume: 0.03
   masterMuted: 0
-  soundVolume: 0.5
+  soundVolume: 0.08
   soundMuted: 0
-  musicVolume: 1
+  musicVolume: 0.15
   musicMuted: 0
   spatialSound: 1
   audioSources: 32
