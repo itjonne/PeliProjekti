@@ -15,10 +15,13 @@ public class Block : MonoBehaviour
     public GameObject[] enemyObjects; // Vihut
     [Range(0, 100)] public float enemyDensity;
 
+    public GameObject endObject;
+    public GameObject startObject;
+
     public float width; // 100
     public float height; // 100
-    public bool isStart;
-    public bool isEnd;
+    public bool isStart = false;
+    public bool isEnd = false;
 
     private void Start()
     {
@@ -27,17 +30,20 @@ public class Block : MonoBehaviour
             Destroy(obj);
         }
 
+        Debug.Log($"Start {isStart}");
+        Debug.Log($"End {isEnd}");
+
         GetPlaneSize();
         GenerateEnvironment();
         GenerateHelpers();
+        if (isEnd) GenerateEnd();
+        if (isStart) GenerateStart();
 
    
     }
 
     void GenerateEnvironment()
     {
-
-
         foreach (var obj in environmentObjects)
         {
             int amount = (int)Random.Range(0, environmentDensity * width / 10); // T‰‰ nyt vaa testi
@@ -45,7 +51,7 @@ public class Block : MonoBehaviour
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
-                Debug.Log("Random pos: " + randomPosition);
+                
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.identity);
                 generatedObjects.Add(newObject);
             }
@@ -54,8 +60,6 @@ public class Block : MonoBehaviour
 
     void GenerateHelpers()
     {
- 
-
         foreach (var obj in helperObjects)
         {
             int amount = (int)Random.Range(0, helperDensity * width / 10); // T‰‰ nyt vaa testi
@@ -63,12 +67,14 @@ public class Block : MonoBehaviour
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
-                Debug.Log("Random pos: " + randomPosition);
+               
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.identity);
                 generatedObjects.Add(newObject);
             }
         }
     }
+
+
 
     void GetPlaneSize()
     {
@@ -79,5 +85,19 @@ public class Block : MonoBehaviour
         float boundsZ = transform.localScale.z * bounds.size.z;
         width = boundsX;
         height = boundsZ;
+    }
+
+    void GenerateEnd()
+    {
+        Mesh planeMesh = GetComponent<MeshFilter>().mesh;
+        Destroy(planeMesh);
+    }
+
+    void GenerateStart()
+    {
+        Debug.Log("START AT");
+        Debug.Log(new Vector3(width / 2, 0, height / 2));
+
+        Instantiate(startObject, new Vector3(width / 2, 0, height / 2), Quaternion.identity);
     }
 }

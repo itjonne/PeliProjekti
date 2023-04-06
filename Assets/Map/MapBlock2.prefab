@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8fcff5229d6ee04981278e10121a91a, type: 2}
+  - {fileID: 2100000, guid: 491a4850208d36847b4a2a8aa75e4c99, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,12 +112,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentObjects:
-  - {fileID: 5028212091695248610, guid: 94d16b1afc9553f4fbd0fe4ffa05aa3c, type: 3}
-  environmentDensity: 51
-  helperObjects: []
-  helperDensity: 0
+  - {fileID: 2505929939554781104, guid: 9e8ac03e8b9ef9e4e95a742f8f534522, type: 3}
+  environmentDensity: 23
+  helperObjects:
+  - {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+  helperDensity: 12
   enemyObjects: []
   enemyDensity: 0
+  endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
+  startObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
   width: 0
   height: 0
   isStart: 0
