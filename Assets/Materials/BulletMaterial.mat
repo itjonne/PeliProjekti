@@ -13,11 +13,10 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _ALPHAPREMULTIPLY_ON
-  - _EMISSION
   - _GLOSSYREFLECTIONS_OFF
   - _SPECULARHIGHLIGHTS_OFF
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 3000
@@ -83,6 +82,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.80166066, b: 0, a: 0.34901962}
-    - _EmissionColor: {r: 1.7207954, g: 1.0991467, b: 0.0180188, a: 1}
+    - _Color: {r: 1, g: 0.80166066, b: 0, a: 0}
+    - _EmissionColor: {r: 3.0093334, g: 1.387248, b: 0.69555354, a: 1}
   m_BuildTextureStacks: []
