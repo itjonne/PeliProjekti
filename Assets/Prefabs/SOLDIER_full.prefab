@@ -2159,7 +2159,6 @@ GameObject:
   - component: {fileID: 495298955012967783}
   - component: {fileID: 4615767976204734834}
   - component: {fileID: 4719477577528922271}
-  - component: {fileID: 1033028219560773868}
   m_Layer: 7
   m_Name: SOLDIER_full
   m_TagString: Player
@@ -2182,7 +2181,7 @@ Transform:
   - {fileID: 6259785422800055742}
   - {fileID: 1715273336938227540}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8903260017230670862
 Rigidbody:
@@ -2246,8 +2245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f1a72967497654d9809a9ac313638d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunData: {fileID: 0}
-  ammoLeft: 0
   animator: {fileID: 0}
 --- !u!114 &4615767976204734834
 MonoBehaviour:
@@ -2281,21 +2278,6 @@ MonoBehaviour:
   lastShot: 0
   _noise: 0.1
   muzzle: {fileID: 0}
---- !u!114 &1033028219560773868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7652646214253871609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29b613005c3eb2c4cb28880430d4a2f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunData: {fileID: 0}
-  muzzle: {fileID: 0}
-  ammoLeft: 0
 --- !u!1 &7727770957696346698
 GameObject:
   m_ObjectHideFlags: 0
