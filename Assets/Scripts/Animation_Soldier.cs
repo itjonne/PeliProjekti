@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Animation_Soldier : MonoBehaviour
 {
-	[Header("References")]
-	[SerializeField] GunData gunData;
-	public float ammoLeft;
 
 	public Animator animator;
 	private Vector3 velocity;
@@ -23,11 +20,9 @@ public class Animation_Soldier : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		
 		myStyle.fontSize = 16;
 		myStyle.normal.textColor = Color.cyan;
-		animator = GetComponent<Animator>();
-	
+		animator = GetComponent<Animator>();		
 	}
 
     private void FixedUpdate()
@@ -132,7 +127,6 @@ public class Animation_Soldier : MonoBehaviour
 		
 	}
 
-	//DEBUGGAUS
 	/*
     private void OnGUI()
     {
