@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Animation_Soldier : MonoBehaviour
 {
-
+	public ParticleSystem muzzle;
 	public Animator animator;
 	private Vector3 velocity;
 	private Vector3 prevPos;
@@ -22,7 +22,9 @@ public class Animation_Soldier : MonoBehaviour
     {
 		myStyle.fontSize = 16;
 		myStyle.normal.textColor = Color.cyan;
-		animator = GetComponent<Animator>();		
+		animator = GetComponent<Animator>();
+		muzzle = GetComponentInChildren<ParticleSystem>();
+		muzzle = GameObject.Find("MuzzleParticles").GetComponent<ParticleSystem>();
 	}
 
     private void FixedUpdate()
@@ -107,11 +109,12 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		//Ampuminen
-
+		//NÄMÄ TOIMIVAT SILLÄ EHDOLLA ETTÄ ASEESSA ON LUOTEJA
 		if (Input.GetMouseButton(0))
 		{
 		
 			animator.SetBool("Shoot", true);
+			muzzle.Play(); // TÄMÄ PITÄÄ SAADA LAUKEAMAAN SILLÄ HETKELLÄ KUN LUOTI LUODAAN
 			animator.SetLayerWeight(1, 1f);
 			//animator.SetBool("Walk", false);
 		}
@@ -121,7 +124,10 @@ public class Animation_Soldier : MonoBehaviour
 		{
 	
 			animator.SetBool("Shoot", false);
+			muzzle.Stop();
+			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
 			animator.SetLayerWeight(1, 0f);
+			
 		}
 
 		
