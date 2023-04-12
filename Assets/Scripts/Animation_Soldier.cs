@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Animation_Soldier : MonoBehaviour
 {
+
+
 	public ParticleSystem muzzle;
 	public Animator animator;
 	private Vector3 velocity;
@@ -13,7 +15,7 @@ public class Animation_Soldier : MonoBehaviour
 	Vector3 mouseLocation;
 	float directionToMouse;
 	float directionToMouse_x;
-
+	public float ammoLeft;
 
 	GUIStyle myStyle = new GUIStyle(); 
 
@@ -23,14 +25,15 @@ public class Animation_Soldier : MonoBehaviour
 		myStyle.fontSize = 16;
 		myStyle.normal.textColor = Color.cyan;
 		animator = GetComponent<Animator>();
-		muzzle = GetComponentInChildren<ParticleSystem>();
-	
+		muzzle = GetComponentInChildren<ParticleSystem>();	
+		
 	}
 
     private void FixedUpdate()
     {
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
+		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
 	}
 
 
@@ -110,7 +113,7 @@ public class Animation_Soldier : MonoBehaviour
 
 		//Ampuminen
 		//NÄMÄ TOIMIVAT SILLÄ EHDOLLA ETTÄ ASEESSA ON LUOTEJA
-		if (Input.GetMouseButton(0))
+		if (Input.GetMouseButton(0) && ammoLeft > 0)
 		{
 		
 			animator.SetBool("Shoot", true);
@@ -130,7 +133,17 @@ public class Animation_Soldier : MonoBehaviour
 			
 		}
 
-		
+		else
+		{
+
+			animator.SetBool("Shoot", false);
+			muzzle.Stop();
+			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
+			animator.SetLayerWeight(1, 0f);
+
+		}
+
+
 	}
 
 	/*
