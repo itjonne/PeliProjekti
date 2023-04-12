@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Squad : MonoBehaviour
@@ -35,6 +36,24 @@ public class Squad : MonoBehaviour
             if (character.isLeader) ChangeLeader(character);
         }
         
+    }
+
+    public void Start()
+    {
+        // Laitetaan squadi oikeeseen paikkaan
+        Block[] blocks = FindObjectsOfType<Block>();
+        Block startBlock = Array.Find(blocks, block => block.isStart);
+        Debug.Log(startBlock.transform.position);
+        if (startBlock) SetSquadPosition(startBlock.transform.position);
+    }
+
+    public void SetSquadPosition(Vector3 position)
+    {
+        Debug.Log("SETTING START TO " + position);
+        foreach (Character character in squadData.Items)
+        {
+            character.transform.position = position;
+        }
     }
 
     // Start is called before the first frame update

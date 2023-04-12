@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.47666758, g: 0.4261315, b: 0.4637167, a: 1}
+  m_IndirectSpecularColor: {r: 0.476667, g: 0.42613095, b: 0.46371573, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cc4214eaef833824bb176b4466b21ab1, type: 2}
     - target: {fileID: 4615767976204734834, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: isLeader
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4719477577528922271, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: _noise
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 963160a3202a64f42a3b9c95e25ea42d, type: 2}
-  isLeader: 0
+  isLeader: 1
 --- !u!136 &928541417
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1398,8 +1398,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 378920669}
   - {fileID: 928541413}
+  - {fileID: 378920669}
   - {fileID: 871328967}
   - {fileID: 1107108310}
   m_Father: {fileID: 0}
