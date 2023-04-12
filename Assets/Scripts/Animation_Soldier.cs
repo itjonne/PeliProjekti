@@ -24,7 +24,7 @@ public class Animation_Soldier : MonoBehaviour
 		myStyle.normal.textColor = Color.cyan;
 		animator = GetComponent<Animator>();
 		muzzle = GetComponentInChildren<ParticleSystem>();
-		muzzle = GameObject.Find("MuzzleParticles").GetComponent<ParticleSystem>();
+	
 	}
 
     private void FixedUpdate()
@@ -114,7 +114,7 @@ public class Animation_Soldier : MonoBehaviour
 		{
 		
 			animator.SetBool("Shoot", true);
-			muzzle.Play(); // TÄMÄ PITÄÄ SAADA LAUKEAMAAN SILLÄ HETKELLÄ KUN LUOTI LUODAAN
+			muzzle.Play(); // TÄMÄ PITÄÄ SAADA VAIN LAUKEAMAAN SILLÄ HETKELLÄ KUN LUOTI LUODAAN
 			animator.SetLayerWeight(1, 1f);
 			//animator.SetBool("Walk", false);
 		}
