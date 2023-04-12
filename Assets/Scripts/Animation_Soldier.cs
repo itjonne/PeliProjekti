@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Animation_Soldier : MonoBehaviour
 {
+	GunData gunData;
 
 
 	public ParticleSystem muzzle;
@@ -15,7 +16,11 @@ public class Animation_Soldier : MonoBehaviour
 	Vector3 mouseLocation;
 	float directionToMouse;
 	float directionToMouse_x;
-	public float ammoLeft;
+	float ammoLeft;
+
+	float timer;
+	float FlashRate;
+	bool canFlash = true;
 
 	GUIStyle myStyle = new GUIStyle(); 
 
@@ -25,12 +30,16 @@ public class Animation_Soldier : MonoBehaviour
 		myStyle.fontSize = 16;
 		myStyle.normal.textColor = Color.cyan;
 		animator = GetComponent<Animator>();
-		muzzle = GetComponentInChildren<ParticleSystem>();	
-		
+
+		muzzle = GetComponentInChildren<ParticleSystem>();
+		var main = muzzle.main;
+		main.duration = 0.25f;  //TÄHÄN PITÄISI SAADA HAETTUA HAHMON ASEESTA FIRERATE 
+
 	}
 
     private void FixedUpdate()
     {
+		
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
 		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
@@ -39,8 +48,12 @@ public class Animation_Soldier : MonoBehaviour
 
 
 	// Update is called once per frame
+
+
+
 	void Update()
 	{
+
 		RaycastHit hit; 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if(Physics.Raycast(ray, out hit))
@@ -112,20 +125,34 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		//Ampuminen
-		//NÄMÄ TOIMIVAT SILLÄ EHDOLLA ETTÄ ASEESSA ON LUOTEJA
+		
 		if (Input.GetMouseButton(0) && ammoLeft > 0)
 		{
-		
+
+	
 			animator.SetBool("Shoot", true);
-			muzzle.Play(); // TÄMÄ PITÄÄ SAADA VAIN LAUKEAMAAN SILLÄ HETKELLÄ KUN LUOTI LUODAAN
+
 			animator.SetLayerWeight(1, 1f);
-			//animator.SetBool("Walk", false);
+
+
+			// TÄLLÄ RIMPSULLA SUULIEKKI TULEE SILLÄ NOPEUDELLA MILLÄ SE ON MÄÄRITELTY PARTICLE SYSTEEMISSÄ	
+			if (canFlash)			
+			{			
+				timer += Time.deltaTime;
+				if (timer > FlashRate)
+				{
+					muzzle.Play();
+					canFlash = false;
+				}
+			}
+
+
 		}
 
 		
 		else if (Input.GetMouseButtonUp(0))
 		{
-	
+			canFlash = true;
 			animator.SetBool("Shoot", false);
 			muzzle.Stop();
 			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
@@ -135,7 +162,7 @@ public class Animation_Soldier : MonoBehaviour
 
 		else
 		{
-
+			canFlash = true;
 			animator.SetBool("Shoot", false);
 			muzzle.Stop();
 			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
@@ -143,6 +170,8 @@ public class Animation_Soldier : MonoBehaviour
 
 		}
 
+
+		
 
 	}
 

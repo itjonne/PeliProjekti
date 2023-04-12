@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: muzzle
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6675442013713028133, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: ammoLeft
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7023497223017552707, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1000,6 +1004,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1341160689}
     m_Modifications:
+    - target: {fileID: 495298955012967783, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: gunData
+      value: 
+      objectReference: {fileID: 11400000, guid: cc4214eaef833824bb176b4466b21ab1, type: 2}
     - target: {fileID: 7023497223017552707, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_RootOrder
       value: 0
