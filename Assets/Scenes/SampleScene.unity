@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.476667, g: 0.42613095, b: 0.46371573, a: 1}
+  m_IndirectSpecularColor: {r: 0.47666758, g: 0.4261315, b: 0.4637167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -975,10 +975,10 @@ MonoBehaviour:
   spatialSound: 0
   loopSound: 0
   priority: 128
-  pitchShift: 0.098
+  pitchShift: 0.05
   delay: 0
   ignoreTimeScale: 0
-  sound: {fileID: 11400000, guid: 43638077570383d40b42a4cebd2d243e, type: 2}
+  sound: {fileID: 11400000, guid: 5080c6d970d6d744583920a51d63bdac, type: 2}
   onStart: 0
   onEnable: 0
   onDisable: 2
@@ -1488,7 +1488,7 @@ MonoBehaviour:
   onStart: 1
   onEnable: 0
   onDisable: 0
-  onDestroy: 2
+  onDestroy: 0
 --- !u!4 &1400928125
 Transform:
   m_ObjectHideFlags: 0
@@ -2675,26 +2675,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096761962}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7241a3e106230140bd9d59ff2d17ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioFileObjects:
+  - {fileID: 11400000, guid: de37dba151770eb49a788ca1c4aab8ae, type: 2}
+  - {fileID: 11400000, guid: 3d923739413f1514089cb8c55d828bf8, type: 2}
   - {fileID: 11400000, guid: ab0f115def368524da332adf41504b4b, type: 2}
   - {fileID: 11400000, guid: 8479d72758a879243bac12143836eece, type: 2}
   - {fileID: 11400000, guid: 43638077570383d40b42a4cebd2d243e, type: 2}
+  - {fileID: 11400000, guid: 5080c6d970d6d744583920a51d63bdac, type: 2}
   audioFileMusicObjects:
   - {fileID: 11400000, guid: e9567227525c5d243ac32952266505f1, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
-  masterVolume: 0.5
+  masterVolume: 0.52
   masterMuted: 0
-  soundVolume: 0.56
+  soundVolume: 0.8
   soundMuted: 0
-  musicVolume: 0.51
+  musicVolume: 0.24
   musicMuted: 0
-  spatialSound: 1
+  spatialSound: 0
   audioSources: 32
   disableConsoleLogs: 0
   dontDestroyOnLoad: 1

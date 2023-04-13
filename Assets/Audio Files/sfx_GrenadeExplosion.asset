@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb8002b44af6934a9ae327c8311d458, type: 3}
-  m_Name: music_Menu
+  m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
+  m_Name: sfx_GrenadeExplosion
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 465f3aa4f48a2fe4181becb3178701b6, type: 3}
+  file: {fileID: 8300000, guid: a495c679c94aece43ad7e1689c24e9e4, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
   lastClipIndex: -1
-  category: Looping
-  relativeVolume: 1
+  category: Gun Shot
+  relativeVolume: 0.164
   spatialize: 0
   maxDistance: 0
   priority: 128
@@ -35,7 +35,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: music_Menu
+  safeName: sfx_GrenadeExplosion
   chorusFilter:
     enabled: 0
     dryMix: 0
@@ -79,8 +79,3 @@ MonoBehaviour:
     lFReference: 0
     diffusion: 0
     density: 0
-  clampToLoopPoints: 0
-  loopMode: 2
-  loopStart: 20.431
-  loopEnd: 58.88
-  bpm: 120

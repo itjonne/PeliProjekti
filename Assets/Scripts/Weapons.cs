@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using JSAM;
 
 public class Weapons : MonoBehaviour
 {
@@ -36,6 +36,8 @@ public class Weapons : MonoBehaviour
     private IEnumerator Reload()
     {
         gunData.reloading = true;
+
+        AudioManager.PlaySound(Sounds.sfx_Reload);
 
         yield return new WaitForSeconds(gunData.reloadTime);
         ammoLeft = gunData.magSize;
@@ -81,6 +83,7 @@ public class Weapons : MonoBehaviour
                 ammoLeft--;
                 //lastShot = Time.time;
                 Destroy(bullet, 5f);
+                AudioManager.PlaySound(Sounds.sfx_MachineGun);
             }
             else
             {
@@ -93,7 +96,7 @@ public class Weapons : MonoBehaviour
         {
 
 
-            //AudioManager.PlaySound(Sounds.sfx_MachineGun);
+            
         }
         */
     }
