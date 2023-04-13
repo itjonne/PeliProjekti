@@ -8,6 +8,7 @@ namespace JSAM {
         sfx_Reload
     }
     public enum Music {
+        music_Level1,
         music_Menu
     }
 }
