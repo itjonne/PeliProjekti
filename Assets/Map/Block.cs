@@ -30,9 +30,6 @@ public class Block : MonoBehaviour
             Destroy(obj);
         }
 
-        Debug.Log($"Start {isStart}");
-        Debug.Log($"End {isEnd}");
-
         GetPlaneSize();
         GenerateEnvironment();
         GenerateHelpers();
@@ -47,11 +44,12 @@ public class Block : MonoBehaviour
         foreach (var obj in environmentObjects)
         {
             int amount = (int)Random.Range(0, environmentDensity * width / 10); // T‰‰ nyt vaa testi
-            Debug.Log("AMount: " + amount);
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
-                
+                Debug.Log(width + " " + height);
+                Debug.Log(Random.Range(-width / 2, width / 2));
+
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.identity);
                 generatedObjects.Add(newObject);
             }
@@ -63,7 +61,6 @@ public class Block : MonoBehaviour
         foreach (var obj in helperObjects)
         {
             int amount = (int)Random.Range(0, helperDensity * width / 10); // T‰‰ nyt vaa testi
-            Debug.Log("AMount: " + amount);
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
@@ -89,15 +86,13 @@ public class Block : MonoBehaviour
 
     void GenerateEnd()
     {
-        Mesh planeMesh = GetComponent<MeshFilter>().mesh;
-        Destroy(planeMesh);
+        // Mesh planeMesh = GetComponent<MeshFilter>().mesh;
+        // Destroy(planeMesh);
+        Instantiate(endObject, transform.position, Quaternion.identity);
     }
 
     void GenerateStart()
     {
-        Debug.Log("START AT");
-        Debug.Log(new Vector3(width / 2, 0, height / 2));
-
-        Instantiate(startObject, new Vector3(width / 2, 0, height / 2), Quaternion.identity);
+        // Instantiate(startObject, transform.position + new Vector3(20, 0 ,0), Quaternion.identity);
     }
 }
