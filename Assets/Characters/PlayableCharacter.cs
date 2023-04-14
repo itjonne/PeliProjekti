@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayableCharacter : Character
 {
@@ -44,5 +45,23 @@ public class PlayableCharacter : Character
     public override void Attack(Vector3 direction)
     {
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("COLLISION");
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "EndObject")
+        {
+            Debug.Log("ENDING GAME");
+            LevelEnd();
+        }
+    }
+
+    private void LevelEnd()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        
+        SceneManager.LoadScene(scene.name);
     }
 }
