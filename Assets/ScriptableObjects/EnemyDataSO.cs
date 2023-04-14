@@ -19,13 +19,17 @@ public class EnemyDataSO : ScriptableObject
 
     // ACTUAL VALUES
     [SerializeField] public string Name;
-    [SerializeField] public CharacterStat Health;
-    [SerializeField] public CharacterStat MovementSpeed;
+    [SerializeField] public float health;
+    [SerializeField] public float movementSpeed;
+    // [SerializeField] public CharacterStat Health;
+    //[SerializeField] public CharacterStat MovementSpeed;
 
     public void Reset()
     {
-        Health = new CharacterStat(_defaultHealth, _defaultMaxHealth);
-        MovementSpeed = new CharacterStat(_defaultMovementSpeed, _defaultMaxMovementSpeed);
+        health = _defaultHealth;
+        movementSpeed = _defaultMovementSpeed;
+        //Health = new CharacterStat(_defaultHealth, _defaultMaxHealth);
+        //MovementSpeed = new CharacterStat(_defaultMovementSpeed, _defaultMaxMovementSpeed);
         Name = "DefaultEnemy";
     }
 
