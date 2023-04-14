@@ -27,6 +27,7 @@ public class MeleeEnemy : Enemy
             {
 
             this.SetHealth(-damageDealer.damage);
+            Destroy(damageDealer.gameObject);
             }
         }
     }
