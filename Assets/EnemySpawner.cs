@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
         } else
         {
             player = GameObject.FindGameObjectWithTag("Player");
-            transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
+            
         }
     }
 
