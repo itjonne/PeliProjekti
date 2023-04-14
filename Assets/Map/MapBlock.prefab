@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4015246235897565983}
   - component: {fileID: 4015246235897565982}
   - component: {fileID: 4015246235897565981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MapBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4015246235897565968
 MeshFilter:
@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentObjects:
-  - {fileID: 4577298634110465261, guid: 30f7496c7dd32ce4e83d58c69ed69eef, type: 3}
-  environmentDensity: 10
+  - {fileID: 1448571293820922039, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
+  environmentDensity: 2.4
   helperObjects:
   - {fileID: 6096924583015667058, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
   helperDensity: 1.6
