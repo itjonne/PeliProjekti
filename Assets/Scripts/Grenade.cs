@@ -42,6 +42,10 @@ public class Grenade : MonoBehaviour
             if (rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
+                if (rb.GetComponent<Enemy>())
+                {
+                    rb.GetComponent<Enemy>().SetHealth(-100);
+                }
             }
         }
         
