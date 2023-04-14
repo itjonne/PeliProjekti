@@ -131,4 +131,4 @@ MonoBehaviour:
   delay: 3
   radius: 5
   force: 400
-  explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  explosionEffect: {fileID: 5487148090448043962, guid: 91e43da7a109a3949870bfc3e9248896, type: 3}
