@@ -8,6 +8,7 @@ public class Weapons : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
+    [SerializeField][Range(0, 1)] public float _noise = 0;
 
     float timeSinceLastShot;
 
@@ -61,8 +62,8 @@ public class Weapons : MonoBehaviour
                 counter = 0;
                 Debug.Log("T‰‰ll‰ ammutaan");
                 GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 10f;
-                ammoLeft--;
+                bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 25f;
+                //ammoLeft--;
                 //lastShot = Time.time;
                 Destroy(bullet, 5f);
             }
@@ -93,7 +94,7 @@ public class Weapons : MonoBehaviour
     {
         
     }
-    /*
+    
     public Vector3 GetNoise(Vector3 pos)
     {
         Debug.Log(pos);
@@ -101,8 +102,8 @@ public class Weapons : MonoBehaviour
 
         return new Vector3(noise, 0, noise);
     }
-    */
-
+    
+    
 
 
 }
