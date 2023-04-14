@@ -15,6 +15,7 @@ public class CharacterStat
             _value = CalculateFinalValue();
             return _value;
         }
+        set { _value = value; }
     }
 
     private List<StatModifier> _statModifiers;

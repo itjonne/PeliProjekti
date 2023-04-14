@@ -13,9 +13,5 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   Name: DefaultEnemy
-  Health:
-    baseValue: 100
-    maxValue: 999
-  MovementSpeed:
-    baseValue: 3.36
-    maxValue: 999
+  health: 100
+  movementSpeed: 3
