@@ -62,7 +62,7 @@ public class Weapons : MonoBehaviour
                 Debug.Log("T‰‰ll‰ ammutaan");
                 GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 10f;
-                ammoLeft--;
+                //ammoLeft--;
                 //lastShot = Time.time;
                 Destroy(bullet, 5f);
             }
@@ -81,10 +81,7 @@ public class Weapons : MonoBehaviour
 
         Debug.DrawRay(muzzle.position, muzzle.forward);
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            gunData = Resources.Load("Guns/MachineGun") as GunData;
-        }
+
 
 
     }
