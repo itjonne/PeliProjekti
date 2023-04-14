@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using JSAM;
+
 
 public class Weapons : MonoBehaviour
 {
@@ -37,8 +37,6 @@ public class Weapons : MonoBehaviour
     {
         gunData.reloading = true;
 
-        AudioManager.PlaySound(Sounds.sfx_Reload);
-
         yield return new WaitForSeconds(gunData.reloadTime);
         ammoLeft = gunData.magSize;
         gunData.reloading = false;
@@ -49,24 +47,7 @@ public class Weapons : MonoBehaviour
 
     public void Shoot(Transform rotation)
     {
-        Debug.Log("SHoot k‰ynniss‰");
-        /*
-        if (gunData.currentAmmo > 0)
-        {
-            if (CanShoot())
-            {
-                if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
-                {
-                    Debug.Log(hitInfo.transform.name);
-                }
-
-                gunData.currentAmmo--;
-                timeSinceLastShot = 0;
-                OnGunShot();
-            }
-
-        }
-        */
+    
 
         if(counter < gunData.fireRate)
         {
@@ -77,13 +58,11 @@ public class Weapons : MonoBehaviour
             if (ammoLeft > 0)
             {
                 counter = 0;
-                Debug.Log("T‰‰ll‰ ammutaan");
                 GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 10f;
-                ammoLeft--;
+                // ammoLeft--;
                 //lastShot = Time.time;
                 Destroy(bullet, 5f);
-                AudioManager.PlaySound(Sounds.sfx_MachineGun);
             }
             else
             {
@@ -91,14 +70,7 @@ public class Weapons : MonoBehaviour
                 StartReload();
             }
         }
-        /*
-        if (Time.time > gunData.fireRate + lastShot)
-        {
-
-
-            
-        }
-        */
+        
     }
 
     private void Update()
