@@ -48,23 +48,7 @@ public class Weapons : MonoBehaviour
     public void Shoot(Transform rotation)
     {
         Debug.Log("SHoot käynnissä");
-        /*
-        if (gunData.currentAmmo > 0)
-        {
-            if (CanShoot())
-            {
-                if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
-                {
-                    Debug.Log(hitInfo.transform.name);
-                }
-
-                gunData.currentAmmo--;
-                timeSinceLastShot = 0;
-                OnGunShot();
-            }
-
-        }
-        */
+    
 
         if(counter < gunData.fireRate)
         {
@@ -88,14 +72,7 @@ public class Weapons : MonoBehaviour
                 StartReload();
             }
         }
-        /*
-        if (Time.time > gunData.fireRate + lastShot)
-        {
-
-
-            //AudioManager.PlaySound(Sounds.sfx_MachineGun);
-        }
-        */
+        
     }
 
     private void Update()
