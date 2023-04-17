@@ -20,7 +20,7 @@ public class CameraMovement : MonoBehaviour
         if (target)
         {
 
-        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 50f, 0));
+        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 60f, 0));
          
 
         // Smoothly move the camera towards that target position
