@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5717626966253273836}
   m_Layer: 2
   m_Name: Barrel1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

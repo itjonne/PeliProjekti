@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4813919263409054152}
   m_Layer: 2
   m_Name: CrateTurn
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 3803456247678410982, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
       propertyPath: m_RootOrder

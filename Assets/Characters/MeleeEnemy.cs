@@ -18,7 +18,7 @@ public class MeleeEnemy : Enemy
         if (other.GetComponent<Character>())
         {
             Debug.Log("NYT OSU");
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.25f);
         }
         if (other.GetComponent<DamageDealer>())
         {
@@ -27,7 +27,7 @@ public class MeleeEnemy : Enemy
             {
 
             this.SetHealth(-damageDealer.damage);
-            Destroy(damageDealer.gameObject);
+            Destroy(damageDealer.gameObject, 0.25f);
             }
         }
     }
