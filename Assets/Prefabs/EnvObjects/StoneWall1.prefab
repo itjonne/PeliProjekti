@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8864513935673045927}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StoneWall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,9 +84,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3729745875305168970, guid: effef9a11e85c32459fef3b4bb754135, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4238337134549439438, guid: effef9a11e85c32459fef3b4bb754135, type: 3}
       propertyPath: m_Name
       value: StoneWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238337134549439438, guid: effef9a11e85c32459fef3b4bb754135, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

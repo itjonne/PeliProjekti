@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7641651395147415401}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BarbWire1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,6 +87,14 @@ PrefabInstance:
     - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
       propertyPath: m_Name
       value: BarbWire
+      objectReference: {fileID: 0}
+    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

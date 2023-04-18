@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860916833959287134}
   m_LocalRotation: {x: 0, y: -0.01745245, z: 0, w: 0.99984777}
-  m_LocalPosition: {x: 0.37763396, y: 1.67, z: 1.48}
+  m_LocalPosition: {x: 0.37763396, y: 1.67, z: 1.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2294,6 +2294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 963160a3202a64f42a3b9c95e25ea42d, type: 2}
+  health: 30
   isLeader: 0
 --- !u!114 &4719477577528922271
 MonoBehaviour:
@@ -2327,6 +2328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: cc4214eaef833824bb176b4466b21ab1, type: 2}
   muzzle: {fileID: 1793496264024422397}
+  _noise: 0
   ammoLeft: 40
 --- !u!1 &7727770957696346698
 GameObject:

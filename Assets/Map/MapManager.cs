@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
+    public bool Endable;
+    public int MapSize; // tälle 
     public GameObject[] blocks;
     // Start is called before the first frame update
     void Awake()
     {
-        GenerateMap(5); // Tekee 9x9 mapin
+        GenerateMap(MapSize); // Tekee  mapin
     }
 
     // Update is called once per frame
@@ -43,7 +45,7 @@ public class MapManager : MonoBehaviour
                     block.GetComponent<Block>().isStart = true;          
                 }
                 // Loppupalikka, otetaan randomilla tällä hetkellä vikalta riviltä
-                if (blockNum == endBlock)
+                if (blockNum == endBlock && Endable == true)
                 {
                     block.GetComponent<Block>().isEnd = true;
                 }
