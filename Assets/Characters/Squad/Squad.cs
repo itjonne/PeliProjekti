@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Squad : MonoBehaviour
 {
@@ -37,6 +39,24 @@ public class Squad : MonoBehaviour
         
     }
 
+    public void Start()
+    {
+        // Laitetaan squadi oikeeseen paikkaan
+        Block[] blocks = FindObjectsOfType<Block>();
+        Block startBlock = Array.Find(blocks, block => block.isStart);
+        Debug.Log(startBlock.transform.position);
+        if (startBlock) SetSquadPosition(startBlock.transform.position);
+    }
+
+    public void SetSquadPosition(Vector3 position)
+    {
+        Debug.Log("SETTING START TO " + position);
+        foreach (Character character in squadData.Items)
+        {
+            character.transform.position = position;
+        }
+    }
+
     // Start is called before the first frame update
     public void AddCharacter(Character character)
     {
@@ -45,7 +65,28 @@ public class Squad : MonoBehaviour
 
     public void RemoveCharacter(Character character)
     {
+
         squadData.Remove(character);
+
+        /*
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+        if (characters.Length > 0)
+        {
+            ChangeLeader(characters[0]);
+        } else
+        {
+            SceneManager.LoadScene(0);
+        }
+        */
+    }
+
+    public void DestroyCharacter(Character character)
+    {
+        character.isLeader = false;
+
+        RemoveCharacter(character);
+        Debug.Log("DESTROYING");
+        Destroy(character.gameObject);
     }
 
     public void ChangeLeader(Character character)
@@ -58,7 +99,19 @@ public class Squad : MonoBehaviour
 
     public Character GetLeader()
     {
-        return squadData.Items.Find(item => item.isLeader);
+        Character leader = squadData.Items.Find(item => item.isLeader);
+        if (leader == null)
+        {
+            if (squadData.Items.Count == 0)
+            {
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
+            }
+            squadData.Items[0].isLeader = true;
+            return squadData.Items[0];
+
+        }
+        return leader;
     }
 
 
@@ -97,9 +150,12 @@ public class Squad : MonoBehaviour
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)
         {
-
+            if (i < followers.Count)
+            {
             followers[i].MoveTo(positions[i]);
             followers[i].RotateTo(GetLeader());
+
+            }
         }
 
 

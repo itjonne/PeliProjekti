@@ -19,7 +19,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
+        if (player != null)
+        {
+            transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
+
+        } else
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            
+        }
     }
 
     // Update is called once per frame

@@ -6,7 +6,7 @@ public class MapManager : MonoBehaviour
 {
     public GameObject[] blocks;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GenerateMap(5); // Tekee 9x9 mapin
     }
@@ -24,8 +24,11 @@ public class MapManager : MonoBehaviour
         // Vikalla rivillä
         int endBlock = Random.Range((size * size) - size + 1, size * size);
         int blockNum = 0;
+
+        // Rullataan tässä se "pelilauta", eka akseli
         for (int i = 0; i < size; i++)
         {
+            // Toka akseli
             for (int j = 0; j < size; j++)
             {
                 int RandomNum = Random.Range(0, blocks.Length);
@@ -34,20 +37,16 @@ public class MapManager : MonoBehaviour
                 block.GetComponent<Block>().isEnd = false; // Sama
                 Vector3 position = new Vector3(i * tileWidth, 0, j * tileWidth);
 
+                // Jos palikka on alkupalikka, tällä hetkellä aina palikka numero 0
                 if (blockNum == startBlock)
                 {
-                    Debug.Log("STARTING POSITION");
-                    Debug.Log(position);
-                    block.GetComponent<Block>().isStart = true;
+                    block.GetComponent<Block>().isStart = true;          
                 }
+                // Loppupalikka, otetaan randomilla tällä hetkellä vikalta riviltä
                 if (blockNum == endBlock)
                 {
-                    Debug.Log("Ending POSITION");
-                    Debug.Log(position);
                     block.GetComponent<Block>().isEnd = true;
                 }
-
-
                 Instantiate(block, position, Quaternion.identity);
 
                 blockNum++;

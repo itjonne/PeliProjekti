@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayableCharacter : Character
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+     
     }
 
     // Update is called once per frame
@@ -44,5 +45,33 @@ public class PlayableCharacter : Character
     public override void Attack(Vector3 direction)
     {
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "EndObject")
+        {
+            Debug.Log("ENDING GAME");
+            LevelEnd();
+        }
+
+        if (collision.gameObject.tag == "Enemy") {
+            health -= 10f;
+            if (health <= 0) Die();
+         }
+    }
+
+    private void Die()
+    {
+        Debug.Log("DEATH");
+        gameObject.GetComponentInParent<Squad>().DestroyCharacter(this);
+    }
+
+    private void LevelEnd()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        
+        SceneManager.LoadScene(scene.name);
     }
 }

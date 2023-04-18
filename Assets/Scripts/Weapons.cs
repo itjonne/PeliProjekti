@@ -8,6 +8,7 @@ public class Weapons : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
+    [SerializeField][Range(0, 1)] public float _noise = 0;
 
     float timeSinceLastShot;
 
@@ -48,23 +49,7 @@ public class Weapons : MonoBehaviour
     public void Shoot(Transform rotation)
     {
         Debug.Log("SHoot käynnissä");
-        /*
-        if (gunData.currentAmmo > 0)
-        {
-            if (CanShoot())
-            {
-                if (Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxDistance))
-                {
-                    Debug.Log(hitInfo.transform.name);
-                }
-
-                gunData.currentAmmo--;
-                timeSinceLastShot = 0;
-                OnGunShot();
-            }
-
-        }
-        */
+    
 
         if(counter < gunData.fireRate)
         {
@@ -77,8 +62,8 @@ public class Weapons : MonoBehaviour
                 counter = 0;
                 Debug.Log("Täällä ammutaan");
                 GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 10f;
-                ammoLeft--;
+                bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 25f;
+                //ammoLeft--;
                 //lastShot = Time.time;
                 Destroy(bullet, 5f);
             }
@@ -88,14 +73,7 @@ public class Weapons : MonoBehaviour
                 StartReload();
             }
         }
-        /*
-        if (Time.time > gunData.fireRate + lastShot)
-        {
-
-
-            //AudioManager.PlaySound(Sounds.sfx_MachineGun);
-        }
-        */
+        
     }
 
     private void Update()
@@ -116,7 +94,7 @@ public class Weapons : MonoBehaviour
     {
         
     }
-    /*
+    
     public Vector3 GetNoise(Vector3 pos)
     {
         Debug.Log(pos);
@@ -124,8 +102,8 @@ public class Weapons : MonoBehaviour
 
         return new Vector3(noise, 0, noise);
     }
-    */
-
+    
+    
 
 
 }

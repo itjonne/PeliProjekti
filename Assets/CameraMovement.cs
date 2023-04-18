@@ -16,11 +16,15 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        target = squad.GetLeader().transform;
-        // Define a target position above and behind the target transform
-        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 10, 0));
+        target = squad.GetLeader()?.transform;
+        if (target)
+        {
+
+        Vector3 targetPosition = target.TransformPoint(new Vector3(0, 2.5f, 0));
 
         // Smoothly move the camera towards that target position
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        }
+        // Define a target position above and behind the target transform
     }
 }

@@ -16,8 +16,8 @@ MonoBehaviour:
   damage: 22
   maxDistance: 200
   bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
-  currentAmmo: 24
+  currentAmmo: 10
   magSize: 10
   fireRate: 0.3
-  reloadTime: 1.5
-  reloading: 0
+  reloadTime: 1
+  reloading: 1

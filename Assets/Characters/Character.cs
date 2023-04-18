@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     [SerializeField] private CharacterDataSO characterData;
+    public float health = 30f;
     public bool isLeader;
     // Start is called before the first frame update
 
