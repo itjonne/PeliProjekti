@@ -40,6 +40,7 @@ public class MeleeEnemy : Enemy
     public void MoveTo(Vector3 position)
     {
         transform.position = (Vector3.MoveTowards(transform.position, position, MovementSpeed * Time.deltaTime));
+      //  transform.rotation = (Quaternion.LookRotation(Vector3.(0,0,0), target.transform.position));
     }
 
     // Start is called before the first frame update
@@ -55,6 +56,7 @@ public class MeleeEnemy : Enemy
         if (target != null)
         {
             MoveTo(target.transform.position);
+            transform.LookAt(target.transform.position);
 
         } else
         {
