@@ -49,12 +49,14 @@ public class Anim_Enemy1 : MonoBehaviour
 
 	public void OnDamageTaken()
     {
-		Debug.Log("OnDamageTaken");
-    }
+		//Debug.Log("OnDamageTaken");
+		animator.SetTrigger("Hurt");
+	}
 
 	public void OnDeath()
     {
 		Debug.Log("OnDeath");
+
     }
 
 }

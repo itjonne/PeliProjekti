@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &59903124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +444,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1341160689}
     m_Modifications:
+    - target: {fileID: 495298955012967783, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: smoothTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1033028219560773868, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: muzzle
       value: 
@@ -637,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &482021189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1481,7 +1485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1564217613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,6 +1687,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1341160689}
     m_Modifications:
+    - target: {fileID: 495298955012967783, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: smoothTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4615767976204734834, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: movementSpeed
       value: 5
@@ -1773,7 +1781,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
   xPosition: -45.12
   zPosition: 0
-  spawnTime: 10
+  spawnTime: 2
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0

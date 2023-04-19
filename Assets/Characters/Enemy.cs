@@ -20,8 +20,12 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<Collider>());
+        //this.enemyData.movementSpeed = 3;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
-        Destroy(gameObject);
+        Destroy(gameObject, 5f);
     }
  
 
