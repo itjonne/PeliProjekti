@@ -175,6 +175,11 @@ public class Animation_Soldier : MonoBehaviour
 
 	}
 
+	public void OnDeath()
+    {
+		Debug.Log("KUOLEMA ANIMAATIO");
+    }
+
 	/*
     private void OnGUI()
     {

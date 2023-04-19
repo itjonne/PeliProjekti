@@ -48,7 +48,7 @@ public class Weapons : MonoBehaviour
 
     public void Shoot(Transform rotation)
     {
-        Debug.Log("SHoot k‰ynniss‰");
+        // Debug.Log("SHoot k‰ynniss‰");
     
 
         if(counter < gunData.fireRate)
@@ -60,7 +60,7 @@ public class Weapons : MonoBehaviour
             if (ammoLeft > 0)
             {
                 counter = 0;
-                Debug.Log("T‰‰ll‰ ammutaan");
+                // Debug.Log("T‰‰ll‰ ammutaan");
                 GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                 bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 25f;
                 //ammoLeft--;

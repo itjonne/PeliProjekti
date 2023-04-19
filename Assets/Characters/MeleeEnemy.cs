@@ -15,19 +15,24 @@ public class MeleeEnemy : Enemy
     private void OnTriggerEnter(Collider other)
     {
         JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
+        
+        // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, tässä vois olla puukotus
         if (other.GetComponent<Character>())
         {
             Debug.Log("NYT OSU");
-            Destroy(this.gameObject);
+            
+            // Die(); TÄHÄN VOIS LAITTAA VEITSIANIMAATION
         }
+
+        // Jos osuu johonkin joka tekee damagee, nyt panos
         if (other.GetComponent<DamageDealer>())
         {
             DamageDealer damageDealer = other.GetComponent<DamageDealer>();
             if (damageDealer != null)
             {
-
-            this.SetHealth(-damageDealer.damage);
-            Destroy(damageDealer.gameObject);
+                gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
+                this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla pääluokan puolella Enemy-scriptissä.
+                Destroy(damageDealer.gameObject);
             }
         }
     }

@@ -66,6 +66,11 @@ public class PlayableCharacter : Character
     {
         Debug.Log("DEATH");
         gameObject.GetComponentInParent<Squad>().DestroyCharacter(this);
+
+        gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // T‰‰ on nyt v‰h‰n spagetti, t‰n ei tarviis ymm‰rt‰‰ mit‰‰n squadista/animaatiosta
+
+        Destroy(gameObject);
+        // T‰h‰n kuolemaefektej‰
     }
 
     private void LevelEnd()

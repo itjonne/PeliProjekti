@@ -47,4 +47,14 @@ public class Anim_Enemy1 : MonoBehaviour
 
 	}
 
+	public void OnDamageTaken()
+    {
+		Debug.Log("OnDamageTaken");
+    }
+
+	public void OnDeath()
+    {
+		Debug.Log("OnDeath");
+    }
+
 }

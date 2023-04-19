@@ -113,10 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentObjects:
   - {fileID: 7347777086382128603, guid: d8bfa204a742dfe44a2c163dec752090, type: 3}
-  environmentDensity: 15.9
+  environmentDensity: 3
   helperObjects:
   - {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-  helperDensity: 6.5
+  helperDensity: 2
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}

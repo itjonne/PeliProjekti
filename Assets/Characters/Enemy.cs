@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject);
     }
  
