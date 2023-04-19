@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6909245624270769301, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
+      propertyPath: m_Size.x
+      value: 1.68
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
