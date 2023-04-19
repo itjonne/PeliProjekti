@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayableCharacter : Character
 {
+
+    public float movementSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +22,20 @@ public class PlayableCharacter : Character
     public override void Move()
     {
 
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * 2);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
 
     public override void Follow(Character character)
     {
         if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
-            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, 3f * Time.deltaTime));
+            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * Time.deltaTime));
         }
     }
 
     public override void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, 3f * Time.deltaTime));
+        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     public override void RotateTo(Character target)
