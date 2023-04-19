@@ -16,12 +16,12 @@ public class MeleeEnemy : Enemy
     {
         JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
         
-        // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, tässä vois olla puukotus
+        // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, tï¿½ssï¿½ vois olla puukotus
         if (other.GetComponent<Character>())
         {
             Debug.Log("NYT OSU");
             
-            // Die(); TÄHÄN VOIS LAITTAA VEITSIANIMAATION
+            // Die(); Tï¿½Hï¿½N VOIS LAITTAA VEITSIANIMAATION
         }
 
         // Jos osuu johonkin joka tekee damagee, nyt panos
@@ -31,7 +31,7 @@ public class MeleeEnemy : Enemy
             if (damageDealer != null)
             {
                 gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
-                this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla pääluokan puolella Enemy-scriptissä.
+                this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla pï¿½ï¿½luokan puolella Enemy-scriptissï¿½.
                 Destroy(damageDealer.gameObject);
             }
         }

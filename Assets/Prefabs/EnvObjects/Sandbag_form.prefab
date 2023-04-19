@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2428608313962613299}
   - component: {fileID: 2964926733338787429}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,9 +55,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1664804158739113436}
   - component: {fileID: 6013392515663071725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: 6906111932475805640}
   - component: {fileID: 7527955494326075501}
   - component: {fileID: 5736562188916716711}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandbag_form
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,9 +186,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5874891832053230502}
   - component: {fileID: 5999315173198852356}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

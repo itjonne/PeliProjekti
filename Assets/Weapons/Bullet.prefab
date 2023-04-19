@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1881941612563692819}
   - component: {fileID: -5765331209863249460}
   - component: {fileID: -8810718759917885637}
+  - component: {fileID: -1129994965782713648}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Bullet
@@ -98,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.01
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-5765331209863249460
 Rigidbody:
@@ -115,7 +116,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &-8810718759917885637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &-1129994965782713648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306785530074399806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e766d645ec1122a4b965fed2ba4655c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  envImpact: {fileID: 858210687455889242, guid: a3bf2261fc250d649ac72c969a5bd573, type: 3}
+  bloodHit: {fileID: 858210687455889242, guid: 0ebfbe2d40f0eeb49a3a51e1dd75f84d, type: 3}
 --- !u!1001 &3874961478886089475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -183,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Time
-      value: 0.29
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_CastShadows

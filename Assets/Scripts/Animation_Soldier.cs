@@ -129,9 +129,7 @@ public class Animation_Soldier : MonoBehaviour
 		if (Input.GetMouseButton(0) && ammoLeft > 0)
 		{
 
-	
 			animator.SetBool("Shoot", true);
-
 			animator.SetLayerWeight(1, 1f);
 
 
