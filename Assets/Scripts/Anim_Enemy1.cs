@@ -12,9 +12,15 @@ public class Anim_Enemy1 : MonoBehaviour
 	private float yVelocity = 0.0F;
 	private float currWeight;
 	// Start is called before the first frame update
-	void Start()
+	IEnumerator Start()
 	{
 		animator = GetComponent<Animator>();
+
+		while (true) //Substate machine kuolemille, randomisoi kuolemisanimaatio
+        {
+			yield return new WaitForSeconds(0.2f);
+			animator.SetInteger("DeathIndex", Random.Range(0, 2));
+        }
 	}
 
 	private void FixedUpdate()
@@ -67,7 +73,7 @@ public class Anim_Enemy1 : MonoBehaviour
     {
 		Debug.Log("OnDeath");
 		animator.SetLayerWeight(1, 0);
-		animator.SetTrigger("Death1");
+		animator.SetTrigger("Death");
 
 	}
 
