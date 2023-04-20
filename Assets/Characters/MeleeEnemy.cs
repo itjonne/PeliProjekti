@@ -55,6 +55,7 @@ public class MeleeEnemy : Enemy
         if (target != null)
         {
             MoveTo(target.transform.position);
+            transform.LookAt(target.transform.position);
 
         } else
         {
