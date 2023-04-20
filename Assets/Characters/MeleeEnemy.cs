@@ -33,6 +33,8 @@ public class MeleeEnemy : Enemy
                 gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
                 this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla p��luokan puolella Enemy-scriptiss�.
                 Destroy(damageDealer.gameObject);
+
+
             }
         }
     }

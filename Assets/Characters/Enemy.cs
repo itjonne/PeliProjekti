@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyDataSO enemyData;
     [SerializeField] public float health = 100f;
+
     public float Health => enemyData.health;
     public float MovementSpeed => enemyData.movementSpeed;
     
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
 
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<Collider>());
-        //this.enemyData.movementSpeed = 3;
+        //this.enemyData.movementSpeed = 0;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 5f);
     }
