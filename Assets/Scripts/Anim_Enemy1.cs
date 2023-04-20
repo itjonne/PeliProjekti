@@ -18,7 +18,7 @@ public class Anim_Enemy1 : MonoBehaviour
 
 		while (true) //Substate machine kuolemille, randomisoi kuolemisanimaatio
         {
-			yield return new WaitForSeconds(0.2f);
+			yield return new WaitForSeconds(1);
 			animator.SetInteger("DeathIndex", Random.Range(0, 2));
         }
 	}
