@@ -39,7 +39,7 @@ public class MeleeEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, MovementSpeed * Time.deltaTime));
+        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     // Start is called before the first frame update

@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyDataSO enemyData;
     [SerializeField] public float health = 100f;
+    [SerializeField] public float movementSpeed = 3f;
+
     public float Health => enemyData.health;
-    public float MovementSpeed => enemyData.movementSpeed;
+    // public float MovementSpeed => enemyData.movementSpeed;
     
     public void SetHealth(int damage)
     {
