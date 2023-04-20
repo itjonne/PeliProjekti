@@ -12,30 +12,7 @@ public class MeleeEnemy : Enemy
         health = 30f;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
-        
-        // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, t�ss� vois olla puukotus
-        if (other.GetComponent<Character>())
-        {
-            Debug.Log("NYT OSU");
-            
-            // Die(); T�H�N VOIS LAITTAA VEITSIANIMAATION
-        }
-
-        // Jos osuu johonkin joka tekee damagee, nyt panos
-        if (other.GetComponent<DamageDealer>())
-        {
-            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-            if (damageDealer != null)
-            {
-                gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
-                this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla p��luokan puolella Enemy-scriptiss�.
-                Destroy(damageDealer.gameObject);
-            }
-        }
-    }
+    
 
     public void MoveTo(Vector3 position)
     {

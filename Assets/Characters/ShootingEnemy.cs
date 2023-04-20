@@ -11,35 +11,15 @@ public class ShootingEnemy : Enemy
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa t‰‰ alkaa ampumaan
 
+    private float timeSinceLastShot;
+    private float fireRate = 2f;
+
     public void Awake()
     {
-        health = 30f;
+        health = 20f;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
-
-        // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, t?ss? vois olla puukotus
-        if (other.GetComponent<Character>())
-        {
-            Debug.Log("NYT OSU");
-
-            // Die(); T?H?N VOIS LAITTAA VEITSIANIMAATION
-        }
-
-        // Jos osuu johonkin joka tekee damagee, nyt panos
-        if (other.GetComponent<DamageDealer>())
-        {
-            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-            if (damageDealer != null)
-            {
-                gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
-                this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla p??luokan puolella Enemy-scriptiss?.
-                Destroy(damageDealer.gameObject);
-            }
-        }
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -64,18 +44,45 @@ public class ShootingEnemy : Enemy
         transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
+    private void CalculateClosestTarget()
+    {
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+        float closestDistance = float.PositiveInfinity;
+        Character closestCharacter = null;
+        foreach(Character character in characters)
+        {
+            float distance = Vector3.Distance(this.transform.position, character.transform.position);
+            if (distance <= closestDistance)
+            {
+                closestDistance = distance;
+                closestCharacter = character;
+            }
+        }
+        target = closestCharacter;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        timeSinceLastShot += Time.deltaTime;
+        CalculateClosestTarget();
+
+
         if (target != null)
         {
+            CalculateDistanceFromTarget(target);
             if (distanceFromTarget > shootingDistance)
             {
+                transform.LookAt(target.transform.position);
                 MoveTo(target.transform.position);
             } else // Ollaan tarpeeks l‰hell‰
             {
-                Shoot();
+                transform.LookAt(target.transform.position);
+                if (timeSinceLastShot >= fireRate)
+                {
+                    Shoot();
+                    timeSinceLastShot = 0;
+                }
             }
 
         }
@@ -89,7 +96,7 @@ public class ShootingEnemy : Enemy
     private void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 25f;
+        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 5f;
         //ammoLeft--;
         //lastShot = Time.time;
         Destroy(bullet, 5f);
