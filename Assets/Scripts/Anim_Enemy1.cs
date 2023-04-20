@@ -66,7 +66,9 @@ public class Anim_Enemy1 : MonoBehaviour
 	public void OnDeath()
     {
 		Debug.Log("OnDeath");
+		animator.SetLayerWeight(1, 0);
+		animator.SetTrigger("Death1");
 
-    }
+	}
 
 }
