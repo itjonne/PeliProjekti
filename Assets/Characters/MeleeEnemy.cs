@@ -33,16 +33,13 @@ public class MeleeEnemy : Enemy
                 gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
                 this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla p��luokan puolella Enemy-scriptiss�.
                 Destroy(damageDealer.gameObject);
-
-
             }
         }
     }
 
     public void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, MovementSpeed * Time.deltaTime));
-      //  transform.rotation = (Quaternion.LookRotation(Vector3.(0,0,0), target.transform.position));
+        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     // Start is called before the first frame update
@@ -58,7 +55,6 @@ public class MeleeEnemy : Enemy
         if (target != null)
         {
             MoveTo(target.transform.position);
-            transform.LookAt(target.transform.position);
 
         } else
         {
