@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         movementSpeed = 0f;
         gameObject.GetComponent<MeleeEnemy>().enabled = false; //Varmaan v‰liaikainen ratkaisu t‰ss‰, ilman t‰t‰ ruumiit k‰‰ntyilev‰t pelaaja kohti vaikka ovat kuolleet
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
-        //Destroy(gameObject, 5);
+        Destroy(gameObject, 20);
     }
  
 
