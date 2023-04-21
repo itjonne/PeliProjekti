@@ -6,11 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public AudioManager sfxPlayer;
-    public AudioManager musicPlayer;
-    public GameObject characterController;
 
-    public MonoBehaviour SquadMovement;
 
     public Slider sfxVolumeSlider;
     public Slider musicVolumeSlider;
@@ -53,9 +49,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
 
-        characterController.GetComponent<Rigidbody>().isKinematic = true;
 
-        SquadMovement.enabled = true;
 
 
     }
@@ -66,9 +60,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
 
-        characterController.GetComponent<Rigidbody>().isKinematic = false;
-
-        SquadMovement.enabled = false;
 
 
     }
@@ -94,6 +85,11 @@ public class PauseMenu : MonoBehaviour
     {
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit(); // Quit the game
     }
 
 }
