@@ -1061,10 +1061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
+  enemyPrefab: {fileID: 4975261374472804906, guid: 17e65e328c846c04bb35a87f907d08d7, type: 3}
   xPosition: 0
   zPosition: 44.1
-  spawnTime: 3
+  spawnTime: 5
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -49,6 +49,15 @@ public class PlayableCharacter : Character
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<DamageDealer>())
+        {
+            health -= other.GetComponent<DamageDealer>().damage;
+            if (health <= 0) Die();
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.tag);
@@ -62,6 +71,11 @@ public class PlayableCharacter : Character
             health -= 10f;
             if (health <= 0) Die();
          }
+
+        if (collision.gameObject.GetComponent<DamageDealer>() != null)
+        {
+            Debug.Log("Nyt osu ammus");
+        }
     }
 
     private void Die()
