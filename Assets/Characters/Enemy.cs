@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using JSAM;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyDataSO enemyData;
     [SerializeField] public float health = 100f;
@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     public float Health => enemyData.health;
     // public float MovementSpeed => enemyData.movementSpeed;
+
+    public abstract void Update();
 
     private void OnTriggerEnter(Collider other)
     {
