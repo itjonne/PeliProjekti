@@ -27,7 +27,7 @@ public class MeleeEnemy : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
         if (target != null)
         {
