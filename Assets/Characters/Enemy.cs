@@ -57,12 +57,12 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
-        if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
+        //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());
         movementSpeed = 0f;
-       gameObject.GetComponent<MeleeEnemy>().enabled = false; //Varmaan v‰liaikainen ratkaisu t‰ss‰, ilman t‰t‰ ruumiit k‰‰ntyilev‰t pelaaja kohti vaikka ovat kuolleet
+       gameObject.GetComponent<Enemy>().enabled = false; //Varmaan v‰liaikainen ratkaisu t‰ss‰, ilman t‰t‰ ruumiit k‰‰ntyilev‰t pelaaja kohti vaikka ovat kuolleet
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
     }

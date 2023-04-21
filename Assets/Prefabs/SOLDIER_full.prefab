@@ -2295,6 +2295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 963160a3202a64f42a3b9c95e25ea42d, type: 2}
   health: 30
+  level: 1
+  exp: 0
   isLeader: 0
   movementSpeed: 5
 --- !u!114 &4719477577528922271
