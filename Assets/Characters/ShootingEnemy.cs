@@ -16,7 +16,7 @@ public class ShootingEnemy : Enemy
 
     public void Awake()
     {
-        health = 20f;
+       
     }
 
     

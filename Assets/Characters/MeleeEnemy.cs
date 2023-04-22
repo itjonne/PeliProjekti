@@ -9,7 +9,7 @@ public class MeleeEnemy : Enemy
 
     public void Awake()
     {
-        health = 30f;
+        
     }
 
     

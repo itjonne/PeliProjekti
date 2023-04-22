@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5765331209863249460}
   - component: {fileID: -8810718759917885637}
   - component: {fileID: -1129994965782713648}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.01
+  m_Radius: 1.22
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-5765331209863249460
 Rigidbody:
@@ -228,6 +228,10 @@ PrefabInstance:
     - target: {fileID: 8514605773580731737, guid: b13ee71f6f3329b4190dc57c8d009365, type: 3}
       propertyPath: m_Name
       value: EnemyBulletTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514605773580731737, guid: b13ee71f6f3329b4190dc57c8d009365, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
