@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SOLDIER_full (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7652646214253871609, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
@@ -400,7 +404,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
   xPosition: 46.3
   zPosition: 0
-  spawnTime: 3
+  spawnTime: 5
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1298,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SOLDIER_full (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7652646214253871609, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
@@ -1341,7 +1349,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
   xPosition: -45.12
   zPosition: 0
-  spawnTime: 3
+  spawnTime: 5
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
