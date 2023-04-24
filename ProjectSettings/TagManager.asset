@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - EndObject
-  - Bullet
-  - Environment
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,9 +13,9 @@ TagManager:
   - UI
   - Ground
   - Squad
-  - Friendly Bullet
-  - LevelEdge
-  - Enemy Bullet
+  - 
+  - 
+  - 
   - 
   - 
   - 

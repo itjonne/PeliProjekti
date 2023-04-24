@@ -50,7 +50,7 @@ public class Block : MonoBehaviour
                 Debug.Log(width + " " + height);
                 Debug.Log(Random.Range(-width / 2, width / 2));
 
-                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0,360), 0)));
+                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.identity);
                 generatedObjects.Add(newObject);
             }
         }
@@ -65,7 +65,7 @@ public class Block : MonoBehaviour
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
                
-                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.identity);
                 generatedObjects.Add(newObject);
             }
         }

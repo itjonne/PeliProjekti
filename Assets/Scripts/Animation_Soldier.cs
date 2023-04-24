@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Animation_Soldier : MonoBehaviour
 {
-	GunData gunData;
 
-
-	public ParticleSystem muzzle;
 	public Animator animator;
 	private Vector3 velocity;
 	private Vector3 prevPos;
@@ -16,16 +13,7 @@ public class Animation_Soldier : MonoBehaviour
 	Vector3 mouseLocation;
 	float directionToMouse;
 	float directionToMouse_x;
-	float ammoLeft;
 
-	float timer;
-	float FlashRate;
-	bool canFlash = true;
-
-	//Muuttujat SmoothDamp Delaysystemille
-	private float smoothTime = 1f;
-	private float yVelocity = 0.0F;
-	private float currWeight;
 
 	GUIStyle myStyle = new GUIStyle(); 
 
@@ -34,35 +22,20 @@ public class Animation_Soldier : MonoBehaviour
     {
 		myStyle.fontSize = 16;
 		myStyle.normal.textColor = Color.cyan;
-		animator = GetComponent<Animator>();
-
-		muzzle = GetComponentInChildren<ParticleSystem>();
-		var main = muzzle.main;
-		main.duration = 0.25f;  //TÄHÄN PITÄISI SAADA HAETTUA HAHMON ASEESTA FIRERATE 
-
-		
-
+		animator = GetComponent<Animator>();		
 	}
 
     private void FixedUpdate()
     {
-		
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
-		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
 	}
 
 
 
 	// Update is called once per frame
-
-
-
 	void Update()
 	{
-		currWeight = animator.GetLayerWeight(1);
-
-
 		RaycastHit hit; 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		if(Physics.Raycast(ray, out hit))
@@ -134,68 +107,25 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		//Ampuminen
-		
-		if (Input.GetMouseButton(0) && ammoLeft > 0)
+
+		if (Input.GetMouseButton(0))
 		{
-
+		
 			animator.SetBool("Shoot", true);
-			
-			animator.SetLayerWeight(1, 1);
-
-
-			// TÄLLÄ RIMPSULLA SUULIEKKI TULEE SILLÄ NOPEUDELLA MILLÄ SE ON MÄÄRITELTY PARTICLE SYSTEEMISSÄ	
-			if (canFlash)			
-			{			
-				timer += Time.deltaTime;
-				if (timer > FlashRate)
-				{
-					muzzle.Play();
-					canFlash = false;
-				}
-			}
-
-
+			animator.SetLayerWeight(1, 1f);
+			//animator.SetBool("Walk", false);
 		}
 
 		
 		else if (Input.GetMouseButtonUp(0))
 		{
-			canFlash = true;
+	
 			animator.SetBool("Shoot", false);
-			muzzle.Stop();
-
-			//Delay systeemi
-			float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.1f);
-			//float endWeight = Mathf.Lerp(currWeight, 0.0f, smoothTime); //Lerp olisi tähän varmaan parempi mutta ei toimi jostain syystä
-			animator.SetLayerWeight(1, endWeight);
-			
+			animator.SetLayerWeight(1, 0f);
 		}
 
-		else
-		{
-			canFlash = true;
-			animator.SetBool("Shoot", false);
-			muzzle.Stop();
-
 		
-			float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.1f);
-			//float endWeight = Mathf.Lerp(currWeight, 0.0f, smoothTime);
-			animator.SetLayerWeight(1, endWeight);
-
-
-		}
-
-
-		
-
 	}
-
-
-
-	public void OnDeath()
-    {
-		Debug.Log("KUOLEMA ANIMAATIO");
-    }
 
 	/*
     private void OnGUI()

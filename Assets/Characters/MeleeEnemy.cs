@@ -9,14 +9,32 @@ public class MeleeEnemy : Enemy
 
     public void Awake()
     {
-        
+        health = 30f;
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
+        if (other.GetComponent<Character>())
+        {
+            Debug.Log("NYT OSU");
+            Destroy(this.gameObject);
+        }
+        if (other.GetComponent<DamageDealer>())
+        {
+            DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+            if (damageDealer != null)
+            {
+
+            this.SetHealth(-damageDealer.damage);
+            Destroy(damageDealer.gameObject);
+            }
+        }
+    }
 
     public void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        transform.position = (Vector3.MoveTowards(transform.position, position, MovementSpeed * Time.deltaTime));
     }
 
     // Start is called before the first frame update
@@ -27,12 +45,11 @@ public class MeleeEnemy : Enemy
     }
 
     // Update is called once per frame
-    public override void Update()
+    void Update()
     {
         if (target != null)
         {
             MoveTo(target.transform.position);
-            transform.LookAt(target.transform.position);
 
         } else
         {

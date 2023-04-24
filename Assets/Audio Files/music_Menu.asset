@@ -18,7 +18,7 @@ MonoBehaviour:
   neverRepeat: 0
   lastClipIndex: -1
   category: Looping
-  relativeVolume: 0.251
+  relativeVolume: 1
   spatialize: 0
   maxDistance: 0
   priority: 128

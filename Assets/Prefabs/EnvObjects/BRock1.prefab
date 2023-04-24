@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3154860026201913325}
   m_Layer: 2
   m_Name: BRock1
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,17 +44,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 520052239823476585, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     - target: {fileID: 556365530022335358, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
       propertyPath: m_Layer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 556365530022335358, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
-      propertyPath: m_TagString
-      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 1448571293820922039, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
       propertyPath: m_Name
@@ -107,18 +99,6 @@ PrefabInstance:
     - target: {fileID: 2256738021635682829, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7422410926722711372, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
-      propertyPath: m_Size.x
-      value: 4.0107684
-      objectReference: {fileID: 0}
-    - target: {fileID: 7422410926722711372, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
-      propertyPath: m_Center.x
-      value: 1.5647767
-      objectReference: {fileID: 0}
-    - target: {fileID: 7422410926722711372, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
-      propertyPath: m_Center.y
-      value: 0.49512315
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

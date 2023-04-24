@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8944219757219134244}
   m_Layer: 2
   m_Name: DTree3
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,21 +84,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6230595330386428166, guid: 59e8ab8cde1299444ae7ad3b162828ff, type: 3}
-      propertyPath: m_Radius
-      value: 0.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 6230595330386428166, guid: 59e8ab8cde1299444ae7ad3b162828ff, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6366351160322288600, guid: 59e8ab8cde1299444ae7ad3b162828ff, type: 3}
       propertyPath: m_Layer
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6366351160322288600, guid: 59e8ab8cde1299444ae7ad3b162828ff, type: 3}
-      propertyPath: m_TagString
-      value: Environment
       objectReference: {fileID: 0}
     - target: {fileID: 6532262573671627571, guid: 59e8ab8cde1299444ae7ad3b162828ff, type: 3}
       propertyPath: m_Name

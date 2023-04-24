@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3766536150174703140}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: WireCache1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,22 +111,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
@@ -203,38 +187,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag_Pile
       objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
@@ -251,14 +203,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 3766536150174703140}
     m_Modifications:
-    - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     - target: {fileID: 3803456247678410982, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -319,14 +263,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crate1 (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4576580686003894876, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576580686003894876, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
@@ -343,14 +279,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 3766536150174703140}
     m_Modifications:
-    - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1234198368080604357, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     - target: {fileID: 3803456247678410982, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -410,14 +338,6 @@ PrefabInstance:
     - target: {fileID: 4576580686003894876, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
       propertyPath: m_Name
       value: Crate1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576580686003894876, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4576580686003894876, guid: a0ffbeb31424a6343a2d8605f17f3f70, type: 3}
-      propertyPath: m_TagString
-      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -495,22 +415,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbWire (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
@@ -587,22 +491,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbWire (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
@@ -678,22 +566,6 @@ PrefabInstance:
     - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
       propertyPath: m_Name
       value: BarbWire
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -775,38 +647,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag_Pile (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
@@ -882,22 +722,6 @@ PrefabInstance:
     - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
       propertyPath: m_Name
       value: BarbWire (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -975,22 +799,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BarbWire (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
@@ -1067,38 +875,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandbag_Pile (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 665842000319129571, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
@@ -1174,22 +950,6 @@ PrefabInstance:
     - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
       propertyPath: m_Name
       value: Barrel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_TagString
-      value: Environment
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
-      propertyPath: m_TagString
-      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -9,9 +9,6 @@ public class Squad : MonoBehaviour
     [SerializeField] private SquadRuntimeSet squadData;
     private InputHandler _input;
     private Formation _formation;
-    private List<Vector3> positions;
-
-    private Vector3 leaderLastPos;
     public Formation Formation
     {
         get
@@ -89,7 +86,7 @@ public class Squad : MonoBehaviour
 
         RemoveCharacter(character);
         Debug.Log("DESTROYING");
-        
+        Destroy(character.gameObject);
     }
 
     public void ChangeLeader(Character character)
@@ -127,18 +124,8 @@ public class Squad : MonoBehaviour
             ChangeLeader(leaderIndex >= squadData.Items.Count - 1 ? squadData.Items[0] : squadData.Items[leaderIndex + 1]);
         }
 
-        // Debug.Log(GetLeader().GetComponent<Rigidbody>().velocity.magnitude);
         // Lasketaan formaation pisteet
-        // Jos pelaajalla on liikett‰, tee t‰‰
-        Vector3 currentPos = GetLeader().transform.position; // Kurkataan miss‰ johtaja on
-
-        // EI ihan 100% toimi
-        if ( positions == null || currentPos != leaderLastPos)
-        {
-            positions = Formation.EvaluatePoints(GetLeader().transform);
-
-        }
-        leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
+        List<Vector3> positions = Formation.EvaluatePoints(GetLeader().transform);
 
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
@@ -193,8 +180,8 @@ public class Squad : MonoBehaviour
         {
             GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan v‰ri‰
             GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
-            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
-            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].Health.ToString());
+            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].Level.ToString());
         }
 
     }
