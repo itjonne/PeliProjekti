@@ -231,10 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
+  enemyPrefab: {fileID: 1910699744142765917, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
   xPosition: 0
-  zPosition: -44
-  spawnTime: 10
+  zPosition: -50.65
+  spawnTime: 8
 --- !u!135 &59903125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &482021189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,10 +725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
+  enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 46.3
   zPosition: 0
-  spawnTime: 10
+  spawnTime: 5
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1635,7 +1635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1564217613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,10 +1648,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe0369269d1ca449a29cc1d554a735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
+  enemyPrefab: {fileID: 1910699744142765917, guid: b7686d7703801c642938a76dcf2960c4, type: 3}
   xPosition: 0
-  zPosition: 44.1
-  spawnTime: 10
+  zPosition: 45.07
+  spawnTime: 6
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1848,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1957752058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,9 +1862,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
-  xPosition: -45.12
+  xPosition: -50.27
   zPosition: 0
-  spawnTime: 2
+  spawnTime: 3
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
