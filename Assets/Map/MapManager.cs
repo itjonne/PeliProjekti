@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMap(int size)
     {
-        float tileWidth = 50f;
+        float tileWidth = 25f; //VAIHDETTU 50 -> 25
         int startBlock = 0;
         // Vikalla rivillä
         int endBlock = Random.Range((size * size) - size + 1, size * size);

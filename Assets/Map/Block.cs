@@ -7,13 +7,13 @@ public class Block : MonoBehaviour
     // Näitä vois sit tästä vaan randomisoida
     public GameObject[] environmentObjects; // Puut jne.
     private List<GameObject> generatedObjects = new List<GameObject>();
-    [Range(0, 100)] public float environmentDensity;
+    [Range(0, 25)] public float environmentDensity;
 
     public GameObject[] helperObjects; // Healthit jne.
-    [Range(0, 100)] public float helperDensity;
+    [Range(0, 25)] public float helperDensity;
 
     public GameObject[] enemyObjects; // Vihut
-    [Range(0, 100)] public float enemyDensity;
+    [Range(0, 25)] public float enemyDensity;
 
     public GameObject endObject;
     public GameObject startObject;
