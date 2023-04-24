@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2295136467146459814}
   - component: {fileID: 2295136467146459813}
   m_Layer: 6
-  m_Name: MB_empty
+  m_Name: MB_BarbBags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,10 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbe0a40be9040e4c90af810abca9456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentObjects: []
-  environmentDensity: 0
+  environmentObjects:
+  - {fileID: 7842493887389493058, guid: a50ff85dd17a5c84b9cb987a1a7bda30, type: 3}
+  - {fileID: 3244419113337100563, guid: 99cf81e528b80b94fae430feb1c6be14, type: 3}
+  environmentDensity: 0.9
   helperObjects: []
-  helperDensity: 1.6
+  helperDensity: 0
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}

@@ -120,8 +120,8 @@ MonoBehaviour:
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
   startObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
-  width: 50
-  height: 50
+  width: 25
+  height: 25
   isStart: 0
   isEnd: 0
 --- !u!1001 &3354706556936393127

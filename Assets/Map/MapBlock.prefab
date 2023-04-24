@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentObjects: []
-  environmentDensity: 0.3
+  environmentDensity: 0
   helperObjects:
   - {fileID: 6096924583015667058, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
   helperDensity: 0
