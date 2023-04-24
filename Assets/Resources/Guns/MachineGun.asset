@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7c26c729192f4493ded4109d2d142, type: 3}
   m_Name: MachineGun
   m_EditorClassIdentifier: 
-  name: Assault Rifle
+  name: Machine Gun
   damage: 22
   maxDistance: 200
   bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}

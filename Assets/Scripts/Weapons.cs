@@ -48,7 +48,7 @@ public class Weapons : MonoBehaviour
 
     public void Shoot(Transform rotation)
     {
-        Debug.Log("SHoot käynnissä");
+        // Debug.Log("SHoot käynnissä");
     
 
         if(counter < gunData.fireRate)
@@ -60,12 +60,21 @@ public class Weapons : MonoBehaviour
             if (ammoLeft > 0)
             {
                 counter = 0;
-                Debug.Log("Täällä ammutaan");
-                GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 25f;
-                //ammoLeft--;
-                //lastShot = Time.time;
-                Destroy(bullet, 5f);
+                // Debug.Log("Täällä ammutaan");
+
+                // TODO: NYT ON AIKAMOINEN TESTI, EI JÄTETÄ : levelin nosto lisää ammuksia
+                int playerLevel = gameObject.GetComponent<Character>().level;
+                for (int i = 0; i < playerLevel; i++)
+                {
+                    GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
+
+                    bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
+                    bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-0.1f, 0.1f), 0, Random.Range(-0.1f, 0.1f))) * 25f;
+                    //ammoLeft--;
+                    //lastShot = Time.time;
+                    Destroy(bullet, 5f);
+
+                }
             }
             else
             {

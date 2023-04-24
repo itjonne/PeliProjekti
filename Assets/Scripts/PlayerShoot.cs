@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
-    private static Action shootInput;
+    public static Action shootInput;
     public static Action reloadInput;
 
     [SerializeField] private KeyCode reloadKey;
 
-    public static Action ShootInput { get => shootInput; set => shootInput = value; }
 
+    
     void Update()
     {
         if (Input.GetMouseButton(0)) 
