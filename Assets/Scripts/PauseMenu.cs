@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using JSAM;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -90,6 +91,16 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit(); // Quit the game
+    }
+
+
+    public void ReturnToMainMenu()
+    {
+        SaveVolumeSettings();
+        Resume();
+        SceneManager.LoadScene("MainMenu");
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene
+        
     }
 
 }
