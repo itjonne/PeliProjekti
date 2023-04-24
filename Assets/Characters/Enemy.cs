@@ -57,13 +57,14 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
-        if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
+        //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());
         movementSpeed = 0f;
+       gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 20);
     }
  
 

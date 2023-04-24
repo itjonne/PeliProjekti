@@ -42,6 +42,21 @@ public class BulletCollision : MonoBehaviour
             Destroy(GetComponent<Collider>());
             Destroy(this.gameObject, 0.2f);
         }
+
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+           
+
+            Destroy(Instantiate(bloodHit.gameObject, transform.position, Quaternion.identity), 2f);
+
+            bloodHit.GetComponent<ParticleSystem>().Play();
+
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<Collider>());
+            Destroy(this.gameObject, 0.3f);
+        }
+
     }
 
 }

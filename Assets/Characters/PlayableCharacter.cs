@@ -10,13 +10,22 @@ public class PlayableCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
-     
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Johtaja heitt‰‰ aina kranaatit yms. Prefabeilla pit‰‰ olla grenadethrower pois p‰‰lt‰ defaulttina
+        if (isLeader == true)
+        {
+            GetComponent<GrenadeThrower>().enabled = true;
+        }
+
+        else
+        {
+            GetComponent<GrenadeThrower>().enabled = false;
+        }
     }
 
     public override void Move()

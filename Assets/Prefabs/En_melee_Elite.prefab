@@ -2100,7 +2100,7 @@ GameObject:
   - component: {fileID: 3693998420433620729}
   - component: {fileID: 3074171899745988645}
   m_Layer: 0
-  m_Name: Enemy_melee
+  m_Name: En_melee_Elite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2186,6 +2186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: aa2aae078968ac643849e3d286746e00, type: 2}
+  health: 50
+  movementSpeed: 5
 --- !u!114 &3074171899745988645
 MonoBehaviour:
   m_ObjectHideFlags: 0
