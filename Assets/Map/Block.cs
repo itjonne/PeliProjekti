@@ -46,7 +46,7 @@ public class Block : MonoBehaviour
             int amount = (int)Random.Range(0, environmentDensity * width / 10); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));  //Jakoarvoja muutettu, ei pit‰isi spawnailla en‰‰ kent‰n ulkopuolelle
+                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));  
                 Debug.Log(width + " " + height);
                 Debug.Log(Random.Range(-width / 2, width / 2));
 
