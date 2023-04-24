@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2428608313962613299}
   - component: {fileID: 2964926733338787429}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831134445706794299}
   m_LocalRotation: {x: -0, y: 0.43949524, z: 3.5527137e-15, w: 0.898245}
-  m_LocalPosition: {x: 0.010325575, y: 0.0036300134, z: 0.0072025983}
+  m_LocalPosition: {x: 0.010325575, y: 0.00337, z: 0.0072}
   m_LocalScale: {x: 0.0053333337, y: 0.0053333337, z: 0.0053333337}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,9 +55,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1664804158739113436}
   - component: {fileID: 6013392515663071725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4550389137202510106}
   m_LocalRotation: {x: -0.0012094988, y: -0.47141832, z: 0.0022626705, w: 0.88190603}
-  m_LocalPosition: {x: -0.0189, y: 0.00366, z: -0.00415}
+  m_LocalPosition: {x: -0.0189, y: 0.0034, z: -0.00415}
   m_LocalScale: {x: 0.0053333337, y: 0.0053333337, z: 0.0053333337}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: 6906111932475805640}
   - component: {fileID: 7527955494326075501}
   - component: {fileID: 5736562188916716711}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandbag_form
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,9 +186,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5874891832053230502}
   - component: {fileID: 5999315173198852356}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265609628015851334}
   m_LocalRotation: {x: 0, y: -0.035004195, z: 0, w: 0.99938715}
-  m_LocalPosition: {x: -0.00667, y: 0.00386, z: 0.00761}
+  m_LocalPosition: {x: -0.00667, y: 0.0036, z: 0.00761}
   m_LocalScale: {x: 0.0053333337, y: 0.0053333337, z: 0.0053333337}
   m_ConstrainProportionsScale: 0
   m_Children: []

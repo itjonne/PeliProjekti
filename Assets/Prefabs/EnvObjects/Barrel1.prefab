@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5717626966253273836}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrel1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +40,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5717626966253273836}
     m_Modifications:
+    - target: {fileID: 1200620558925725299, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
+      propertyPath: m_Radius
+      value: 0.74
+      objectReference: {fileID: 0}
     - target: {fileID: 1412183121233671101, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -87,6 +91,18 @@ PrefabInstance:
     - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
       propertyPath: m_Name
       value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788709419846936839, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4314567629008752970, guid: b41e7b4de146959409e812ec5d2ecf87, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

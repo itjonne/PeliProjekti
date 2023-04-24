@@ -33,8 +33,8 @@ public class Grenade : MonoBehaviour
     }
     void Explode()
     {
-        //Show effect
-        Instantiate(explosionEffect, transform.position, transform.rotation);
+        //Show effect //ja poistetaan myös objekti 3 sekunnin päästä
+        Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3f);
 
         //Get nearby objects
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);

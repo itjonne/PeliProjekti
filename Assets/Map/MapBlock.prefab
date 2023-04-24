@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentObjects:
-  - {fileID: 1448571293820922039, guid: 3c503f52a24e96e45af22bb45395ad9d, type: 3}
+  - {fileID: 6193333693419078868, guid: fd2f519596be32e44abb6e21c3644b51, type: 3}
   environmentDensity: 2.4
   helperObjects:
   - {fileID: 6096924583015667058, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
