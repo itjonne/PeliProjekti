@@ -18,7 +18,7 @@ MonoBehaviour:
   neverRepeat: 0
   lastClipIndex: -1
   category: OnHit
-  relativeVolume: 0.692
+  relativeVolume: 1
   spatialize: 0
   maxDistance: 0
   priority: 128
@@ -26,7 +26,7 @@ MonoBehaviour:
   pitchShift: 0.101
   playReversed: 0
   delay: 0
-  ignoreTimeScale: 1
+  ignoreTimeScale: 0
   fadeMode: 0
   fadeInDuration: 0
   fadeOutDuration: 0
