@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] public float delay = 3f;
-    [SerializeField] public float radius = 5f;
-    [SerializeField] public float force = 200f;
+    [SerializeField] public float delay = 3f; //Kranaatin viive ennen räjähdystä
+    [SerializeField] public float radius = 5f; //Kranaatin räjähdysalue
+    [SerializeField] public float force = 200f; //Heiton voimakkuus
+
+    
+
 
     public GameObject explosionEffect;
 
@@ -54,4 +57,6 @@ public class Grenade : MonoBehaviour
         //Remove grenade
         Destroy(gameObject);
     }
+
+   
 }
