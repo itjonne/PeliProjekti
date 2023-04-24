@@ -111,12 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bbe0a40be9040e4c90af810abca9456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentObjects:
-  - {fileID: 6193333693419078868, guid: fd2f519596be32e44abb6e21c3644b51, type: 3}
-  environmentDensity: 2.4
+  environmentObjects: []
+  environmentDensity: 0.3
   helperObjects:
   - {fileID: 6096924583015667058, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
-  helperDensity: 1.6
+  helperDensity: 0
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}

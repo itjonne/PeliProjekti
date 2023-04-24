@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 549008146893824372}
   - component: {fileID: 549008146893824375}
   m_Layer: 6
-  m_Name: MapBlock2
+  m_Name: MB_trees1_rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 491a4850208d36847b4a2a8aa75e4c99, type: 2}
+  - {fileID: 2100000, guid: 0c4923d86c55dd245a553331b660eb0b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,10 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentObjects:
   - {fileID: 7347777086382128603, guid: d8bfa204a742dfe44a2c163dec752090, type: 3}
-  environmentDensity: 3
+  - {fileID: 701600530516243938, guid: babb0f68101ebb44ea536a7f84d4c42b, type: 3}
+  environmentDensity: 4
   helperObjects:
-  - {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
-  helperDensity: 2
+  - {fileID: 4792030278493402145, guid: 39af1b0403cd30946a447176dd4682c1, type: 3}
+  helperDensity: 1
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}

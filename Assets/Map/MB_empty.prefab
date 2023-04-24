@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2295136467146459814}
   - component: {fileID: 2295136467146459813}
   m_Layer: 6
-  m_Name: MapBlock3Empty
+  m_Name: MB_empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
