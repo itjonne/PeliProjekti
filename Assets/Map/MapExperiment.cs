@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager : MonoBehaviour
+public class MapExperiment : MonoBehaviour
 {
     public bool Endable;
     public int MapSize; // t‰lle 
@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GenerateMap(int size)
@@ -36,20 +36,8 @@ public class MapManager : MonoBehaviour
             {
                 int RandomNum = Random.Range(0, blocks.Length);
                 GameObject block = blocks[RandomNum];
-                block.GetComponent<Block>().isStart = false; // T‰‰ on nyt tehty tyhm‰sti, k‰‰nnet‰‰n ne t‰ss‰ falseks
-                block.GetComponent<Block>().isEnd = false; // Sama
+                //Vector3 position = new Vector3(i * tileWidth, 0, j * tileWidth);
                 Vector3 position = new Vector3(i * tileWidth, 0, j * tileWidth);
-
-                // Jos palikka on alkupalikka, t‰ll‰ hetkell‰ aina palikka numero 0
-                if (blockNum == startBlock)
-                {
-                    block.GetComponent<Block>().isStart = true;          
-                }
-                // Loppupalikka, otetaan randomilla t‰ll‰ hetkell‰ vikalta rivilt‰
-                if (blockNum == endBlock && Endable == true)
-                {
-                    block.GetComponent<Block>().isEnd = true;
-                }
                 Instantiate(block, position, Quaternion.identity);
 
                 blockNum++;
