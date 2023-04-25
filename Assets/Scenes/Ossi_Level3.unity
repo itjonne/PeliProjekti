@@ -1185,27 +1185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squad: {fileID: 1341160688}
   smoothTime: 0.3
---- !u!1 &1093962422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7652646214253871609, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
-  m_PrefabInstance: {fileID: 378920668}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1093962423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093962422}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7c8241934f3164898c498017572dd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 15
-  Hand: {fileID: 27933809}
-  grenadePrefab: {fileID: 89567936951242346, guid: 61c521ab707130a4e9b192f48207c7d3, type: 3}
-  gravity: {x: 0, y: 0, z: 0}
 --- !u!1001 &1138637787
 PrefabInstance:
   m_ObjectHideFlags: 0

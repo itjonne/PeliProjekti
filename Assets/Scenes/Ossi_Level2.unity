@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.24528301, g: 0.15812719, b: 0.119170524, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 866d43cbe9cf4234eb3ce21945591c42, type: 2}
+  m_SubtractiveShadowColor: {r: 0.04561232, g: 0.13511182, b: 0.23584908, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2694c13df6dee85418979ac1fae8a5ee, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
+  m_IndirectSpecularColor: {r: 0.16464299, g: 0.19243553, b: 0.23326921, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -517,7 +517,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.6084906, g: 0.9687871, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -736,27 +736,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squad: {fileID: 1341160688}
   smoothTime: 0.3
---- !u!1 &1093962422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7652646214253871609, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
-  m_PrefabInstance: {fileID: 378920668}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1093962423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093962422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7c8241934f3164898c498017572dd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 15
-  Hand: {fileID: 27933809}
-  grenadePrefab: {fileID: 89567936951242346, guid: 61c521ab707130a4e9b192f48207c7d3, type: 3}
-  gravity: {x: 0, y: 0, z: 0}
 --- !u!1 &1184889750
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,7 +974,7 @@ GameObject:
   - component: {fileID: 1485913700}
   - component: {fileID: 1485913699}
   m_Layer: 0
-  m_Name: MapManager
+  m_Name: MapManagerLvl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,10 +993,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Endable: 1
-  MapSize: 8
+  MapSize: 10
   blocks:
-  - {fileID: 4015246235897565980, guid: 8bf3137075a4e0544a08720256226c45, type: 3}
-  - {fileID: 549008146893824374, guid: 018acc5c20d733e47a9f7ae161c6d539, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 2295136467146459812, guid: 981064b44a5f3ac4e840db341312b4e9, type: 3}
+  - {fileID: 2295136467146459812, guid: 75140d03beb4d1b4b879bcd9621598aa, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
 --- !u!4 &1485913700
 Transform:
   m_ObjectHideFlags: 0
