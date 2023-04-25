@@ -526,7 +526,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.8
+    m_Strength: 0.7
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Endable: 1
-  MapSize: 10
+  MapSize: 9
   blocks:
   - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
   - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
@@ -1011,6 +1011,16 @@ MonoBehaviour:
   - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
   - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
   - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 2295136467146459812, guid: 2d5a5acd7a5108e4cbc579741faefb82, type: 3}
+  - {fileID: 2295136467146459812, guid: 2d5a5acd7a5108e4cbc579741faefb82, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 2295136467146459812, guid: 3ce470c0b380e234997edac744f47e4c, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 549008146893824374, guid: 391c3ccea9e054f42a402048295d4e49, type: 3}
+  - {fileID: 549008146893824374, guid: e8bf9cc34353ed34a8313816b30102ec, type: 3}
+  - {fileID: 2295136467146459812, guid: 2d5a5acd7a5108e4cbc579741faefb82, type: 3}
 --- !u!4 &1485913700
 Transform:
   m_ObjectHideFlags: 0
