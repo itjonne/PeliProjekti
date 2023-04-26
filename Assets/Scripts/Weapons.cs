@@ -135,7 +135,6 @@ public class Weapons : MonoBehaviour
                     }
 
                 }
-
             }
             else
             {

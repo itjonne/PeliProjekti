@@ -44,6 +44,8 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
+        Debug.Log(movementSpeed);
+        Debug.Log(transform.position);
         transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 

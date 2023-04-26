@@ -2193,7 +2193,7 @@ GameObject:
   - component: {fileID: 6675442013713028133}
   - component: {fileID: 5284938203037680907}
   m_Layer: 7
-  m_Name: SOLDIER_full
+  m_Name: SOLDIER_EXTRA
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
