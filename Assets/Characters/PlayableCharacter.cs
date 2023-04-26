@@ -44,6 +44,7 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
+        Debug.Log("MOVING TO " + position);    
         transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
@@ -72,8 +73,9 @@ public class PlayableCharacter : Character
         Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag == "EndObject")
         {
-            Debug.Log("ENDING GAME");
-            LevelEnd();
+            // Debug.Log("ENDING GAME");
+            // LevelEnd();
+            SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
         }
 
         if (collision.gameObject.tag == "Enemy") {
@@ -100,8 +102,9 @@ public class PlayableCharacter : Character
 
     private void LevelEnd()
     {
-        Scene scene = SceneManager.GetActiveScene();
+       // Scene scene = SceneManager.GetActiveScene();
         
-        SceneManager.LoadScene(scene.name);
+       // SceneManager.LoadScene(scene.name);
+
     }
 }
