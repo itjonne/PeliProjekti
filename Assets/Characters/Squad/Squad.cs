@@ -28,18 +28,8 @@ public class Squad : MonoBehaviour
         squadData.Items.Clear(); // tyhjennet‰‰n eka
         Formation.Spread = 3f;
 
-        Character[] characters = GameObject.FindObjectsOfType<Character>();
-        foreach (Character character in characters)
-        {
-            Debug.Log(character);
-            AddCharacter(character);
-        }
-        Formation.FormationSize = characters.Length - 1;
-        foreach(Character character in characters)
-        {
-            if (character.isLeader) ChangeLeader(character);
-        }
-        
+        InitializeSquad();
+        InitializeFormation();        
     }
 
     public void Start()
@@ -49,6 +39,32 @@ public class Squad : MonoBehaviour
         Block startBlock = Array.Find(blocks, block => block.isStart);
         Debug.Log(startBlock.transform.position);
         if (startBlock) SetSquadPosition(startBlock.transform.position);
+    }
+
+    private int GetSquadSize()
+    {
+        return squadData.Items.Count;
+    }
+
+    private void InitializeFormation()
+    {
+        Formation.FormationSize = GetSquadSize();
+    }
+    public void InitializeSquad()
+    {
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+
+        // LIs‰t‰‰n hahmot listaan
+        foreach (Character character in characters)
+        {
+            AddCharacter(character);
+        }
+
+        // Asetetaan johtaja
+        foreach (Character character in characters)
+        {
+            if (character.isLeader) ChangeLeader(character);
+        }
     }
 
     public void SetSquadPosition(Vector3 position)
@@ -63,7 +79,10 @@ public class Squad : MonoBehaviour
     // Start is called before the first frame update
     public void AddCharacter(Character character)
     {
+        Debug.Log(squadData.Items.Count);
         squadData.Add(character);
+        Formation.FormationSize += 1;
+        Debug.Log(squadData.Items.Count);
     }
 
     public void RemoveCharacter(Character character)
@@ -140,14 +159,16 @@ public class Squad : MonoBehaviour
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
 
+        Debug.Log("POSITION LENGTH " + positions.Count);
+
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
-
         // lis‰t‰‰n listaan followerit
         foreach (Character character in squadData.Items)
         {
             if (!character.isLeader) followers.Add(character);
         }
+        Debug.Log("FOLLOWERS LENGTH " + followers.Count);
 
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
@@ -165,9 +186,9 @@ public class Squad : MonoBehaviour
         {
             if (i < followers.Count)
             {
-            followers[i].MoveTo(positions[i]);
-            followers[i].RotateTo(GetLeader());
-
+                Debug.Log("FOLLOWER " + followers[i] + " moving to " + positions[i]);
+                followers[i].MoveTo(positions[i]);
+                followers[i].RotateTo(GetLeader());
             }
         }
 
