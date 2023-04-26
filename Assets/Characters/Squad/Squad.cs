@@ -79,10 +79,9 @@ public class Squad : MonoBehaviour
     // Start is called before the first frame update
     public void AddCharacter(Character character)
     {
-        Debug.Log(squadData.Items.Count);
         squadData.Add(character);
         Formation.FormationSize += 1;
-        Debug.Log(squadData.Items.Count);
+        character.gameObject.transform.parent = this.transform; // asetetaan kivasti siell‰ n‰kym‰ss‰ siihen ryhm‰‰n
     }
 
     public void RemoveCharacter(Character character)
