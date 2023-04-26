@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45186287, g: 0.43797323, b: 0.45707774, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 135109610}
   - component: {fileID: 135109609}
   m_Layer: 0
-  m_Name: EnemySpawner3 (1)
+  m_Name: EnemySpawnerDOWN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,8 +634,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 0
-  zPosition: -30
-  spawnTime: 8
+  zPosition: -60
+  spawnTime: 10
+  spawnTimeReduce: 25
+  horizontalRandom: 20
+  verticalRandom: 10
 --- !u!135 &135109610
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1503,7 +1506,7 @@ GameObject:
   - component: {fileID: 482021190}
   - component: {fileID: 482021189}
   m_Layer: 0
-  m_Name: EnemySpawner (1)
+  m_Name: EnemySpawnerRIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1522,9 +1525,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
-  xPosition: 46.3
+  xPosition: 60
   zPosition: 0
-  spawnTime: 8
+  spawnTime: 10
+  spawnTimeReduce: 25
+  horizontalRandom: 10
+  verticalRandom: 20
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4787,7 +4793,7 @@ GameObject:
   - component: {fileID: 1564217614}
   - component: {fileID: 1564217613}
   m_Layer: 0
-  m_Name: EnemySpawner3
+  m_Name: EnemySpawnerUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4807,8 +4813,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 0
-  zPosition: 30
-  spawnTime: 8
+  zPosition: 60
+  spawnTime: 10
+  spawnTimeReduce: 25
+  horizontalRandom: 20
+  verticalRandom: 10
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6154,7 +6163,7 @@ GameObject:
   - component: {fileID: 1957752059}
   - component: {fileID: 1957752058}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawnerLEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6173,9 +6182,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
-  xPosition: -45.12
+  xPosition: -60
   zPosition: 0
-  spawnTime: 8
+  spawnTime: 10
+  spawnTimeReduce: 25
+  horizontalRandom: 10
+  verticalRandom: 20
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
