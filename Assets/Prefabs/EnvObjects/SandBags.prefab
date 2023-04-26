@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 339179420958679231}
   m_Layer: 2
   m_Name: SandBags
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,13 +96,25 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1082115014703801764, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6621774659421020652, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269127043533976719, guid: 2c0e3bd23a113014b927108d66845008, type: 3}
+      propertyPath: m_TagString
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
