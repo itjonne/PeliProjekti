@@ -24,12 +24,20 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
-        _input = GetComponent<InputHandler>();
-        squadData.Items.Clear(); // tyhjennet‰‰n eka
-        Formation.Spread = 3f;
+        if (GameObject.FindObjectsOfType<Squad>().Length > 1)
+        {
+            Debug.Log("SIELLƒ OLI JO SQUADI");
+        } else
+        {
+            DontDestroyOnLoad(this); // T‰‰ saattaa pit‰‰ 
 
-        InitializeSquad();
-        InitializeFormation();        
+            _input = GetComponent<InputHandler>();
+            squadData.Items.Clear(); // tyhjennet‰‰n eka
+            Formation.Spread = 3f;
+
+            InitializeSquad();
+            InitializeFormation();        
+        }
     }
 
     public void Start()
@@ -52,8 +60,17 @@ public class Squad : MonoBehaviour
     }
     public void InitializeSquad()
     {
-        Character[] characters = GameObject.FindObjectsOfType<Character>();
-
+        List<Character> characters = new List<Character>();
+        if (squadData.Items.Count > 0)
+        {
+            foreach(Character character in squadData.Items)
+            {
+                characters.Add(character);
+            }
+        } else
+        {
+            characters.AddRange(GameObject.FindObjectsOfType<Character>());
+        }
         // LIs‰t‰‰n hahmot listaan
         foreach (Character character in characters)
         {
@@ -79,10 +96,9 @@ public class Squad : MonoBehaviour
     // Start is called before the first frame update
     public void AddCharacter(Character character)
     {
-        Debug.Log(squadData.Items.Count);
         squadData.Add(character);
         Formation.FormationSize += 1;
-        Debug.Log(squadData.Items.Count);
+        character.gameObject.transform.parent = this.transform; // asetetaan kivasti siell‰ n‰kym‰ss‰ siihen ryhm‰‰n
     }
 
     public void RemoveCharacter(Character character)
@@ -124,10 +140,13 @@ public class Squad : MonoBehaviour
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
+            // Jos kaikki kuolee
             if (squadData.Items.Count == 0)
             {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
+                EndGame(); // T‰h‰n vois laittaa sit mainmenun
+                // Destroy(this.gameObject);
+                // Scene scene = SceneManager.GetActiveScene();
+                // SceneManager.LoadScene(scene.name);
             }
             squadData.Items[0].isLeader = true;
             return squadData.Items[0];
@@ -136,6 +155,11 @@ public class Squad : MonoBehaviour
         return leader;
     }
 
+    private void EndGame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
 
     // Typer‰sti tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
     private void Update()

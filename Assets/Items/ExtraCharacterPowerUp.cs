@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ExtraCharacterPowerUp : PowerUp
 {
-    [SerializeField] private Character newCharacter;
+    [SerializeField] private GameObject characterPrefab;
     // Start is called before the first frame update
     public override void GivePowerUp(Character character)
     {
-        character.isLeader = false; // varmuuden vuoks pakotetaan
         Squad squad = character.GetComponentInParent<Squad>();
-        Instantiate(character, transform.position, Quaternion.identity);
-        squad.AddCharacter(newCharacter);
+        GameObject newCharacter = Instantiate(characterPrefab, transform.position, Quaternion.identity);
+        newCharacter.GetComponent<Character>().isLeader = false; // varmuuden vuoks pakotetaan       
+        squad.AddCharacter(newCharacter.GetComponent<Character>());
+
     }
     private void OnCollisionEnter(Collision collision)
     {
