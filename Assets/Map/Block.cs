@@ -7,13 +7,13 @@ public class Block : MonoBehaviour
     // N‰it‰ vois sit t‰st‰ vaan randomisoida
     public GameObject[] environmentObjects; // Puut jne.
     private List<GameObject> generatedObjects = new List<GameObject>();
-    [Range(0, 100)] public float environmentDensity;
+    [Range(0, 25)] public float environmentDensity;
 
     public GameObject[] helperObjects; // Healthit jne.
-    [Range(0, 100)] public float helperDensity;
+    [Range(0, 25)] public float helperDensity;
 
     public GameObject[] enemyObjects; // Vihut
-    [Range(0, 100)] public float enemyDensity;
+    [Range(0, 25)] public float enemyDensity;
 
     public GameObject endObject;
     public GameObject startObject;
@@ -46,7 +46,7 @@ public class Block : MonoBehaviour
             int amount = (int)Random.Range(0, environmentDensity * width / 10); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
+                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));  
                 Debug.Log(width + " " + height);
                 Debug.Log(Random.Range(-width / 2, width / 2));
 
@@ -63,7 +63,7 @@ public class Block : MonoBehaviour
             int amount = (int)Random.Range(0, helperDensity * width / 10); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));
+                Vector3 randomPosition = new Vector3(Random.Range(-width / 10, width / 10), 0, Random.Range(-height / 10, height / 10));
                
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
                 generatedObjects.Add(newObject);
