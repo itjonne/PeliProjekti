@@ -260,9 +260,9 @@ public class Squad : MonoBehaviour
         {
             GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan väriä
             GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
-            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
-            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
-            GUI.Label(new Rect(10, 70 + (i * 60), 100, 20), "Grenade: " + grenadeAmount.ToString());
+            GUI.Label(new Rect(10, 25 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
+            GUI.Label(new Rect(10, 40 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10, 55 + (i * 60), 100, 20), "Grenade: " + grenadeAmount.ToString());
         }
 
     }

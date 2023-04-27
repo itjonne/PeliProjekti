@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1225661083871058276}
   - component: {fileID: 3620276550110217703}
-  - component: {fileID: 4343344464205248609}
+  - component: {fileID: 5245694615778345762}
   m_Layer: 0
   m_Name: GrenadeBoxPreFab
   m_TagString: Untagged
@@ -48,7 +48,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4030112, y: 1.2951653, z: 1.7079676}
   m_Center: {x: 0.00074774027, y: 0.6638304, z: -0.1835689}
---- !u!114 &4343344464205248609
+--- !u!114 &5245694615778345762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7678751797710310294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7741100de96e88441b58df9b98cb6f6d, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e857c0aa04f874bbc8df76494c4565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7915013587872650543
