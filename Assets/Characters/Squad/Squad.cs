@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    [SerializeField] public int grenadeAmount = 3;
     private InputHandler _input;
     private Formation _formation;
     private List<Vector3> positions;
@@ -254,6 +255,7 @@ public class Squad : MonoBehaviour
             GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
             GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
             GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10, 70 + (i * 60), 100, 20), "Grenade: " + grenadeAmount.ToString());
         }
 
     }
