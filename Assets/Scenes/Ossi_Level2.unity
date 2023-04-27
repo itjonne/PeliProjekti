@@ -407,7 +407,7 @@ MonoBehaviour:
   spawnTime: 8
   spawnTimeReduce: 30
   horizontalRandom: 0
-  verticalRandom: 0
+  verticalRandom: 30
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   zPosition: 44.1
   spawnTime: 8
   spawnTimeReduce: 30
-  horizontalRandom: 0
+  horizontalRandom: 30
   verticalRandom: 0
 --- !u!135 &1564217614
 SphereCollider:
@@ -1368,7 +1368,7 @@ MonoBehaviour:
   spawnTime: 8
   spawnTimeReduce: 30
   horizontalRandom: 0
-  verticalRandom: 0
+  verticalRandom: 30
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   zPosition: -55
   spawnTime: 8
   spawnTimeReduce: 30
-  horizontalRandom: 0
+  horizontalRandom: 30
   verticalRandom: 0
 --- !u!135 &2114744585
 SphereCollider:

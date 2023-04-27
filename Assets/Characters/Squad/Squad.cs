@@ -13,6 +13,8 @@ public class Squad : MonoBehaviour
     private List<Vector3> positions;
     private Camera camera;
 
+    GUIStyle largeFont;
+
     private Vector3 leaderLastPos;
     public Formation Formation
     {
@@ -52,6 +54,10 @@ public class Squad : MonoBehaviour
         Debug.Log(startBlock.transform.position);
         if (startBlock) SetSquadPosition(startBlock.transform.position);
         */
+
+        largeFont = new GUIStyle();
+        largeFont.fontSize = 16;
+        largeFont.normal.textColor = Color.white;
     }
 
     private int GetSquadSize()
@@ -262,8 +268,11 @@ public class Squad : MonoBehaviour
             GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
             GUI.Label(new Rect(10, 25 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
             GUI.Label(new Rect(10, 40 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
-            GUI.Label(new Rect(10, 55 + (i * 60), 100, 20), "Grenade: " + grenadeAmount.ToString());
+            
         }
 
+        GUI.contentColor = Color.white;
+        
+        GUI.Label(new Rect(100, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
     }
 }
