@@ -234,7 +234,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1910699744142765917, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
   xPosition: 0
   zPosition: -40
-  spawnTime: 8
+  spawnTime: 7
   spawnTimeReduce: 20
   horizontalRandom: 25
   verticalRandom: 5
@@ -833,7 +833,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 46.3
   zPosition: 0
-  spawnTime: 8
+  spawnTime: 7
   spawnTimeReduce: 20
   horizontalRandom: 5
   verticalRandom: 25
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1910699744142765917, guid: b7686d7703801c642938a76dcf2960c4, type: 3}
   xPosition: 0
   zPosition: 45.07
-  spawnTime: 8
+  spawnTime: 7
   spawnTimeReduce: 20
   horizontalRandom: 25
   verticalRandom: 5
@@ -2335,7 +2335,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
   xPosition: -45
   zPosition: 0
-  spawnTime: 8
+  spawnTime: 7
   spawnTimeReduce: 20
   horizontalRandom: 5
   verticalRandom: 25
