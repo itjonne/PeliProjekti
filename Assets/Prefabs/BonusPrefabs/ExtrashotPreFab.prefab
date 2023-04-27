@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3620276550110217703}
   - component: {fileID: 4343344464205248609}
   m_Layer: 0
-  m_Name: BonusBoxPreFab
+  m_Name: ExtrashotPreFab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
