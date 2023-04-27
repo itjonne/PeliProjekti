@@ -6,6 +6,9 @@ public class GrenadeThrower : MonoBehaviour
 {
     [SerializeField] public float throwForce;
     [SerializeField] private Transform Hand;
+    private Squad squad;
+
+    private int grenadeAmount = 0;
     public GameObject grenadePrefab;
     public Vector3 gravity;
 
@@ -26,12 +29,19 @@ public class GrenadeThrower : MonoBehaviour
 
 
         gravity = Physics.gravity;
+        squad = GetComponentInParent<Squad>();
+        if (squad != null)
+        {
+
+            grenadeAmount = GetComponentInParent<Squad>().grenadeAmount;
+            Debug.Log(grenadeAmount);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
      
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -52,6 +62,7 @@ public class GrenadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
+        if (squad.grenadeAmount <= 0) return; 
         //KRANU LENTÄÄ HIIREN KOHDALLE MUTTA EI VOI LENTÄÄ 20 UNITTIA KAUEMMAKSI
         if (throwDistance < 20)
         { 
@@ -69,7 +80,7 @@ public class GrenadeThrower : MonoBehaviour
             rb.AddForce(transform.up * 20 * 0.7f, ForceMode.Impulse);
         }
 
-
+        squad.grenadeAmount -= 1;
     }
 
 
