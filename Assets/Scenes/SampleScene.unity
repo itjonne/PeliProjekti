@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45186174, g: 0.43797246, b: 0.45707703, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156914, g: 0.42806652, b: 0.45680422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49b4fe35424c734cbc98b2b09307418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCharacter: {fileID: 4615767976204734834, guid: 73b8775aca4e10440b18b01dce7470c3, type: 3}
+  characterPrefab: {fileID: 7652646214253871609, guid: 73b8775aca4e10440b18b01dce7470c3, type: 3}
 --- !u!136 &238069448
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -517,6 +517,9 @@ MonoBehaviour:
   xPosition: 46.3
   zPosition: 0
   spawnTime: 5
+  spawnTimeReduce: 0
+  horizontalRandom: 0
+  verticalRandom: 0
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1323,6 +1326,9 @@ MonoBehaviour:
   xPosition: 0
   zPosition: 44.1
   spawnTime: 5
+  spawnTimeReduce: 0
+  horizontalRandom: 0
+  verticalRandom: 0
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1604,6 +1610,9 @@ MonoBehaviour:
   xPosition: -45.12
   zPosition: 0
   spawnTime: 5
+  spawnTimeReduce: 0
+  horizontalRandom: 0
+  verticalRandom: 0
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0

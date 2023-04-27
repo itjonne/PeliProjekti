@@ -44,8 +44,14 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
-        Debug.Log("MOVING TO " + position);    
+ 
         transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    // T‰‰ vois olla hiiri
+    public override void RotateTowards(Vector3 point)
+    {
+        transform.LookAt(point);
     }
 
     public override void RotateTo(Character target)

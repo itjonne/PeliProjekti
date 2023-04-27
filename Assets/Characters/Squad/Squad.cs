@@ -10,6 +10,7 @@ public class Squad : MonoBehaviour
     private InputHandler _input;
     private Formation _formation;
     private List<Vector3> positions;
+    private Camera camera;
 
     private Vector3 leaderLastPos;
     public Formation Formation
@@ -42,11 +43,14 @@ public class Squad : MonoBehaviour
 
     public void Start()
     {
+        camera = GameObject.FindObjectOfType<Camera>();
+        /*
         // Laitetaan squadi oikeeseen paikkaan
         Block[] blocks = FindObjectsOfType<Block>();
         Block startBlock = Array.Find(blocks, block => block.isStart);
         Debug.Log(startBlock.transform.position);
         if (startBlock) SetSquadPosition(startBlock.transform.position);
+        */
     }
 
     private int GetSquadSize()
@@ -183,7 +187,7 @@ public class Squad : MonoBehaviour
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
 
-        Debug.Log("POSITION LENGTH " + positions.Count);
+
 
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
@@ -192,7 +196,7 @@ public class Squad : MonoBehaviour
         {
             if (!character.isLeader) followers.Add(character);
         }
-        Debug.Log("FOLLOWERS LENGTH " + followers.Count);
+
 
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
@@ -210,9 +214,19 @@ public class Squad : MonoBehaviour
         {
             if (i < followers.Count)
             {
-                Debug.Log("FOLLOWER " + followers[i] + " moving to " + positions[i]);
+
                 followers[i].MoveTo(positions[i]);
-                followers[i].RotateTo(GetLeader());
+
+                Ray ray = camera.ScreenPointToRay(_input.MousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
+                {
+                    var target = hitInfo.point;
+                    target.y = followers[i].transform.position.y;
+                    followers[i].transform.LookAt(target);
+                }
+                //followers[i].RotateTowards(screenPos);
+                //followers[i].RotateTo(GetLeader());
             }
         }
 
