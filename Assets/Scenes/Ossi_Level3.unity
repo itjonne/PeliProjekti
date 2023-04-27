@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndPrefab: {fileID: 3574224964312424731, guid: 50d90339fca967344929833c15e0cdf9, type: 3}
-  spawnTime: 100
+  spawnTime: 105
 --- !u!1 &1341160687
 GameObject:
   m_ObjectHideFlags: 0
