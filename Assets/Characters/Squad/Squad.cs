@@ -168,6 +168,13 @@ public class Squad : MonoBehaviour
     // Typerästi tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
     private void Update()
     {
+        //Squadi pysyy mutta kameraa luodaan uusiksi TODO turha tehdä joka framella
+        if (camera == null)
+
+        {
+            camera = GameObject.FindObjectOfType<Camera>();
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             int leaderIndex = squadData.Items.IndexOf(GetLeader());
