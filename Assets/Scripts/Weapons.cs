@@ -107,10 +107,10 @@ public class Weapons : MonoBehaviour
                         Vector3 bulletAngleVector;
 
                         // Tässä kokeillaan saada parillinen spreadi toimimaan'
-                        if (bulletsToShoot == 1) bulletAngleVector = new Vector3(0, 0, 0);
 
                         // Annetaan tollasta omatekosta anglea kaikelle
-                        bulletAngleVector = CalculateBulletAngle(i);
+                        bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
+            
 
 
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
