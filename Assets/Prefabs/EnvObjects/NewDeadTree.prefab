@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8337904238329756786}
   m_Layer: 2
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07834406, y: 0.07766943, z: 1.1816696}
-  m_Center: {x: 0.02052826, y: -0.0025104014, z: -0.090834334}
+  m_Size: {x: 0.118757136, y: 0.09138272, z: 1.1816696}
+  m_Center: {x: 0.008449709, y: 0.004346241, z: -0.090834334}
 --- !u!1 &7347777086382128603
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 7019904185438841982}
   m_Layer: 2
   m_Name: NewDeadTree
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

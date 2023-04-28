@@ -10,11 +10,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float zPosition;
 
     [SerializeField] private float spawnTime;
+    [SerializeField] private float spawnTimeReduce;
+    [SerializeField] private float horizontalRandom;
+    [SerializeField] private float verticalRandom;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(SpawnEnemy());
+
+        StartCoroutine(SpawnTimerReduce());
     }
 
     private void Update()
@@ -33,9 +39,23 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     IEnumerator SpawnEnemy()
     {
+
         yield return new WaitForSeconds(spawnTime); //We wait here to pause between wave spawning
         Debug.Log("SPAWING");
-        Instantiate(enemyPrefab, transform.position, enemyPrefab.transform.rotation);
+        var randomposition = new Vector3(Random.Range(-horizontalRandom, horizontalRandom), 0, Random.Range(-verticalRandom, verticalRandom));  // Vihut syntyvät random etäisyydelle spawnerista
+        Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
         StartCoroutine(SpawnEnemy());
+    }
+
+    IEnumerator SpawnTimerReduce()   // Kuinka kauan kestää että spawnaus-aika pienenee yhdellä. pienin mahd. aikaväli 2 sekuntia
+    {
+        yield return new WaitForSeconds(spawnTimeReduce);
+        spawnTime--;
+        if (spawnTime > 2)
+        {
+            
+            StartCoroutine(SpawnTimerReduce());
+        }
+     
     }
 }

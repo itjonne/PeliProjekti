@@ -7,10 +7,21 @@ public class MapManager : MonoBehaviour
     public bool Endable;
     public int MapSize; // tälle 
     public GameObject[] blocks;
+    private Vector3 startPosition;
     // Start is called before the first frame update
     void Awake()
     {
         GenerateMap(MapSize); // Tekee  mapin
+    }
+
+    private void Start()
+    {
+        // Laitetaan squadi startblockille
+        Squad squad = FindObjectOfType<Squad>();
+        if (squad != null)
+        {
+            if (startPosition != null) squad.SetSquadPosition(startPosition);
+        }
     }
 
     // Update is called once per frame
@@ -21,11 +32,12 @@ public class MapManager : MonoBehaviour
 
     public void GenerateMap(int size)
     {
-        float tileWidth = 50f;
+        float tileWidth = 25f; //VAIHDETTU 50 -> 25
         int startBlock = 0;
         // Vikalla rivillä
         int endBlock = Random.Range((size * size) - size + 1, size * size);
         int blockNum = 0;
+
 
         // Rullataan tässä se "pelilauta", eka akseli
         for (int i = 0; i < size; i++)
@@ -42,7 +54,8 @@ public class MapManager : MonoBehaviour
                 // Jos palikka on alkupalikka, tällä hetkellä aina palikka numero 0
                 if (blockNum == startBlock)
                 {
-                    block.GetComponent<Block>().isStart = true;          
+                    block.GetComponent<Block>().isStart = true;
+                    startPosition = position;
                 }
                 // Loppupalikka, otetaan randomilla tällä hetkellä vikalta riviltä
                 if (blockNum == endBlock && Endable == true)

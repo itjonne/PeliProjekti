@@ -22,6 +22,11 @@ public class Animation_Soldier : MonoBehaviour
 	float FlashRate;
 	bool canFlash = true;
 
+	//Muuttujat SmoothDamp Delaysystemille
+	private float smoothTime = 1f;
+	private float yVelocity = 0.0F;
+	private float currWeight;
+
 	GUIStyle myStyle = new GUIStyle(); 
 
 	// Start is called before the first frame update
@@ -34,6 +39,8 @@ public class Animation_Soldier : MonoBehaviour
 		muzzle = GetComponentInChildren<ParticleSystem>();
 		var main = muzzle.main;
 		main.duration = 0.25f;  //TÄHÄN PITÄISI SAADA HAETTUA HAHMON ASEESTA FIRERATE 
+
+		
 
 	}
 
@@ -53,6 +60,8 @@ public class Animation_Soldier : MonoBehaviour
 
 	void Update()
 	{
+		currWeight = animator.GetLayerWeight(1);
+
 
 		RaycastHit hit; 
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -129,10 +138,9 @@ public class Animation_Soldier : MonoBehaviour
 		if (Input.GetMouseButton(0) && ammoLeft > 0)
 		{
 
-	
 			animator.SetBool("Shoot", true);
-
-			animator.SetLayerWeight(1, 1f);
+			
+			animator.SetLayerWeight(1, 1);
 
 
 			// TÄLLÄ RIMPSULLA SUULIEKKI TULEE SILLÄ NOPEUDELLA MILLÄ SE ON MÄÄRITELTY PARTICLE SYSTEEMISSÄ	
@@ -155,8 +163,11 @@ public class Animation_Soldier : MonoBehaviour
 			canFlash = true;
 			animator.SetBool("Shoot", false);
 			muzzle.Stop();
-			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
-			animator.SetLayerWeight(1, 0f);
+
+			//Delay systeemi
+			float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.1f);
+			//float endWeight = Mathf.Lerp(currWeight, 0.0f, smoothTime); //Lerp olisi tähän varmaan parempi mutta ei toimi jostain syystä
+			animator.SetLayerWeight(1, endWeight);
 			
 		}
 
@@ -165,8 +176,12 @@ public class Animation_Soldier : MonoBehaviour
 			canFlash = true;
 			animator.SetBool("Shoot", false);
 			muzzle.Stop();
-			//TÄHÄN PITÄÄ SAADA 0.1 SEK DELAY
-			animator.SetLayerWeight(1, 0f);
+
+		
+			float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.1f);
+			//float endWeight = Mathf.Lerp(currWeight, 0.0f, smoothTime);
+			animator.SetLayerWeight(1, endWeight);
+
 
 		}
 
@@ -174,6 +189,13 @@ public class Animation_Soldier : MonoBehaviour
 		
 
 	}
+
+
+
+	public void OnDeath()
+    {
+		Debug.Log("KUOLEMA ANIMAATIO");
+    }
 
 	/*
     private void OnGUI()
