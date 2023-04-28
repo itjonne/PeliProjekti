@@ -14,10 +14,11 @@ public class Blade : MonoBehaviour
             //Aiheuta pelaajalle vahinkoa, jos pelaaja on tarpeeksi lähellä
             if(Vector3.Distance(transform.position, other.transform.position) <= attackDistance)
             {
-                other.GetComponent<Character>().health -= damage;
+                other.GetComponent<PlayableCharacter>().TakeDamage(damage);
             }
         }
     }
+    
    
 
 }
