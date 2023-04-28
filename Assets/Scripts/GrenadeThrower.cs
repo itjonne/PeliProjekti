@@ -4,64 +4,95 @@ using UnityEngine;
 
 public class GrenadeThrower : MonoBehaviour
 {
-    [SerializeField] public float force;
+    [SerializeField] public float throwForce;
     [SerializeField] private Transform Hand;
+    private Squad squad;
+
+    private int grenadeAmount = 0;
     public GameObject grenadePrefab;
-    public float gravity = 9.81f;
+    public Vector3 gravity;
 
-    public float angle = 45f; //Heittokulma
-    private Vector3 initialVelocity; //Alkuperäinen nopeus
-    private bool thrown = false; //Onko pallo heitetty
 
+
+    Vector3 playerToMouse;
+    Vector3 mouseLocation;
+
+    float throwDistance;
+
+    GUIStyle myStyle = new GUIStyle();
+
+    private void Start()
+    {
+
+        myStyle.fontSize = 16;
+		myStyle.normal.textColor = Color.cyan;
+
+
+        gravity = Physics.gravity;
+        squad = GetComponentInParent<Squad>();
+        if (squad != null)
+        {
+
+            grenadeAmount = GetComponentInParent<Squad>().grenadeAmount;
+            Debug.Log(grenadeAmount);
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetMouseButtonDown(1))
+        
+     
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            mouseLocation = hit.point;
+
+        }
+
+            throwDistance = Vector3.Distance(mouseLocation, transform.position);      
+
+        if (Input.GetMouseButtonDown(1))
         {
             Vector3 target = Input.mousePosition;
-            //ThrowGrenade();
-        }*/
-        if (Input.GetMouseButton(1) && !thrown)
-        {
-            // Laske heittosuunta hiiren kohdan ja pallon sijainnin perusteella
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Vector3 target = hit.point;
-                Vector3 direction = target - transform.position;
-                direction.y = 0;
-                direction = direction.normalized;
-
-
-                //Laske alkuperäinen nopeus
-                float distance = Vector3.Distance(transform.position, target);
-                float height = transform.position.y - hit.point.y;
-                initialVelocity = CalculateLauchVelocity(distance, height, angle, gravity);
-                ThrowGrenade();
-
-            }
-
+            ThrowGrenade();
         }
     }
 
-    //Laske alkuperäinen nopeus heiton kulman, etäisyyden ja korkeuden perusteella
-    private Vector3 CalculateLauchVelocity(float distance, float height, float angle, float gravity)
-    {
-        float radianAngle = angle * Mathf.Deg2Rad;
-        float x = Mathf.Sqrt(distance / (Mathf.Sin(2 * radianAngle) / gravity));
-        float y = x * Mathf.Tan(radianAngle);
-        float z = x * Mathf.Cos(radianAngle);
-        float time = Mathf.Sqrt(2 * (y + height) / gravity);
-        Vector3 velocity = new Vector3(z, y, x);
-        return velocity / time;
-    }
     void ThrowGrenade()
     {
-        GameObject grenade = Instantiate(grenadePrefab, Hand.position, transform.rotation);
-        Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        // rb.AddForce(transform.forward * force, ForceMode.VelocityChange);
-        rb.velocity = initialVelocity;
-        thrown = true;
+        if (squad.grenadeAmount <= 0) return; 
+        //KRANU LENTÄÄ HIIREN KOHDALLE MUTTA EI VOI LENTÄÄ 20 UNITTIA KAUEMMAKSI
+        if (throwDistance < 20)
+        { 
+            GameObject grenade = Instantiate(grenadePrefab, Hand.position, transform.rotation);
+            Rigidbody rb = grenade.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * throwDistance * 1.15f, ForceMode.Impulse);
+            rb.AddForce(transform.up * throwDistance * 0.7f, ForceMode.Impulse);
+        }
+
+        else
+        {
+            GameObject grenade = Instantiate(grenadePrefab, Hand.position, transform.rotation);
+            Rigidbody rb = grenade.GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * 20 * 1.15f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 20 * 0.7f, ForceMode.Impulse);
+        }
+
+        squad.grenadeAmount -= 1;
     }
-} 
+
+
+    // HIIREN ETÄISYYDEN Debuggaukseen
+    /*
+    private void OnGUI()
+    {
+        if (gameObject.name == "SOLDIER_full")
+        {
+            GUI.Label(new Rect(300, 10, 100, 20), "distance: " + throwDistance, myStyle);
+          
+        }
+    }
+    */
+}

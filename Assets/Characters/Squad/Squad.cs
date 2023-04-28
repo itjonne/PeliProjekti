@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    [SerializeField] public int grenadeAmount = 3;
     private InputHandler _input;
     private Formation _formation;
     private List<Vector3> positions;
+    private Camera camera;
 
     private Vector3 leaderLastPos;
     public Formation Formation
@@ -24,31 +26,67 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
-        _input = GetComponent<InputHandler>();
-        squadData.Items.Clear(); // tyhjennet‰‰n eka
-        Formation.Spread = 3f;
+        if (GameObject.FindObjectsOfType<Squad>().Length > 1)
+        {
+            Debug.Log("SIELLƒ OLI JO SQUADI");
+        } else
+        {
+            DontDestroyOnLoad(this); // T‰‰ saattaa pit‰‰ 
 
-        Character[] characters = GameObject.FindObjectsOfType<Character>();
-        foreach (Character character in characters)
-        {
-            Debug.Log(character);
-            AddCharacter(character);
+            _input = GetComponent<InputHandler>();
+            squadData.Items.Clear(); // tyhjennet‰‰n eka
+            Formation.Spread = 3f;
+
+            InitializeSquad();
+            InitializeFormation();        
         }
-        Formation.FormationSize = characters.Length - 1;
-        foreach(Character character in characters)
-        {
-            if (character.isLeader) ChangeLeader(character);
-        }
-        
     }
 
     public void Start()
     {
+        camera = GameObject.FindObjectOfType<Camera>();
+        /*
         // Laitetaan squadi oikeeseen paikkaan
         Block[] blocks = FindObjectsOfType<Block>();
         Block startBlock = Array.Find(blocks, block => block.isStart);
         Debug.Log(startBlock.transform.position);
         if (startBlock) SetSquadPosition(startBlock.transform.position);
+        */
+    }
+
+    private int GetSquadSize()
+    {
+        return squadData.Items.Count;
+    }
+
+    private void InitializeFormation()
+    {
+        Formation.FormationSize = GetSquadSize();
+    }
+    public void InitializeSquad()
+    {
+        List<Character> characters = new List<Character>();
+        if (squadData.Items.Count > 0)
+        {
+            foreach(Character character in squadData.Items)
+            {
+                characters.Add(character);
+            }
+        } else
+        {
+            characters.AddRange(GameObject.FindObjectsOfType<Character>());
+        }
+        // LIs‰t‰‰n hahmot listaan
+        foreach (Character character in characters)
+        {
+            AddCharacter(character);
+        }
+
+        // Asetetaan johtaja
+        foreach (Character character in characters)
+        {
+            if (character.isLeader) ChangeLeader(character);
+        }
     }
 
     public void SetSquadPosition(Vector3 position)
@@ -64,6 +102,8 @@ public class Squad : MonoBehaviour
     public void AddCharacter(Character character)
     {
         squadData.Add(character);
+        Formation.FormationSize += 1;
+        character.gameObject.transform.parent = this.transform; // asetetaan kivasti siell‰ n‰kym‰ss‰ siihen ryhm‰‰n
     }
 
     public void RemoveCharacter(Character character)
@@ -105,10 +145,13 @@ public class Squad : MonoBehaviour
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
+            // Jos kaikki kuolee
             if (squadData.Items.Count == 0)
             {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
+                EndGame(); // T‰h‰n vois laittaa sit mainmenun
+                // Destroy(this.gameObject);
+                // Scene scene = SceneManager.GetActiveScene();
+                // SceneManager.LoadScene(scene.name);
             }
             squadData.Items[0].isLeader = true;
             return squadData.Items[0];
@@ -117,6 +160,11 @@ public class Squad : MonoBehaviour
         return leader;
     }
 
+    private void EndGame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
 
     // Typer‰sti tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
     private void Update()
@@ -140,14 +188,16 @@ public class Squad : MonoBehaviour
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
 
+
+
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
-
         // lis‰t‰‰n listaan followerit
         foreach (Character character in squadData.Items)
         {
             if (!character.isLeader) followers.Add(character);
         }
+
 
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
@@ -165,9 +215,19 @@ public class Squad : MonoBehaviour
         {
             if (i < followers.Count)
             {
-            followers[i].MoveTo(positions[i]);
-            followers[i].RotateTo(GetLeader());
 
+                followers[i].MoveTo(positions[i]);
+
+                Ray ray = camera.ScreenPointToRay(_input.MousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
+                {
+                    var target = hitInfo.point;
+                    target.y = followers[i].transform.position.y;
+                    followers[i].transform.LookAt(target);
+                }
+                //followers[i].RotateTowards(screenPos);
+                //followers[i].RotateTo(GetLeader());
             }
         }
 
@@ -192,9 +252,10 @@ public class Squad : MonoBehaviour
         for (int i = 0; i < squadData.Items.Count; i++)
         {
             GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan v‰ri‰
-            GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
-            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
-            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10 , 10 + (i * 80), 100, 20), squadData.Items[i].Name);
+            GUI.Label(new Rect(10, 30 + (i * 80), 100, 20), "Health: " + squadData.Items[i].health.ToString());
+            GUI.Label(new Rect(10, 50 + (i * 80), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10, 70 + (i * 80), 100, 20), "Grenade: " + grenadeAmount.ToString());
         }
 
     }
