@@ -69,6 +69,7 @@ public class PlayableCharacter : Character
     {
         if (other.GetComponent<DamageDealer>())
         {
+            Debug.Log("NYT OSU PUUKKO / PANOS");
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
@@ -91,13 +92,14 @@ public class PlayableCharacter : Character
         }
 
         if (collision.gameObject.tag == "Enemy") {
-            TakeDamage(10);
+            // TakeDamage(10);
             
          }
 
         if (collision.gameObject.GetComponent<DamageDealer>() != null)
         {
-            Debug.Log("Nyt osu ammus");
+            float damageAmount = collision.gameObject.GetComponent<DamageDealer>().damage;
+            TakeDamage(damageAmount);
         }
     }
 

@@ -72,8 +72,10 @@ public class MeleeEnemy : Enemy
         if (target != null)
         {
             CalculateDistanceFromTarget(target);
+            // Kun ei viel‰ pystyt‰ lyˆd‰, juostaan kohti pelaajaa
             if (distanceFromTarget > attackDistance)
             {
+                transform.LookAt(target.transform.position);
                 animator.SetBool(attackTriggerName, false);
                 MoveTo(target.transform.position);
             }
@@ -83,6 +85,7 @@ public class MeleeEnemy : Enemy
                 if (timeSinceLastAttack >= attackRate)
                 {
                     animator.SetBool(attackTriggerName, true);
+                    Attack();
                     timeSinceLastAttack = 0;
                 }
             }
@@ -97,22 +100,20 @@ public class MeleeEnemy : Enemy
 
     private void Attack()
     {
+        Debug.Log("ATTACKING");
         if (target != null && distanceFromTarget <= attackDistance)
-        {
+        {         
+            // Vector3 direction = target.transform.position - transform.position;
             // Luodaan veitsi
             GameObject knife = Instantiate(bladePrefab, transform.position, Quaternion.identity);
-
+            knife.GetComponent<Rigidbody>().velocity = transform.forward * 4f; // TODO ampuu kohti maata
+            Destroy(knife, 0.5f); // tuhotaan 0.5s
+            Debug.Log(knife);
             // Suunnataan veitsi pelaajaa kohti
-            Vector3 direction = target.transform.position - transform.position;
-            knife.transform.rotation = Quaternion.LookRotation(direction);
+            // knife.transform.rotation = Quaternion.LookRotation(direction);
 
             // L‰hetet‰‰n viesti veitselle, jotta se tiet‰‰, kuinka paljon vahinkoa se aiheuttaa ja mill‰ et‰isyydell‰ se osuu
-            Blade blade = knife.GetComponent<Blade>();
-            if (blade != null)
-            {
-                blade.damage = damage;
-                blade.attackDistance = attackDistance;
-            }
+
         }
     }
 
