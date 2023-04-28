@@ -12,21 +12,25 @@ public class SquadMovement : MonoBehaviour
     private float rotateSpeed;
     [SerializeField]
     private bool rotateTowardsMouse;
-
-    [SerializeField]
-    private Camera camera;
+    public Camera camera;
   
 
     private void Start()
     {
         _input = GetComponent<InputHandler>();
         _leader = GetComponent<Squad>().GetLeader().gameObject;
+        camera = GameObject.FindObjectOfType<Camera>();
     }
     
     
     //Update is called once per frame
     private void Update()
     {
+        // TÄä on nyt vaan tällänen paskakasa että saa kameran löytymään scenen vaihdossa. TODO: VAIHDA!
+        if (camera == null)
+        {
+            camera = GameObject.FindObjectOfType<Camera>();
+        }
         _leader = GetComponent<Squad>().GetLeader().gameObject;
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
 

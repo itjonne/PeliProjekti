@@ -44,8 +44,14 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
-        Debug.Log("MOVING TO " + position);    
+ 
         transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    // T‰‰ vois olla hiiri
+    public override void RotateTowards(Vector3 point)
+    {
+        transform.LookAt(point);
     }
 
     public override void RotateTo(Character target)
@@ -63,9 +69,15 @@ public class PlayableCharacter : Character
     {
         if (other.GetComponent<DamageDealer>())
         {
-            health -= other.GetComponent<DamageDealer>().damage;
-            if (health <= 0) Die();
+            float damageAmount = other.GetComponent<DamageDealer>().damage;
+            TakeDamage(damageAmount);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0) Die();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,8 +91,8 @@ public class PlayableCharacter : Character
         }
 
         if (collision.gameObject.tag == "Enemy") {
-            health -= 10f;
-            if (health <= 0) Die();
+            TakeDamage(10);
+            
          }
 
         if (collision.gameObject.GetComponent<DamageDealer>() != null)

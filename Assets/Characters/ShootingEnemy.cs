@@ -93,6 +93,7 @@ public class ShootingEnemy : Enemy
 
     private void Shoot()
     {
+        gameObject.GetComponent<Anim_Enemy1>().OnShoot();
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 5f;
         //ammoLeft--;

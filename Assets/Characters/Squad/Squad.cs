@@ -7,9 +7,13 @@ using UnityEngine.SceneManagement;
 public class Squad : MonoBehaviour
 {
     [SerializeField] private SquadRuntimeSet squadData;
+    [SerializeField] public int grenadeAmount = 3;
     private InputHandler _input;
     private Formation _formation;
     private List<Vector3> positions;
+    private Camera camera;
+
+    GUIStyle largeFont;
 
     private Vector3 leaderLastPos;
     public Formation Formation
@@ -24,21 +28,36 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
-        _input = GetComponent<InputHandler>();
-        squadData.Items.Clear(); // tyhjennet‰‰n eka
-        Formation.Spread = 3f;
+        if (GameObject.FindObjectsOfType<Squad>().Length > 1)
+        {
+            Debug.Log("SIELLƒ OLI JO SQUADI");
+        } else
+        {
+            DontDestroyOnLoad(this); // T‰‰ saattaa pit‰‰ 
 
-        InitializeSquad();
-        InitializeFormation();        
+            _input = GetComponent<InputHandler>();
+            squadData.Items.Clear(); // tyhjennet‰‰n eka
+            Formation.Spread = 3f;
+
+            InitializeSquad();
+            InitializeFormation();        
+        }
     }
 
     public void Start()
     {
+        camera = GameObject.FindObjectOfType<Camera>();
+        /*
         // Laitetaan squadi oikeeseen paikkaan
         Block[] blocks = FindObjectsOfType<Block>();
         Block startBlock = Array.Find(blocks, block => block.isStart);
         Debug.Log(startBlock.transform.position);
         if (startBlock) SetSquadPosition(startBlock.transform.position);
+        */
+
+        largeFont = new GUIStyle();
+        largeFont.fontSize = 16;
+        largeFont.normal.textColor = Color.white;
     }
 
     private int GetSquadSize()
@@ -52,8 +71,17 @@ public class Squad : MonoBehaviour
     }
     public void InitializeSquad()
     {
-        Character[] characters = GameObject.FindObjectsOfType<Character>();
-
+        List<Character> characters = new List<Character>();
+        if (squadData.Items.Count > 0)
+        {
+            foreach(Character character in squadData.Items)
+            {
+                characters.Add(character);
+            }
+        } else
+        {
+            characters.AddRange(GameObject.FindObjectsOfType<Character>());
+        }
         // LIs‰t‰‰n hahmot listaan
         foreach (Character character in characters)
         {
@@ -123,10 +151,13 @@ public class Squad : MonoBehaviour
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
+            // Jos kaikki kuolee
             if (squadData.Items.Count == 0)
             {
-                Scene scene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(scene.name);
+                EndGame(); // T‰h‰n vois laittaa sit mainmenun
+                // Destroy(this.gameObject);
+                // Scene scene = SceneManager.GetActiveScene();
+                // SceneManager.LoadScene(scene.name);
             }
             squadData.Items[0].isLeader = true;
             return squadData.Items[0];
@@ -135,10 +166,22 @@ public class Squad : MonoBehaviour
         return leader;
     }
 
+    private void EndGame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
 
     // Typer‰sti tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
     private void Update()
     {
+        //Squadi pysyy mutta kameraa luodaan uusiksi TODO turha tehd‰ joka framella
+        if (camera == null)
+
+        {
+            camera = GameObject.FindObjectOfType<Camera>();
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             int leaderIndex = squadData.Items.IndexOf(GetLeader());
@@ -158,7 +201,7 @@ public class Squad : MonoBehaviour
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
 
-        Debug.Log("POSITION LENGTH " + positions.Count);
+
 
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
@@ -167,7 +210,7 @@ public class Squad : MonoBehaviour
         {
             if (!character.isLeader) followers.Add(character);
         }
-        Debug.Log("FOLLOWERS LENGTH " + followers.Count);
+
 
         // T‰‰ k‰‰ntˆ teki t‰st‰ v‰h‰n siistimm‰n
         followers.Reverse();
@@ -185,9 +228,19 @@ public class Squad : MonoBehaviour
         {
             if (i < followers.Count)
             {
-                Debug.Log("FOLLOWER " + followers[i] + " moving to " + positions[i]);
+
                 followers[i].MoveTo(positions[i]);
-                followers[i].RotateTo(GetLeader());
+
+                Ray ray = camera.ScreenPointToRay(_input.MousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance: 300f))
+                {
+                    var target = hitInfo.point;
+                    target.y = followers[i].transform.position.y;
+                    followers[i].transform.LookAt(target);
+                }
+                //followers[i].RotateTowards(screenPos);
+                //followers[i].RotateTo(GetLeader());
             }
         }
 
@@ -213,9 +266,13 @@ public class Squad : MonoBehaviour
         {
             GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan v‰ri‰
             GUI.Label(new Rect(10 , 10 + (i * 60), 100, 20), squadData.Items[i].Name);
-            GUI.Label(new Rect(10, 30 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
-            GUI.Label(new Rect(10, 50 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            GUI.Label(new Rect(10, 25 + (i * 60), 100, 20), "Health: " + squadData.Items[i].health.ToString());
+            GUI.Label(new Rect(10, 40 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
+            
         }
 
+        GUI.contentColor = Color.white;
+        
+        GUI.Label(new Rect(100, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
     }
 }
