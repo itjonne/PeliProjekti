@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Anim_Enemy1 : MonoBehaviour
 {
+
+	public ParticleSystem muzzle;
 	public Animator animator;
 	private Vector3 velocity;
 	private Vector3 prevPos;
@@ -14,6 +16,7 @@ public class Anim_Enemy1 : MonoBehaviour
 	// Start is called before the first frame update
 	IEnumerator Start()
 	{
+		muzzle = GetComponentInChildren<ParticleSystem>();
 		animator = GetComponent<Animator>();
 
 		while (true) //Substate machine kuolemille, randomisoi kuolemisanimaatio
@@ -21,6 +24,8 @@ public class Anim_Enemy1 : MonoBehaviour
 			yield return new WaitForSeconds(1);
 			animator.SetInteger("DeathIndex", Random.Range(0, 2));
         }
+
+
 	}
 
 	private void FixedUpdate()
@@ -75,6 +80,14 @@ public class Anim_Enemy1 : MonoBehaviour
 		animator.SetLayerWeight(1, 0);
 		animator.SetTrigger("Death");
 
+	}
+
+	public void OnShoot()
+	{
+	
+		animator.SetLayerWeight(1, 1);
+		animator.SetTrigger("Shoot");
+		muzzle.Play();
 	}
 
 }

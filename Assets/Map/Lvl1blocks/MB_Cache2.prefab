@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3281807713210269241, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: bonusObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1996848126010592949, guid: 6bf15c5f3494ba74f97e0db09eb2e415, type: 3}
     - target: {fileID: 5658898515961080341, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
       propertyPath: m_Name
       value: SandBagDigOut1
