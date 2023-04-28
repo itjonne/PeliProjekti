@@ -751,7 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 15
   Hand: {fileID: 27933809}
-  grenadePrefab: {fileID: 89567936951242346, guid: 61c521ab707130a4e9b192f48207c7d3, type: 3}
+  grenadePrefab: {fileID: 1545045651455222724, guid: 5e04143232616cb43845917e96690cec, type: 3}
   gravity: {x: 0, y: 0, z: 0}
 --- !u!1 &1184889750
 GameObject:
