@@ -11,7 +11,7 @@ public class Anim_Enemy1 : MonoBehaviour
 	private Vector3 prevPos;
 
 
-	private float yVelocity = 0.0F;
+	//private float yVelocity = 0.0F;
 	private float currWeight;
 	// Start is called before the first frame update
 	IEnumerator Start()
@@ -43,7 +43,7 @@ public class Anim_Enemy1 : MonoBehaviour
 		currWeight = animator.GetLayerWeight(1);
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f)
+		if (velocity.magnitude > 0.001f)
 		{
 			animator.SetBool("Walk", true);
 		}

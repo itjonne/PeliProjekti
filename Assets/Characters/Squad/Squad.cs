@@ -168,7 +168,7 @@ public class Squad : MonoBehaviour
 
     private void EndGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+       // UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 

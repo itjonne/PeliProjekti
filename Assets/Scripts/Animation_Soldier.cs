@@ -23,7 +23,7 @@ public class Animation_Soldier : MonoBehaviour
 	bool canFlash = true;
 
 	//Muuttujat SmoothDamp Delaysystemille
-	private float smoothTime = 1f;
+	//private float smoothTime = 1f;
 	private float yVelocity = 0.0F;
 	private float currWeight;
 
@@ -87,7 +87,7 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f && directionToMouse > 0.5f)
+		if (velocity.magnitude > 0.001f && directionToMouse > 0.5f)
 		{
 			animator.SetBool("Walk", true);
 			animator.SetBool("BackWalk", false);
@@ -95,7 +95,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse < -0.5f)
+		else if (velocity.magnitude > 0.001f && directionToMouse < -0.5f)
 
 		{
 			animator.SetBool("Walk", false);
@@ -104,7 +104,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse_x > 0.8f && directionToMouse != 0)
+		else if (velocity.magnitude > 0.001f && directionToMouse_x > 0.8f && directionToMouse != 0)
 
 		{
 			animator.SetBool("Walk", false);
@@ -113,7 +113,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse_x < -0.8f && directionToMouse != 0)
+		else if (velocity.magnitude > 0.001f && directionToMouse_x < -0.8f && directionToMouse != 0)
 
 		{
 			animator.SetBool("Walk", false);
