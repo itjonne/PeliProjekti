@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Ossi_Level1");
     }
 
     public void QuitGame()

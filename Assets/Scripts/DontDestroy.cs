@@ -2,30 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class GameManager : MonoBehaviour
+public class DontDestroy : MonoBehaviour
 {
-
-    public static GameManager manager; 
+    private static DontDestroy instance;
 
     private void Awake()
     {
-
-        if (manager == null)
+        if (instance == null)
         {
-
+            instance = this;
             DontDestroyOnLoad(gameObject);
-            manager = this;
-
         }
-
         else
         {
             Destroy(gameObject);
         }
-
-
     }
 
-
+    // ...
 }

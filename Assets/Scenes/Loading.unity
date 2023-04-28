@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6804e7bfd2440cf4ebf5fa173bc45051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenu: MainMenu
+  PauseMenu: PauseMenu
 --- !u!1 &1497132754
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,3 +418,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   squadData: {fileID: 0}
+  grenadeAmount: 3

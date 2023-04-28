@@ -12,6 +12,23 @@ public class PauseMenu : MonoBehaviour
     public Slider sfxVolumeSlider;
     public Slider musicVolumeSlider;
 
+    private static PauseMenu instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
+
 
 
     // Start is called before the first frame update
@@ -49,7 +66,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-
+      
 
 
 
