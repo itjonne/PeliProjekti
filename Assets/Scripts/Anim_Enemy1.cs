@@ -12,6 +12,7 @@ public class Anim_Enemy1 : MonoBehaviour
 
 
 	//private float yVelocity = 0.0F;
+	private float yVelocity = 0.5F;
 	private float currWeight;
 	// Start is called before the first frame update
 	IEnumerator Start()
@@ -25,6 +26,7 @@ public class Anim_Enemy1 : MonoBehaviour
 			animator.SetInteger("DeathIndex", Random.Range(0, 2));
         }
 
+		
 
 	}
 
@@ -39,6 +41,7 @@ public class Anim_Enemy1 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		
 
 		currWeight = animator.GetLayerWeight(1);
 
@@ -66,8 +69,11 @@ public class Anim_Enemy1 : MonoBehaviour
 	public void OnDamageTaken()
     {
 		//Debug.Log("OnDamageTaken");
+		
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Hurt");
+
+		StartCoroutine(WeightDelay());
 
 		//float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 1f);
 		//float endWeight = Mathf.Lerp(currWeight, 0.0f, 1f); //Lerp olisi tähän varmaan parempi mutta ei toimi jostain syystä
@@ -88,6 +94,25 @@ public class Anim_Enemy1 : MonoBehaviour
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Shoot");
 		muzzle.Play();
+		
 	}
 
+	public void OnMelee()
+    {
+		animator.SetLayerWeight(1, 1);
+		animator.SetTrigger("Melee");
+	}
+
+	//Tämä palauttaa layer weightin nollaksi puolen sekunnin jälkeen, eli kun vihuun osuu, kävelee normaalisti sen jälkeen
+	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle
+	IEnumerator WeightDelay() 
+    {	
+
+		yield return new WaitForSeconds(0.5f);
+
+		float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.5f);
+		animator.SetLayerWeight(1, 0);
+
+		StartCoroutine(WeightDelay());
+	}
 }
