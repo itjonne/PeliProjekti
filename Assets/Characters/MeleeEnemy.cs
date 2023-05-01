@@ -76,7 +76,7 @@ public class MeleeEnemy : Enemy
             if (distanceFromTarget > attackDistance)
             {
                 transform.LookAt(target.transform.position);
-                animator.SetBool(attackTriggerName, false);
+                //animator.SetBool(attackTriggerName, false);
                 MoveTo(target.transform.position);
             }
             else // Ollaan tarpeeksi lähellä
@@ -84,8 +84,9 @@ public class MeleeEnemy : Enemy
                 transform.LookAt(target.transform.position);
                 if (timeSinceLastAttack >= attackRate)
                 {
-                    animator.SetBool(attackTriggerName, true);
+                    
                     Attack();
+                    gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistä melee-metodi
                     timeSinceLastAttack = 0;
                 }
             }

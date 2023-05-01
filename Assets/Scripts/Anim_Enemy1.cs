@@ -101,10 +101,12 @@ public class Anim_Enemy1 : MonoBehaviour
     {
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Melee");
+		StartCoroutine(WeightDelay());
+
 	}
 
 	//Tämä palauttaa layer weightin nollaksi puolen sekunnin jälkeen, eli kun vihuun osuu, kävelee normaalisti sen jälkeen
-	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle
+	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle, tämä aiheuttaa animaattori bugeja jostain syystä
 	IEnumerator WeightDelay() 
     {	
 
