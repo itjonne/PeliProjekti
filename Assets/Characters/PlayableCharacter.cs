@@ -84,7 +84,7 @@ public class PlayableCharacter : Character
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "EndObject")
+        if (collision.gameObject.tag == "EndObject" && isLeader == true) // VAIHDETTU ETTÄ VAIN AKTIIVINEN PELAAJA VOI VAIHTAA KENTÄN
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();

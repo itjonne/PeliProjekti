@@ -58,6 +58,8 @@ public class Animation_Soldier : MonoBehaviour
 
 	void Update()
 	{
+		//NÄMÄ SIIRRETTY FIXED UPDATESTA TÄHÄN. KORJAA BUILDIN ANIMAATIOBUGIT
+
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
 		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
@@ -185,9 +187,7 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		}
-
-
-		
+	
 
 	}
 

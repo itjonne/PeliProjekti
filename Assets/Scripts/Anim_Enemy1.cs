@@ -32,7 +32,7 @@ public class Anim_Enemy1 : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-
+		
 	}
 
 
@@ -40,7 +40,8 @@ public class Anim_Enemy1 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
+		
+		//NÄMÄ SIIRRETTY FIXED UPDATESTA TÄHÄN. KORJAA BUILDIN ANIMAATIOBUGIT
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
 
