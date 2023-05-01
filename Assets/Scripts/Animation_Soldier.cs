@@ -47,9 +47,7 @@ public class Animation_Soldier : MonoBehaviour
     private void FixedUpdate()
     {
 		
-		velocity = (transform.position - prevPos) / Time.deltaTime;
-		prevPos = transform.position;
-		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
+
 	}
 
 
@@ -60,6 +58,9 @@ public class Animation_Soldier : MonoBehaviour
 
 	void Update()
 	{
+		velocity = (transform.position - prevPos) / Time.deltaTime;
+		prevPos = transform.position;
+		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
 		currWeight = animator.GetLayerWeight(1);
 
 
@@ -194,7 +195,9 @@ public class Animation_Soldier : MonoBehaviour
 
 	public void OnDeath()
     {
-		Debug.Log("KUOLEMA ANIMAATIO");
+		animator.SetLayerWeight(1, 0);
+		muzzle.Stop();
+		animator.SetTrigger("Death");
     }
 
 	/*

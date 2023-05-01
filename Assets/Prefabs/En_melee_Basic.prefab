@@ -2188,6 +2188,11 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: aa2aae078968ac643849e3d286746e00, type: 2}
   health: 30
   movementSpeed: 3
+  attackDistance: 1.5
+  attackRate: 1
+  damage: 10
+  attackTriggerName: Attack
+  bladePrefab: {fileID: 1847550737480709376, guid: bbe28c5ca4390694683fb6362d97e23c, type: 3}
 --- !u!114 &3074171899745988645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,6 +2205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d022fd238ed6b40b82ef6854ee9a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzle: {fileID: 0}
   animator: {fileID: 0}
 --- !u!1 &7532269212432196184
 GameObject:

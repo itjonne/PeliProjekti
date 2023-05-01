@@ -108,10 +108,17 @@ public class PlayableCharacter : Character
         Debug.Log("DEATH");
         gameObject.GetComponentInParent<Squad>().DestroyCharacter(this);
 
+        Destroy(GetComponent<Collider>());
+        Destroy(GetComponent<Rigidbody>());
+        movementSpeed = 0f;
+        Destroy(GetComponent<PlayableCharacter>());
+        Destroy(GetComponent<GrenadeThrower>());
+        gameObject.GetComponent<Weapons>().enabled = false;
         gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // Tää on nyt vähän spagetti, tän ei tarviis ymmärtää mitään squadista/animaatiosta
+        gameObject.GetComponent<Animation_Soldier>().enabled = false;
+        Destroy(gameObject, 30);
 
-        Destroy(gameObject);
-        // Tähän kuolemaefektejä
+        // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
     }
 
     private void LevelEnd()

@@ -12,7 +12,7 @@ public class Anim_Enemy1 : MonoBehaviour
 
 
 	//private float yVelocity = 0.0F;
-	private float yVelocity = 0.5F;
+	private float yVelocity = 1.0F;
 	private float currWeight;
 	// Start is called before the first frame update
 	IEnumerator Start()
@@ -32,8 +32,7 @@ public class Anim_Enemy1 : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		velocity = (transform.position - prevPos) / Time.deltaTime;
-		prevPos = transform.position;
+
 	}
 
 
@@ -41,9 +40,10 @@ public class Anim_Enemy1 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		
 
-		currWeight = animator.GetLayerWeight(1);
+		velocity = (transform.position - prevPos) / Time.deltaTime;
+		prevPos = transform.position;
+
 
 		//Liikkuminen
 		if (velocity.magnitude > 0.001f)
@@ -101,18 +101,21 @@ public class Anim_Enemy1 : MonoBehaviour
     {
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Melee");
-		StartCoroutine(WeightDelay());
+		
 
 	}
 
-	//Tämä palauttaa layer weightin nollaksi puolen sekunnin jälkeen, eli kun vihuun osuu, kävelee normaalisti sen jälkeen
-	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle, tämä aiheuttaa animaattori bugeja jostain syystä
+	//Tämä palauttaa layer weightin nollaksi puolen sekunnin jälkeen, eli kun vihu tekee jotai ylävartalolla, palauttaa ylävartalo weightin nollaksi
+	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle, 
+	// aiheuttaa erinäisiä animaatiobugeja nyt jostain syystä
 	IEnumerator WeightDelay() 
-    {	
+    {
+
+		currWeight = animator.GetLayerWeight(1);
 
 		yield return new WaitForSeconds(0.5f);
-
-		float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.5f);
+	
+		float endWeight = Mathf.SmoothDamp(1.0f, 0.0f, ref yVelocity, 0.5f);
 		animator.SetLayerWeight(1, 0);
 
 		StartCoroutine(WeightDelay());
