@@ -174,6 +174,9 @@ public class Animation_Soldier : MonoBehaviour
 			
 		}
 
+
+
+
 		else
 		{
 			canFlash = true;
@@ -192,12 +195,17 @@ public class Animation_Soldier : MonoBehaviour
 	}
 
 
-
 	public void OnDeath()
     {
 		animator.SetLayerWeight(1, 0);
 		muzzle.Stop();
 		animator.SetTrigger("Death");
+    }
+
+	public void OnThrow()
+    {
+		animator.SetLayerWeight(1, 1);
+		animator.SetTrigger("Throw");
     }
 
 	/*

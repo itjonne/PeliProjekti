@@ -14,6 +14,8 @@ public class ShootingEnemy : Enemy
     private float timeSinceLastShot;
     private float fireRate = 2f;
 
+    [SerializeField] public GameObject gibs;
+
     public void Awake()
     {
        

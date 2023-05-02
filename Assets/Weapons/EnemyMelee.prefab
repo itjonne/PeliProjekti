@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1881941612563692819}
   - component: {fileID: -5765331209863249460}
   - component: {fileID: -8810718759917885637}
-  - component: {fileID: -1129994965782713648}
+  - component: {fileID: 3841670428382985782}
   m_Layer: 10
   m_Name: EnemyMelee
   m_TagString: Bullet
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8306785530074399806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.44, y: 0.44, z: 0.44}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86d4a63abe12b9840a8586655c3ef142, type: 2}
+  - {fileID: 2100000, guid: 5a2da7da5f43a3145affd0132164f38d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6.02
+  m_Radius: 0.99
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-5765331209863249460
 Rigidbody:
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   shooter: {fileID: 0}
---- !u!114 &-1129994965782713648
+--- !u!114 &3841670428382985782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8306785530074399806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e766d645ec1122a4b965fed2ba4655c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 0905e9582ced1ed43b78c4593c31a041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   envImpact: {fileID: 858210687455889242, guid: a3bf2261fc250d649ac72c969a5bd573, type: 3}

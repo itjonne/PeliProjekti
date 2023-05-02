@@ -12,6 +12,8 @@ public abstract class Enemy : MonoBehaviour
     private GameObject playerWhoDealtDamage;
 
     public float Health => enemyData.health;
+
+
     // public float MovementSpeed => enemyData.movementSpeed;
 
     public abstract void Update();
@@ -52,6 +54,8 @@ public abstract class Enemy : MonoBehaviour
     {
         health += damage;
         if (health <= 0) Die();
+
+        if (health <= -25) GibDeath();  //Jos tulee liikaa damagea, muutetaan vihu punaiseksi usvaksi
     }
 
     public void Die()
@@ -67,5 +71,18 @@ public abstract class Enemy : MonoBehaviour
         Destroy(gameObject, 20);
     }
  
+    public void GibDeath()
+    {
+
+
+        var giblets = gameObject.GetComponent<Enemy>();
+   
+       // var giblets = GameObject.FindGameObjectsWithTag("Gibs");
+
+        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 2f); //gibletit kohdalle
+        Destroy(gameObject);
+   
+
+    }
 
 }

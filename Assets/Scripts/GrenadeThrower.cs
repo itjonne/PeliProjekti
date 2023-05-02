@@ -57,6 +57,7 @@ public class GrenadeThrower : MonoBehaviour
         {
             Vector3 target = Input.mousePosition;
             ThrowGrenade();
+            gameObject.GetComponent<Animation_Soldier>().OnThrow();
         }
     }
 

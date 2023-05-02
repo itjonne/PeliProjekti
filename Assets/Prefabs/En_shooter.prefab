@@ -1138,6 +1138,7 @@ MonoBehaviour:
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
   shootingDistance: 16
+  gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
 --- !u!1 &4295337089187751275
 GameObject:
   m_ObjectHideFlags: 0
