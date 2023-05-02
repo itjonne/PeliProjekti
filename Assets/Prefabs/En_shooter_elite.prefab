@@ -1140,7 +1140,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
   shootingDistance: 18
   EnemySpread: 0.06
-  bulletSpeed: 10
+  bulletSpeed: 8
 --- !u!1 &4295337089187751275
 GameObject:
   m_ObjectHideFlags: 0
