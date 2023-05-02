@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451347267849904834}
   m_LocalRotation: {x: -0, y: -0.017452449, z: -0, w: 0.99984777}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0.84}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1135,10 +1135,12 @@ MonoBehaviour:
   enemyData: {fileID: 0}
   health: 30
   movementSpeed: 4
+  gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
   shootingDistance: 16
-  gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
+  EnemySpread: 0.08
+  bulletSpeed: 10
 --- !u!1 &4295337089187751275
 GameObject:
   m_ObjectHideFlags: 0

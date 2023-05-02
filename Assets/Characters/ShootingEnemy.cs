@@ -14,7 +14,8 @@ public class ShootingEnemy : Enemy
     private float timeSinceLastShot;
     private float fireRate = 2f;
 
-    
+    public float EnemySpread = 0.1f;
+    public float bulletSpeed = 10f;
 
     public void Awake()
     {
@@ -97,9 +98,9 @@ public class ShootingEnemy : Enemy
     {
         gameObject.GetComponent<Anim_Enemy1>().OnShoot();
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), 0, Random.Range(0, 0))) * 5f;
+        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), Random.Range(-EnemySpread, 0), Random.Range(0, 0))) * bulletSpeed;
         //ammoLeft--;
         //lastShot = Time.time;
-        Destroy(bullet, 5f);
+        Destroy(bullet, 3f);
     }
 }
