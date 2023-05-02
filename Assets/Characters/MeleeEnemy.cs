@@ -20,8 +20,6 @@ public class MeleeEnemy : Enemy
     [SerializeField] private string attackTriggerName = "Attack";
     [SerializeField] private GameObject bladePrefab;
 
-    [SerializeField] public GameObject gibs;
-
     public void Awake()
     {
         animator = GetComponent<Animator>();
