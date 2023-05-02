@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7641651395147415401}
   m_Layer: 2
   m_Name: BarbWire1
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,3 +104,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 52251533592693008, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
   m_PrefabInstance: {fileID: 2339626556688696874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3137451102806693248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+  m_PrefabInstance: {fileID: 2339626556688696874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &241912088331137752
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137451102806693248}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.009000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.003, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5

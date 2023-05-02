@@ -2,6 +2,7 @@ using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootingEnemy : Enemy
 {
@@ -14,7 +15,6 @@ public class ShootingEnemy : Enemy
     private float timeSinceLastShot;
     private float fireRate = 2f;
 
-    [SerializeField] public GameObject gibs;
 
     public void Awake()
     {
@@ -40,8 +40,10 @@ public class ShootingEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = position;
         // TODO: Liiku tietyn matkan p‰‰h‰n
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        //transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     private void CalculateClosestTarget()
