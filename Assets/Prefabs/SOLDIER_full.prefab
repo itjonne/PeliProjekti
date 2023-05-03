@@ -2192,6 +2192,7 @@ GameObject:
   - component: {fileID: 4719477577528922271}
   - component: {fileID: 6675442013713028133}
   - component: {fileID: 5284938203037680907}
+  - component: {fileID: 1022716422964837052}
   m_Layer: 7
   m_Name: SOLDIER_full
   m_TagString: Player
@@ -2355,6 +2356,28 @@ MonoBehaviour:
   Hand: {fileID: 5741909023465377598}
   grenadePrefab: {fileID: 4117959727410887223, guid: 8334c6852f76db742bd7742733162b1e, type: 3}
   gravity: {x: 0, y: 0, z: 0}
+--- !u!195 &1022716422964837052
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652646214253871609}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7727770957696346698
 GameObject:
   m_ObjectHideFlags: 0

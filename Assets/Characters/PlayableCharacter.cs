@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
+
 
 public class PlayableCharacter : Character
 {
@@ -44,8 +46,9 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
- 
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = position;
+        // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     // T‰‰ vois olla hiiri

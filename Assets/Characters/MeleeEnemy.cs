@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class MeleeEnemy : Enemy
@@ -44,7 +45,9 @@ public class MeleeEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = position;
+        // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     private void CalculateClosestTarget()

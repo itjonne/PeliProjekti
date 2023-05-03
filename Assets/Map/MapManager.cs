@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.AI;
 
 public class MapManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MapManager : MonoBehaviour
     void Awake()
     {
         GenerateMap(MapSize); // Tekee  mapin
+        BakeMap();
     }
 
     private void Start()
@@ -28,6 +30,12 @@ public class MapManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BakeMap()
+    {
+        NavMeshBuilder.ClearAllNavMeshes();
+        NavMeshBuilder.BuildNavMesh();
     }
 
     public void GenerateMap(int size)
@@ -62,7 +70,9 @@ public class MapManager : MonoBehaviour
                 {
                     block.GetComponent<Block>().isEnd = true;
                 }
+                
                 Instantiate(block, position, Quaternion.identity);
+
 
                 blockNum++;
             }

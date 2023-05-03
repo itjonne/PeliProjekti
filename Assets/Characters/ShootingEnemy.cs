@@ -2,6 +2,7 @@ using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootingEnemy : Enemy
 {
@@ -9,7 +10,7 @@ public class ShootingEnemy : Enemy
     [SerializeField] private Transform muzzle;
     private float distanceFromTarget;
     [SerializeField] public GameObject bulletPrefab;
-    [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa tää alkaa ampumaan
+    [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa tï¿½ï¿½ alkaa ampumaan
 
     private float timeSinceLastShot;
     private float fireRate = 2f;
@@ -41,8 +42,10 @@ public class ShootingEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        // TODO: Liiku tietyn matkan päähän
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = position;
+        // TODO: Liiku tietyn matkan pï¿½ï¿½hï¿½n
+        //transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     private void CalculateClosestTarget()
@@ -76,7 +79,7 @@ public class ShootingEnemy : Enemy
             {
                 transform.LookAt(target.transform.position);
                 MoveTo(target.transform.position);
-            } else // Ollaan tarpeeks lähellä
+            } else // Ollaan tarpeeks lï¿½hellï¿½
             {
                 transform.LookAt(target.transform.position);
                 if (timeSinceLastShot >= fireRate)
