@@ -238,6 +238,8 @@ MonoBehaviour:
   spawnTimeReduce: 0
   horizontalRandom: 0
   verticalRandom: 0
+  active: 0
+  deactiveRange: 0
 --- !u!135 &59903125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -628,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: En_shooter (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4220222231417818840, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
@@ -860,6 +866,8 @@ MonoBehaviour:
   spawnTimeReduce: 0
   horizontalRandom: 0
   verticalRandom: 0
+  active: 0
+  deactiveRange: 0
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1814,6 +1822,8 @@ MonoBehaviour:
   spawnTimeReduce: 0
   horizontalRandom: 0
   verticalRandom: 0
+  active: 0
+  deactiveRange: 0
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2047,6 +2057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: En_shooter (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4220222231417818840, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
@@ -2069,7 +2083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1957752058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,12 +2097,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3693998420433620729, guid: 80e00be1751669243901135e4961b766, type: 3}
-  xPosition: -50.27
+  xPosition: 0
   zPosition: 0
-  spawnTime: 3
-  spawnTimeReduce: 0
+  spawnTime: 5
+  spawnTimeReduce: 1000
   horizontalRandom: 0
   verticalRandom: 0
+  active: 0
+  deactiveRange: 25
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2160,7 +2176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957752057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 0.1, z: -0.8552532}
+  m_LocalPosition: {x: -13.8, y: 0.1, z: -3.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

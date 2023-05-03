@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float horizontalRandom;
     [SerializeField] private float verticalRandom;
 
+
+    public bool active;
+    public float deactiveRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,15 +28,26 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (player != null)
         {
             transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
 
-        } else
+        } 
+        */
+        if ((transform.position - player.transform.position).magnitude < deactiveRange) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
         {
-            player = GameObject.FindGameObjectWithTag("Player");
-            
+            active = false;
         }
+       else
+        {
+            active = true;
+        }
+
+
+        player = GameObject.FindGameObjectWithTag("Player");
+            
+        
     }
 
     // Update is called once per frame
@@ -43,7 +57,12 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(spawnTime); //We wait here to pause between wave spawning
         Debug.Log("SPAWING");
         var randomposition = new Vector3(Random.Range(-horizontalRandom, horizontalRandom), 0, Random.Range(-verticalRandom, verticalRandom));  // Vihut syntyvät random etäisyydelle spawnerista
-        Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
+
+        if (active == true)
+        {
+            Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
+        }
+
         StartCoroutine(SpawnEnemy());
     }
 
