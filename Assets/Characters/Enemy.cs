@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using JSAM;
 
 public abstract class Enemy : MonoBehaviour
@@ -66,6 +67,7 @@ public abstract class Enemy : MonoBehaviour
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<NavMeshAgent>());
         movementSpeed = 0f;
        gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();

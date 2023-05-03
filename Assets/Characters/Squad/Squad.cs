@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class Squad : MonoBehaviour
@@ -131,7 +132,7 @@ public class Squad : MonoBehaviour
 
     public void DestroyCharacter(Character character)
     {
-        character.isLeader = false;
+        character.ChangeLeader(false);
 
         RemoveCharacter(character);
         Debug.Log("DESTROYING");
@@ -141,9 +142,10 @@ public class Squad : MonoBehaviour
     public void ChangeLeader(Character character)
     {
         Character currentLeader = GetLeader();
-        currentLeader.isLeader = false;
+        currentLeader.ChangeLeader(false);
 
-        character.isLeader = true;
+        character.ChangeLeader(true);
+       
     }
 
     public Character GetLeader()
@@ -159,7 +161,7 @@ public class Squad : MonoBehaviour
                 // Scene scene = SceneManager.GetActiveScene();
                 // SceneManager.LoadScene(scene.name);
             }
-            squadData.Items[0].isLeader = true;
+            squadData.Items[0].ChangeLeader(true);
             return squadData.Items[0];
 
         }
@@ -201,8 +203,6 @@ public class Squad : MonoBehaviour
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
 
-
-
         // Tehd‰‰n typer‰ v‰lilista ku en keksi nyt muuta
         List<Character> followers = new List<Character>();
         // lis‰t‰‰n listaan followerit
@@ -228,7 +228,6 @@ public class Squad : MonoBehaviour
         {
             if (i < followers.Count)
             {
-
                 followers[i].MoveTo(positions[i]);
 
                 Ray ray = camera.ScreenPointToRay(_input.MousePosition);
