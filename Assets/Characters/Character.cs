@@ -34,6 +34,8 @@ public abstract class Character : MonoBehaviour
     public abstract void Follow(Character character);
     public abstract void MoveTo(Vector3 point);
 
+    public abstract void ChangeLeader(bool isLeader);
+
     // T‰‰ vois olla hiiri
     public abstract void RotateTowards(Vector3 point);
 

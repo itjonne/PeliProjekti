@@ -33,9 +33,9 @@ public class SquadMovement : MonoBehaviour
         }
         _leader = GetComponent<Squad>().GetLeader().gameObject;
         var targetVector = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-
         //Move in the direction we are aiming 
         var movementVector = MoveTowardTarget(targetVector);
+
         if (!rotateTowardsMouse)
             RotateTowardMovementVector(movementVector);
         else

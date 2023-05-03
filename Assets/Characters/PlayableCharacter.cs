@@ -7,27 +7,36 @@ using UnityEngine.AI;
 
 public class PlayableCharacter : Character
 {
+    private NavMeshAgent agent;
 
     public float movementSpeed;
     // Start is called before the first frame update
     void Start()
     {
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("AGENT CALCULATING: " + agent.pathPending);
+
         //Johtaja heitt‰‰ aina kranaatit yms. Prefabeilla pit‰‰ olla grenadethrower pois p‰‰lt‰ defaulttina
         if (isLeader == true)
         {
-            GetComponent<GrenadeThrower>().enabled = true;
+            GetComponent<GrenadeThrower>().enabled = true;         
         }
 
         else
         {
             GetComponent<GrenadeThrower>().enabled = false;
         }
+    }
+
+    public override void ChangeLeader(bool leader)
+    {
+        this.isLeader = leader;
+        GetComponent<NavMeshAgent>().enabled = !leader; // componentti disabloidaan jos on leader
     }
 
     public override void Move()
@@ -46,7 +55,6 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
-        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
         agent.destination = position;
         // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }

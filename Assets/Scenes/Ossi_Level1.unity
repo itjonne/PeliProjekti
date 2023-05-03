@@ -1161,6 +1161,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1341160689}
     m_Modifications:
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Acceleration
+      value: 100000000
+      objectReference: {fileID: 0}
     - target: {fileID: 1033028219560773868, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: muzzle
       value: 
@@ -5654,6 +5666,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1341160689}
     m_Modifications:
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Acceleration
+      value: 100000000
+      objectReference: {fileID: 0}
     - target: {fileID: 7023497223017552707, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_RootOrder
       value: 0
