@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2295136467146459816
 MeshFilter:
@@ -114,7 +114,7 @@ MonoBehaviour:
   environmentObjects:
   - {fileID: 701600530516243938, guid: babb0f68101ebb44ea536a7f84d4c42b, type: 3}
   - {fileID: 7347777086382128603, guid: d8bfa204a742dfe44a2c163dec752090, type: 3}
-  environmentDensity: 0.6
+  environmentDensity: 1.5
   helperObjects: []
   helperDensity: 1.6
   enemyObjects: []
@@ -125,3 +125,4 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
+  EnvSpawnRange: 6

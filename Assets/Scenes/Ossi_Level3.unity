@@ -238,6 +238,8 @@ MonoBehaviour:
   spawnTimeReduce: 20
   horizontalRandom: 25
   verticalRandom: 5
+  active: 0
+  deactiveRange: 0
 --- !u!135 &59903125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -837,6 +839,8 @@ MonoBehaviour:
   spawnTimeReduce: 20
   horizontalRandom: 5
   verticalRandom: 25
+  active: 0
+  deactiveRange: 0
 --- !u!135 &482021190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1663,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1341160688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,6 +2068,8 @@ MonoBehaviour:
   spawnTimeReduce: 20
   horizontalRandom: 25
   verticalRandom: 5
+  active: 0
+  deactiveRange: 0
 --- !u!135 &1564217614
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2457,6 +2463,8 @@ MonoBehaviour:
   spawnTimeReduce: 20
   horizontalRandom: 5
   verticalRandom: 25
+  active: 0
+  deactiveRange: 0
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0

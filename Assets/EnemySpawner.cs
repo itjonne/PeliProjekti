@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     private GameObject player; // T‰‰ nyt on ehk‰ v‰h‰n typer‰, ottaa kopin pelaajista ja liikuttaa
-    [SerializeField] private Enemy enemyPrefab;
+    public GameObject[] enemyPrefabs;
     [SerializeField] private float xPosition;
     [SerializeField] private float zPosition;
 
@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public bool active;
     public float deactiveRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +60,8 @@ public class EnemySpawner : MonoBehaviour
 
         if (active == true)
         {
+            int RandomNum = Random.Range(0, enemyPrefabs.Length);
+            GameObject enemyPrefab = enemyPrefabs[RandomNum];
             Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
         }
 
