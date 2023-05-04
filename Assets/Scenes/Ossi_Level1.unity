@@ -6256,7 +6256,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1957752058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6277,7 +6277,7 @@ MonoBehaviour:
   horizontalRandom: 0
   verticalRandom: 20
   active: 0
-  deactiveRange: 50
+  deactiveRange: 40
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0
