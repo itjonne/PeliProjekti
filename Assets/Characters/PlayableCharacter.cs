@@ -127,6 +127,7 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Weapons>().enabled = false;
         gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // Tää on nyt vähän spagetti, tän ei tarviis ymmärtää mitään squadista/animaatiosta
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA

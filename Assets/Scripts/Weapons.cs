@@ -83,7 +83,7 @@ public class Weapons : MonoBehaviour
         }
         else
         {
-            if (ammoLeft > 0)
+            if (ammoLeft > 0 && reloading == false)  //reload ehto lis‰tty, ett‰ saadaan manuaalinen lataus toimimaan
             {
                 counter = 0;
                 // Debug.Log("T‰‰ll‰ ammutaan");
@@ -144,9 +144,10 @@ public class Weapons : MonoBehaviour
 
                 }
             }
+  
+
             else
             {
-                // ladataan ase
                 StartReload();
             }
         }   
@@ -164,6 +165,13 @@ public class Weapons : MonoBehaviour
             gunData = Resources.Load("Guns/MachineGun") as GunData;
         }
        */
+
+       
+        if (Input.GetKey(KeyCode.R))
+        {
+            StartCoroutine(Reload());
+        }
+      
 
         if (PlayerIsMoving()) bulletSpread = 0.1f * InaccuracyModifier;
         else bulletSpread = 0.03f * InaccuracyModifier;  //Tarkempi paikaltaan mutta ei kuitenkaan t‰ysin hajonnaton
