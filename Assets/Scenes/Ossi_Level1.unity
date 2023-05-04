@@ -1168,6 +1168,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_AutoBraking
       value: 0
       objectReference: {fileID: 0}
@@ -5675,6 +5679,10 @@ PrefabInstance:
     - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_Speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1022716422964837052, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
       propertyPath: m_AutoBraking
