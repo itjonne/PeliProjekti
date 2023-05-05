@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private GameObject player; // T‰‰ nyt on ehk‰ v‰h‰n typer‰, ottaa kopin pelaajista ja liikuttaa
+    private Character player; // Sama systeemi nyt kun vihu prefabeilla
     public GameObject[] enemyPrefabs;
     [SerializeField] private float xPosition;
     [SerializeField] private float zPosition;
@@ -21,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+        player = characters[Random.Range(0, characters.Length)];
+       // player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(SpawnEnemy());
 
         StartCoroutine(SpawnTimerReduce());
@@ -29,13 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (player != null)
-        {
-            transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
 
-        } 
-        */
       if (player != null)
         {
             if ((transform.position - player.transform.position).magnitude < deactiveRange ) //Spawnerit nyt paikallaan, jos pelaaja liian l‰hell‰, spawneri ei toimi
@@ -50,18 +46,9 @@ public class EnemySpawner : MonoBehaviour
 
         else
         {
-            if ((transform.position - player.transform.position).magnitude < deactiveRange ) //Spawnerit nyt paikallaan, jos pelaaja liian l‰hell‰, spawneri ei toimi
-            {
-                active = false;
-            }
-            else
-            {
-                active = true;
-            }
+            Character[] characters = GameObject.FindObjectsOfType<Character>();
+            player = characters[Random.Range(0, characters.Length)];
         }
-
-
-        player = GameObject.FindGameObjectWithTag("Player");
                  
     }
 
