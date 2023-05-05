@@ -114,7 +114,7 @@ MonoBehaviour:
   environmentObjects:
   - {fileID: 6193333693419078868, guid: fd2f519596be32e44abb6e21c3644b51, type: 3}
   - {fileID: 4792030278493402145, guid: 39af1b0403cd30946a447176dd4682c1, type: 3}
-  environmentDensity: 0.5
+  environmentDensity: 0.7
   helperObjects: []
   helperDensity: 0
   enemyObjects: []
@@ -125,4 +125,4 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
-  EnvSpawnRange: 15
+  EnvSpawnRange: 25
