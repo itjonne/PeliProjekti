@@ -19,8 +19,6 @@ public class PlayableCharacter : Character
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("AGENT CALCULATING: " + agent.pathPending);
-
         //Johtaja heitt‰‰ aina kranaatit yms. Prefabeilla pit‰‰ olla grenadethrower pois p‰‰lt‰ defaulttina
         if (isLeader == true)
         {

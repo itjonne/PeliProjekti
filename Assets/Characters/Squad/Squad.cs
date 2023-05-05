@@ -98,10 +98,13 @@ public class Squad : MonoBehaviour
 
     public void SetSquadPosition(Vector3 position)
     {
-        Debug.Log("SETTING START TO " + position);
+        Debug.LogWarning("SETTING START TO " + position);
+        Debug.Log(squadData.Items);
+        Debug.LogWarning(squadData.Items.Count);
         foreach (Character character in squadData.Items)
         {
-            character.transform.position = position;
+            Debug.LogWarning(character);
+            character.gameObject.transform.position = position;
         }
     }
 
