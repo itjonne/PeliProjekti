@@ -36,13 +36,28 @@ public class EnemySpawner : MonoBehaviour
 
         } 
         */
-        if ((transform.position - player.transform.position).magnitude < deactiveRange) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
+      if (player != null)
         {
-            active = false;
+            if ((transform.position - player.transform.position).magnitude < deactiveRange ) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
+            {
+                active = false;
+            }
+            else
+            {
+                active = true;
+            }
         }
-       else
+
+        else
         {
-            active = true;
+            if ((transform.position - player.transform.position).magnitude < deactiveRange ) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
+            {
+                active = false;
+            }
+            else
+            {
+                active = true;
+            }
         }
 
 

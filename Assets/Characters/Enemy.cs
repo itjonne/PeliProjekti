@@ -82,7 +82,7 @@ public abstract class Enemy : MonoBehaviour
    
        //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
 
-        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 2f); //gibletit kohdalle
+        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 10f); //gibletit kohdalle
         Destroy(gameObject);
   
     }

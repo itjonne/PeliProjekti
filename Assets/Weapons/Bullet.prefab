@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5765331209863249460}
   - component: {fileID: -8810718759917885637}
   - component: {fileID: -1129994965782713648}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514605773580731737, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
