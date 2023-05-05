@@ -73,6 +73,3 @@ crashlytics-build.properties
 
 # Omat T:Jonne (Teen tuhmuuksia :D)
 /[Aa]ssets/ignore/*
-
-# ParticlePack 
-/[Aa]ssets/UnityTechnologies/*
