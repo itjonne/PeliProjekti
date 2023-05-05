@@ -96,15 +96,22 @@ public class Squad : MonoBehaviour
         }
     }
 
-    public void SetSquadPosition(Vector3 position)
+    public void SetSquadPosition(Vector3 newPosition)
     {
-        Debug.LogWarning("SETTING START TO " + position);
+        Debug.LogWarning("SETTING START TO " + newPosition);
         Debug.Log(squadData.Items);
         Debug.LogWarning(squadData.Items.Count);
         foreach (Character character in squadData.Items)
         {
-            Debug.LogWarning(character);
-            character.gameObject.transform.position = position;
+            if (character.GetComponent<NavMeshAgent>())
+            {
+                Debug.LogWarning("NAVMESHAGENT");
+                character.GetComponent<NavMeshAgent>().Warp(newPosition);
+            } else
+            {
+
+            character.transform.position = newPosition;
+            }
         }
     }
 
