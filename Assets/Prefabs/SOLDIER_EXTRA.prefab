@@ -2334,8 +2334,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: cc4214eaef833824bb176b4466b21ab1, type: 2}
   muzzle: {fileID: 1793496264024422397}
-  _noise: 0
-  ammoLeft: 40
+  InaccuracyModifier: 1
+  bulletSpread: 0
+  reloading: 0
+  magSize: 20
+  reloadTime: 2
+  ammoLeft: 20
 --- !u!114 &5284938203037680907
 MonoBehaviour:
   m_ObjectHideFlags: 0

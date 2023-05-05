@@ -17,6 +17,7 @@ public class Animation_Soldier : MonoBehaviour
 	float directionToMouse;
 	float directionToMouse_x;
 	float ammoLeft;
+	bool reloading;
 
 	float timer;
 	float FlashRate;
@@ -63,6 +64,7 @@ public class Animation_Soldier : MonoBehaviour
 		velocity = (transform.position - prevPos) / Time.deltaTime;
 		prevPos = transform.position;
 		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
+		reloading = gameObject.GetComponent<Weapons>().reloading;
 		currWeight = animator.GetLayerWeight(1);
 
 
@@ -138,7 +140,7 @@ public class Animation_Soldier : MonoBehaviour
 
 		//Ampuminen
 		
-		if (Input.GetMouseButton(0) && ammoLeft > 0)
+		if (Input.GetMouseButton(0) && ammoLeft > 0 && reloading == false)
 		{
 
 			animator.SetBool("Shoot", true);

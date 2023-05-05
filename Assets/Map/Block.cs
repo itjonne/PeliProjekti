@@ -22,6 +22,8 @@ public class Block : MonoBehaviour
     public float height; // 100
     public bool isStart = false;
     public bool isEnd = false;
+    [Range(0, 25)] public float EnvSpawnRange = 5f;
+
 
     private void Start()
     {
@@ -43,12 +45,12 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in environmentObjects)
         {
-            int amount = (int)Random.Range(0, environmentDensity * width / 10); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, environmentDensity * width / 50); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(-width / 2, width / 2), 0, Random.Range(-height / 2, height / 2));  
+                Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));  
                 Debug.Log(width + " " + height);
-                Debug.Log(Random.Range(-width / 2, width / 2));
+                Debug.Log(Random.Range(-width / 5, width / 5));
 
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0,360), 0)));
                 generatedObjects.Add(newObject);
@@ -60,10 +62,10 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in helperObjects)
         {
-            int amount = (int)Random.Range(0, helperDensity * width / 10); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, helperDensity * width / 50); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
-                Vector3 randomPosition = new Vector3(Random.Range(-width / 10, width / 10), 0, Random.Range(-height / 10, height / 10));
+                Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
                
                 GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
                 generatedObjects.Add(newObject);

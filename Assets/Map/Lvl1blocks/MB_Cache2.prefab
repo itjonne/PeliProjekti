@@ -124,6 +124,7 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
+  EnvSpawnRange: 1
 --- !u!1001 &9123461851369605449
 PrefabInstance:
   m_ObjectHideFlags: 0

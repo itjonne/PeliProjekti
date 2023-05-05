@@ -7,7 +7,6 @@ public class BonusSpawner : MonoBehaviour
 
     public GameObject[] bonusObjects;
 
-
     private void Awake()
     {
         GenerateBonus();

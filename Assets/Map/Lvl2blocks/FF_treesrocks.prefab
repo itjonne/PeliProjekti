@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &549008146893824379
 Transform:
@@ -114,10 +114,10 @@ MonoBehaviour:
   environmentObjects:
   - {fileID: 7347777086382128603, guid: d8bfa204a742dfe44a2c163dec752090, type: 3}
   - {fileID: 701600530516243938, guid: babb0f68101ebb44ea536a7f84d4c42b, type: 3}
-  environmentDensity: 4.5
+  environmentDensity: 8.7
   helperObjects:
   - {fileID: 4792030278493402145, guid: 39af1b0403cd30946a447176dd4682c1, type: 3}
-  helperDensity: 1.2
+  helperDensity: 3.2
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
@@ -126,3 +126,4 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
+  EnvSpawnRange: 6

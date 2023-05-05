@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451347267849904834}
   m_LocalRotation: {x: -0, y: -0.017452449, z: -0, w: 0.99984777}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0.84}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1140,6 +1140,8 @@ MonoBehaviour:
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
   shootingDistance: 16
+  EnemySpread: 0.09
+  bulletSpeed: 8
 --- !u!195 &30980865581237054
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1150,7 +1152,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -284,6 +284,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1314272956410907934}
     m_Modifications:
+    - target: {fileID: 208257760893273178, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013392515663071725, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6096924583015667058, guid: 18fb9db9b30bf2a4ebaa6e6416d2cfb6, type: 3}
       propertyPath: m_Name
       value: Sandbag_form (1)
