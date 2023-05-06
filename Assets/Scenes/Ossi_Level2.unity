@@ -1134,7 +1134,7 @@ MonoBehaviour:
   spawnTime: 9
   spawnTimeReduce: 30
   horizontalRandom: 0
-  verticalRandom: 30
+  verticalRandom: 0
   active: 0
   deactiveRange: 0
 --- !u!135 &1957752059
