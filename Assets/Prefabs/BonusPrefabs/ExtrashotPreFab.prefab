@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1225661083871058276}
   - component: {fileID: 3620276550110217703}
   - component: {fileID: 4343344464205248609}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ExtrashotPreFab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4395378818058768888}
   - component: {fileID: 2024401324897620870}
   - component: {fileID: 4416047645286027567}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BonusParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4885,6 +4885,10 @@ PrefabInstance:
     - target: {fileID: 2732675691174017692, guid: 0077555ba7fa5bc40b1a327a6e621c95, type: 3}
       propertyPath: m_Name
       value: BonusBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732675691174017692, guid: 0077555ba7fa5bc40b1a327a6e621c95, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3361860965761409062, guid: 0077555ba7fa5bc40b1a327a6e621c95, type: 3}
       propertyPath: m_RootOrder

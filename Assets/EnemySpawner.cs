@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    private GameObject player; // Tää nyt on ehkä vähän typerä, ottaa kopin pelaajista ja liikuttaa
+    private Character player; // Sama systeemi nyt kun vihu prefabeilla
     public GameObject[] enemyPrefabs;
     [SerializeField] private float xPosition;
     [SerializeField] private float zPosition;
@@ -21,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+        player = characters[Random.Range(0, characters.Length)];
+       // player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(SpawnEnemy());
 
         StartCoroutine(SpawnTimerReduce());
@@ -29,24 +31,24 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (player != null)
-        {
-            transform.position = player.transform.position + new Vector3(xPosition, 0, zPosition); // Testi
 
-        } 
-        */
-        if ((transform.position - player.transform.position).magnitude < deactiveRange) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
+      if (player != null)
         {
-            active = false;
-        }
-       else
-        {
-            active = true;
+            if ((transform.position - player.transform.position).magnitude < deactiveRange ) //Spawnerit nyt paikallaan, jos pelaaja liian lähellä, spawneri ei toimi
+            {
+                active = false;
+            }
+            else
+            {
+                active = true;
+            }
         }
 
-
-        player = GameObject.FindGameObjectWithTag("Player");
+        else
+        {
+            Character[] characters = GameObject.FindObjectsOfType<Character>();
+            player = characters[Random.Range(0, characters.Length)];
+        }
                  
     }
 
@@ -62,7 +64,9 @@ public class EnemySpawner : MonoBehaviour
         {
             int RandomNum = Random.Range(0, enemyPrefabs.Length);
             GameObject enemyPrefab = enemyPrefabs[RandomNum];
+            enemyPrefab.GetComponent<Enemy>().aggroed = true; //JOS VIHU PREFAB SYNTYY SPAWNERISTA, AGGRO PÄÄLLE HETI DEFAULTTINA
             Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
+            
         }
 
         StartCoroutine(SpawnEnemy());

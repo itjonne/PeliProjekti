@@ -21,14 +21,21 @@ public class MeleeEnemy : Enemy
     [SerializeField] private string attackTriggerName = "Attack";
     [SerializeField] private GameObject bladePrefab;
 
+    public float AggroRange = 25f;
+  
+
     public void Awake()
     {
         animator = GetComponent<Animator>();
+
     }
     
     // Start is called before the first frame update
     void Start()
     {
+
+      //  Aggroed = false;
+
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
@@ -70,47 +77,54 @@ public class MeleeEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
-        CalculateClosestTarget();
 
         if (target != null)
         {
-            CalculateDistanceFromTarget(target);
-            // Kun ei vielä pystytä lyödä, juostaan kohti pelaajaa
-            if (distanceFromTarget > attackDistance)
+            if ((transform.position - target.transform.position).magnitude < AggroRange)
             {
-                transform.LookAt(target.transform.position);
-                //animator.SetBool(attackTriggerName, false);
-                MoveTo(target.transform.position);
+                aggroed = true;
             }
-            else // Ollaan tarpeeksi lähellä
-            {
-                transform.LookAt(target.transform.position);
-                if (timeSinceLastAttack >= attackRate)
-                {
-                    
-                    Attack();
-                    gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistä melee-metodi
-                    timeSinceLastAttack = 0;
-                }
-            }
-
         }
-        else
-        {
-            Character[] characters = GameObject.FindObjectsOfType<Character>();
-            target = characters[Random.Range(0, characters.Length)];
 
-            if (target = null)  //OSSIN SEKOILUT
+        timeSinceLastAttack += Time.deltaTime;
+        CalculateClosestTarget();
+
+        if (aggroed == true)
+        {
+            if (target != null)
             {
-                movementSpeed = 0;
+                CalculateDistanceFromTarget(target);
+                // Kun ei vielï¿½ pystytï¿½ lyï¿½dï¿½, juostaan kohti pelaajaa
+                if (distanceFromTarget > attackDistance)
+                {
+                    transform.LookAt(target.transform.position);
+                    //animator.SetBool(attackTriggerName, false);
+                    MoveTo(target.transform.position);
+                }
+                else // Ollaan tarpeeksi lï¿½hellï¿½
+                {
+                    transform.LookAt(target.transform.position);
+                    if (timeSinceLastAttack >= attackRate)
+                    {
+
+                        Attack();
+                        gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistï¿½ melee-metodi
+                        timeSinceLastAttack = 0;
+                    }
+                }
+
             }
 
+            else
+            {
+                Character[] characters = GameObject.FindObjectsOfType<Character>();
+                target = characters[Random.Range(0, characters.Length)];
+
+            }
         }
 
 
     }
-
     private void Attack()
     {
         Debug.Log("ATTACKING");
@@ -129,11 +143,11 @@ public class MeleeEnemy : Enemy
             bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(0, 0, 0)) * 12f;
             //ammoLeft--;
             //lastShot = Time.time;
-            Destroy(bullet, 0.2f);  //TÄHÄN TEHTY MUUTOKSIA, TOIMII NYT NIINKUIN
+            Destroy(bullet, 0.2f);  //Tï¿½Hï¿½N TEHTY MUUTOKSIA, TOIMII NYT NIINKUIN
             // Suunnataan veitsi pelaajaa kohti
             // knife.transform.rotation = Quaternion.LookRotation(direction);
 
-            // Lähetetään viesti veitselle, jotta se tietää, kuinka paljon vahinkoa se aiheuttaa ja millä etäisyydellä se osuu
+            // Lï¿½hetetï¿½ï¿½n viesti veitselle, jotta se tietï¿½ï¿½, kuinka paljon vahinkoa se aiheuttaa ja millï¿½ etï¿½isyydellï¿½ se osuu
 
         }
     }
