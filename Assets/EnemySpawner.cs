@@ -64,7 +64,9 @@ public class EnemySpawner : MonoBehaviour
         {
             int RandomNum = Random.Range(0, enemyPrefabs.Length);
             GameObject enemyPrefab = enemyPrefabs[RandomNum];
+            enemyPrefab.GetComponent<Enemy>().aggroed = true; //JOS VIHU PREFAB SYNTYY SPAWNERISTA, AGGRO PÄÄLLE HETI DEFAULTTINA
             Instantiate(enemyPrefab, transform.position + randomposition, enemyPrefab.transform.rotation);
+            
         }
 
         StartCoroutine(SpawnEnemy());

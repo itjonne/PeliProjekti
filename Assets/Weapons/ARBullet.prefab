@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8810718759917885637}
   - component: {fileID: -1129994965782713648}
   m_Layer: 7
-  m_Name: Bullet
+  m_Name: ARBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
