@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451347267849904834}
   m_LocalRotation: {x: -0, y: -0.017452449, z: -0, w: 0.99984777}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0.84}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1030,6 +1030,7 @@ GameObject:
   - component: {fileID: 6928013225878465193}
   - component: {fileID: 998927982689311505}
   - component: {fileID: 1910699744142765917}
+  - component: {fileID: 5494749560409597303}
   m_Layer: 0
   m_Name: En_shooter_elite
   m_TagString: Enemy
@@ -1135,9 +1136,34 @@ MonoBehaviour:
   enemyData: {fileID: 0}
   health: 50
   movementSpeed: 5
+  gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
   shootingDistance: 18
+  EnemySpread: 0.06
+  bulletSpeed: 8
+--- !u!195 &5494749560409597303
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4220222231417818840}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4295337089187751275
 GameObject:
   m_ObjectHideFlags: 0

@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 5030285934064571987}
   - component: {fileID: 5030285934064571996}
   - component: {fileID: 5030285934064571999}
+  - component: {fileID: -9139427434095031280}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1528,6 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f1a72967497654d9809a9ac313638d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzle: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &5030285934064571996
 MonoBehaviour:
@@ -1542,7 +1544,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 963160a3202a64f42a3b9c95e25ea42d, type: 2}
+  health: 30
+  level: 1
+  exp: 0
   isLeader: 1
+  movementSpeed: 0
 --- !u!114 &5030285934064571999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,6 +1566,29 @@ MonoBehaviour:
   damage: 10
   lastShot: 0
   _noise: 0.3
+  muzzle: {fileID: 0}
+--- !u!195 &-9139427434095031280
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264219465319364465}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &5719443571845870353
 GameObject:
   m_ObjectHideFlags: 0

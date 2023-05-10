@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7255752163632653929}
   - component: {fileID: 8337904238329756786}
+  - component: {fileID: 2797864829597521151}
   m_Layer: 2
   m_Name: Cube
   m_TagString: Environment
@@ -45,6 +46,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.118757136, y: 0.09138272, z: 1.1816696}
   m_Center: {x: 0.008449709, y: 0.004346241, z: -0.090834334}
+--- !u!208 &2797864829597521151
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008488495917951791}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05937855, y: 0.04569136, z: 0.590835}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.008449709, y: 0.004346241, z: -0.09083433}
+  m_TimeToStationary: 0.5
 --- !u!1 &7347777086382128603
 GameObject:
   m_ObjectHideFlags: 0

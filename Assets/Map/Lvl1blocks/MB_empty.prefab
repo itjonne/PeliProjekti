@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &2295136467146459817
 Transform:
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2295136467146459816
 MeshFilter:
@@ -114,7 +114,7 @@ MonoBehaviour:
   environmentObjects: []
   environmentDensity: 0
   helperObjects: []
-  helperDensity: 1.6
+  helperDensity: 0
   enemyObjects: []
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
@@ -123,3 +123,4 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
+  EnvSpawnRange: 15

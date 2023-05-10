@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 public class MeleeEnemy : Enemy
 {
     private Character target;
+    [SerializeField] private Transform muzzle;
     private float distanceFromTarget;
+    [SerializeField] public GameObject bulletPrefab;
     [SerializeField] private float attackDistance = 2f;
     [SerializeField] private float attackRate = 1f;
     private float timeSinceLastAttack;
@@ -42,7 +45,9 @@ public class MeleeEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.destination = position;
+        // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     private void CalculateClosestTarget()
@@ -72,9 +77,11 @@ public class MeleeEnemy : Enemy
         if (target != null)
         {
             CalculateDistanceFromTarget(target);
+            // Kun ei vielä pystytä lyödä, juostaan kohti pelaajaa
             if (distanceFromTarget > attackDistance)
             {
-                animator.SetBool(attackTriggerName, false);
+                transform.LookAt(target.transform.position);
+                //animator.SetBool(attackTriggerName, false);
                 MoveTo(target.transform.position);
             }
             else // Ollaan tarpeeksi lähellä
@@ -82,7 +89,9 @@ public class MeleeEnemy : Enemy
                 transform.LookAt(target.transform.position);
                 if (timeSinceLastAttack >= attackRate)
                 {
-                    animator.SetBool(attackTriggerName, true);
+                    
+                    Attack();
+                    gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistä melee-metodi
                     timeSinceLastAttack = 0;
                 }
             }
@@ -92,27 +101,41 @@ public class MeleeEnemy : Enemy
         {
             Character[] characters = GameObject.FindObjectsOfType<Character>();
             target = characters[Random.Range(0, characters.Length)];
+
+            if (target = null)  //OSSIN SEKOILUT
+            {
+                movementSpeed = 0;
+            }
+
         }
+
+
     }
 
     private void Attack()
     {
+        Debug.Log("ATTACKING");
         if (target != null && distanceFromTarget <= attackDistance)
         {
+            // Vector3 direction = target.transform.position - transform.position;
             // Luodaan veitsi
+            /*
             GameObject knife = Instantiate(bladePrefab, transform.position, Quaternion.identity);
-
+            knife.GetComponent<Rigidbody>().velocity = transform.forward * 4f; // TODO ampuu kohti maata
+            Destroy(knife, 0.5f); // tuhotaan 0.5s
+            Debug.Log(knife);
+            */
+            //gameObject.GetComponent<Anim_Enemy1>().OnShoot();
+            GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+            bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(0, 0, 0)) * 12f;
+            //ammoLeft--;
+            //lastShot = Time.time;
+            Destroy(bullet, 0.2f);  //TÄHÄN TEHTY MUUTOKSIA, TOIMII NYT NIINKUIN
             // Suunnataan veitsi pelaajaa kohti
-            Vector3 direction = target.transform.position - transform.position;
-            knife.transform.rotation = Quaternion.LookRotation(direction);
+            // knife.transform.rotation = Quaternion.LookRotation(direction);
 
             // Lähetetään viesti veitselle, jotta se tietää, kuinka paljon vahinkoa se aiheuttaa ja millä etäisyydellä se osuu
-            Blade blade = knife.GetComponent<Blade>();
-            if (blade != null)
-            {
-                blade.damage = damage;
-                blade.attackDistance = attackDistance;
-            }
+
         }
     }
 

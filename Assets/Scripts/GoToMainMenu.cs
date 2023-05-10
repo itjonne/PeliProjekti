@@ -5,11 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GoToMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string MainMenu;
+    public string PauseMenu;
+
     void Start()
     {
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(LoadScenes());
     }
 
+    IEnumerator LoadScenes()
+    {
+        AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
+        AsyncOperation asyncLoadScene2 = SceneManager.LoadSceneAsync(PauseMenu, LoadSceneMode.Additive);
 
+        while (!asyncLoadScene1.isDone || !asyncLoadScene2.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
+    }
 }

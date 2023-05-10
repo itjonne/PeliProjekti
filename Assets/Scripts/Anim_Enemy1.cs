@@ -11,7 +11,8 @@ public class Anim_Enemy1 : MonoBehaviour
 	private Vector3 prevPos;
 
 
-	private float yVelocity = 0.0F;
+	//private float yVelocity = 0.0F;
+	private float yVelocity = 1.0F;
 	private float currWeight;
 	// Start is called before the first frame update
 	IEnumerator Start()
@@ -25,13 +26,13 @@ public class Anim_Enemy1 : MonoBehaviour
 			animator.SetInteger("DeathIndex", Random.Range(0, 2));
         }
 
+		
 
 	}
 
 	private void FixedUpdate()
 	{
-		velocity = (transform.position - prevPos) / Time.deltaTime;
-		prevPos = transform.position;
+		
 	}
 
 
@@ -39,11 +40,14 @@ public class Anim_Enemy1 : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		
+		//NÄMÄ SIIRRETTY FIXED UPDATESTA TÄHÄN. KORJAA BUILDIN ANIMAATIOBUGIT
+		velocity = (transform.position - prevPos) / Time.deltaTime;
+		prevPos = transform.position;
 
-		currWeight = animator.GetLayerWeight(1);
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f)
+		if (velocity.magnitude > 0.001f)
 		{
 			animator.SetBool("Walk", true);
 		}
@@ -66,8 +70,11 @@ public class Anim_Enemy1 : MonoBehaviour
 	public void OnDamageTaken()
     {
 		//Debug.Log("OnDamageTaken");
+		
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Hurt");
+
+		StartCoroutine(WeightDelay());
 
 		//float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 1f);
 		//float endWeight = Mathf.Lerp(currWeight, 0.0f, 1f); //Lerp olisi tähän varmaan parempi mutta ei toimi jostain syystä
@@ -88,6 +95,30 @@ public class Anim_Enemy1 : MonoBehaviour
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Shoot");
 		muzzle.Play();
+		
 	}
 
+	public void OnMelee()
+    {
+		animator.SetLayerWeight(1, 1);
+		animator.SetTrigger("Melee");
+		
+
+	}
+
+	//Tämä palauttaa layer weightin nollaksi puolen sekunnin jälkeen, eli kun vihu tekee jotai ylävartalolla, palauttaa ylävartalo weightin nollaksi
+	//TODO smooth systeemi layer weightille, nyt vähän töksähtää tuo liike takaisin päälle, 
+	// aiheuttaa erinäisiä animaatiobugeja nyt jostain syystä
+	IEnumerator WeightDelay() 
+    {
+
+		currWeight = animator.GetLayerWeight(1);
+
+		yield return new WaitForSeconds(0.5f);
+	
+		float endWeight = Mathf.SmoothDamp(1.0f, 0.0f, ref yVelocity, 0.5f);
+		animator.SetLayerWeight(1, 0);
+
+		StartCoroutine(WeightDelay());
+	}
 }

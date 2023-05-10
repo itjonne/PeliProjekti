@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
+
 
 public class PlayableCharacter : Character
 {
+    private NavMeshAgent agent;
 
     public float movementSpeed;
     // Start is called before the first frame update
     void Start()
     {
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
@@ -19,13 +22,19 @@ public class PlayableCharacter : Character
         //Johtaja heittää aina kranaatit yms. Prefabeilla pitää olla grenadethrower pois päältä defaulttina
         if (isLeader == true)
         {
-            GetComponent<GrenadeThrower>().enabled = true;
+            GetComponent<GrenadeThrower>().enabled = true;         
         }
 
         else
         {
             GetComponent<GrenadeThrower>().enabled = false;
         }
+    }
+
+    public override void ChangeLeader(bool leader)
+    {
+        this.isLeader = leader;
+        GetComponent<NavMeshAgent>().enabled = !leader; // componentti disabloidaan jos on leader
     }
 
     public override void Move()
@@ -44,8 +53,8 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
- 
-        transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+        agent.destination = position;
+        // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
 
     // Tää vois olla hiiri
@@ -69,6 +78,7 @@ public class PlayableCharacter : Character
     {
         if (other.GetComponent<DamageDealer>())
         {
+            Debug.Log("NYT OSU PUUKKO / PANOS");
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
@@ -83,7 +93,7 @@ public class PlayableCharacter : Character
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "EndObject")
+        if (collision.gameObject.tag == "EndObject" && isLeader == true) // VAIHDETTU ETTÄ VAIN AKTIIVINEN PELAAJA VOI VAIHTAA KENTÄN
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();
@@ -91,13 +101,14 @@ public class PlayableCharacter : Character
         }
 
         if (collision.gameObject.tag == "Enemy") {
-            TakeDamage(10);
+            // TakeDamage(10);
             
          }
 
         if (collision.gameObject.GetComponent<DamageDealer>() != null)
         {
-            Debug.Log("Nyt osu ammus");
+            float damageAmount = collision.gameObject.GetComponent<DamageDealer>().damage;
+            TakeDamage(damageAmount);
         }
     }
 
@@ -106,10 +117,18 @@ public class PlayableCharacter : Character
         Debug.Log("DEATH");
         gameObject.GetComponentInParent<Squad>().DestroyCharacter(this);
 
+        Destroy(GetComponent<Collider>());
+        Destroy(GetComponent<Rigidbody>());
+        movementSpeed = 0f;
+        Destroy(GetComponent<PlayableCharacter>());
+        Destroy(GetComponent<GrenadeThrower>());
+        gameObject.GetComponent<Weapons>().enabled = false;
         gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // Tää on nyt vähän spagetti, tän ei tarviis ymmärtää mitään squadista/animaatiosta
+        gameObject.GetComponent<Animation_Soldier>().enabled = false;
+        gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        Destroy(gameObject, 30);
 
-        Destroy(gameObject);
-        // Tähän kuolemaefektejä
+        // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
     }
 
     private void LevelEnd()

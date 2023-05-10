@@ -17,13 +17,14 @@ public class Animation_Soldier : MonoBehaviour
 	float directionToMouse;
 	float directionToMouse_x;
 	float ammoLeft;
+	bool reloading;
 
 	float timer;
 	float FlashRate;
 	bool canFlash = true;
 
 	//Muuttujat SmoothDamp Delaysystemille
-	private float smoothTime = 1f;
+	//private float smoothTime = 1f;
 	private float yVelocity = 0.0F;
 	private float currWeight;
 
@@ -47,9 +48,7 @@ public class Animation_Soldier : MonoBehaviour
     private void FixedUpdate()
     {
 		
-		velocity = (transform.position - prevPos) / Time.deltaTime;
-		prevPos = transform.position;
-		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
+
 	}
 
 
@@ -60,6 +59,12 @@ public class Animation_Soldier : MonoBehaviour
 
 	void Update()
 	{
+		//NÄMÄ SIIRRETTY FIXED UPDATESTA TÄHÄN. KORJAA BUILDIN ANIMAATIOBUGIT
+
+		velocity = (transform.position - prevPos) / Time.deltaTime;
+		prevPos = transform.position;
+		ammoLeft = gameObject.GetComponent<Weapons>().ammoLeft;
+		reloading = gameObject.GetComponent<Weapons>().reloading;
 		currWeight = animator.GetLayerWeight(1);
 
 
@@ -87,7 +92,7 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		//Liikkuminen
-		if (velocity.magnitude > 0.01f && directionToMouse > 0.5f)
+		if (velocity.magnitude > 0.001f && directionToMouse > 0.5f)
 		{
 			animator.SetBool("Walk", true);
 			animator.SetBool("BackWalk", false);
@@ -95,7 +100,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse < -0.5f)
+		else if (velocity.magnitude > 0.001f && directionToMouse < -0.5f)
 
 		{
 			animator.SetBool("Walk", false);
@@ -104,7 +109,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse_x > 0.8f && directionToMouse != 0)
+		else if (velocity.magnitude > 0.001f && directionToMouse_x > 0.8f && directionToMouse != 0)
 
 		{
 			animator.SetBool("Walk", false);
@@ -113,7 +118,7 @@ public class Animation_Soldier : MonoBehaviour
 			animator.SetBool("Strafe_Right", false);
 		}
 
-		else if (velocity.magnitude > 0.01f && directionToMouse_x < -0.8f && directionToMouse != 0)
+		else if (velocity.magnitude > 0.001f && directionToMouse_x < -0.8f && directionToMouse != 0)
 
 		{
 			animator.SetBool("Walk", false);
@@ -135,7 +140,7 @@ public class Animation_Soldier : MonoBehaviour
 
 		//Ampuminen
 		
-		if (Input.GetMouseButton(0) && ammoLeft > 0)
+		if (Input.GetMouseButton(0) && ammoLeft > 0 && reloading == false)
 		{
 
 			animator.SetBool("Shoot", true);
@@ -171,6 +176,9 @@ public class Animation_Soldier : MonoBehaviour
 			
 		}
 
+
+
+
 		else
 		{
 			canFlash = true;
@@ -184,17 +192,22 @@ public class Animation_Soldier : MonoBehaviour
 
 
 		}
-
-
-		
+	
 
 	}
 
 
-
 	public void OnDeath()
     {
-		Debug.Log("KUOLEMA ANIMAATIO");
+		animator.SetLayerWeight(1, 0);
+		muzzle.Stop();
+		animator.SetTrigger("Death");
+    }
+
+	public void OnThrow()
+    {
+		animator.SetLayerWeight(1, 1);
+		animator.SetTrigger("Throw");
     }
 
 	/*

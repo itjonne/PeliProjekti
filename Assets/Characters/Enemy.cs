@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using JSAM;
 
 public abstract class Enemy : MonoBehaviour
@@ -8,10 +9,13 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private EnemyDataSO enemyData;
     [SerializeField] public float health = 100f;
     [SerializeField] public float movementSpeed = 3f;
+    [SerializeField] public GameObject gibs;
 
     private GameObject playerWhoDealtDamage;
 
     public float Health => enemyData.health;
+
+
     // public float MovementSpeed => enemyData.movementSpeed;
 
     public abstract void Update();
@@ -51,7 +55,9 @@ public abstract class Enemy : MonoBehaviour
     public void SetHealth(int damage)
     {
         health += damage;
-        if (health <= 0) Die();
+        if (health <= -25) GibDeath();  //Jos tulee liikaa damagea, muutetaan vihu punaiseksi usvaksi
+        else if (health <= 0) Die();
+
     }
 
     public void Die()
@@ -61,11 +67,24 @@ public abstract class Enemy : MonoBehaviour
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<NavMeshAgent>());
         movementSpeed = 0f;
        gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
     }
  
+    public void GibDeath()
+    {
+
+
+       var giblets = gameObject.GetComponent<Enemy>().gibs;
+   
+       //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
+
+        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 2f); //gibletit kohdalle
+        Destroy(gameObject);
+  
+    }
 
 }
