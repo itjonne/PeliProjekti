@@ -1350,6 +1350,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
+      propertyPath: aggroed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693998420433620729, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
       propertyPath: AggroRange
       value: 15
       objectReference: {fileID: 0}
@@ -2098,6 +2102,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1910699744142765917, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
+      propertyPath: aggroed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1910699744142765917, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
       propertyPath: AggroRange
       value: 15
