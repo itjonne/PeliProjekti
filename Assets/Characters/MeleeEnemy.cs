@@ -73,7 +73,6 @@ public class MeleeEnemy : Enemy
         timeSinceLastAttack += Time.deltaTime;
         CalculateClosestTarget();
 
-
         if (target != null)
         {
             CalculateDistanceFromTarget(target);

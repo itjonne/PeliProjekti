@@ -2,30 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class GameManager : MonoBehaviour
 {
+    private static GameManager _instance;
 
-    public static GameManager manager; 
-
-    private void Awake()
+    public static GameManager Instance
     {
-
-        if (manager == null)
+        get
         {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("GameManager");
+                go.AddComponent<GameManager>();
+            }
 
-            DontDestroyOnLoad(gameObject);
-            manager = this;
-
+            return _instance;
         }
-
-        else
-        {
-            Destroy(gameObject);
-        }
-
-
     }
 
+    void Awake()
+    {
+        _instance = this;
+    }
 
+    private void Start()
+    {
+        // Peli alkaa
+
+        // Menu
+
+        // Rakenna Squadi
+
+        // Rakenna Mappi
+            // Siisti mappi (p‰‰lleik‰kiset kivet pois)
+
+
+        // OpenMenu/CloseMenu/EndGame/ChangeScene
+    }
 }
