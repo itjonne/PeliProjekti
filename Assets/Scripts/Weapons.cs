@@ -29,6 +29,7 @@ public class Weapons : MonoBehaviour
     public int magSize;
     public float reloadTime = 2f;
     public float ammoLeft;
+    public float bulletLife = 2.5f;
 
     private void Start()
     {
@@ -105,7 +106,7 @@ public class Weapons : MonoBehaviour
                         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + bulletAngleVector + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
                         ammoLeft--;
                         lastShot = Time.time;
-                        Destroy(bullet, 3f);
+                        Destroy(bullet, bulletLife);
                     }
 
                     // Jos pariton
@@ -127,7 +128,7 @@ public class Weapons : MonoBehaviour
                         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + bulletAngleVector + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
                         ammoLeft--;
                         lastShot = Time.time;
-                        Destroy(bullet, 3f);
+                        Destroy(bullet, bulletLife);
                     }
                     // Muulloin eli ehkä jos vaan yks
                     else
@@ -139,7 +140,7 @@ public class Weapons : MonoBehaviour
                         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
                         ammoLeft--;
                         lastShot = Time.time;
-                        Destroy(bullet, 3f);
+                        Destroy(bullet, bulletLife);
                     }
 
                 }

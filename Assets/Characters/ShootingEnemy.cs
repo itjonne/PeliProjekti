@@ -17,6 +17,8 @@ public class ShootingEnemy : Enemy
 
     public float EnemySpread = 0.1f;
     public float bulletSpeed = 10f;
+    public float AggroRange = 25f;
+  
 
     public void Awake()
     {
@@ -26,6 +28,8 @@ public class ShootingEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
+
+
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
@@ -68,33 +72,53 @@ public class ShootingEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
+        if (target != null)
+        {
+            if ((transform.position - target.transform.position).magnitude < AggroRange)
+            {
+                aggroed = true;
+            }
+        }
+
+
+
+
         timeSinceLastShot += Time.deltaTime;
         CalculateClosestTarget();
 
-
-        if (target != null)
+        if (aggroed == true)
         {
-            CalculateDistanceFromTarget(target);
-            if (distanceFromTarget > shootingDistance)
+            if (target != null)
             {
-                transform.LookAt(target.transform.position);
-                MoveTo(target.transform.position);
-            } else // Ollaan tarpeeks l�hell�
-            {
-                transform.LookAt(target.transform.position);
-                if (timeSinceLastShot >= fireRate)
                 {
-                    Shoot();
-                    timeSinceLastShot = 0;
+                    CalculateDistanceFromTarget(target);
+                    if (distanceFromTarget > shootingDistance)
+                    {
+                        transform.LookAt(target.transform.position);
+                        MoveTo(target.transform.position);
+                    }
+                    else // Ollaan tarpeeks l�hell�
+                    {
+                        transform.LookAt(target.transform.position);
+                        if (timeSinceLastShot >= fireRate)
+                        {
+                            Shoot();
+                            timeSinceLastShot = 0;
+                        }
+                    }
                 }
+
+
             }
 
+            else
+            {
+                Character[] characters = GameObject.FindObjectsOfType<Character>();
+                target = characters[Random.Range(0, characters.Length)];
+            }
         }
-        else
-        {
-            Character[] characters = GameObject.FindObjectsOfType<Character>();
-            target = characters[Random.Range(0, characters.Length)];
-        }
+
+
     }
 
     private void Shoot()
@@ -106,4 +130,6 @@ public class ShootingEnemy : Enemy
         //lastShot = Time.time;
         Destroy(bullet, 3f);
     }
+
+
 }

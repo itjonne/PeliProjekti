@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.AI;
+//using UnityEditor.AI;
 
 public class MapManager : MonoBehaviour
 {
@@ -34,8 +34,11 @@ public class MapManager : MonoBehaviour
 
     public void BakeMap()
     {
+        /*
         NavMeshBuilder.ClearAllNavMeshes();
         NavMeshBuilder.BuildNavMesh();
+        */
+        //OTETAAN NÄMÄ POIS KÄYTÖSTÄ KUN NAVMESHCOMPONENTS KÄYTÖSSÄ
     }
 
     public void GenerateMap(int size)

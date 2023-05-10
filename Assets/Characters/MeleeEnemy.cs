@@ -21,14 +21,21 @@ public class MeleeEnemy : Enemy
     [SerializeField] private string attackTriggerName = "Attack";
     [SerializeField] private GameObject bladePrefab;
 
+    public float AggroRange = 25f;
+  
+
     public void Awake()
     {
         animator = GetComponent<Animator>();
+
     }
     
     // Start is called before the first frame update
     void Start()
     {
+
+      //  Aggroed = false;
+
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
@@ -70,48 +77,54 @@ public class MeleeEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        timeSinceLastAttack += Time.deltaTime;
-        CalculateClosestTarget();
-
 
         if (target != null)
         {
-            CalculateDistanceFromTarget(target);
-            // Kun ei vielä pystytä lyödä, juostaan kohti pelaajaa
-            if (distanceFromTarget > attackDistance)
+            if ((transform.position - target.transform.position).magnitude < AggroRange)
             {
-                transform.LookAt(target.transform.position);
-                //animator.SetBool(attackTriggerName, false);
-                MoveTo(target.transform.position);
+                aggroed = true;
             }
-            else // Ollaan tarpeeksi lähellä
-            {
-                transform.LookAt(target.transform.position);
-                if (timeSinceLastAttack >= attackRate)
-                {
-                    
-                    Attack();
-                    gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistä melee-metodi
-                    timeSinceLastAttack = 0;
-                }
-            }
-
         }
-        else
-        {
-            Character[] characters = GameObject.FindObjectsOfType<Character>();
-            target = characters[Random.Range(0, characters.Length)];
 
-            if (target = null)  //OSSIN SEKOILUT
+        timeSinceLastAttack += Time.deltaTime;
+        CalculateClosestTarget();
+
+        if (aggroed == true)
+        {
+            if (target != null)
             {
-                movementSpeed = 0;
+                CalculateDistanceFromTarget(target);
+                // Kun ei vielä pystytä lyödä, juostaan kohti pelaajaa
+                if (distanceFromTarget > attackDistance)
+                {
+                    transform.LookAt(target.transform.position);
+                    //animator.SetBool(attackTriggerName, false);
+                    MoveTo(target.transform.position);
+                }
+                else // Ollaan tarpeeksi lähellä
+                {
+                    transform.LookAt(target.transform.position);
+                    if (timeSinceLastAttack >= attackRate)
+                    {
+
+                        Attack();
+                        gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptistä melee-metodi
+                        timeSinceLastAttack = 0;
+                    }
+                }
+
             }
 
+            else
+            {
+                Character[] characters = GameObject.FindObjectsOfType<Character>();
+                target = characters[Random.Range(0, characters.Length)];
+
+            }
         }
 
 
     }
-
     private void Attack()
     {
         Debug.Log("ATTACKING");
