@@ -4441,7 +4441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GuiOn: 0
   Text: Welcome to Cannon Fodderlike!  Go LEFT if you are a rookie.         Go RIGHT
-    if you are a veteran.
+    if you are a veteran.    Move with WASD.
   BoxSize:
     serializedVersion: 2
     x: 0
@@ -6630,7 +6630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GuiOn: 0
   Text: Change active squad member with "TAB". Different squad members you come across
-    may have different weapons, attributes and tastes in music.
+    may have different weapons and attributes.
   BoxSize:
     serializedVersion: 2
     x: 0
@@ -16716,8 +16716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuiOn: 0
-  Text: Utilize the environment. Your enemies have harder time hitting you when you
-    are behind cover and vice versa. Your accuracy is better if you stand still.
+  Text: Use the environment. Your enemies have harder time hitting you when you are
+    behind cover and vice versa. Your accuracy is also better if you stand still.
   BoxSize:
     serializedVersion: 2
     x: 0
