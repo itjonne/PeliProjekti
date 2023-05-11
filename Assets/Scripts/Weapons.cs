@@ -94,6 +94,7 @@ public class Weapons : MonoBehaviour
                     // Jos parillinen ni ammutaan jotenki erilailla
                     if (bulletsToShoot % 2 == 0)
                     {
+                        gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         Debug.Log("AMMUTAAN PARITTOMASTI");
                         Vector3 bulletAngleVector;
 
@@ -114,7 +115,7 @@ public class Weapons : MonoBehaviour
                     {
                         //TÄMÄ kontrolloi perus yhden laukauksen ammuntaa -OSSI
                         //Debug.Log("AMMUTAAN KOLMELLA");
-
+                        gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         Vector3 bulletAngleVector;          
                         
                         // Annetaan tollasta omatekosta anglea kaikelle
@@ -133,7 +134,7 @@ public class Weapons : MonoBehaviour
                     // Muulloin eli ehkä jos vaan yks
                     else
                     {
-                       
+                        gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.

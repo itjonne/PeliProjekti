@@ -143,12 +143,13 @@ public class Animation_Soldier : MonoBehaviour
 		if (Input.GetMouseButton(0) && ammoLeft > 0 && reloading == false)
 		{
 
-			animator.SetBool("Shoot", true);
+			animator.SetBool("Draw", true);
 			
 			animator.SetLayerWeight(1, 1);
 
 
 			// TÄLLÄ RIMPSULLA SUULIEKKI TULEE SILLÄ NOPEUDELLA MILLÄ SE ON MÄÄRITELTY PARTICLE SYSTEEMISSÄ	
+			/*
 			if (canFlash)			
 			{			
 				timer += Time.deltaTime;
@@ -158,7 +159,7 @@ public class Animation_Soldier : MonoBehaviour
 					canFlash = false;
 				}
 			}
-
+			*/
 
 		}
 
@@ -166,8 +167,8 @@ public class Animation_Soldier : MonoBehaviour
 		else if (Input.GetMouseButtonUp(0))
 		{
 			canFlash = true;
-			animator.SetBool("Shoot", false);
-			muzzle.Stop();
+			animator.SetBool("Draw", false);
+			//muzzle.Stop();
 
 			//Delay systeemi
 			float endWeight = Mathf.SmoothDamp(currWeight, 0.0f, ref yVelocity, 0.1f);
@@ -209,6 +210,12 @@ public class Animation_Soldier : MonoBehaviour
 		animator.SetLayerWeight(1, 1);
 		animator.SetTrigger("Throw");
     }
+
+	public void OnShoot()
+	{
+		muzzle.Play();
+		animator.SetTrigger("Shoot");
+	}
 
 	/*
     private void OnGUI()
