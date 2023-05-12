@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Autodestruct
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_ReceiveShadows
