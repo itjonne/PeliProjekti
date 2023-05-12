@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 214148957265646381}
   - component: {fileID: 3843563633809939592}
   - component: {fileID: 1347670900237477954}
-  - component: {fileID: 4843072041527327729}
-  m_Layer: 0
+  - component: {fileID: 7766501446176785030}
+  - component: {fileID: 435961191434014540}
+  m_Layer: 2
   m_Name: SM_Env_Tree_Pine_01_VP 1
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -84,7 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!208 &4843072041527327729
+--- !u!136 &7766501446176785030
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698937530412075415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0093221795
+  m_Height: 0.28145114
+  m_Direction: 2
+  m_Center: {x: -0.00027009362, y: 0.00030235332, z: 0.1334968}
+--- !u!208 &435961191434014540
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +109,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.030000001, y: 0.031000001, z: 0.141}
+  m_Extents: {x: 0.01, y: 0.01, z: 0.141}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

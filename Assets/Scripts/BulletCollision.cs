@@ -30,7 +30,7 @@ public class BulletCollision : MonoBehaviour
         }
 
 
-        if (other.gameObject.CompareTag("Enemy"))
+        else if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Osu Vihuun");
 
@@ -40,11 +40,11 @@ public class BulletCollision : MonoBehaviour
 
             Destroy(GetComponent<Rigidbody>());
             Destroy(GetComponent<Collider>());
-            Destroy(this.gameObject, 0.2f);
+            Destroy(this.gameObject, 0.3f);
         }
 
 
-        if (other.gameObject.CompareTag("Player"))
+        else if (other.gameObject.CompareTag("Player"))
         {
            
 

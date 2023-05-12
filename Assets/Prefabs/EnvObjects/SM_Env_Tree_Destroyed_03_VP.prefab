@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1547116971798912549}
   - component: {fileID: 3646932707664833263}
   - component: {fileID: 7607601217042372398}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Env_Tree_Destroyed_03_VP
   m_TagString: Environment
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5256541030920663927}
   - component: {fileID: 3955019176186952121}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

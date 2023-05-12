@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05448c100dcdaa469151243fee06701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  damage: 8
   shooter: {fileID: 0}
 --- !u!114 &-1129994965782713648
 MonoBehaviour:
@@ -199,7 +199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Time
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_CastShadows
@@ -207,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Autodestruct
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5437229657525829738, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_ReceiveShadows
@@ -311,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514605773580731737, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Name
-      value: BulletTrail
+      value: SMGBulletTrail
       objectReference: {fileID: 0}
     - target: {fileID: 8514605773580731737, guid: ad9fbd9d118b07444b0a60143f5c5aab, type: 3}
       propertyPath: m_Layer
