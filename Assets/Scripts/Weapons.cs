@@ -9,7 +9,7 @@ public class Weapons : MonoBehaviour
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
    // [SerializeField][Range(0, 1)] public float _noise = 0; // TÄMÄ EI VARMAAN OLE ENÄÄ KÄYTÖSSÄ -OSSI
-    private int bulletsToShoot = 1; // Tällä pidetään kirjaa ammusten lukumäärästä
+    public int bulletsToShoot = 1; // Tällä pidetään kirjaa ammusten lukumäärästä
     
     private Vector3 playerLastPos;
 

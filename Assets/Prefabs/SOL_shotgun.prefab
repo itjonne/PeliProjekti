@@ -2232,7 +2232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunData: {fileID: 11400000, guid: 4e4fb99d3c76f7f44a49635cd2b528e7, type: 2}
   muzzle: {fileID: 1793496264024422397}
-  InaccuracyModifier: 0
+  bulletsToShoot: 8
+  InaccuracyModifier: 1.01
   bulletSpread: 0
   reloading: 0
   magSize: 8
