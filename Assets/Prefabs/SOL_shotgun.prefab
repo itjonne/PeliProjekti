@@ -2276,7 +2276,7 @@ MonoBehaviour:
   magSize: 8
   reloadTime: 3
   ammoLeft: 8
-  bulletLife: 0.8
+  bulletLife: 0.9
 --- !u!1 &7727770957696346698
 GameObject:
   m_ObjectHideFlags: 0
