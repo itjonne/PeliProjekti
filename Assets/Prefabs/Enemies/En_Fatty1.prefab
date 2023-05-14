@@ -1240,7 +1240,7 @@ MonoBehaviour:
   gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   aggroed: 0
   muzzle: {fileID: 5044948587480128474}
-  bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
+  bulletPrefab: {fileID: 8306785530074399806, guid: 49d99cf22cc75fe4782bf9b77b1c4b9c, type: 3}
   shootingDistance: 16
   fireRate: 0.25
   EnemySpread: 0.18
@@ -1260,10 +1260,10 @@ NavMeshAgent:
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 0
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 1

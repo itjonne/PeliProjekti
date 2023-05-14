@@ -59,6 +59,7 @@ public class Weapons : MonoBehaviour
 
     private bool CanShoot() => !reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
 
+    /*
     private Vector3 CalculateBulletAngle(int i)
     {
         float angle = 0.1f;
@@ -72,6 +73,7 @@ public class Weapons : MonoBehaviour
             return new Vector3(i * -angle, 0, i * -angle);
         }
     }
+    */
 
     public void Shoot(Transform rotation)
     {
@@ -91,6 +93,7 @@ public class Weapons : MonoBehaviour
                 // int playerLevel = gameObject.GetComponent<Character>().level;
                 for (int i = 1; i <= bulletsToShoot; i++)
                 {
+                    /*
                     // Jos parillinen ni ammutaan jotenki erilailla
                     if (bulletsToShoot % 2 == 0)
                     {
@@ -109,28 +112,31 @@ public class Weapons : MonoBehaviour
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+                    */
 
                     // Jos pariton
-                    else if (bulletsToShoot % 2 == 1)
+                    //if (bulletsToShoot % 2 == 1)
                     {
                         //TÄMÄ kontrolloi perus yhden laukauksen ammuntaa -OSSI
                         //Debug.Log("AMMUTAAN KOLMELLA");
                         
-                        Vector3 bulletAngleVector;          
+                        //Vector3 bulletAngleVector;          
                         
                         // Annetaan tollasta omatekosta anglea kaikelle
-                        bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
+                        //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
             
 
 
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + bulletAngleVector + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
                         ammoLeft--;
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+
+                    /*
                     // Muulloin eli ehkä jos vaan yks
                     else
                     {
@@ -143,6 +149,7 @@ public class Weapons : MonoBehaviour
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+                    */
 
                 }
             }
