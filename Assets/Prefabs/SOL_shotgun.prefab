@@ -2236,7 +2236,7 @@ MonoBehaviour:
   bulletSpread: 0
   reloading: 0
   magSize: 8
-  reloadTime: 3
+  reloadTime: 2.5
   ammoLeft: 8
   bulletLife: 0.9
 --- !u!114 &5284938203037680907

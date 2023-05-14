@@ -82,7 +82,7 @@ public class Weapons : MonoBehaviour
 
         if (counter < gunData.fireRate)
         {
-            counter += Time.deltaTime;
+            //counter += Time.deltaTime;
         }
         else
         {
@@ -130,8 +130,8 @@ public class Weapons : MonoBehaviour
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
-                        ammoLeft--;
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
+                        
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
@@ -152,6 +152,7 @@ public class Weapons : MonoBehaviour
                     */
 
                 }
+                ammoLeft--;
             }
   
 
@@ -165,7 +166,7 @@ public class Weapons : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
-
+        counter += Time.deltaTime;  //OSSIN TESTI
         Debug.DrawRay(muzzle.position, muzzle.forward);
 
         /*
@@ -199,15 +200,6 @@ public class Weapons : MonoBehaviour
         
     }
     
-    /* //TÄMÄN VOI VARMAAN POISTAA JOSSAIN VAIHEESSA? -OSSI
-    public Vector3 GetNoise(Vector3 pos)
-    {
-        Debug.Log(pos);
-        var noise = Mathf.PerlinNoise(pos.x * _noise, pos.z * _noise);
-
-        return new Vector3(noise, 0, noise);
-    }
-    */
     // Tänne tulee powerUppeja
 
     public void ExtraBulletPowerUp(int amount)
