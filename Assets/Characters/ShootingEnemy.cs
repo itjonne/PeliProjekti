@@ -114,7 +114,11 @@ public class ShootingEnemy : Enemy
             else
             {
                 Character[] characters = GameObject.FindObjectsOfType<Character>();
-                target = characters[Random.Range(0, characters.Length)];
+           
+                if (characters.Length > 0)
+                {
+                    target = characters[Random.Range(0, characters.Length)];
+                }
             }
         }
 

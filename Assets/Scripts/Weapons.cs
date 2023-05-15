@@ -140,14 +140,7 @@ public class Weapons : MonoBehaviour
                     // Muulloin eli ehkä jos vaan yks
                     else
                     {
-                        gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
-                        GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
 
-                        bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
-                        ammoLeft--;
-                        lastShot = Time.time;
-                        Destroy(bullet, bulletLife);
                     }
                     */
 
