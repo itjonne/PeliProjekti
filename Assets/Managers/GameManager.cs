@@ -2,30 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class GameManager : MonoBehaviour
 {
+    private static GameManager _instance;
 
-    public static GameManager manager; 
-
-    private void Awake()
+    public static GameManager Instance
     {
-
-        if (manager == null)
+        get
         {
+            if (_instance == null)
+            {
+                GameObject go = new GameObject("GameManager");
+                go.AddComponent<GameManager>();
+            }
 
-            DontDestroyOnLoad(gameObject);
-            manager = this;
-
+            return _instance;
         }
-
-        else
-        {
-            Destroy(gameObject);
-        }
-
-
     }
 
+    // Pelin UI palikat
+    PauseMenu pauseMenu;
 
+    // Pelin ominaisuudet
+    public bool gameIsPaused = false;
+
+
+
+    void Awake()
+    {
+        _instance = this;
+        DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        pauseMenu = GetComponentInChildren<PauseMenu>();
+
+
+        Debug.LogWarning("PELI ALKAA NY!");
+        // Peli alkaa
+
+        // Menu
+
+        // Rakenna Squadi
+
+        // Rakenna Mappi
+            // Siisti mappi (p‰‰lleik‰kiset kivet pois)
+
+
+        // OpenMenu/CloseMenu/EndGame/ChangeScene
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePauseMenu();
+            
+        }
+    }
+
+    private void TogglePauseMenu()
+    {
+        if (gameIsPaused)
+        {
+            gameIsPaused = false;
+            Debug.LogWarning("Resuming game");
+            pauseMenu.Resume();
+        }
+        else
+        {
+            gameIsPaused = true;
+            Debug.LogWarning("Pausing game");
+            pauseMenu.Pause();
+        }
+    }
 }
