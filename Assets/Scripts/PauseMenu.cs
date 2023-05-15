@@ -58,8 +58,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
       
 
-
-
     }
 
     public void Pause()

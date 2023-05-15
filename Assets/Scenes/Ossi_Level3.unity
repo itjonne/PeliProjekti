@@ -3778,6 +3778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb20711089db58d4b82f596fd0af5fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainMenu: 
   gameIsPaused: 0
 --- !u!4 &1234732726
 Transform:

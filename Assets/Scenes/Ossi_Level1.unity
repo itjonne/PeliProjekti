@@ -1745,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225661083871058276, guid: da403bbd4a8005846b5428617d51b2e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.611128
+      value: 6.19
       objectReference: {fileID: 0}
     - target: {fileID: 1225661083871058276, guid: da403bbd4a8005846b5428617d51b2e2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1753,7 +1753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225661083871058276, guid: da403bbd4a8005846b5428617d51b2e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.6939793
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 1225661083871058276, guid: da403bbd4a8005846b5428617d51b2e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2294,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490989859910976898, guid: 7f94be1417e2f7f49880a23dd464d141, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.200882
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 490989859910976898, guid: 7f94be1417e2f7f49880a23dd464d141, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2596,7 +2596,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &914351682
 PrefabInstance:
@@ -4277,7 +4277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1341160688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6736,7 +6736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3574224964312424731, guid: 8e8769da893664f48835c41b914b7566, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3574224964312424731, guid: 8e8769da893664f48835c41b914b7566, type: 3}
       propertyPath: m_LocalScale.x

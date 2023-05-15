@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-
+        public string MainMenu;
     public static GameManager Instance
     {
         get
@@ -26,7 +27,21 @@ public class GameManager : MonoBehaviour
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
 
+    /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
+     void Awake()
 
+    if (Instance == null)
+    {
+    DontDestroyOnLoad(gameObject);
+    Instance = this;
+    }
+
+    else
+    {
+    Destroy(gameObject);
+    }
+   
+     */
 
     void Awake()
     {
@@ -36,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+      // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
 
 
@@ -77,4 +93,17 @@ public class GameManager : MonoBehaviour
             pauseMenu.Pause();
         }
     }
+
+    IEnumerator GoToMenu()
+    {
+        AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
+      //  SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+      while (!asyncLoadScene1.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
+    }
+
 }
