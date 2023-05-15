@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 
 public class Weapons : MonoBehaviour
@@ -8,7 +9,8 @@ public class Weapons : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
-   // [SerializeField][Range(0, 1)] public float _noise = 0; // TƒMƒ EI VARMAAN OLE ENƒƒ KƒYT÷SSƒ -OSSI
+    [SerializeField] private AudioManager audioManager;
+    // [SerializeField][Range(0, 1)] public float _noise = 0; // TƒMƒ EI VARMAAN OLE ENƒƒ KƒYT÷SSƒ -OSSI
     private int bulletsToShoot = 1; // T‰ll‰ pidet‰‰n kirjaa ammusten lukum‰‰r‰st‰
     
     private Vector3 playerLastPos;
@@ -87,6 +89,9 @@ public class Weapons : MonoBehaviour
             if (ammoLeft > 0 && reloading == false)  //reload ehto lis‰tty, ett‰ saadaan manuaalinen lataus toimimaan
             {
                 counter = 0;
+
+                
+
                 // Debug.Log("T‰‰ll‰ ammutaan");
                 // int playerLevel = gameObject.GetComponent<Character>().level;
                 for (int i = 1; i <= bulletsToShoot; i++)
