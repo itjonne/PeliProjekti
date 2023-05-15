@@ -2189,7 +2189,6 @@ GameObject:
   - component: {fileID: 4006045703508492601}
   - component: {fileID: 495298955012967783}
   - component: {fileID: 4615767976204734834}
-  - component: {fileID: 4719477577528922271}
   - component: {fileID: 6675442013713028133}
   - component: {fileID: 5284938203037680907}
   - component: {fileID: 1022716422964837052}
@@ -2302,24 +2301,6 @@ MonoBehaviour:
   exp: 0
   isLeader: 0
   movementSpeed: 5
---- !u!114 &4719477577528922271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7652646214253871609}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efbe5b190db4dea49bd28ae49bb1e64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
-  fireRate: 0.166
-  damage: 8
-  lastShot: 0
-  _noise: 0.1
-  muzzle: {fileID: 1793496264024422397}
 --- !u!114 &6675442013713028133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2366,18 +2347,18 @@ NavMeshAgent:
   m_GameObject: {fileID: 7652646214253871609}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_Acceleration: 50
+  avoidancePriority: 20
+  m_AngularSpeed: 250
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
 --- !u!1 &7727770957696346698
 GameObject:

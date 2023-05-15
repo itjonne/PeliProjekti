@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using JSAM;
 
 
 public class Weapons : MonoBehaviour
@@ -9,9 +8,8 @@ public class Weapons : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
-    [SerializeField] private AudioManager audioManager;
-    // [SerializeField][Range(0, 1)] public float _noise = 0; // TÄMÄ EI VARMAAN OLE ENÄÄ KÄYTÖSSÄ -OSSI
-    private int bulletsToShoot = 1; // Tällä pidetään kirjaa ammusten lukumäärästä
+   // [SerializeField][Range(0, 1)] public float _noise = 0; // TÄMÄ EI VARMAAN OLE ENÄÄ KÄYTÖSSÄ -OSSI
+    public int bulletsToShoot = 1; // Tällä pidetään kirjaa ammusten lukumäärästä
     
     private Vector3 playerLastPos;
 
@@ -61,6 +59,7 @@ public class Weapons : MonoBehaviour
 
     private bool CanShoot() => !reloading && timeSinceLastShot > 1f / (gunData.fireRate / 60f);
 
+    /*
     private Vector3 CalculateBulletAngle(int i)
     {
         float angle = 0.1f;
@@ -74,6 +73,7 @@ public class Weapons : MonoBehaviour
             return new Vector3(i * -angle, 0, i * -angle);
         }
     }
+    */
 
     public void Shoot(Transform rotation)
     {
@@ -82,20 +82,18 @@ public class Weapons : MonoBehaviour
 
         if (counter < gunData.fireRate)
         {
-            counter += Time.deltaTime;
+            //counter += Time.deltaTime;
         }
         else
         {
             if (ammoLeft > 0 && reloading == false)  //reload ehto lisätty, että saadaan manuaalinen lataus toimimaan
             {
                 counter = 0;
-
-                
-
                 // Debug.Log("Täällä ammutaan");
                 // int playerLevel = gameObject.GetComponent<Character>().level;
                 for (int i = 1; i <= bulletsToShoot; i++)
                 {
+                    /*
                     // Jos parillinen ni ammutaan jotenki erilailla
                     if (bulletsToShoot % 2 == 0)
                     {
@@ -114,28 +112,31 @@ public class Weapons : MonoBehaviour
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+                    */
 
                     // Jos pariton
-                    else if (bulletsToShoot % 2 == 1)
+                    //if (bulletsToShoot % 2 == 1)
                     {
                         //TÄMÄ kontrolloi perus yhden laukauksen ammuntaa -OSSI
                         //Debug.Log("AMMUTAAN KOLMELLA");
                         
-                        Vector3 bulletAngleVector;          
+                        //Vector3 bulletAngleVector;          
                         
                         // Annetaan tollasta omatekosta anglea kaikelle
-                        bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
+                        //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
             
 
 
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + bulletAngleVector + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
-                        ammoLeft--;
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
+                        
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+
+                    /*
                     // Muulloin eli ehkä jos vaan yks
                     else
                     {
@@ -148,8 +149,10 @@ public class Weapons : MonoBehaviour
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
+                    */
 
                 }
+                ammoLeft--;
             }
   
 
@@ -163,7 +166,7 @@ public class Weapons : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
-
+        counter += Time.deltaTime;  //OSSIN TESTI
         Debug.DrawRay(muzzle.position, muzzle.forward);
 
         /*
@@ -197,15 +200,6 @@ public class Weapons : MonoBehaviour
         
     }
     
-    /* //TÄMÄN VOI VARMAAN POISTAA JOSSAIN VAIHEESSA? -OSSI
-    public Vector3 GetNoise(Vector3 pos)
-    {
-        Debug.Log(pos);
-        var noise = Mathf.PerlinNoise(pos.x * _noise, pos.z * _noise);
-
-        return new Vector3(noise, 0, noise);
-    }
-    */
     // Tänne tulee powerUppeja
 
     public void ExtraBulletPowerUp(int amount)

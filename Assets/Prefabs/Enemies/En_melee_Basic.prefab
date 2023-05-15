@@ -2222,6 +2222,7 @@ MonoBehaviour:
   health: 30
   movementSpeed: 3
   gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
+  aggroed: 0
   muzzle: {fileID: 320811343239326498}
   bulletPrefab: {fileID: 8306785530074399806, guid: 6c8d8be39a1ef664487c1852bfd8acff, type: 3}
   attackDistance: 1.5
@@ -2229,6 +2230,7 @@ MonoBehaviour:
   damage: 10
   attackTriggerName: Attack
   bladePrefab: {fileID: 1847550737480709376, guid: bbe28c5ca4390694683fb6362d97e23c, type: 3}
+  AggroRange: 25
 --- !u!114 &3074171899745988645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2254,17 +2256,17 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3
-  m_Acceleration: 8
+  m_Acceleration: 20
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 1
+  m_AutoRepath: 0
   m_Height: 2
   m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 2
 --- !u!1 &7532269212432196184
 GameObject:
   m_ObjectHideFlags: 0
