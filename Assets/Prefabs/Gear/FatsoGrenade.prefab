@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05448c100dcdaa469151243fee06701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
   shooter: {fileID: 0}
 --- !u!114 &5050323704664361111
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5856b2f5780744c83ca9714e732252, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 2.2
+  delay: 2
   radius: 3.5
   force: 200
   ExplosionDamage: 15
@@ -175,7 +175,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
@@ -189,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 812711111533037087, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0.7058824
       objectReference: {fileID: 0}
     - target: {fileID: 2537616586069872066, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: m_RootOrder
@@ -212,11 +224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2537616586069872066, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2537616586069872066, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00082
+      value: 0.00003
       objectReference: {fileID: 0}
     - target: {fileID: 2537616586069872066, guid: 441066a2088c6d14eb12e36fa89cd1a1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -348,7 +360,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1239540405061447408, guid: 67e3376804ea0824f8deaeb6ff9a13c7, type: 3}
       propertyPath: m_Parameters.colorGradient.atime1
-      value: 49344
+      value: 59560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239540405061447408, guid: 67e3376804ea0824f8deaeb6ff9a13c7, type: 3}
+      propertyPath: m_Parameters.colorGradient.atime2
+      value: 55319
       objectReference: {fileID: 0}
     - target: {fileID: 1239540405061447408, guid: 67e3376804ea0824f8deaeb6ff9a13c7, type: 3}
       propertyPath: m_Parameters.colorGradient.ctime0

@@ -441,7 +441,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451347267849904834}
   m_LocalRotation: {x: -0, y: -0.017452449, z: -0, w: 0.99984777}
-  m_LocalPosition: {x: 0.325, y: 1.516, z: 1.166}
+  m_LocalPosition: {x: 0.325, y: 1.56, z: 1.166}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1246,7 +1246,7 @@ MonoBehaviour:
   shootingDistance: 18
   fireRate: 2
   EnemySpread: 0.2
-  bulletSpeed: 25
+  bulletSpeed: 24
   AggroRange: 25
 --- !u!195 &5494749560409597303
 NavMeshAgent:
