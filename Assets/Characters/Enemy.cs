@@ -72,10 +72,11 @@ public abstract class Enemy : MonoBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NavMeshAgent>());
         movementSpeed = 0f;
-       gameObject.GetComponent<Enemy>().enabled = false;
+        gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
-    }
+
+}
  
     public void GibDeath()
     {
