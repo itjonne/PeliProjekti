@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         enemiesKilled += amount;
         //  Debug.LogWarning("KILLED ENEMY");
         // Debug.LogWarning(enemiesKilled);
-        SpawnEndKills spawner = GetComponent<SpawnEndKills>();
+        SpawnEndKills spawner = FindObjectOfType<SpawnEndKills>();
         if (spawner != null)
         {
             spawner.enemiesKilled += 1;
