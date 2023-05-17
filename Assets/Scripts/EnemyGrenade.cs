@@ -54,6 +54,12 @@ public class EnemyGrenade : MonoBehaviour
                     */
                     rb.GetComponent<PlayableCharacter>().TakeDamage(ExplosionDamage);
                 }
+
+                else if (rb.GetComponent<Enemy>())
+                {
+               
+                    rb.GetComponent<Enemy>().SetHealth(-15);
+                }
             }
         }
 
