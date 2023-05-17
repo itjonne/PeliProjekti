@@ -32,8 +32,15 @@ public class SpawnEndKills : MonoBehaviour
         var randomposition = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
         if (enemiesKilled >= killGoal)
         {
-            Instantiate(EndArrow, player.transform.position+ new Vector3(0,2,0), transform.rotation);
+            
             Instantiate(EndPrefab, transform.position + randomposition, EndPrefab.transform.rotation);
+
+            if (player != null)
+            {
+                Instantiate(EndArrow, player.transform.position + new Vector3(0, 2, 0), transform.rotation);
+            }
+                
+
             Destroy(gameObject);
         }
         
