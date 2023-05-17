@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     // Pelin UI palikat
     PauseMenu pauseMenu;
-    public string MainMenu;
+    private string MainMenu = "MainMenu";
 
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GoToMenu()
     {
+        Debug.LogWarning("MAINMENU , "+ MainMenu);
       AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
       //  SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
       while (!asyncLoadScene1.isDone)
