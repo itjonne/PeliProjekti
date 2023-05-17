@@ -743,7 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
-  killCounter: 0
+  enemiesKilled: 0
 --- !u!4 &201266304
 Transform:
   m_ObjectHideFlags: 0
@@ -2401,7 +2401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1341160688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,6 +2938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: 
   gameIsPaused: 0
+  enemiesKilled: 0
 --- !u!4 &1401968637
 Transform:
   m_ObjectHideFlags: 0
