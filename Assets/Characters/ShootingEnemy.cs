@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ShootingEnemy : Enemy
 {
     private Character target;
+
     [SerializeField] private Transform muzzle;
     private float distanceFromTarget;
     [SerializeField] public GameObject bulletPrefab;
@@ -28,8 +29,6 @@ public class ShootingEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
-
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
@@ -99,22 +98,34 @@ public class ShootingEnemy : Enemy
                     }
                     else // Ollaan tarpeeks l�hell�
                     {
+
                         transform.LookAt(target.transform.position);
-                        if (timeSinceLastShot >= fireRate)
+
+                        // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
+                        RaycastHit hit;
+                        if (Physics.Raycast(transform.position, muzzle.forward, out hit, distanceFromTarget - 0.5f , -1))
                         {
+                            Debug.DrawRay(transform.position, muzzle.forward * hit.distance, Color.yellow);
+                            MoveTo(target.transform.position);
+                        }
+
+                        // Jos ei oo ni ammutaan
+                        else if (timeSinceLastShot >= fireRate)
+                        {
+                            Debug.LogWarning("NYT EI OO");
                             Shoot();
                             timeSinceLastShot = 0;
                         }
                     }
+
+
                 }
-
-
             }
 
             else
             {
                 Character[] characters = GameObject.FindObjectsOfType<Character>();
-           
+
                 if (characters.Length > 0)
                 {
                     target = characters[Random.Range(0, characters.Length)];

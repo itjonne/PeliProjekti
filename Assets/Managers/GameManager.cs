@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
 
-        StartCoroutine(GoToMenu());
+        if (SceneManager.GetActiveScene().name == "Loading")
+        {
+            StartCoroutine(GoToMenu());
+        }
 
         // Menu
 
