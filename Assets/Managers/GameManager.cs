@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-        public string MainMenu;
     public static GameManager Instance
     {
         get
@@ -23,9 +22,11 @@ public class GameManager : MonoBehaviour
 
     // Pelin UI palikat
     PauseMenu pauseMenu;
+    public string MainMenu;
 
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
+    public int enemyKilled = 0;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -43,6 +44,13 @@ public class GameManager : MonoBehaviour
    
      */
 
+    public void KillEnemy(int amount)
+    {
+        enemyKilled += amount;
+        Debug.LogWarning("KILLED ENEMY");
+        Debug.LogWarning(enemyKilled);
+    }
+
     void Awake()
     {
         _instance = this;
@@ -57,6 +65,8 @@ public class GameManager : MonoBehaviour
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
+
+        StartCoroutine(GoToMenu());
 
         // Menu
 
@@ -96,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GoToMenu()
     {
-        AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
+      AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
       //  SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
       while (!asyncLoadScene1.isDone)
         {
