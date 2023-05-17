@@ -7,7 +7,7 @@ public class EnemyGrenade : MonoBehaviour
     [SerializeField] public float delay = 3f; //Kranaatin viive ennen räjähdystä
     [SerializeField] public float radius = 3f; //Kranaatin räjähdysalue
     [SerializeField] public float force = 200f; //Heiton voimakkuus
-    [SerializeField] public float ExplosionDamage = 15; //Räjähdyksen tekemä damage
+    [SerializeField] public int ExplosionDamage = 15; //Räjähdyksen tekemä damage
 
 
 
@@ -58,7 +58,7 @@ public class EnemyGrenade : MonoBehaviour
                 else if (rb.GetComponent<Enemy>())
                 {
                
-                    rb.GetComponent<Enemy>().SetHealth(-15);
+                    rb.GetComponent<Enemy>().SetHealth(-ExplosionDamage);
                 }
             }
         }
