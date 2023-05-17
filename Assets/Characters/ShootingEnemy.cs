@@ -29,8 +29,6 @@ public class ShootingEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-       agent = GetComponent<NavMeshAgent>();
-
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
