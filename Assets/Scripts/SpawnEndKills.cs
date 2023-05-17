@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SpawnEndKills : MonoBehaviour
 {
-    public Enemy enemy;
+    [SerializeField] private Component EndArrow;
+    [SerializeField] private Component EndPrefab;
     GUIStyle KillsFont;
     public int enemiesKilled = 0;
+    public int killGoal = 1;
+    private Character player;
 
     private void Awake()
     {
@@ -18,29 +21,32 @@ public class SpawnEndKills : MonoBehaviour
     void Start()
     {
 
-     
-        KillsFont = new GUIStyle();
-        KillsFont.fontSize = 16;
-        KillsFont.normal.textColor = Color.white;
+        player = FindObjectOfType<Character>(); 
+      
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        var randomposition = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
+        if (enemiesKilled >= killGoal)
+        {
+            Instantiate(EndArrow, player.transform.position+ new Vector3(0,2,0), transform.rotation);
+            Instantiate(EndPrefab, transform.position + randomposition, EndPrefab.transform.rotation);
+            Destroy(gameObject);
+        }
         
-       
-        
+
     }
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 25, 100, 20), "KILL THEM: " + enemiesKilled, KillsFont);
-    }
-
-    void CheckKill()
-    {
-        //Jos Enemy-Classin Die() -kutsutaan lis‰t‰‰n yksi kill counteriin
-
+        KillsFont = new GUIStyle(GUI.skin.label);
+        KillsFont.fontSize = 18;
+        KillsFont.normal.textColor = Color.white;
+        KillsFont.alignment = TextAnchor.UpperCenter;
+        GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height /20 -40, 450, 50), "It's greenie season! Kill: " + enemiesKilled + " / " + killGoal + " and get to the exit!", KillsFont);
     }
 
 }

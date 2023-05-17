@@ -634,7 +634,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156029571}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -1539,7 +1539,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619524511}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3161,8 +3161,8 @@ MonoBehaviour:
   - {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 0
   zPosition: 0
-  spawnTime: 10
-  spawnTimeReduce: 25
+  spawnTime: 9
+  spawnTimeReduce: 100
   horizontalRandom: 0
   verticalRandom: 20
   active: 0
@@ -3175,7 +3175,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044442856}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -4203,7 +4203,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334812979}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -6554,7 +6554,7 @@ MonoBehaviour:
   xPosition: 0
   zPosition: 0
   spawnTime: 10
-  spawnTimeReduce: 25
+  spawnTimeReduce: 100
   horizontalRandom: 0
   verticalRandom: 20
   active: 0
@@ -6567,7 +6567,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957752057}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -6630,7 +6630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957752057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.729763, y: 176.27576, z: -20.81068}
+  m_LocalPosition: {x: -34.729763, y: 176.27576, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

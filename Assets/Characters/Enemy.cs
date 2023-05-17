@@ -90,7 +90,8 @@ public abstract class Enemy : MonoBehaviour
 
         Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek jälkeen
         Destroy(gameObject);
-  
+        GameManager.Instance.KillEnemy(1);
+
     }
 
 }
