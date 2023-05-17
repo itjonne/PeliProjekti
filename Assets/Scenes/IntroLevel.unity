@@ -7625,10 +7625,10 @@ MonoBehaviour:
   spatialSound: 0
   loopSound: 0
   priority: 128
-  pitchShift: 0.098
+  pitchShift: 0.101
   delay: 0
   ignoreTimeScale: 0
-  sound: {fileID: 11400000, guid: 43638077570383d40b42a4cebd2d243e, type: 2}
+  sound: {fileID: 11400000, guid: ab0f115def368524da332adf41504b4b, type: 2}
   onStart: 0
   onEnable: 0
   onDisable: 2
@@ -17898,10 +17898,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioFileObjects:
+  - {fileID: 11400000, guid: de37dba151770eb49a788ca1c4aab8ae, type: 2}
+  - {fileID: 11400000, guid: 3d923739413f1514089cb8c55d828bf8, type: 2}
   - {fileID: 11400000, guid: ab0f115def368524da332adf41504b4b, type: 2}
   - {fileID: 11400000, guid: 8479d72758a879243bac12143836eece, type: 2}
   - {fileID: 11400000, guid: 43638077570383d40b42a4cebd2d243e, type: 2}
+  - {fileID: 11400000, guid: 5080c6d970d6d744583920a51d63bdac, type: 2}
+  - {fileID: 11400000, guid: ed256f93edb1b32479861cd569398c91, type: 2}
   audioFileMusicObjects:
+  - {fileID: 11400000, guid: cb0dab5976f50ad46be567f15f26c8b3, type: 2}
   - {fileID: 11400000, guid: e9567227525c5d243ac32952266505f1, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music

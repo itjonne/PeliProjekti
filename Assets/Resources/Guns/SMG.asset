@@ -15,6 +15,7 @@ MonoBehaviour:
   name: 
   damage: 10
   maxDistance: 100
+  audioClip: 4
   bulletPrefab: {fileID: 8306785530074399806, guid: 502636d6b9cc70248b23371545d51317, type: 3}
   currentAmmo: 1
   magSize: 1

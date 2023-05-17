@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -119,14 +120,14 @@ public class Weapons : MonoBehaviour
                     {
                         //TÄMÄ kontrolloi perus yhden laukauksen ammuntaa -OSSI
                         //Debug.Log("AMMUTAAN KOLMELLA");
-                        
+
                         //Vector3 bulletAngleVector;          
-                        
+
                         // Annetaan tollasta omatekosta anglea kaikelle
                         //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
-            
 
 
+                        JSAM.AudioManager.PlaySound(gunData.audioClip);
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
