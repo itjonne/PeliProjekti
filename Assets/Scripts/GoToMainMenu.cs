@@ -18,7 +18,7 @@ public class GoToMainMenu : MonoBehaviour
         AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
         AsyncOperation asyncLoadScene2 = SceneManager.LoadSceneAsync(PauseMenu, LoadSceneMode.Additive);
 
-        while (!asyncLoadScene1.isDone || !asyncLoadScene2.isDone)
+        while (!asyncLoadScene1.isDone  || !asyncLoadScene2.isDone)
         {
             yield return null;
         }

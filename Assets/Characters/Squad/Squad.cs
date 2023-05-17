@@ -182,6 +182,8 @@ public class Squad : MonoBehaviour
     {
        // UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
+        //GameManager.GoToMenu();??  //OSSI!
+   
     }
 
     // Typerästi tehty liikkuminen, ei kannata monesti hakea tota johtajaa.

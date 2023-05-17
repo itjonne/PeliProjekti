@@ -118,7 +118,13 @@ public class MeleeEnemy : Enemy
             else
             {
                 Character[] characters = GameObject.FindObjectsOfType<Character>();
-                target = characters[Random.Range(0, characters.Length)];
+                Debug.Log(characters.Length);
+
+                if(characters.Length > 0)
+                {
+                    target = characters[Random.Range(0, characters.Length)];
+                }
+          
 
             }
         }

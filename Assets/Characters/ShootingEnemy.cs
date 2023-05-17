@@ -13,7 +13,7 @@ public class ShootingEnemy : Enemy
     [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa t�� alkaa ampumaan
 
     private float timeSinceLastShot;
-    private float fireRate = 2f;
+    public float fireRate = 2f;
 
     public float EnemySpread = 0.1f;
     public float bulletSpeed = 10f;
@@ -114,7 +114,11 @@ public class ShootingEnemy : Enemy
             else
             {
                 Character[] characters = GameObject.FindObjectsOfType<Character>();
-                target = characters[Random.Range(0, characters.Length)];
+           
+                if (characters.Length > 0)
+                {
+                    target = characters[Random.Range(0, characters.Length)];
+                }
             }
         }
 
@@ -124,8 +128,8 @@ public class ShootingEnemy : Enemy
     private void Shoot()
     {
         gameObject.GetComponent<Anim_Enemy1>().OnShoot();
-        GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(0, 0), Random.Range(-EnemySpread, 0), Random.Range(0, 0))) * bulletSpeed;
+        GameObject bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-EnemySpread, EnemySpread), Random.Range(-EnemySpread, 0), Random.Range(-EnemySpread, EnemySpread))) * bulletSpeed;
         //ammoLeft--;
         //lastShot = Time.time;
         Destroy(bullet, 3f);

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class ExtraCharacterPowerUp : PowerUp
 {
-    [SerializeField] private GameObject characterPrefab;
+    [SerializeField] private GameObject[] characterPrefabs;
     // Start is called before the first frame update
     public override void GivePowerUp(Character character)
     {
         Squad squad = character.GetComponentInParent<Squad>();
+
+        int RandomNum = Random.Range(0, characterPrefabs.Length);
+        GameObject characterPrefab = characterPrefabs[RandomNum]; //RANDOM MAHDOLLISUUS SAADA ERILAISIA SOLTTUJA, RIFLE, SHOTGUN YMS.
+
         GameObject newCharacter = Instantiate(characterPrefab, transform.position, Quaternion.identity);
         newCharacter.GetComponent<Character>().isLeader = false; // varmuuden vuoks pakotetaan       
         squad.AddCharacter(newCharacter.GetComponent<Character>());
