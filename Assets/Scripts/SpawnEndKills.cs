@@ -21,7 +21,7 @@ public class SpawnEndKills : MonoBehaviour
     void Start()
     {
 
-        player = FindObjectOfType<Character>(); 
+        
       
         
     }
@@ -29,6 +29,8 @@ public class SpawnEndKills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = FindObjectOfType<Character>();
+
         var randomposition = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
         if (enemiesKilled >= killGoal)
         {
@@ -37,7 +39,11 @@ public class SpawnEndKills : MonoBehaviour
 
             if (player != null)
             {
-                Instantiate(EndArrow, player.transform.position + new Vector3(0, 2, 0), transform.rotation);
+                if ( player.isLeader == true)
+                {
+                    Instantiate(EndArrow, player.transform.position + new Vector3(0, 2, 0), transform.rotation);
+                }
+                
             }
                 
 

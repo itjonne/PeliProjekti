@@ -2257,6 +2257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 4220222231417818840, guid: 7419a8ce31cdf8547916fa78d907f2a0, type: 3}
+  - {fileID: 4220222231417818840, guid: e0f0f6bfea59e9e4e99fa4882ab89285, type: 3}
   xPosition: 0
   zPosition: 0
   spawnTime: 50
@@ -6708,6 +6709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 4220222231417818840, guid: e0f0f6bfea59e9e4e99fa4882ab89285, type: 3}
+  - {fileID: 4220222231417818840, guid: 7419a8ce31cdf8547916fa78d907f2a0, type: 3}
   xPosition: 0
   zPosition: 0
   spawnTime: 70
