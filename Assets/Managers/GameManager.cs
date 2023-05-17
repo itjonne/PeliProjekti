@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
-    public int enemyKilled = 0;
+    public int enemiesKilled = 0;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -46,11 +46,16 @@ public class GameManager : MonoBehaviour
 
     public void KillEnemy(int amount)
     {
-        enemyKilled += amount;
-        Debug.LogWarning("KILLED ENEMY");
-        Debug.LogWarning(enemyKilled);
-    }
+        enemiesKilled += amount;
+        //  Debug.LogWarning("KILLED ENEMY");
+        // Debug.LogWarning(enemiesKilled);
+        SpawnEndKills spawner = GetComponent<SpawnEndKills>();
+        if (spawner != null)
+        {
+            spawner.enemiesKilled += 1;
+        }
 
+    }
     void Awake()
     {
         _instance = this;

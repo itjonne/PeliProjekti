@@ -6,7 +6,7 @@ public class SpawnEndKills : MonoBehaviour
 {
     public Enemy enemy;
     GUIStyle KillsFont;
-    public int killCounter = 0;
+    public int enemiesKilled = 0;
 
     private void Awake()
     {
@@ -28,16 +28,13 @@ public class SpawnEndKills : MonoBehaviour
     void Update()
     {
         
-        if (GameManager.Instance.
-        {
-            killCounter++;
-        }
+       
         
     }
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 25, 100, 20), "KILL THEM: " + killCounter, KillsFont);
+        GUI.Label(new Rect(10, 25, 100, 20), "KILL THEM: " + enemiesKilled, KillsFont);
     }
 
     void CheckKill()
