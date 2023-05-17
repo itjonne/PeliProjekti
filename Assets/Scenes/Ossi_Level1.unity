@@ -5634,6 +5634,7 @@ GameObject:
   - component: {fileID: 1341160692}
   - component: {fileID: 1341160691}
   - component: {fileID: 1341160693}
+  - component: {fileID: 1341160694}
   m_Layer: 0
   m_Name: Squad
   m_TagString: Untagged
@@ -5710,6 +5711,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a46978c2f49bd24aa88b4ff4066b9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FormationSize: 1
+  Spread: 1
+  _noise: 0
+--- !u!114 &1341160694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341160687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a001e3fdd0b75f7468d6e22b55bb6996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FormationSize: 1
