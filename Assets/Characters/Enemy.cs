@@ -13,7 +13,7 @@ public abstract class Enemy : MonoBehaviour
 
     private GameObject playerWhoDealtDamage;
     public bool aggroed = false;
-    public bool enemyDied = false;
+
     public float Health => enemyData.health;
 
 
@@ -75,8 +75,10 @@ public abstract class Enemy : MonoBehaviour
         gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
-        enemyDied = true;
-    }
+
+        GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+
+}
  
     public void GibDeath()
     {
