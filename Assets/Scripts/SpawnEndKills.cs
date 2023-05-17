@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnEndKills : MonoBehaviour
 {
- 
+    public Enemy enemy;
     GUIStyle KillsFont;
     public int killCounter = 0;
 
@@ -27,12 +27,12 @@ public class SpawnEndKills : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (enemy.enemyDied == true)
+        
+        if (GameManager.Instance.
         {
             killCounter++;
         }
-        */
+        
     }
 
     private void OnGUI()
