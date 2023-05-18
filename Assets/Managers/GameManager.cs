@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-      // StartCoroutine( GoToMenu());
+        // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
 
 
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         // Rakenna Squadi
 
         // Rakenna Mappi
-            // Siisti mappi (p‰‰lleik‰kiset kivet pois)
+        // Siisti mappi (p‰‰lleik‰kiset kivet pois)
 
 
         // OpenMenu/CloseMenu/EndGame/ChangeScene
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
-            
+
         }
     }
 
@@ -110,6 +110,12 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Pausing game");
             pauseMenu.Pause();
         }
+    }
+
+    public void GameOver() //t‰m‰ ei toimi
+    {
+    Time.timeScale = 0f;
+    StartCoroutine(GoToMenu());
     }
 
     IEnumerator GoToMenu()

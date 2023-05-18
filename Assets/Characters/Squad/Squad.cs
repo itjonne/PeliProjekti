@@ -170,7 +170,8 @@ public class Squad : MonoBehaviour
             // Jos kaikki kuolee
             if (squadData.Items.Count == 0)
             {
-                EndGame(); // Tähän vois laittaa sit mainmenun
+                //EndGame(); // Tähän vois laittaa sit mainmenun
+                GameManager.Instance.GameOver(); //WIP
                 // Destroy(this.gameObject);
                 // Scene scene = SceneManager.GetActiveScene();
                 // SceneManager.LoadScene(scene.name);
