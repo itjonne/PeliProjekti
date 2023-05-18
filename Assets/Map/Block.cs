@@ -17,6 +17,7 @@ public class Block : MonoBehaviour
 
     public GameObject endObject;
     public GameObject startObject;
+    public MapManager mapManager;
 
     public float width; // 100
     public float height; // 100
@@ -24,6 +25,10 @@ public class Block : MonoBehaviour
     public bool isEnd = false;
     [Range(0, 25)] public float EnvSpawnRange = 5f;
 
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
@@ -35,6 +40,7 @@ public class Block : MonoBehaviour
         GetPlaneSize();
         GenerateEnvironment();
         GenerateHelpers();
+        GenerateEnemies(); 
         if (isEnd) GenerateEnd();
         if (isStart) GenerateStart();
 
@@ -73,6 +79,20 @@ public class Block : MonoBehaviour
         }
     }
 
+    void GenerateEnemies()
+    {
+        foreach (var obj in enemyObjects)
+        {
+            int amount = (int)Random.Range(0, enemyDensity * width / 50); // T‰‰ nyt vaa testi
+            for (int i = 0; i < amount; i++)
+            {
+                Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
+
+                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+                generatedObjects.Add(newObject);
+            }
+        }
+    }
 
 
     void GetPlaneSize()

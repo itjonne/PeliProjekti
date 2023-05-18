@@ -41,7 +41,7 @@ public class SpawnEndKills : MonoBehaviour
             {
                 if ( player.isLeader == true)
                 {
-                    Instantiate(EndArrow, player.transform.position + new Vector3(0, 2, 0), transform.rotation);
+                    Instantiate(EndArrow, player.transform.position + new Vector3(0, 5, 0), transform.rotation);
                 }
                 
             }

@@ -2318,6 +2318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnEndKills (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4337713816389781808, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4337713816389781809, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
       propertyPath: killGoal
       value: 1
