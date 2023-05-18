@@ -6553,12 +6553,12 @@ MonoBehaviour:
   - {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   xPosition: 0
   zPosition: 0
-  spawnTime: 10
-  spawnTimeReduce: 100
+  spawnTime: 11
+  spawnTimeReduce: 130
   horizontalRandom: 0
   verticalRandom: 20
   active: 0
-  deactiveRange: 40
+  deactiveRange: 30
 --- !u!135 &1957752059
 SphereCollider:
   m_ObjectHideFlags: 0

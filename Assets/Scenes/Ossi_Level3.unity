@@ -6714,7 +6714,7 @@ MonoBehaviour:
   zPosition: 0
   spawnTime: 70
   spawnTimeReduce: 300
-  horizontalRandom: 24
+  horizontalRandom: 15
   verticalRandom: 0
   active: 0
   deactiveRange: 0
