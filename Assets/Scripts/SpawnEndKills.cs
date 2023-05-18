@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnEndKills : MonoBehaviour
 {
+
     [SerializeField] private Component EndArrow;
     [SerializeField] private Component EndPrefab;
     GUIStyle KillsFont;
@@ -21,31 +22,44 @@ public class SpawnEndKills : MonoBehaviour
     void Start()
     {
 
-        
-      
-        
+        Character[] characters = GameObject.FindObjectsOfType<Character>();
+        player = characters[Random.Range(0, characters.Length)];
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        player = FindObjectOfType<Character>();
 
-        var randomposition = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
+
         if (enemiesKilled >= killGoal)
-        {
-            
+
+            {
+
+            var randomposition = new Vector3(Random.Range(-20, 20), 0, Random.Range(-20, 20));
             Instantiate(EndPrefab, transform.position + randomposition, EndPrefab.transform.rotation);
 
             if (player != null)
             {
-                if ( player.isLeader == true)
+   
+
+               // if ( player.isLeader == true)
                 {
+  
                     Instantiate(EndArrow, player.transform.position + new Vector3(0, 5, 0), transform.rotation);
                 }
-                
+
+
             }
-                
+
+            else
+            {
+                Character[] characters = GameObject.FindObjectsOfType<Character>();
+                player = characters[Random.Range(0, characters.Length)];
+
+                Instantiate(EndArrow, player.transform.position + new Vector3(0, 5, 0), transform.rotation);
+            }
 
             Destroy(gameObject);
         }

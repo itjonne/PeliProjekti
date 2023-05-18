@@ -225,7 +225,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4337713816389781808, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
       propertyPath: m_Name
-      value: SpawnEndKills (1)
+      value: SpawnEndKills
       objectReference: {fileID: 0}
     - target: {fileID: 4337713816389781809, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
       propertyPath: killGoal
@@ -1240,7 +1240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1341160688
 MonoBehaviour:
   m_ObjectHideFlags: 0

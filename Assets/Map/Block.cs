@@ -87,9 +87,10 @@ public class Block : MonoBehaviour
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
-
-                GameObject newObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
-                generatedObjects.Add(newObject);
+                
+                GameObject enemyObject = Instantiate(obj, transform.position + randomPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+                enemyObject.GetComponent<Enemy>().aggroed = false;
+                generatedObjects.Add(enemyObject);
             }
         }
     }
