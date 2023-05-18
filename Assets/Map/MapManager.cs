@@ -96,6 +96,7 @@ public class MapManager : MonoBehaviour
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
+            enemy.GetComponent<Enemy>().aggroed = false; //SHOOTTERIT LÄHTI BATTLEMENTSEISTA JUOKSEMAAN NIIN SIKSI TÄMÄ
             float range = Vector3.Distance(enemy.transform.position, startPosition);
             if(range < 25)
             {
