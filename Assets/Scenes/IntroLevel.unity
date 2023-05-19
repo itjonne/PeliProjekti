@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156914, g: 0.42806652, b: 0.45680422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10574,8 +10574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb20711089db58d4b82f596fd0af5fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenu: 
   gameIsPaused: 0
+  enemiesKilled: 0
 --- !u!4 &1213494249
 Transform:
   m_ObjectHideFlags: 0
@@ -18055,7 +18055,7 @@ MonoBehaviour:
   soundVolume: 0.52
   soundMuted: 0
   musicVolume: 0.51
-  musicMuted: 0
+  musicMuted: 1
   spatialSound: 1
   audioSources: 32
   disableConsoleLogs: 0

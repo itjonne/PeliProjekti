@@ -29,11 +29,15 @@ public class Squad : MonoBehaviour
 
     public void Awake()
     {
+        // Jos skenejen välillä menee joku paskaks ja sielä on jo squadi
         if (GameObject.FindObjectsOfType<Squad>().Length > 1)
         {
-            Debug.Log("SIELLÄ OLI JO SQUADI");
-        } else
-        {
+            Debug.LogWarning("SIELLÄ OLI JO SQUADI");
+            Destroy(GameObject.FindObjectOfType<Squad>().gameObject);
+        }
+        
+        // Sit jatkuu
+
             DontDestroyOnLoad(this); // Tää saattaa pitää 
 
             _input = GetComponent<InputHandler>();
@@ -42,7 +46,7 @@ public class Squad : MonoBehaviour
 
             InitializeSquad();
             InitializeFormation();        
-        }
+        
     }
 
     public void Start()

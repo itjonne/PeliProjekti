@@ -76,6 +76,8 @@ public abstract class Enemy : MonoBehaviour
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
 
+        GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+
 }
  
     public void GibDeath()

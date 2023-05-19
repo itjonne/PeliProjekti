@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-        public string MainMenu;
     public static GameManager Instance
     {
         get
@@ -23,9 +22,11 @@ public class GameManager : MonoBehaviour
 
     // Pelin UI palikat
     PauseMenu pauseMenu;
+    private string MainMenu = "MainMenu";
 
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
+    public int enemiesKilled = 0;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -43,6 +44,18 @@ public class GameManager : MonoBehaviour
    
      */
 
+    public void KillEnemy(int amount)
+    {
+        enemiesKilled += amount;
+        //  Debug.LogWarning("KILLED ENEMY");
+        // Debug.LogWarning(enemiesKilled);
+        SpawnEndKills spawner = FindObjectOfType<SpawnEndKills>();
+        if (spawner != null)
+        {
+            spawner.enemiesKilled += 1;
+        }
+
+    }
     void Awake()
     {
         _instance = this;
@@ -57,6 +70,11 @@ public class GameManager : MonoBehaviour
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
+
+        if (SceneManager.GetActiveScene().name == "Loading")
+        {
+            StartCoroutine(GoToMenu());
+        }
 
         // Menu
 
@@ -96,7 +114,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GoToMenu()
     {
-        AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
+        Debug.LogWarning("MAINMENU , "+ MainMenu);
+      AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
       //  SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
       while (!asyncLoadScene1.isDone)
         {
