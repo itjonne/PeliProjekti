@@ -103,10 +103,10 @@ public class ShootingEnemy : Enemy
 
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
                         RaycastHit hit;
-                        if (Physics.Raycast(transform.position, muzzle.forward, out hit, distanceFromTarget - 0.5f , -1))
+                        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - 0.5f , -1))
                         {
-                            Debug.DrawRay(transform.position, muzzle.forward * hit.distance, Color.yellow);
-                            MoveTo(target.transform.position);
+                            Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
+                            MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
                         }
 
                         // Jos ei oo ni ammutaan

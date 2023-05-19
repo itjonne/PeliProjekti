@@ -7,6 +7,8 @@ public abstract class Formation : MonoBehaviour
 {
     public int FormationSize = 1;
     public float Spread = 1;
+    public string formationName = "Formation";
+
     public abstract List<Vector3> EvaluatePoints(Transform leader);
 
     // T‰‰ tekee hahmoista v‰h‰n el‰v‰isempi‰
