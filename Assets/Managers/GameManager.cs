@@ -114,7 +114,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() //tämä ei toimi
     {
-    Time.timeScale = 0f;
+
+        Time.timeScale = 0f;
     StartCoroutine(GoToMenu());
     }
 

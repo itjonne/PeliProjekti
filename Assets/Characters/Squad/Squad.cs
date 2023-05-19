@@ -176,6 +176,7 @@ public class Squad : MonoBehaviour
                 // Scene scene = SceneManager.GetActiveScene();
                 // SceneManager.LoadScene(scene.name);
             }
+
             squadData.Items[0].ChangeLeader(true);
             return squadData.Items[0];
 
