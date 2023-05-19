@@ -189,6 +189,11 @@ public class Squad : MonoBehaviour
 
     public Character GetLeader()
     {
+        if (GameManager.Instance.gameHasEnded == true)
+        {
+            enabled = false;
+            return null;
+        }
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
@@ -197,7 +202,6 @@ public class Squad : MonoBehaviour
             {
                 //EndGame(); // Tähän vois laittaa sit mainmenun
                 GameManager.Instance.GameOver(); //WIP
-                Time.timeScale = 0;
                 return null;
                 // Destroy(this.gameObject);
                 // Scene scene = SceneManager.GetActiveScene();
