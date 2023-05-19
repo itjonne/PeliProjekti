@@ -6,7 +6,7 @@ using UnityEngine.Android;
 public class FormationManager : MonoBehaviour
 
 {
-    public LineFormation lineFormation;
+    [SerializeField] public Formation lineFormation;
     public SquareFormation squareFormation;
     public RowFormation rowFormation;
 
@@ -15,26 +15,59 @@ public class FormationManager : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            
+            SwapFormation();
+            /*
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 Debug.Log("Vaihdettiin jonoon");
                 SwitchToLineFormation();
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Debug.Log("Vaihdettiin neliöön");
                 SwitchToSquareFormation();
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 Debug.Log("Vaihdettiin riviin");
                 SwitchToRowFormation();
             }
+            */
         }
     }
+
+    public void SwapFormation()
+    {
+        if (lineFormation.enabled == true)
+        {
+            Debug.Log("SWITCHING TO ROW");
+            SwitchToRowFormation();
+        }
+        else if (rowFormation.enabled == true)
+        {
+            Debug.Log("SWITCHING TO SQUARE");
+            SwitchToSquareFormation();
+        }
+
+        else if (squareFormation.enabled == true)
+        {
+            Debug.Log("SWITCHING TO LINE");
+            SwitchToLineFormation();
+        }
+        else
+        {
+            Debug.Log("GOING TO START");
+            SwitchToLineFormation();
+        }
+
+        // pyydetään squadi päivittämään formaatio
+        Squad squad = GetComponent<Squad>();
+        squad.UpdateFormation();
+        
+    }
+
     private void SwitchToLineFormation()
     {
         

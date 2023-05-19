@@ -11,6 +11,7 @@ public class Squad : MonoBehaviour
     [SerializeField] public int grenadeAmount = 3;
     private InputHandler _input;
     private Formation _formation;
+    private int formationSize;
     private List<Vector3> positions;
     private Camera camera;
 
@@ -21,11 +22,19 @@ public class Squad : MonoBehaviour
     {
         get
         {
-            if (_formation == null) _formation = GetComponent<Formation>();
+            if (_formation == null)
+            {
+                Formation[] formations = GetComponents<Formation>();
+                foreach (Formation formation in formations)
+                {
+                    if (formation.enabled == true) _formation = formation;
+                }
+            }
             return _formation;
         }
         set => _formation = value;
-    }
+     }       
+    
 
     public void Awake()
     {
@@ -42,7 +51,6 @@ public class Squad : MonoBehaviour
 
             _input = GetComponent<InputHandler>();
             squadData.Items.Clear(); // tyhjennet‰‰n eka
-            Formation.Spread = 3f;
 
             InitializeSquad();
             InitializeFormation();        
@@ -70,10 +78,27 @@ public class Squad : MonoBehaviour
         return squadData.Items.Count;
     }
 
-    private void InitializeFormation()
+    public void InitializeFormation()
     {
         Formation.FormationSize = GetSquadSize();
+        positions = Formation.EvaluatePoints(GetLeader().transform);
     }
+
+    public void UpdateFormation() {
+
+        Formation[] formations = GetComponents<Formation>();
+        foreach (Formation formation in formations)
+        {
+            if (formation.enabled == true)
+            {
+                Formation = formation;
+                InitializeFormation(); 
+            }
+        }
+    }
+
+   
+
     public void InitializeSquad()
     {
         List<Character> characters = new List<Character>();
@@ -290,5 +315,6 @@ public class Squad : MonoBehaviour
         GUI.contentColor = Color.white;
         
         GUI.Label(new Rect(100, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
+        GUI.Label(new Rect(200, 10, 200, 20), "Formation: " + Formation.formationName);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156914, g: 0.42806652, b: 0.45680422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11628,8 +11628,11 @@ GameObject:
   - component: {fileID: 1341160689}
   - component: {fileID: 1341160688}
   - component: {fileID: 1341160690}
+  - component: {fileID: 1341160695}
+  - component: {fileID: 1341160694}
   - component: {fileID: 1341160692}
   - component: {fileID: 1341160691}
+  - component: {fileID: 1341160693}
   m_Layer: 0
   m_Name: Squad
   m_TagString: Untagged
@@ -11674,13 +11677,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341160687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a001e3fdd0b75f7468d6e22b55bb6996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FormationSize: 1
-  Spread: 1
+  Spread: 3
+  formationName: Line
   _noise: 0
 --- !u!114 &1341160691
 MonoBehaviour:
@@ -11710,6 +11714,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1987155d48d2034e910a55e16942c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1341160693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341160687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4df0e53f60bf04bb0864b3091b58e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineFormation: {fileID: 1341160690}
+  squareFormation: {fileID: 1341160694}
+  rowFormation: {fileID: 1341160695}
+--- !u!114 &1341160694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341160687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf08f4233ad41e4b950c0df36fff20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FormationSize: 1
+  Spread: 1
+  formationName: Square
+  _noise: 0
+--- !u!114 &1341160695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341160687}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a46978c2f49bd24aa88b4ff4066b9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FormationSize: 1
+  Spread: 3
+  formationName: Row
+  _noise: 0
 --- !u!1001 &1356375385
 PrefabInstance:
   m_ObjectHideFlags: 0
