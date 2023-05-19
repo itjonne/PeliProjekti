@@ -19,7 +19,8 @@ public class ShootingEnemy : Enemy
     public float EnemySpread = 0.1f;
     public float bulletSpeed = 10f;
     public float AggroRange = 25f;
-  
+
+    private float SHOOTING_BLOCKER_DISTANCE = 2f; // TODO: Tää määrittää miten kaukana pelaajasta se ammunann blockkava asia on maksimissaan. Ei ihan 100% toimi.
 
     public void Awake()
     {
@@ -103,8 +104,9 @@ public class ShootingEnemy : Enemy
 
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
                         RaycastHit hit;
-                        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - 0.5f , -1))
+                        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - SHOOTING_BLOCKER_DISTANCE , -1))
                         {
+                            Debug.Log("EI VOI AMPUA");
                             Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
                             MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
                         }

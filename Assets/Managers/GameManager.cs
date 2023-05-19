@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public bool gameIsPaused = false;
     public int enemiesKilled = 0;
 
+    public bool gameHasEnded = false;
+
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
 
@@ -114,9 +116,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() //tämä ei toimi
     {
-
-        Time.timeScale = 0f;
-    StartCoroutine(GoToMenu());
+        gameHasEnded = true;
+    StartCoroutine(GoToMenu()); 
     }
 
     IEnumerator GoToMenu()

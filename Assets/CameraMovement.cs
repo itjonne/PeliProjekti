@@ -16,7 +16,15 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        target = squad.GetLeader()?.transform;
+        Character leader = squad.GetLeader();
+        if (leader == null)
+        {
+            enabled = false;
+            return;
+        }
+        
+
+        target = squad.GetLeader().transform;
         if (target)
         {
 

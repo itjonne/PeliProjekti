@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public void LoadGameScene()
     {
         Debug.LogWarning("LADATAAN GAME STATE");
+        GameManager.Instance.gameHasEnded = false;
         SceneManager.LoadScene("IntroLevel");
     }
 

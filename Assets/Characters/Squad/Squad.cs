@@ -189,18 +189,27 @@ public class Squad : MonoBehaviour
 
     public Character GetLeader()
     {
+        if (GameManager.Instance.gameHasEnded == true)
+        {
+            enabled = false;
+            return null;
+        }
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
             // Jos kaikki kuolee
-            if (squadData.Items.Count == 0)
+            if (squadData.Items.Count <= 0)
             {
                 //EndGame(); // T‰h‰n vois laittaa sit mainmenun
                 GameManager.Instance.GameOver(); //WIP
+                return null;
                 // Destroy(this.gameObject);
                 // Scene scene = SceneManager.GetActiveScene();
                 // SceneManager.LoadScene(scene.name);
             }
+
+
+            // TODO: Jostain eritt‰in kummallisesta syyst‰ t‰‰ on nolla uusiks?!
 
             squadData.Items[0].ChangeLeader(true);
             return squadData.Items[0];
@@ -236,12 +245,22 @@ public class Squad : MonoBehaviour
         // Debug.Log(GetLeader().GetComponent<Rigidbody>().velocity.magnitude);
         // Lasketaan formaation pisteet
         // Jos pelaajalla on liikett‰, tee t‰‰
-        Vector3 currentPos = GetLeader().transform.position; // Kurkataan miss‰ johtaja on
+        Character leader = GetLeader();
+        Vector3 currentPos = Vector3.zero;
+        if (leader)
+        {
+
+             currentPos = leader.transform.position; // Kurkataan miss‰ johtaja on
+        }
 
         // EI ihan 100% toimi
         if ( positions == null || currentPos != leaderLastPos)
         {
+            if (leader)
+            {
+
             positions = Formation.EvaluatePoints(GetLeader().transform);
+            }
 
         }
         leaderLastPos = currentPos; // Johtaja on t‰ss‰ ja t‰t‰ verrataan seuraavalla freimill‰
