@@ -72,10 +72,13 @@ public abstract class Enemy : MonoBehaviour
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NavMeshAgent>());
         movementSpeed = 0f;
-       gameObject.GetComponent<Enemy>().enabled = false;
+        gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
         Destroy(gameObject, 20);
-    }
+
+        GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+
+}
  
     public void GibDeath()
     {
@@ -87,7 +90,8 @@ public abstract class Enemy : MonoBehaviour
 
         Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek j‰lkeen
         Destroy(gameObject);
-  
+        GameManager.Instance.KillEnemy(1);
+
     }
 
 }

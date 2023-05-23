@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 
 public class PlayableCharacter : Character
 {
+    [SerializeField] private GameObject characterHud;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Transform canvasTransform;
     private NavMeshAgent agent;
-
+ 
     public float movementSpeed;
+    public float maxHealth = 30;
+
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +37,12 @@ public class PlayableCharacter : Character
         {
             GetComponent<GrenadeThrower>().enabled = false;
         }
+    }
+
+    //TÄMÄ TEHTY ETTÄ PELAAJAN "HUDI-CANVAS" KATSOO KAMERAAN KOKOAJAN
+    private void LateUpdate()
+    {
+        canvasTransform.LookAt(transform.position + Camera.main.transform.forward);
     }
 
     public override void ChangeLeader(bool leader)
@@ -87,6 +101,7 @@ public class PlayableCharacter : Character
     public void TakeDamage(float damage)
     {
         health -= damage;
+        UpdateHealthBar();
         if (health <= 0) Die();
     }
 
@@ -126,6 +141,7 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // Tää on nyt vähän spagetti, tän ei tarviis ymmärtää mitään squadista/animaatiosta
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        Destroy(characterHud, 1f);
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
@@ -138,4 +154,22 @@ public class PlayableCharacter : Character
        // SceneManager.LoadScene(scene.name);
 
     }
+
+    //OSSIN HEALTHBAR SEKOILUT
+    /*
+    void OnGUI()
+    {
+
+        var screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+         screenPosition.y = Screen.height - screenPosition.y;
+        //GUI.Box(new Rect(screenPosition.x - 10, screenPosition.y - 40, healthBarLenght, 20), curHealth + "/" + maxHealth);
+        GUI.DrawTexture(new Rect(screenPosition.x - 10, screenPosition.y + 20, 60, 10), lifeBar, ScaleMode.ScaleToFit, true, 10.0F);
+    }
+    */
+
+    private void UpdateHealthBar()
+    {
+        healthBar.fillAmount = health / maxHealth;
+    }
+
 }

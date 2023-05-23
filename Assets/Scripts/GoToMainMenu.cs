@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GoToMainMenu : MonoBehaviour
 {
     public string MainMenu;
-    public string PauseMenu;
+    // public string PauseMenu;
 
     void Start()
     {
@@ -16,9 +16,9 @@ public class GoToMainMenu : MonoBehaviour
     IEnumerator LoadScenes()
     {
         AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
-        AsyncOperation asyncLoadScene2 = SceneManager.LoadSceneAsync(PauseMenu, LoadSceneMode.Additive);
+        //AsyncOperation asyncLoadScene2 = SceneManager.LoadSceneAsync(PauseMenu, LoadSceneMode.Additive);
 
-        while (!asyncLoadScene1.isDone || !asyncLoadScene2.isDone)
+        while (!asyncLoadScene1.isDone)
         {
             yield return null;
         }

@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class ShootingEnemy : Enemy
 {
     private Character target;
+
     [SerializeField] private Transform muzzle;
     private float distanceFromTarget;
     [SerializeField] public GameObject bulletPrefab;
@@ -18,7 +19,8 @@ public class ShootingEnemy : Enemy
     public float EnemySpread = 0.1f;
     public float bulletSpeed = 10f;
     public float AggroRange = 25f;
-  
+
+    private float SHOOTING_BLOCKER_DISTANCE = 2f; // TODO: Tää määrittää miten kaukana pelaajasta se ammunann blockkava asia on maksimissaan. Ei ihan 100% toimi.
 
     public void Awake()
     {
@@ -28,8 +30,6 @@ public class ShootingEnemy : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
-
         Character[] characters = GameObject.FindObjectsOfType<Character>();
         target = characters[Random.Range(0, characters.Length)];
         if (target != null)
@@ -99,22 +99,39 @@ public class ShootingEnemy : Enemy
                     }
                     else // Ollaan tarpeeks l�hell�
                     {
+
                         transform.LookAt(target.transform.position);
-                        if (timeSinceLastShot >= fireRate)
+
+                        // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
+                        RaycastHit hit;
+                        if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - SHOOTING_BLOCKER_DISTANCE , -1))
                         {
+                            Debug.Log("EI VOI AMPUA");
+                            Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
+                            MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
+                        }
+
+                        // Jos ei oo ni ammutaan
+                        else if (timeSinceLastShot >= fireRate)
+                        {
+                            Debug.LogWarning("NYT EI OO");
                             Shoot();
                             timeSinceLastShot = 0;
                         }
                     }
+
+
                 }
-
-
             }
 
             else
             {
                 Character[] characters = GameObject.FindObjectsOfType<Character>();
-                target = characters[Random.Range(0, characters.Length)];
+
+                if (characters.Length > 0)
+                {
+                    target = characters[Random.Range(0, characters.Length)];
+                }
             }
         }
 
@@ -124,7 +141,7 @@ public class ShootingEnemy : Enemy
     private void Shoot()
     {
         gameObject.GetComponent<Anim_Enemy1>().OnShoot();
-        GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-EnemySpread, EnemySpread), Random.Range(-EnemySpread, 0), Random.Range(-EnemySpread, EnemySpread))) * bulletSpeed;
         //ammoLeft--;
         //lastShot = Time.time;

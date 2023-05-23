@@ -44,12 +44,17 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        else
+      else
         {
             Character[] characters = GameObject.FindObjectsOfType<Character>();
-            player = characters[Random.Range(0, characters.Length)];
+
+            if (characters.Length > 0)
+            {
+                player = characters[Random.Range(0, characters.Length)];
+            }
+
         }
-                 
+
     }
 
     // Update is called once per frame

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-
     public static GameManager Instance
     {
         get
@@ -22,12 +22,42 @@ public class GameManager : MonoBehaviour
 
     // Pelin UI palikat
     PauseMenu pauseMenu;
+    private string MainMenu = "MainMenu";
 
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
+    public int enemiesKilled = 0;
 
+    public bool gameHasEnded = false;
 
+    /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
+     void Awake()
 
+    if (Instance == null)
+    {
+    DontDestroyOnLoad(gameObject);
+    Instance = this;
+    }
+
+    else
+    {
+    Destroy(gameObject);
+    }
+   
+     */
+
+    public void KillEnemy(int amount)
+    {
+        enemiesKilled += amount;
+        //  Debug.LogWarning("KILLED ENEMY");
+        // Debug.LogWarning(enemiesKilled);
+        SpawnEndKills spawner = FindObjectOfType<SpawnEndKills>();
+        if (spawner != null)
+        {
+            spawner.enemiesKilled += 1;
+        }
+
+    }
     void Awake()
     {
         _instance = this;
@@ -36,18 +66,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
 
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
 
+        if (SceneManager.GetActiveScene().name == "Loading")
+        {
+            StartCoroutine(GoToMenu());
+        }
+
         // Menu
 
         // Rakenna Squadi
 
         // Rakenna Mappi
-            // Siisti mappi (päälleikäkiset kivet pois)
+        // Siisti mappi (päälleikäkiset kivet pois)
 
 
         // OpenMenu/CloseMenu/EndGame/ChangeScene
@@ -58,7 +94,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
-            
+
         }
     }
 
@@ -77,4 +113,24 @@ public class GameManager : MonoBehaviour
             pauseMenu.Pause();
         }
     }
+
+    public void GameOver() //tämä ei toimi
+    {
+        gameHasEnded = true;
+    StartCoroutine(GoToMenu()); 
+    }
+
+    IEnumerator GoToMenu()
+    {
+        Debug.LogWarning("MAINMENU , "+ MainMenu);
+      AsyncOperation asyncLoadScene1 = SceneManager.LoadSceneAsync(MainMenu, LoadSceneMode.Additive);
+      //  SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+      while (!asyncLoadScene1.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
+    }
+
 }

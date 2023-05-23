@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RowFormation : Formation
 {
+    public void Update()
+    {
+        
+    }
     public override List<Vector3> EvaluatePoints(Transform leader)
     {
         List<Vector3> points = new List<Vector3>();

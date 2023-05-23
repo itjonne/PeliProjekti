@@ -11,6 +11,7 @@ public class Squad : MonoBehaviour
     [SerializeField] public int grenadeAmount = 3;
     private InputHandler _input;
     private Formation _formation;
+    private int formationSize;
     private List<Vector3> positions;
     private Camera camera;
 
@@ -21,28 +22,39 @@ public class Squad : MonoBehaviour
     {
         get
         {
-            if (_formation == null) _formation = GetComponent<Formation>();
+            if (_formation == null)
+            {
+                Formation[] formations = GetComponents<Formation>();
+                foreach (Formation formation in formations)
+                {
+                    if (formation.enabled == true) _formation = formation;
+                }
+            }
             return _formation;
         }
         set => _formation = value;
-    }
+     }       
+    
 
     public void Awake()
     {
+        // Jos skenejen välillä menee joku paskaks ja sielä on jo squadi
         if (GameObject.FindObjectsOfType<Squad>().Length > 1)
         {
-            Debug.Log("SIELLÄ OLI JO SQUADI");
-        } else
-        {
+            Debug.LogWarning("SIELLÄ OLI JO SQUADI");
+            Destroy(GameObject.FindObjectOfType<Squad>().gameObject);
+        }
+        
+        // Sit jatkuu
+
             DontDestroyOnLoad(this); // Tää saattaa pitää 
 
             _input = GetComponent<InputHandler>();
             squadData.Items.Clear(); // tyhjennetään eka
-            Formation.Spread = 3f;
 
             InitializeSquad();
             InitializeFormation();        
-        }
+        
     }
 
     public void Start()
@@ -66,10 +78,27 @@ public class Squad : MonoBehaviour
         return squadData.Items.Count;
     }
 
-    private void InitializeFormation()
+    public void InitializeFormation()
     {
         Formation.FormationSize = GetSquadSize();
+        positions = Formation.EvaluatePoints(GetLeader().transform);
     }
+
+    public void UpdateFormation() {
+
+        Formation[] formations = GetComponents<Formation>();
+        foreach (Formation formation in formations)
+        {
+            if (formation.enabled == true)
+            {
+                Formation = formation;
+                InitializeFormation(); 
+            }
+        }
+    }
+
+   
+
     public void InitializeSquad()
     {
         List<Character> characters = new List<Character>();
@@ -160,17 +189,28 @@ public class Squad : MonoBehaviour
 
     public Character GetLeader()
     {
+        if (GameManager.Instance.gameHasEnded == true)
+        {
+            enabled = false;
+            return null;
+        }
         Character leader = squadData.Items.Find(item => item.isLeader);
         if (leader == null)
         {
             // Jos kaikki kuolee
-            if (squadData.Items.Count == 0)
+            if (squadData.Items.Count <= 0)
             {
-                EndGame(); // Tähän vois laittaa sit mainmenun
+                //EndGame(); // Tähän vois laittaa sit mainmenun
+                GameManager.Instance.GameOver(); //WIP
+                return null;
                 // Destroy(this.gameObject);
                 // Scene scene = SceneManager.GetActiveScene();
                 // SceneManager.LoadScene(scene.name);
             }
+
+
+            // TODO: Jostain erittäin kummallisesta syystä tää on nolla uusiks?!
+
             squadData.Items[0].ChangeLeader(true);
             return squadData.Items[0];
 
@@ -182,6 +222,8 @@ public class Squad : MonoBehaviour
     {
        // UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
+        //GameManager.GoToMenu();??  //OSSI!
+   
     }
 
     // Typerästi tehty liikkuminen, ei kannata monesti hakea tota johtajaa.
@@ -203,12 +245,22 @@ public class Squad : MonoBehaviour
         // Debug.Log(GetLeader().GetComponent<Rigidbody>().velocity.magnitude);
         // Lasketaan formaation pisteet
         // Jos pelaajalla on liikettä, tee tää
-        Vector3 currentPos = GetLeader().transform.position; // Kurkataan missä johtaja on
+        Character leader = GetLeader();
+        Vector3 currentPos = Vector3.zero;
+        if (leader)
+        {
+
+             currentPos = leader.transform.position; // Kurkataan missä johtaja on
+        }
 
         // EI ihan 100% toimi
         if ( positions == null || currentPos != leaderLastPos)
         {
+            if (leader)
+            {
+
             positions = Formation.EvaluatePoints(GetLeader().transform);
+            }
 
         }
         leaderLastPos = currentPos; // Johtaja on tässä ja tätä verrataan seuraavalla freimillä
@@ -283,5 +335,6 @@ public class Squad : MonoBehaviour
         GUI.contentColor = Color.white;
         
         GUI.Label(new Rect(100, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
+        GUI.Label(new Rect(200, 10, 200, 20), "Formation: " + Formation.formationName);
     }
 }

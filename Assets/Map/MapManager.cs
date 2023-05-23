@@ -14,16 +14,23 @@ public class MapManager : MonoBehaviour
     {
         GenerateMap(MapSize); // Tekee  mapin
         BakeMap();
+       
     }
 
     private void Start()
     {
         // Laitetaan squadi startblockille
         Squad squad = FindObjectOfType<Squad>();
+    
+        //GameObject.FindGameObjectsWithTag("Enemy");
+
         if (squad != null)
         {
             if (startPosition != null) squad.SetSquadPosition(startPosition);
         }
+
+        CleanUpStart();
+     
     }
 
     // Update is called once per frame
@@ -82,4 +89,32 @@ public class MapManager : MonoBehaviour
             blockNum++;
         }
     }
+
+    //Putsataan Aloituspositio vihuista ympäristöstä yms.
+    public void CleanUpStart()
+    {
+
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemy.GetComponent<Enemy>().aggroed = false; //SHOOTTERIT LÄHTI BATTLEMENTSEISTA JUOKSEMAAN NIIN SIKSI TÄMÄ
+            float range = Vector3.Distance(enemy.transform.position, startPosition);
+            if(range < 25)
+            {
+                Destroy(enemy);
+            }
+
+        }
+
+        foreach (GameObject env in GameObject.FindGameObjectsWithTag("Environment"))
+        {
+            float range = Vector3.Distance(env.transform.position, startPosition);
+            if (range < 4)
+            {
+                Destroy(env);
+            }
+
+        }
+
+    }
+
 }
