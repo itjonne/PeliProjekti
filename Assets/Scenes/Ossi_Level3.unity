@@ -3781,6 +3781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   enemiesKilled: 0
+  gameHasEnded: 0
 --- !u!4 &1234732726
 Transform:
   m_ObjectHideFlags: 0
@@ -4028,7 +4029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndPrefab: {fileID: 3574224964312424731, guid: 50d90339fca967344929833c15e0cdf9, type: 3}
-  spawnTime: 115
+  spawnTime: 125
 --- !u!1 &1341160687
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FormationSize: 1
   Spread: 1
+  formationName: Formation
   _noise: 0
 --- !u!114 &1341160691
 MonoBehaviour:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Weapons : MonoBehaviour
@@ -15,7 +16,9 @@ public class Weapons : MonoBehaviour
 
     float timeSinceLastShot;
 
-    
+    [SerializeField] private Image AmmoBar;
+    [SerializeField] private Transform canvasTransform;
+
     [SerializeField] [Range(0, 5)] public float InaccuracyModifier; // Ossin Testi. Mitä isompi tämä sitä epätarkempi pyssy. 0 = ei hajontaa
 
     public float bulletSpread;
@@ -54,6 +57,7 @@ public class Weapons : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         ammoLeft = magSize;
         reloading = false;
+        UpdateHealthAmmoBar();
     }
 
 
@@ -146,6 +150,7 @@ public class Weapons : MonoBehaviour
 
                 }
                 ammoLeft--;
+                UpdateHealthAmmoBar();
             }
   
 
@@ -201,5 +206,10 @@ public class Weapons : MonoBehaviour
         Debug.Log("EXTRABULLETS, now: " + bulletsToShoot);
     }
 
+
+    private void UpdateHealthAmmoBar()
+    {
+        AmmoBar.fillAmount = ammoLeft / magSize;
+    }
 
 }

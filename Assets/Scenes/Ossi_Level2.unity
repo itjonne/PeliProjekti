@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4337713816389781809, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
       propertyPath: killGoal
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4337713816389781810, guid: 4e3af53febedc544f917831c19dc74cd, type: 3}
       propertyPath: m_RootOrder
@@ -1287,6 +1287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FormationSize: 1
   Spread: 1
+  formationName: Formation
   _noise: 0
 --- !u!114 &1341160691
 MonoBehaviour:
