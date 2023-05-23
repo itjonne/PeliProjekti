@@ -9,19 +9,20 @@ using UnityEngine.AI;
 public class PlayableCharacter : Character
 {
     [SerializeField] private GameObject characterHud;
+    [SerializeField] public Text grenadeHud;
     [SerializeField] private Image healthBar;
     [SerializeField] private Transform canvasTransform;
     private NavMeshAgent agent;
  
     public float movementSpeed;
     public float maxHealth = 30;
-
+    private Squad squad;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+        squad = GetComponentInParent<Squad>(); //TÄMÄ TÄYTYY ALUSTAA KRANUHUDIN TAKIA
     }
 
     // Update is called once per frame
@@ -30,12 +31,14 @@ public class PlayableCharacter : Character
         //Johtaja heittää aina kranaatit yms. Prefabeilla pitää olla grenadethrower pois päältä defaulttina
         if (isLeader == true)
         {
-            GetComponent<GrenadeThrower>().enabled = true;         
+            GetComponent<GrenadeThrower>().enabled = true;
+            grenadeHud.text = squad.grenadeAmount.ToString();
         }
 
         else
         {
             GetComponent<GrenadeThrower>().enabled = false;
+            grenadeHud.text = " ";
         }
     }
 
