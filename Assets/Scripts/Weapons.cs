@@ -26,6 +26,11 @@ public class Weapons : MonoBehaviour
 
     float lastShot;
 
+    float endFill = 1f;
+    float startFill;
+    float fillTime;
+    //reloadTime
+
     float counter;
 
     //TESTAILTU RELOADIN KANSSA -OSSI
@@ -51,19 +56,22 @@ public class Weapons : MonoBehaviour
     {
         if (!reloading)
         {
+          
             StartCoroutine(Reload());
         }
     }
 
     private IEnumerator Reload()
     {
-        ReloadCircle.fillAmount = 1;
+        //ReloadCircle.fillAmount = 1;
+        
+
         reloading = true;  
         yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
         reloading = false;
-        ReloadCircle.fillAmount = 0;
-        UpdateHealthAmmoBar();
+        //ReloadCircle.fillAmount = 0;
+        UpdateAmmoBar();
     }
 
 
@@ -154,13 +162,14 @@ public class Weapons : MonoBehaviour
 
                 }
                 ammoLeft--;
-                UpdateHealthAmmoBar();
+                UpdateAmmoBar();
             }
 
 
             else
             {
                 StartReload();
+                
             }
         }
     }
@@ -182,8 +191,13 @@ public class Weapons : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             StartCoroutine(Reload());
+
         }
 
+        if (reloading == true)
+        {
+            StartCoroutine(ReloadFill());
+        }
 
         if (PlayerIsMoving()) bulletSpread = 0.1f * InaccuracyModifier;
         else bulletSpread = 0.03f * InaccuracyModifier;  //Tarkempi paikaltaan mutta ei kuitenkaan täysin hajonnaton
@@ -214,9 +228,20 @@ public class Weapons : MonoBehaviour
     }
 
 
-    private void UpdateHealthAmmoBar()
+    private void UpdateAmmoBar()
     {
         AmmoBar.fillAmount = ammoLeft / magSize;
+    }
+
+    private IEnumerator ReloadFill()
+    {
+        fillTime += Time.deltaTime;
+        float percentageComplete = fillTime / reloadTime;
+        ReloadCircle.fillAmount = Mathf.Lerp(startFill, endFill, percentageComplete);
+
+        yield return new WaitForSeconds(reloadTime);
+        fillTime = 0f;
+        ReloadCircle.fillAmount = 0f;
     }
 
 }
