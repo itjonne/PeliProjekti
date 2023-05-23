@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class Grenade : MonoBehaviour
     void Explode()
     {
         //Show effect //ja poistetaan myös objekti 3 sekunnin päästä
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_GrenadeBoom);
         Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3f);
 
         //Get nearby objects

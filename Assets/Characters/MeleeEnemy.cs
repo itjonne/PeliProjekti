@@ -108,7 +108,9 @@ public class MeleeEnemy : Enemy
                     {
 
                         Attack();
+                        AudioManager.PlaySound(AudioLibSounds.sfx_Slash);
                         gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptist� melee-metodi
+                        
                         timeSinceLastAttack = 0;
                     }
                 }
@@ -145,8 +147,10 @@ public class MeleeEnemy : Enemy
             Debug.Log(knife);
             */
             //gameObject.GetComponent<Anim_Enemy1>().OnShoot();
+            
             GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
             bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(0, 0, 0)) * 12f;
+            
             //ammoLeft--;
             //lastShot = Time.time;
             Destroy(bullet, 0.2f);  //T�H�N TEHTY MUUTOKSIA, TOIMII NYT NIINKUIN

@@ -23,7 +23,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
+      //  JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
 
         // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, t?ss? vois olla puukotus
         if (other.GetComponent<Character>())

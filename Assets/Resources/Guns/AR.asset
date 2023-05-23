@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Assault Rifle
   damage: 22
   maxDistance: 200
-  audioClip: 3
+  audioClip: {fileID: 11400000, guid: 1118efbac7e2ff24da43cfced2f829a3, type: 2}
   bulletPrefab: {fileID: 8306785530074399806, guid: 13ab230bc1723c343af80d29dec295fa, type: 3}
   currentAmmo: 10
   magSize: 10

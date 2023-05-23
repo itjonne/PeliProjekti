@@ -14,7 +14,7 @@ public class Pistol : Weapon
             bullet.GetComponent<Rigidbody>().velocity = rotation.forward * 10f;
             lastShot = Time.time;
 
-            AudioManager.PlaySound(Sounds.sfx_Pistol);
+           
         }
     }
 }

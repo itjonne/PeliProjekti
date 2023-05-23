@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7c26c729192f4493ded4109d2d142, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
-  name: 
+  name: SMG
   damage: 10
   maxDistance: 100
-  audioClip: 4
+  audioClip: {fileID: 11400000, guid: 480d7b2a541597a48938555f3d6ea464, type: 2}
   bulletPrefab: {fileID: 8306785530074399806, guid: 502636d6b9cc70248b23371545d51317, type: 3}
   currentAmmo: 1
   magSize: 1

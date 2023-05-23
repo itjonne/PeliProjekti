@@ -12,7 +12,7 @@ public class GunData : ScriptableObject
     [Header("Shooting")]
     public float damage;
     public float maxDistance;
-    public Sounds audioClip;
+    public SoundFileObject audioClip;
 
     public GameObject bulletPrefab;
 
