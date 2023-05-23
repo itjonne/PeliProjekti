@@ -159,18 +159,7 @@ public class PlayableCharacter : Character
 
     }
 
-    //OSSIN HEALTHBAR SEKOILUT
-    /*
-    void OnGUI()
-    {
-
-        var screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-         screenPosition.y = Screen.height - screenPosition.y;
-        //GUI.Box(new Rect(screenPosition.x - 10, screenPosition.y - 40, healthBarLenght, 20), curHealth + "/" + maxHealth);
-        GUI.DrawTexture(new Rect(screenPosition.x - 10, screenPosition.y + 20, 60, 10), lifeBar, ScaleMode.ScaleToFit, true, 10.0F);
-    }
-    */
-
+ 
     private void UpdateHealthBar()
     {
         healthBar.fillAmount = health / maxHealth;
