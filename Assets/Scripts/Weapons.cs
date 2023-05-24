@@ -40,7 +40,7 @@ public class Weapons : MonoBehaviour
     public float ammoLeft;
     public float bulletLife = 2.5f;
 
-    
+    public bool alreadyPlayed = false;
 
     private void Start()
     {
@@ -54,22 +54,30 @@ public class Weapons : MonoBehaviour
 
     public void StartReload()
     {
+
         if (!reloading)
         {
-          
+
             StartCoroutine(Reload());
+
         }
     }
 
     private IEnumerator Reload()
     {
         //ReloadCircle.fillAmount = 1;
-        
 
-        reloading = true;  
+        reloading = true;
+
+        if (!alreadyPlayed)
+        {
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Reload);
+            alreadyPlayed = true;
+        }
         yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
         reloading = false;
+        alreadyPlayed = false;
         //ReloadCircle.fillAmount = 0;
         UpdateAmmoBar();
     }
@@ -143,6 +151,13 @@ public class Weapons : MonoBehaviour
                         // Annetaan tollasta omatekosta anglea kaikelle
                         //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
 
+                        if (!alreadyPlayed)
+                        {
+                            JSAM.AudioManager.PlaySound(gunData.audioClip);
+                            alreadyPlayed = true;
+                        }
+
+                        alreadyPlayed = false;
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
