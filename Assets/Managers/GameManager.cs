@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Pelin UI palikat
+
     PauseMenu pauseMenu;
     private string MainMenu = "MainMenu";
 
@@ -29,6 +30,10 @@ public class GameManager : MonoBehaviour
     public int enemiesKilled = 0;
 
     public bool gameHasEnded = false;
+
+    public GameObject gameOverScreen;
+
+
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -68,7 +73,10 @@ public class GameManager : MonoBehaviour
     {
         // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
-
+        
+        gameOverScreen = GameObject.Find("GameOverScreen");
+        gameOverScreen.SetActive(false);
+        
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
@@ -96,6 +104,15 @@ public class GameManager : MonoBehaviour
             TogglePauseMenu();
 
         }
+
+        
+        if (gameHasEnded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            Time.timeScale = 1;
+            gameOverScreen.SetActive(false);
+            StartCoroutine(GoToMenu());
+        }
+        
     }
 
     private void TogglePauseMenu()
@@ -114,10 +131,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver() //tämä ei toimi
+    public void GameOver() //KOITETAAN KYHÄTÄ VÄHÄN HIENOMPI GAMEOVER - OSSI
     {
+        Time.timeScale = 0;
         gameHasEnded = true;
-    StartCoroutine(GoToMenu()); 
+        gameOverScreen.SetActive(true);
+
     }
 
     IEnumerator GoToMenu()
@@ -129,7 +148,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-
+       
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
     }
 
