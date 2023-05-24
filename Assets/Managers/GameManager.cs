@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         
         if (gameHasEnded == true && Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
             gameOverScreen.SetActive(false);
             StartCoroutine(GoToMenu());
         }
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver() //KOITETAAN KYHÄTÄ VÄHÄN HIENOMPI GAMEOVER - OSSI
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         gameHasEnded = true;
         gameOverScreen.SetActive(true);
 

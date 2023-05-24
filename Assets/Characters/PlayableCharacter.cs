@@ -145,7 +145,7 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         Destroy(grenadeHud);
-        Destroy(characterHud, 1f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
+        Destroy(characterHud, 1.2f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
