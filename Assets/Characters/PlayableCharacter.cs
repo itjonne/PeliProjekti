@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-
+using System.Runtime.CompilerServices;
+using UnityEditor;
 
 public class PlayableCharacter : Character
 {
@@ -96,6 +97,16 @@ public class PlayableCharacter : Character
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
+
+        if (other.gameObject.tag == "Barbwire")
+        {
+           Debug.Log("osuit piikkilankaan");
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            TakeDamage(2);
+           movementSpeed = 0.5f;
+           
+        }
     }
 
     public void TakeDamage(float damage)
@@ -126,6 +137,7 @@ public class PlayableCharacter : Character
             TakeDamage(damageAmount);
         }
     }
+
 
     private void Die()
     {

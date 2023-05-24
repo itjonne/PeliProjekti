@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e12864077c39364db03f6957a9c729a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndArrow: {fileID: 0}
   EndPrefab: {fileID: 0}
   enemiesKilled: 0
   killGoal: 1
@@ -1176,6 +1177,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 233679619832086750, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_TagString
+      value: Barbwire
+      objectReference: {fileID: 0}
     - target: {fileID: 1314272956410907934, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1220,9 +1225,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1432681483913460885, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667468791833483549, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_TagString
+      value: Barbwire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2026819201485584250, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_TagString
+      value: Barbwire
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580663939940556079, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942226549906404168, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020135870950458604, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5658898515961080341, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
       propertyPath: m_Name
       value: SandBagDigOut1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6711413004860890309, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+      propertyPath: m_TagString
+      value: Barbwire
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1370,6 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FormationSize: 1
   Spread: 1
+  formationName: Formation
   _noise: 0
 --- !u!114 &1341160691
 MonoBehaviour:
