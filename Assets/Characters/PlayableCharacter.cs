@@ -9,19 +9,20 @@ using UnityEngine.AI;
 public class PlayableCharacter : Character
 {
     [SerializeField] private GameObject characterHud;
+    [SerializeField] public Text grenadeHud;
     [SerializeField] private Image healthBar;
     [SerializeField] private Transform canvasTransform;
     private NavMeshAgent agent;
  
     public float movementSpeed;
     public float maxHealth = 30;
-
+    private Squad squad;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+        squad = GetComponentInParent<Squad>(); //TÄMÄ TÄYTYY ALUSTAA KRANUHUDIN TAKIA
     }
 
     // Update is called once per frame
@@ -30,12 +31,14 @@ public class PlayableCharacter : Character
         //Johtaja heittää aina kranaatit yms. Prefabeilla pitää olla grenadethrower pois päältä defaulttina
         if (isLeader == true)
         {
-            GetComponent<GrenadeThrower>().enabled = true;         
+            GetComponent<GrenadeThrower>().enabled = true;
+            grenadeHud.text = squad.grenadeAmount.ToString();
         }
 
         else
         {
             GetComponent<GrenadeThrower>().enabled = false;
+            grenadeHud.text = " ";
         }
     }
 
@@ -141,7 +144,8 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Animation_Soldier>()?.OnDeath(); // Tää on nyt vähän spagetti, tän ei tarviis ymmärtää mitään squadista/animaatiosta
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        Destroy(characterHud, 1f);
+        Destroy(grenadeHud);
+        Destroy(characterHud, 1f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
@@ -155,18 +159,7 @@ public class PlayableCharacter : Character
 
     }
 
-    //OSSIN HEALTHBAR SEKOILUT
-    /*
-    void OnGUI()
-    {
-
-        var screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-         screenPosition.y = Screen.height - screenPosition.y;
-        //GUI.Box(new Rect(screenPosition.x - 10, screenPosition.y - 40, healthBarLenght, 20), curHealth + "/" + maxHealth);
-        GUI.DrawTexture(new Rect(screenPosition.x - 10, screenPosition.y + 20, 60, 10), lifeBar, ScaleMode.ScaleToFit, true, 10.0F);
-    }
-    */
-
+ 
     private void UpdateHealthBar()
     {
         healthBar.fillAmount = health / maxHealth;
