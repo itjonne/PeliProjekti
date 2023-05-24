@@ -9,14 +9,15 @@ public class Weapons : MonoBehaviour
     [Header("References")]
     [SerializeField] GunData gunData;
     [SerializeField] private Transform muzzle;
-   // [SerializeField][Range(0, 1)] public float _noise = 0; // TÄMÄ EI VARMAAN OLE ENÄÄ KÄYTÖSSÄ -OSSI
+    // [SerializeField][Range(0, 1)] public float _noise = 0; // TÄMÄ EI VARMAAN OLE ENÄÄ KÄYTÖSSÄ -OSSI
     public int bulletsToShoot = 1; // Tällä pidetään kirjaa ammusten lukumäärästä
-    
+
     private Vector3 playerLastPos;
 
     float timeSinceLastShot;
 
     [SerializeField] private Image AmmoBar;
+    [SerializeField] private Image ReloadCircle;
     [SerializeField] private Transform canvasTransform;
 
     [SerializeField] [Range(0, 5)] public float InaccuracyModifier; // Ossin Testi. Mitä isompi tämä sitä epätarkempi pyssy. 0 = ei hajontaa
@@ -24,6 +25,11 @@ public class Weapons : MonoBehaviour
     public float bulletSpread;
 
     float lastShot;
+
+    float endFill = 1f;
+    float startFill;
+    float fillTime;
+    //reloadTime
 
     float counter;
 
@@ -34,30 +40,38 @@ public class Weapons : MonoBehaviour
     public float ammoLeft;
     public float bulletLife = 2.5f;
 
+    
+
     private void Start()
     {
         playerLastPos = transform.position;
         ammoLeft = magSize;
         //PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
+        ReloadCircle.fillAmount = 0;
+       
     }
 
     public void StartReload()
     {
         if (!reloading)
         {
+          
             StartCoroutine(Reload());
         }
     }
 
     private IEnumerator Reload()
     {
-        reloading = true;
+        //ReloadCircle.fillAmount = 1;
+        
 
-        yield return new WaitForSeconds(reloadTime);
+        reloading = true;  
+        yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
         reloading = false;
-        UpdateHealthAmmoBar();
+        //ReloadCircle.fillAmount = 0;
+        UpdateAmmoBar();
     }
 
 
@@ -123,19 +137,17 @@ public class Weapons : MonoBehaviour
                     {
                         //TÄMÄ kontrolloi perus yhden laukauksen ammuntaa -OSSI
                         //Debug.Log("AMMUTAAN KOLMELLA");
-                        
+
                         //Vector3 bulletAngleVector;          
-                        
+
                         // Annetaan tollasta omatekosta anglea kaikelle
                         //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
-            
-
 
                         GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f; 
-                        
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
+
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
                     }
@@ -150,15 +162,16 @@ public class Weapons : MonoBehaviour
 
                 }
                 ammoLeft--;
-                UpdateHealthAmmoBar();
+                UpdateAmmoBar();
             }
-  
+
 
             else
             {
                 StartReload();
+                
             }
-        }   
+        }
     }
 
     private void Update()
@@ -174,18 +187,26 @@ public class Weapons : MonoBehaviour
         }
        */
 
-       
+
         if (Input.GetKey(KeyCode.R))
         {
             StartCoroutine(Reload());
+
         }
-      
+
+        if (reloading == true)
+        {
+            StartCoroutine(ReloadFill());
+        }
 
         if (PlayerIsMoving()) bulletSpread = 0.1f * InaccuracyModifier;
         else bulletSpread = 0.03f * InaccuracyModifier;  //Tarkempi paikaltaan mutta ei kuitenkaan täysin hajonnaton
 
         playerLastPos = transform.position; // tää pitää kirjaa pelaajan paikasta spreadia varten
+
     }
+
+
 
     private bool PlayerIsMoving()
     {
@@ -195,9 +216,9 @@ public class Weapons : MonoBehaviour
 
     private void OnGunShot()
     {
-        
+
     }
-    
+
     // Tänne tulee powerUppeja
 
     public void ExtraBulletPowerUp(int amount)
@@ -207,9 +228,20 @@ public class Weapons : MonoBehaviour
     }
 
 
-    private void UpdateHealthAmmoBar()
+    private void UpdateAmmoBar()
     {
         AmmoBar.fillAmount = ammoLeft / magSize;
+    }
+
+    private IEnumerator ReloadFill()
+    {
+        fillTime += Time.deltaTime;
+        float percentageComplete = fillTime / reloadTime;
+        ReloadCircle.fillAmount = Mathf.Lerp(startFill, endFill, percentageComplete);
+
+        yield return new WaitForSeconds(reloadTime);
+        fillTime = 0f;
+        ReloadCircle.fillAmount = 0f;
     }
 
 }
