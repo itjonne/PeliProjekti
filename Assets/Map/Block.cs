@@ -23,7 +23,7 @@ public class Block : MonoBehaviour
     public float height; // 100
     public bool isStart = false;
     public bool isEnd = false;
-    [Range(0, 25)] public float EnvSpawnRange = 5f;
+    [Range(0, 30)] public float EnvSpawnRange = 5f;
 
     private void Awake()
     {

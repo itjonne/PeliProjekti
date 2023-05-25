@@ -1243,7 +1243,7 @@ MonoBehaviour:
   aggroed: 0
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 292122151438042176, guid: cf06e1cc4dc34bb49a9f77b39b7799ab, type: 3}
-  shootingDistance: 20
+  shootingDistance: 21
   fireRate: 2
   EnemySpread: 0.2
   bulletSpeed: 25

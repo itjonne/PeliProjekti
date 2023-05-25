@@ -1140,10 +1140,10 @@ MonoBehaviour:
   aggroed: 0
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
-  shootingDistance: 20
+  shootingDistance: 23
   fireRate: 2
   EnemySpread: 0.06
-  bulletSpeed: 8
+  bulletSpeed: 12
   AggroRange: 25
 --- !u!195 &5494749560409597303
 NavMeshAgent:
