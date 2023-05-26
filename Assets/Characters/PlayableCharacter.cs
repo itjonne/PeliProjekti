@@ -72,8 +72,33 @@ public class PlayableCharacter : Character
 
     public override void MoveTo(Vector3 position)
     {
-        agent.destination = position;
+        NavMeshMover(position);
+        //agent.destination = position;
         // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    private void NavMeshMover(Vector3 targetPos)
+    {
+        agent.SetDestination(transform.position); //Don't forget to initiate the first movement.
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
+        {
+            agent.SetPath(path);
+        }
+        else
+        {
+            StartCoroutine(Coroutine());
+            IEnumerator Coroutine()
+            {
+                yield return null;
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.SetPath(path);
+                }
+            }
+        }
+
+
     }
 
     // T‰‰ vois olla hiiri
