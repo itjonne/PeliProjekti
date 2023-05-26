@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156914, g: 0.42806652, b: 0.45680422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -168,6 +168,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &56330237 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2026819201485584250, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+  m_PrefabInstance: {fileID: 1175614512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &56330240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56330237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2d51d874f77f449e326233fccf744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 0.4
 --- !u!1 &59903123
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +444,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7023497223017552707, guid: 4e40a85aa7258984294e1d1ea106de3b, type: 3}
   m_PrefabInstance: {fileID: 184853033}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &224172051 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1667468791833483549, guid: 76d9f4fabd82cbe469aa270fd46d2d28, type: 3}
+  m_PrefabInstance: {fileID: 1175614512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &224172054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224172051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2d51d874f77f449e326233fccf744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 0.1
 --- !u!1 &256777567
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: En_Fatty1
       objectReference: {fileID: 0}
+    - target: {fileID: 4220222231417818840, guid: 7419a8ce31cdf8547916fa78d907f2a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7419a8ce31cdf8547916fa78d907f2a0, type: 3}
@@ -1165,6 +1205,10 @@ PrefabInstance:
     - target: {fileID: 4220222231417818840, guid: e0f0f6bfea59e9e4e99fa4882ab89285, type: 3}
       propertyPath: m_Name
       value: En_BombFat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220222231417818840, guid: e0f0f6bfea59e9e4e99fa4882ab89285, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1444,6 +1488,10 @@ PrefabInstance:
     - target: {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
       propertyPath: m_Name
       value: En_melee_Basic
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7791358117747379395, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
       propertyPath: m_RootOrder

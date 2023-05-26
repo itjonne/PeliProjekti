@@ -13,7 +13,7 @@ public class PlayableCharacter : Character
     [SerializeField] public Text grenadeHud;
     [SerializeField] private Image healthBar;
     [SerializeField] private Transform canvasTransform;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
  
     public float movementSpeed;
     public float speedMultiplier;
@@ -59,14 +59,14 @@ public class PlayableCharacter : Character
     public override void Move()
     {
 
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed * speedMultiplier);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * agent.speed);
     }
 
     public override void Follow(Character character)
     {
         if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
-            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * speedMultiplier * Time.deltaTime));
+            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, agent.speed * Time.deltaTime));
         }
     }
 
@@ -102,15 +102,46 @@ public class PlayableCharacter : Character
             TakeDamage(damageAmount);
         }
 
-        if (other.gameObject.tag == "Barbwire")
+        if (other.GetComponent<Hinderer>())
         {
-           Debug.Log("osuit piikkilankaan");
-            SpeedMultiplier(speedMultiplier);
+            Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(other.GetComponent<Hinderer>().speedMultiplier);
+            ChangeAgentSpeed();
             //float damageAmount = other.GetComponent<DamageDealer>().damage;
             //TakeDamage(damageAmount);
             TakeDamage(2);
         }
+
+        /*
+        if (other.gameObject.tag == "Barbwire")
+        {
+
+           Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(0.2f);
+            ChangeAgentSpeed();
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            TakeDamage(2);
+        }
+        */
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Hinderer>())
+        {
+            speedMultiplier = 1f;
+            ChangeAgentSpeed();
+            Debug.Log("EXIT");
+        }
+  
+    }
+
+    public void ChangeAgentSpeed()
+    {
+        agent.speed = movementSpeed * speedMultiplier;
+        Debug.Log("AGENT SPEED: " + movementSpeed * speedMultiplier);
+    }
+
 
     public void TakeDamage(float damage)
     {
@@ -119,9 +150,9 @@ public class PlayableCharacter : Character
         if (health <= 0) Die();
     }
 
-    public void SpeedMultiplier(float speedMultiplier)
+    public void SpeedMultiplier(float multiplier)
     {
-        speedMultiplier = 0.2f;
+        speedMultiplier = multiplier;
     }
     
 
