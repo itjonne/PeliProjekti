@@ -15828,7 +15828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5887895726272098841, guid: 8e8769da893664f48835c41b914b7566, type: 3}
       propertyPath: nextLevel
-      value: Ossi_Level1
+      value: Level1_ALT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
