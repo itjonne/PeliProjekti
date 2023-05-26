@@ -79,7 +79,7 @@ public class PlayableCharacter : Character
 
     private void NavMeshMover(Vector3 targetPos)
     {
-        agent.SetDestination(transform.position); //Don't forget to initiate the first movement.
+        agent.SetDestination(targetPos); //Don't forget to initiate the first movement.
         NavMeshPath path = new NavMeshPath();
         if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
         {
