@@ -23,6 +23,7 @@ public class PlayableCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
+  
         agent = GetComponent<NavMeshAgent>();
         squad = GetComponentInParent<Squad>(); //TÄMÄ TÄYTYY ALUSTAA KRANUHUDIN TAKIA
     }
@@ -188,6 +189,7 @@ public class PlayableCharacter : Character
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();
+            GameManager.Instance.levelFinished = true;
             SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
         }
 
