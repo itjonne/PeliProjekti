@@ -134,7 +134,7 @@ public class PlayableCharacter : Character
             ChangeAgentSpeed();
             //float damageAmount = other.GetComponent<DamageDealer>().damage;
             //TakeDamage(damageAmount);
-            TakeDamage(2);
+            // TakeDamage(2);
         }
 
         /*

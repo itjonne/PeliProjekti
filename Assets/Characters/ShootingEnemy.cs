@@ -37,6 +37,9 @@ public class ShootingEnemy : Enemy
             CalculateDistanceFromTarget(target);
             
         }
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = shootingDistance;
     }
 
     private void CalculateDistanceFromTarget(Character target)
@@ -100,7 +103,8 @@ public class ShootingEnemy : Enemy
                     }
                     else // Ollaan tarpeeks l�hell�
                     {
-
+                        // MoveTo(transform.position);
+                       
                         transform.LookAt(target.transform.position);
 
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
@@ -110,14 +114,16 @@ public class ShootingEnemy : Enemy
                             Debug.Log("EI VOI AMPUA");
                             Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
                             MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
-                        }
-
-                        // Jos ei oo ni ammutaan
-                        else if (timeSinceLastShot >= fireRate)
+                        } else 
                         {
-                            Debug.LogWarning("NYT EI OO");
-                            Shoot();
-                            timeSinceLastShot = 0;
+                            if (timeSinceLastShot >= fireRate)
+                            {
+                                Debug.LogWarning("NYT EI OO");
+                                Shoot();
+                                timeSinceLastShot = 0;
+
+                            }
+
                         }
                     }
 
