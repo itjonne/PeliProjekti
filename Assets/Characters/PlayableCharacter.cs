@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-
+using System.Runtime.CompilerServices;
+using UnityEditor;
 
 public class PlayableCharacter : Character
 {
@@ -12,9 +13,10 @@ public class PlayableCharacter : Character
     [SerializeField] public Text grenadeHud;
     [SerializeField] private Image healthBar;
     [SerializeField] private Transform canvasTransform;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
  
     public float movementSpeed;
+    public float speedMultiplier;
     public float maxHealth = 30;
     private Squad squad;
 
@@ -57,21 +59,46 @@ public class PlayableCharacter : Character
     public override void Move()
     {
 
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * agent.speed);
     }
 
     public override void Follow(Character character)
     {
         if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
-            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * Time.deltaTime));
+            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, agent.speed * Time.deltaTime));
         }
     }
 
     public override void MoveTo(Vector3 position)
     {
-        agent.destination = position;
+        NavMeshMover(position);
+        //agent.destination = position;
         // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    private void NavMeshMover(Vector3 targetPos)
+    {
+        agent.SetDestination(transform.position); //Don't forget to initiate the first movement.
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
+        {
+            agent.SetPath(path);
+        }
+        else
+        {
+            StartCoroutine(Coroutine());
+            IEnumerator Coroutine()
+            {
+                yield return null;
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.SetPath(path);
+                }
+            }
+        }
+
+
     }
 
     // T‰‰ vois olla hiiri
@@ -99,7 +126,47 @@ public class PlayableCharacter : Character
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
+
+        if (other.GetComponent<Hinderer>())
+        {
+            Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(other.GetComponent<Hinderer>().speedMultiplier);
+            ChangeAgentSpeed();
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            TakeDamage(2);
+        }
+
+        /*
+        if (other.gameObject.tag == "Barbwire")
+        {
+
+           Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(0.2f);
+            ChangeAgentSpeed();
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            TakeDamage(2);
+        }
+        */
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Hinderer>())
+        {
+            speedMultiplier = 1f;
+            ChangeAgentSpeed();
+            Debug.Log("EXIT");
+        }
+  
+    }
+
+    public void ChangeAgentSpeed()
+    {
+        agent.speed = movementSpeed * speedMultiplier;
+        Debug.Log("AGENT SPEED: " + movementSpeed * speedMultiplier);
+    }
+
 
     public void TakeDamage(float damage)
     {
@@ -107,6 +174,12 @@ public class PlayableCharacter : Character
         UpdateHealthBar();
         if (health <= 0) Die();
     }
+
+    public void SpeedMultiplier(float multiplier)
+    {
+        speedMultiplier = multiplier;
+    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -129,6 +202,7 @@ public class PlayableCharacter : Character
             TakeDamage(damageAmount);
         }
     }
+
 
     private void Die()
     {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7641651395147415401}
   m_Layer: 2
   m_Name: BarbWire1
-  m_TagString: Environment
+  m_TagString: Barbwire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+      propertyPath: m_TagString
+      value: Barbwire
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
@@ -120,8 +124,41 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.09512644, z: 0.0000004768371}
   m_TimeToStationary: 0.5
+--- !u!114 &6609669275253582807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763088958918585951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05448c100dcdaa469151243fee06701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  shooter: {fileID: 3137451102806693248}
 --- !u!4 &2360351895836626746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 52251533592693008, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
   m_PrefabInstance: {fileID: 2339626556688696874}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3137451102806693248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 860876727876015018, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+  m_PrefabInstance: {fileID: 2339626556688696874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3511762202039860347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3137451102806693248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c05448c100dcdaa469151243fee06701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  shooter: {fileID: 763088958918585951}

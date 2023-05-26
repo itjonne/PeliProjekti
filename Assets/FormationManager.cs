@@ -18,23 +18,7 @@ public class FormationManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             SwapFormation();
-            /*
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Debug.Log("Vaihdettiin jonoon");
-                SwitchToLineFormation();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                Debug.Log("Vaihdettiin neliöön");
-                SwitchToSquareFormation();
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                Debug.Log("Vaihdettiin riviin");
-                SwitchToRowFormation();
-            }
-            */
+            
         }
     }
 
