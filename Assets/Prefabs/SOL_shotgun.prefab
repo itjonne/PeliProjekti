@@ -2635,7 +2635,9 @@ MonoBehaviour:
   grenadeHud: {fileID: 611191285008316722}
   healthBar: {fileID: 7553380863357098986}
   canvasTransform: {fileID: 2443994138885955010}
+  agent: {fileID: 0}
   movementSpeed: 5
+  speedMultiplier: 0
   maxHealth: 30
 --- !u!114 &8363758718404916972
 MonoBehaviour:
@@ -2659,7 +2661,7 @@ MonoBehaviour:
   bulletSpread: 0
   reloading: 0
   magSize: 8
-  reloadTime: 2.5
+  reloadTime: 2.2
   ammoLeft: 8
   bulletLife: 0.9
 --- !u!114 &5284938203037680907
