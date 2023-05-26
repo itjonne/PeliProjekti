@@ -74,7 +74,7 @@ public class SquadMovement : MonoBehaviour
 
     private Vector3 MoveTowardTarget(Vector3 targetVector)
     {
-        var speed = moveSpeed * Time.deltaTime;
+        var speed = _leader.GetComponent<PlayableCharacter>().agent.speed * Time.deltaTime;
 
         targetVector = Quaternion.Euler(0, camera.gameObject.transform.eulerAngles.y, 0) * targetVector;
         targetVector = Vector3.Normalize(targetVector);

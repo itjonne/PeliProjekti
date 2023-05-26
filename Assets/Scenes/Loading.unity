@@ -1076,6 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   enemiesKilled: 0
+  gameHasEnded: 0
 --- !u!4 &657571409
 Transform:
   m_ObjectHideFlags: 0
