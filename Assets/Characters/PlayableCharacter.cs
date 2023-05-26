@@ -16,6 +16,7 @@ public class PlayableCharacter : Character
     private NavMeshAgent agent;
  
     public float movementSpeed;
+    public float speedMultiplier;
     public float maxHealth = 30;
     private Squad squad;
 
@@ -58,14 +59,14 @@ public class PlayableCharacter : Character
     public override void Move()
     {
 
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed * speedMultiplier);
     }
 
     public override void Follow(Character character)
     {
         if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
-            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * Time.deltaTime));
+            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * speedMultiplier * Time.deltaTime));
         }
     }
 
@@ -104,11 +105,10 @@ public class PlayableCharacter : Character
         if (other.gameObject.tag == "Barbwire")
         {
            Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(speedMultiplier);
             //float damageAmount = other.GetComponent<DamageDealer>().damage;
             //TakeDamage(damageAmount);
             TakeDamage(2);
-           movementSpeed = 0.5f;
-           
         }
     }
 
@@ -118,6 +118,12 @@ public class PlayableCharacter : Character
         UpdateHealthBar();
         if (health <= 0) Die();
     }
+
+    public void SpeedMultiplier(float speedMultiplier)
+    {
+        speedMultiplier = 0.2f;
+    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
