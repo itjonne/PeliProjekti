@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2169427212535901255, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3093705386379536501, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -138,6 +142,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   shooter: {fileID: 3137451102806693248}
+--- !u!114 &6615695753700912878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763088958918585951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2d51d874f77f449e326233fccf744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 0.4
 --- !u!4 &2360351895836626746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 52251533592693008, guid: c514c08a975564c4c8fbc0befc00d1bb, type: 3}
