@@ -53,6 +53,11 @@ public class EnemySpawner : MonoBehaviour
                 player = characters[Random.Range(0, characters.Length)];
             }
 
+            else //T‰m‰ est‰‰ ett‰ spawnerit eiv‰t bugita peli‰, jos squadi kuolee
+            {
+                active = false;
+            }
+
         }
 
     }

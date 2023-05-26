@@ -10,7 +10,10 @@ public class FormationManager : MonoBehaviour
     public SquareFormation squareFormation;
     public RowFormation rowFormation;
 
-
+    private void Start()
+    {
+        SwitchToSquareFormation();
+    }
 
     private void Update()
     {
@@ -58,6 +61,7 @@ public class FormationManager : MonoBehaviour
         lineFormation.enabled = true;
         squareFormation.enabled = false;
         rowFormation.enabled = false;
+        ChangeSquadMovementSpeed(5);
     }
 
     private void SwitchToSquareFormation()
@@ -66,6 +70,9 @@ public class FormationManager : MonoBehaviour
         lineFormation.enabled = false;
         squareFormation.enabled = true;
         rowFormation.enabled = false;
+
+        ChangeSquadMovementSpeed(4.5f);
+        
     }
 
     private void SwitchToRowFormation()
@@ -74,5 +81,12 @@ public class FormationManager : MonoBehaviour
         lineFormation.enabled = false;
         squareFormation.enabled = false;
         rowFormation.enabled = true;
+        ChangeSquadMovementSpeed(5);
+    }
+
+    private void ChangeSquadMovementSpeed(float movementSpeed)
+    {
+        Squad squad = GetComponent<Squad>();
+        squad.ChangeSquadMovementSpeed(movementSpeed);
     }
 }

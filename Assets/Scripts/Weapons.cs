@@ -188,7 +188,7 @@ public class Weapons : MonoBehaviour
        */
 
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && ammoLeft != magSize) //Muutettu että täyttä pyssyä ei voi ladata
         {
             StartCoroutine(Reload());
 

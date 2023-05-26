@@ -79,7 +79,7 @@ public class PlayableCharacter : Character
 
     private void NavMeshMover(Vector3 targetPos)
     {
-        agent.SetDestination(transform.position); //Don't forget to initiate the first movement.
+        agent.SetDestination(targetPos); //Don't forget to initiate the first movement.
         NavMeshPath path = new NavMeshPath();
         if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
         {
@@ -134,7 +134,7 @@ public class PlayableCharacter : Character
             ChangeAgentSpeed();
             //float damageAmount = other.GetComponent<DamageDealer>().damage;
             //TakeDamage(damageAmount);
-            TakeDamage(2);
+            // TakeDamage(2);
         }
 
         /*
@@ -219,7 +219,7 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         Destroy(grenadeHud);
-        Destroy(characterHud, 1f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
+        Destroy(characterHud, 1.2f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA
