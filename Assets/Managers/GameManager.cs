@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject levelEndScreen;
 
+    public LevelEnd levelEnd;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -91,6 +92,8 @@ public class GameManager : MonoBehaviour
 
         gameOverScreen = GameObject.Find("GameOverScreen");
         gameOverScreen.SetActive(false);
+
+        levelEnd = GetComponent<LevelEnd>();
         
 
         Debug.LogWarning("PELI ALKAA NY!");
@@ -134,9 +137,14 @@ public class GameManager : MonoBehaviour
             levelEndScreen.SetActive(true);
             Time.timeScale = 0;
 
+   
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                levelFinished = false;
+                var levelEnd = FindObjectOfType<LevelEnd>();
+                SceneManager.LoadSceneAsync(levelEnd.GetComponent<LevelEnd>().nextLevel);
+
+                levelFinished = false;               
                 Time.timeScale = 1;
                 levelEndScreen.SetActive(false);
             }

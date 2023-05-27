@@ -27,24 +27,26 @@ public class Block : MonoBehaviour
 
     private void Awake()
     {
-        
+ 
     }
 
     private void Start()
     {
+        /*
         foreach (var obj in generatedObjects)
         {
             Destroy(obj);
         }
+        */
 
         GetPlaneSize();
         GenerateEnvironment();
         GenerateHelpers();
-        GenerateEnemies(); 
+        GenerateEnemies();
         if (isEnd) GenerateEnd();
         if (isStart) GenerateStart();
 
-   
+
     }
 
     void GenerateEnvironment()

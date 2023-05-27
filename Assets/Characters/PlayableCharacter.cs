@@ -190,7 +190,7 @@ public class PlayableCharacter : Character
             // Debug.Log("ENDING GAME");
             // LevelEnd();
             GameManager.Instance.levelFinished = true;
-            SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
+           // SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
         }
 
         if (collision.gameObject.tag == "Enemy") {
