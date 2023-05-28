@@ -188,7 +188,7 @@ public class Weapons : MonoBehaviour
        */
 
 
-        if (Input.GetKey(KeyCode.R) && ammoLeft != magSize) //Muutettu ett‰ t‰ytt‰ pyssy‰ ei voi ladata
+        if (Input.GetKey(KeyCode.R) && ammoLeft != magSize) //Muutettu ett‰ t‰ytt‰ pyssy‰ ei voi ladata -Ossi
         {
             StartCoroutine(Reload());
 
@@ -200,8 +200,10 @@ public class Weapons : MonoBehaviour
         }
 
         if (PlayerIsMoving()) bulletSpread = 0.1f * InaccuracyModifier;
-        else bulletSpread = 0.03f * InaccuracyModifier;  //Tarkempi paikaltaan mutta ei kuitenkaan t‰ysin hajonnaton
-
+        else bulletSpread = 0.025f + 0.007f * bulletsToShoot * InaccuracyModifier;
+        //Tarkempi paikaltaan mutta ei kuitenkaan t‰ysin hajonnaton
+        //Bullets to shoot h‰kkyr‰ -> koitetaan saada haulikolle samanlainen hajonta paikaltaan ja liikkeest‰
+        //Aika purkka ratkaisu t‰ll‰ hetkell‰ - OSSI
         playerLastPos = transform.position; // t‰‰ pit‰‰ kirjaa pelaajan paikasta spreadia varten
 
     }

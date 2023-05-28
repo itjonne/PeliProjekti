@@ -53,7 +53,7 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in environmentObjects)
         {
-            int amount = (int)Random.Range(0, environmentDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, environmentDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));  
@@ -70,7 +70,7 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in helperObjects)
         {
-            int amount = (int)Random.Range(0, helperDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, helperDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
@@ -85,7 +85,7 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in enemyObjects)
         {
-            int amount = (int)Random.Range(0, enemyDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, enemyDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));

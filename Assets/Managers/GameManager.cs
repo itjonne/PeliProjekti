@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 var levelEnd = FindObjectOfType<LevelEnd>();
-                SceneManager.LoadSceneAsync(levelEnd.GetComponent<LevelEnd>().nextLevel);
+                SceneManager.LoadScene(levelEnd.GetComponent<LevelEnd>().nextLevel);
 
                 levelFinished = false;               
                 Time.timeScale = 1;

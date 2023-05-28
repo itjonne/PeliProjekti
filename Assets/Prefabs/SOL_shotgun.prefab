@@ -2657,7 +2657,7 @@ MonoBehaviour:
   AmmoBar: {fileID: 476532603844967531}
   ReloadCircle: {fileID: 5177157226372639312}
   canvasTransform: {fileID: 2443994138885955010}
-  InaccuracyModifier: 1.01
+  InaccuracyModifier: 0.7
   bulletSpread: 0
   reloading: 0
   magSize: 8
