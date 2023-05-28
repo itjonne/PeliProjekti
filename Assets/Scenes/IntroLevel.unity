@@ -12432,7 +12432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FormationSize: 1
-  Spread: 1.6
+  Spread: 1.5
   formationName: Square
   _noise: 0
 --- !u!114 &1341160695
