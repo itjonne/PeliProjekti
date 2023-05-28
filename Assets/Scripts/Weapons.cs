@@ -39,7 +39,7 @@ public class Weapons : MonoBehaviour
     public float reloadTime = 2f;
     public float ammoLeft;
     public float bulletLife = 2.5f;
-
+    public float bulletSpeed = 25f;
     
 
     private void Start()
@@ -143,10 +143,10 @@ public class Weapons : MonoBehaviour
                         // Annetaan tollasta omatekosta anglea kaikelle
                         //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
 
-                        GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
+                        GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, transform.rotation);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, tällä voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * bulletSpeed;
 
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);

@@ -44,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
                 GetShooterFromBullet(damageDealer);
                 gameObject.GetComponent<Anim_Enemy1>().OnDamageTaken(); // Kutsutaan animaattoria
                 this.SetHealth(-damageDealer.damage); // Kuolema tapahtuu tuolla p??luokan puolella Enemy-scriptiss?.
-                Destroy(damageDealer.gameObject);
+                //Destroy(damageDealer.gameObject);
                 gameObject.GetComponent<Enemy>().aggroed=true; //JOS VIHU OTTAA DAMAGEA, SE AGGROONTUU
             }
         }
