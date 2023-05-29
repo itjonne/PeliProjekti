@@ -59,7 +59,7 @@ public class Weapons : MonoBehaviour
         {
             
             StartCoroutine(Reload());
-            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Reload, transform);
+            
         }
     }
 
@@ -69,11 +69,11 @@ public class Weapons : MonoBehaviour
 
         reloading = true;
 
-        
-        
-            
-            
-        
+
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Reload, transform);
+
+
+
         yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
         reloading = false;
