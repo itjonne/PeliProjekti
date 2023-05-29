@@ -120,7 +120,9 @@ MonoBehaviour:
   enemyDensity: 0
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
   startObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
+  mapManager: {fileID: 0}
   width: 25
   height: 25
   isStart: 0
   isEnd: 0
+  EnvSpawnRange: 5
