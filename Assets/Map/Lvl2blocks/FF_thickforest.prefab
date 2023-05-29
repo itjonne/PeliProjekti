@@ -114,13 +114,13 @@ MonoBehaviour:
   environmentObjects:
   - {fileID: 7347777086382128603, guid: d8bfa204a742dfe44a2c163dec752090, type: 3}
   - {fileID: 701600530516243938, guid: babb0f68101ebb44ea536a7f84d4c42b, type: 3}
-  environmentDensity: 5
+  environmentDensity: 9
   helperObjects: []
   helperDensity: 0
   enemyObjects:
   - {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   - {fileID: 4220222231417818840, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}
-  enemyDensity: 0.5
+  enemyDensity: 3
   endObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
   startObject: {fileID: 5452623086920540288, guid: 8e8769da893664f48835c41b914b7566, type: 3}
   mapManager: {fileID: 0}
@@ -128,4 +128,4 @@ MonoBehaviour:
   height: 25
   isStart: 0
   isEnd: 0
-  EnvSpawnRange: 6.5
+  EnvSpawnRange: 2

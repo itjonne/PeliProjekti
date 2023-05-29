@@ -218,6 +218,14 @@ public class Squad : MonoBehaviour
         return leader;
     }
 
+    public void ChangeSquadMovementSpeed(float movementSpeed)
+    {
+        foreach (PlayableCharacter character in squadData.Items)
+        {
+            character.agent.speed = movementSpeed;
+        }
+    }
+
     private void EndGame()
     {
        // UnityEditor.EditorApplication.isPlaying = false;

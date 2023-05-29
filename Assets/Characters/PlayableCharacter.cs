@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-
+using System.Runtime.CompilerServices;
+using UnityEditor;
 
 public class PlayableCharacter : Character
 {
@@ -12,15 +13,17 @@ public class PlayableCharacter : Character
     [SerializeField] public Text grenadeHud;
     [SerializeField] private Image healthBar;
     [SerializeField] private Transform canvasTransform;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
  
     public float movementSpeed;
+    public float speedMultiplier;
     public float maxHealth = 30;
     private Squad squad;
 
     // Start is called before the first frame update
     void Start()
     {
+  
         agent = GetComponent<NavMeshAgent>();
         squad = GetComponentInParent<Squad>(); //TÄMÄ TÄYTYY ALUSTAA KRANUHUDIN TAKIA
     }
@@ -57,21 +60,46 @@ public class PlayableCharacter : Character
     public override void Move()
     {
 
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * agent.speed);
     }
 
     public override void Follow(Character character)
     {
         if (Vector3.Distance(transform.position, character.transform.position) > 4f )
         {
-            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, movementSpeed * Time.deltaTime));
+            transform.position = (Vector3.MoveTowards(transform.position, character.transform.position, agent.speed * Time.deltaTime));
         }
     }
 
     public override void MoveTo(Vector3 position)
     {
-        agent.destination = position;
+        NavMeshMover(position);
+        //agent.destination = position;
         // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    private void NavMeshMover(Vector3 targetPos)
+    {
+        agent.SetDestination(targetPos); //Don't forget to initiate the first movement.
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
+        {
+            agent.SetPath(path);
+        }
+        else
+        {
+            StartCoroutine(Coroutine());
+            IEnumerator Coroutine()
+            {
+                yield return null;
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.SetPath(path);
+                }
+            }
+        }
+
+
     }
 
     // Tää vois olla hiiri
@@ -99,15 +127,60 @@ public class PlayableCharacter : Character
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
+
+        if (other.GetComponent<Hinderer>())
+        {
+            Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(other.GetComponent<Hinderer>().speedMultiplier);
+            ChangeAgentSpeed();
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            // TakeDamage(2);
+        }
+
+        /*
+        if (other.gameObject.tag == "Barbwire")
+        {
+
+           Debug.Log("osuit piikkilankaan");
+            SpeedMultiplier(0.2f);
+            ChangeAgentSpeed();
+            //float damageAmount = other.GetComponent<DamageDealer>().damage;
+            //TakeDamage(damageAmount);
+            TakeDamage(2);
+        }
+        */
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Hinderer>())
+        {
+            speedMultiplier = 1f;
+            ChangeAgentSpeed();
+            Debug.Log("EXIT");
+        }
+  
+    }
+
+    public void ChangeAgentSpeed()
+    {
+        agent.speed = movementSpeed * speedMultiplier;
+        Debug.Log("AGENT SPEED: " + movementSpeed * speedMultiplier);
+    }
+
 
     public void TakeDamage(float damage)
     {
-        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_HurtAll, transform);
         health -= damage;
         UpdateHealthBar();
         if (health <= 0) Die();
     }
+
+    public void SpeedMultiplier(float multiplier)
+    {
+        speedMultiplier = multiplier;
+    }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -116,9 +189,8 @@ public class PlayableCharacter : Character
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();
-            
-            SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
-            
+            GameManager.Instance.levelFinished = true;
+           // SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
         }
 
         if (collision.gameObject.tag == "Enemy") {
@@ -128,11 +200,11 @@ public class PlayableCharacter : Character
 
         if (collision.gameObject.GetComponent<DamageDealer>() != null)
         {
-            
             float damageAmount = collision.gameObject.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
     }
+
 
     private void Die()
     {
@@ -149,7 +221,7 @@ public class PlayableCharacter : Character
         gameObject.GetComponent<Animation_Soldier>().enabled = false;
         gameObject.GetComponent<NavMeshAgent>().enabled = false;
         Destroy(grenadeHud);
-        Destroy(characterHud, 1f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
+        Destroy(characterHud, 1.2f); //poistetaan pienellä viiveellä hudi, näkyy että palkki on tyhjä
         Destroy(gameObject, 30);
 
         // PÄIVITETTY, TEHDÄÄN SAMA RIMPSU KUN VIHULLE, TUHOTAAN KOMPONENTIT KUOLLESSA ETTÄ SAADAAN ANIMOITUA KUOLEMA JA RUUMIS PYSYY NÄKYVILLÄ 30 SEKUNTIA

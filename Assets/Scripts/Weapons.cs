@@ -39,7 +39,7 @@ public class Weapons : MonoBehaviour
     public float reloadTime = 2f;
     public float ammoLeft;
     public float bulletLife = 2.5f;
-
+    public float bulletSpeed = 25f;
     
 
     private void Start()
@@ -54,30 +54,22 @@ public class Weapons : MonoBehaviour
 
     public void StartReload()
     {
-
         if (!reloading)
         {
-            
+          
             StartCoroutine(Reload());
-            
         }
     }
 
     private IEnumerator Reload()
     {
         //ReloadCircle.fillAmount = 1;
+        
 
-        reloading = true;
-
-
-        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Reload, transform);
-
-
-
+        reloading = true;  
         yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
         reloading = false;
-        
         //ReloadCircle.fillAmount = 0;
         UpdateAmmoBar();
     }
@@ -114,7 +106,6 @@ public class Weapons : MonoBehaviour
         {
             if (ammoLeft > 0 && reloading == false)  //reload ehto lis‰tty, ett‰ saadaan manuaalinen lataus toimimaan
             {
-                JSAM.AudioManager.PlaySound(gunData.audioClip, transform);
                 counter = 0;
                 // Debug.Log("T‰‰ll‰ ammutaan");
                 // int playerLevel = gameObject.GetComponent<Character>().level;
@@ -152,13 +143,10 @@ public class Weapons : MonoBehaviour
                         // Annetaan tollasta omatekosta anglea kaikelle
                         //bulletAngleVector = (bulletsToShoot == 1) ? new Vector3(0, 0, 0) : CalculateBulletAngle(i);
 
-
-                        
-
-                        GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, Quaternion.identity);
+                        GameObject bullet = Instantiate(gunData.bulletPrefab, muzzle.position, transform.rotation);
                         gameObject.GetComponent<Animation_Soldier>().OnShoot(); //AMPUMISANIMAATIO SYSTEEMI MUUTETTU - OSSI 
                         bullet.GetComponent<DamageDealer>().shooter = this.gameObject; // Asetetaan panokselle kuka sen ampu, t‰ll‰ voi vaikka nostaa lvl tms.
-                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * 25f;
+                        bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward /*+ bulletAngleVector */  + new Vector3(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, 0), Random.Range(-bulletSpread, bulletSpread))) * bulletSpeed;
 
                         lastShot = Time.time;
                         Destroy(bullet, bulletLife);
@@ -200,7 +188,7 @@ public class Weapons : MonoBehaviour
        */
 
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.R) && ammoLeft != magSize) //Muutettu ett‰ t‰ytt‰ pyssy‰ ei voi ladata -Ossi
         {
             StartCoroutine(Reload());
 
@@ -212,8 +200,10 @@ public class Weapons : MonoBehaviour
         }
 
         if (PlayerIsMoving()) bulletSpread = 0.1f * InaccuracyModifier;
-        else bulletSpread = 0.03f * InaccuracyModifier;  //Tarkempi paikaltaan mutta ei kuitenkaan t‰ysin hajonnaton
-
+        else bulletSpread = 0.025f + 0.007f * bulletsToShoot * InaccuracyModifier;
+        //Tarkempi paikaltaan mutta ei kuitenkaan t‰ysin hajonnaton
+        //Bullets to shoot h‰kkyr‰ -> koitetaan saada haulikolle samanlainen hajonta paikaltaan ja liikkeest‰
+        //Aika purkka ratkaisu t‰ll‰ hetkell‰ - OSSI
         playerLastPos = transform.position; // t‰‰ pit‰‰ kirjaa pelaajan paikasta spreadia varten
 
     }

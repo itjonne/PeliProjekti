@@ -1103,7 +1103,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -1134,16 +1134,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 0}
-  health: 30
+  health: 25
   movementSpeed: 4
   gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   aggroed: 0
   muzzle: {fileID: 5044948587480128474}
   bulletPrefab: {fileID: 8306785530074399806, guid: 01774f32b1268dc4b937ef312fae9f11, type: 3}
-  shootingDistance: 16
+  shootingDistance: 18
   fireRate: 2
   EnemySpread: 0.09
-  bulletSpeed: 8
+  bulletSpeed: 10
   AggroRange: 25
 --- !u!195 &30980865581237054
 NavMeshAgent:

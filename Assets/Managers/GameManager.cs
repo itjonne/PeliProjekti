@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     }
 
     // Pelin UI palikat
+
     PauseMenu pauseMenu;
     private string MainMenu = "MainMenu";
 
@@ -29,6 +31,12 @@ public class GameManager : MonoBehaviour
     public int enemiesKilled = 0;
 
     public bool gameHasEnded = false;
+    public bool levelFinished = false;
+
+    public GameObject gameOverScreen;
+    public GameObject levelEndScreen;
+
+    public LevelEnd levelEnd;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -46,6 +54,16 @@ public class GameManager : MonoBehaviour
    
      */
 
+    /*
+    public void LevelEnd()
+    {
+        PlayableCharacter character = FindObjectOfType<PlayableCharacter>(); 
+         {
+            
+            Time.timeScale = 0;   
+         }      
+    }
+    */
     public void KillEnemy(int amount)
     {
         enemiesKilled += amount;
@@ -69,6 +87,14 @@ public class GameManager : MonoBehaviour
         // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
 
+        levelEndScreen = GameObject.Find("LevelFinishScreen");
+        levelEndScreen.SetActive(false);
+
+        gameOverScreen = GameObject.Find("GameOverScreen");
+        gameOverScreen.SetActive(false);
+
+        levelEnd = GetComponent<LevelEnd>();
+        
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
@@ -96,6 +122,37 @@ public class GameManager : MonoBehaviour
             TogglePauseMenu();
 
         }
+
+        
+        if (gameHasEnded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            //Time.timeScale = 1;
+            gameOverScreen.SetActive(false);
+            StartCoroutine(GoToMenu());
+        }
+
+
+        if (levelFinished == true) 
+        {
+            levelEndScreen.SetActive(true);
+            Time.timeScale = 0;
+
+   
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                var levelEnd = FindObjectOfType<LevelEnd>();
+                SceneManager.LoadScene(levelEnd.GetComponent<LevelEnd>().nextLevel);
+
+                levelFinished = false;               
+                Time.timeScale = 1;
+                levelEndScreen.SetActive(false);
+            }
+
+        }
+
+        
+
     }
 
     private void TogglePauseMenu()
@@ -114,10 +171,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver() //tämä ei toimi
+    public void GameOver() //KOITETAAN KYHÄTÄ VÄHÄN HIENOMPI GAMEOVER - OSSI
     {
+        //Time.timeScale = 0;
         gameHasEnded = true;
-    StartCoroutine(GoToMenu()); 
+        gameOverScreen.SetActive(true);
+
     }
 
     IEnumerator GoToMenu()
@@ -129,7 +188,7 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-
+       
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
     }
 

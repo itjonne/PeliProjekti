@@ -37,6 +37,9 @@ public class ShootingEnemy : Enemy
             CalculateDistanceFromTarget(target);
             
         }
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = shootingDistance;
     }
 
     private void CalculateDistanceFromTarget(Character target)
@@ -46,8 +49,9 @@ public class ShootingEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.destination = position;
+        NavMeshMover(position);
+        // NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        // agent.destination = position;
         // TODO: Liiku tietyn matkan p��h�n
         //transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
     }
@@ -99,7 +103,8 @@ public class ShootingEnemy : Enemy
                     }
                     else // Ollaan tarpeeks l�hell�
                     {
-
+                        // MoveTo(transform.position);
+                       
                         transform.LookAt(target.transform.position);
 
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
@@ -109,14 +114,16 @@ public class ShootingEnemy : Enemy
                             Debug.Log("EI VOI AMPUA");
                             Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
                             MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
-                        }
-
-                        // Jos ei oo ni ammutaan
-                        else if (timeSinceLastShot >= fireRate)
+                        } else 
                         {
-                            Debug.LogWarning("NYT EI OO");
-                            Shoot();
-                            timeSinceLastShot = 0;
+                            if (timeSinceLastShot >= fireRate)
+                            {
+                                Debug.LogWarning("NYT EI OO");
+                                Shoot();
+                                timeSinceLastShot = 0;
+
+                            }
+
                         }
                     }
 
@@ -131,6 +138,31 @@ public class ShootingEnemy : Enemy
                 if (characters.Length > 0)
                 {
                     target = characters[Random.Range(0, characters.Length)];
+                }
+            }
+        }
+
+
+    }
+
+    private void NavMeshMover(Vector3 targetPos)
+    {
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.SetDestination(targetPos); //Don't forget to initiate the first movement.
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
+        {
+            agent.SetPath(path);
+        }
+        else
+        {
+            StartCoroutine(Coroutine());
+            IEnumerator Coroutine()
+            {
+                yield return null;
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.SetPath(path);
                 }
             }
         }

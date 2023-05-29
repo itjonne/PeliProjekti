@@ -52,9 +52,35 @@ public class MeleeEnemy : Enemy
 
     public void MoveTo(Vector3 position)
     {
-        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.destination = position;
+        NavMeshMover(position);
+        // NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        // agent.destination = position;
         // transform.position = (Vector3.MoveTowards(transform.position, position, movementSpeed * Time.deltaTime));
+    }
+
+    private void NavMeshMover(Vector3 targetPos)
+    {
+        NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
+        agent.SetDestination(targetPos); //Don't forget to initiate the first movement.
+        NavMeshPath path = new NavMeshPath();
+        if (NavMesh.CalculatePath(transform.position, targetPos, NavMesh.AllAreas, path))
+        {
+            agent.SetPath(path);
+        }
+        else
+        {
+            StartCoroutine(Coroutine());
+            IEnumerator Coroutine()
+            {
+                yield return null;
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    agent.SetPath(path);
+                }
+            }
+        }
+
+
     }
 
     private void CalculateClosestTarget()

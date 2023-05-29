@@ -23,35 +23,37 @@ public class Block : MonoBehaviour
     public float height; // 100
     public bool isStart = false;
     public bool isEnd = false;
-    [Range(0, 25)] public float EnvSpawnRange = 5f;
+    [Range(0, 30)] public float EnvSpawnRange = 5f;
 
     private void Awake()
     {
-        
+ 
     }
 
     private void Start()
     {
+        /*
         foreach (var obj in generatedObjects)
         {
             Destroy(obj);
         }
+        */
 
         GetPlaneSize();
         GenerateEnvironment();
         GenerateHelpers();
-        GenerateEnemies(); 
+        GenerateEnemies();
         if (isEnd) GenerateEnd();
         if (isStart) GenerateStart();
 
-   
+
     }
 
     void GenerateEnvironment()
     {
         foreach (var obj in environmentObjects)
         {
-            int amount = (int)Random.Range(0, environmentDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, environmentDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));  
@@ -68,7 +70,7 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in helperObjects)
         {
-            int amount = (int)Random.Range(0, helperDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, helperDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
@@ -83,7 +85,7 @@ public class Block : MonoBehaviour
     {
         foreach (var obj in enemyObjects)
         {
-            int amount = (int)Random.Range(0, enemyDensity * width / 50); // T‰‰ nyt vaa testi
+            int amount = (int)Random.Range(0, enemyDensity); // T‰‰ nyt vaa testi
             for (int i = 0; i < amount; i++)
             {
                 Vector3 randomPosition = new Vector3(Random.Range(-width / EnvSpawnRange, width / EnvSpawnRange), 0, Random.Range(-height / EnvSpawnRange, height / EnvSpawnRange));
