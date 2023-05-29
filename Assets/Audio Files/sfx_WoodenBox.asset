@@ -24,10 +24,10 @@ MonoBehaviour:
   files:
   - {fileID: 8300000, guid: c4207a6c3f00f2f44badbef33537e9ea, type: 3}
   loopStart: 0
-  loopEnd: 0
+  loopEnd: 1.152
   bpm: 120
-  relativeVolume: 0.2
-  spatialize: 0
+  relativeVolume: 1
+  spatialize: 1
   maxDistance: 0
   priority: 192
   startingPitch: 1

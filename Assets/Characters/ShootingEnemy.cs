@@ -140,6 +140,7 @@ public class ShootingEnemy : Enemy
 
     private void Shoot()
     {
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_EnemyGun, transform);
         gameObject.GetComponent<Anim_Enemy1>().OnShoot();
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-EnemySpread, EnemySpread), Random.Range(-EnemySpread, 0), Random.Range(-EnemySpread, EnemySpread))) * bulletSpeed;

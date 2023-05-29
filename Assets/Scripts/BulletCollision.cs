@@ -34,7 +34,7 @@ public class BulletCollision : MonoBehaviour
         {
             Debug.Log("Osu Vihuun");
 
-            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Hitmarker);
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Hitmarker, transform);
 
             Destroy(Instantiate(bloodHit.gameObject, transform.position, Quaternion.identity), 2f);
 

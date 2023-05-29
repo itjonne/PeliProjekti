@@ -108,7 +108,7 @@ public class MeleeEnemy : Enemy
                     {
 
                         Attack();
-                        AudioManager.PlaySound(AudioLibSounds.sfx_Slash);
+                        AudioManager.PlaySound(AudioLibSounds.sfx_Slash, transform);
                         gameObject.GetComponent<Anim_Enemy1>().OnMelee(); //haetaan vihujen animaattori skriptist� melee-metodi
                         
                         timeSinceLastAttack = 0;

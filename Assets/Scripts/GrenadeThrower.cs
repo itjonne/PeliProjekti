@@ -66,7 +66,7 @@ public class GrenadeThrower : MonoBehaviour
     void ThrowGrenade()
     {
         if (squad.grenadeAmount <= 0) return;
-        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_GrenadePin);
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_GrenadePin, transform);
         //KRANU LENTÄÄ HIIREN KOHDALLE MUTTA EI VOI LENTÄÄ 20 UNITTIA KAUEMMAKSI
         if (throwDistance < 20)
         { 

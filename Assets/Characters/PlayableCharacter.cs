@@ -103,6 +103,7 @@ public class PlayableCharacter : Character
 
     public void TakeDamage(float damage)
     {
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_HurtAll, transform);
         health -= damage;
         UpdateHealthBar();
         if (health <= 0) Die();
@@ -115,7 +116,9 @@ public class PlayableCharacter : Character
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();
+            
             SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
+            
         }
 
         if (collision.gameObject.tag == "Enemy") {
@@ -125,6 +128,7 @@ public class PlayableCharacter : Character
 
         if (collision.gameObject.GetComponent<DamageDealer>() != null)
         {
+            
             float damageAmount = collision.gameObject.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }

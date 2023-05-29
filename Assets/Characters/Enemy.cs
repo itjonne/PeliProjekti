@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour
     {
         Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
         //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
-
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Meaty, transform);
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());
         Destroy(GetComponent<NavMeshAgent>());
