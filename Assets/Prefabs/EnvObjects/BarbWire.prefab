@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5222122063835467621}
   - component: {fileID: 2169427212535901255}
   - component: {fileID: 347230170662711568}
+  - component: {fileID: 6472690601274898115}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Barbwire
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   shooter: {fileID: 860876727876015018}
+--- !u!114 &6472690601274898115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3093705386379536501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d2d51d874f77f449e326233fccf744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 0.4

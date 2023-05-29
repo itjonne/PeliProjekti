@@ -71,7 +71,7 @@ public class FormationManager : MonoBehaviour
         squareFormation.enabled = true;
         rowFormation.enabled = false;
 
-        ChangeSquadMovementSpeed(4);
+        ChangeSquadMovementSpeed(4.5f);
         
     }
 
