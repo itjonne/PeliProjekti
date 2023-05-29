@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,6 +56,7 @@ public class GrenadeThrower : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
+            
             Vector3 target = Input.mousePosition;
             ThrowGrenade();
             gameObject.GetComponent<Animation_Soldier>().OnThrow();
@@ -63,7 +65,8 @@ public class GrenadeThrower : MonoBehaviour
 
     void ThrowGrenade()
     {
-        if (squad.grenadeAmount <= 0) return; 
+        if (squad.grenadeAmount <= 0) return;
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_GrenadePin, transform);
         //KRANU LENTÄÄ HIIREN KOHDALLE MUTTA EI VOI LENTÄÄ 20 UNITTIA KAUEMMAKSI
         if (throwDistance < 20)
         { 

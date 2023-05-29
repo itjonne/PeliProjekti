@@ -31,10 +31,12 @@ public class GameManager : MonoBehaviour
     public int enemiesKilled = 0;
 
     public bool gameHasEnded = false;
+    public bool levelFinished = false;
 
     public GameObject gameOverScreen;
+    public GameObject levelEndScreen;
 
-
+    public LevelEnd levelEnd;
 
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
@@ -52,6 +54,16 @@ public class GameManager : MonoBehaviour
    
      */
 
+    /*
+    public void LevelEnd()
+    {
+        PlayableCharacter character = FindObjectOfType<PlayableCharacter>(); 
+         {
+            
+            Time.timeScale = 0;   
+         }      
+    }
+    */
     public void KillEnemy(int amount)
     {
         enemiesKilled += amount;
@@ -74,9 +86,14 @@ public class GameManager : MonoBehaviour
     {
         // StartCoroutine( GoToMenu());
         pauseMenu = GetComponentInChildren<PauseMenu>();
-        
+
+        levelEndScreen = GameObject.Find("LevelFinishScreen");
+        levelEndScreen.SetActive(false);
+
         gameOverScreen = GameObject.Find("GameOverScreen");
         gameOverScreen.SetActive(false);
+
+        levelEnd = GetComponent<LevelEnd>();
         
 
         Debug.LogWarning("PELI ALKAA NY!");
@@ -113,7 +130,29 @@ public class GameManager : MonoBehaviour
             gameOverScreen.SetActive(false);
             StartCoroutine(GoToMenu());
         }
+
+
+        if (levelFinished == true) 
+        {
+            levelEndScreen.SetActive(true);
+            Time.timeScale = 0;
+
+   
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                var levelEnd = FindObjectOfType<LevelEnd>();
+                SceneManager.LoadScene(levelEnd.GetComponent<LevelEnd>().nextLevel);
+
+                levelFinished = false;               
+                Time.timeScale = 1;
+                levelEndScreen.SetActive(false);
+            }
+
+        }
+
         
+
     }
 
     private void TogglePauseMenu()

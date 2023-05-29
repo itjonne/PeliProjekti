@@ -23,6 +23,7 @@ public class PlayableCharacter : Character
     // Start is called before the first frame update
     void Start()
     {
+  
         agent = GetComponent<NavMeshAgent>();
         squad = GetComponentInParent<Squad>(); //TÄMÄ TÄYTYY ALUSTAA KRANUHUDIN TAKIA
     }
@@ -123,6 +124,7 @@ public class PlayableCharacter : Character
         if (other.GetComponent<DamageDealer>())
         {
             Debug.Log("NYT OSU PUUKKO / PANOS");
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_HurtAll, transform);
             float damageAmount = other.GetComponent<DamageDealer>().damage;
             TakeDamage(damageAmount);
         }
@@ -170,6 +172,7 @@ public class PlayableCharacter : Character
 
     public void TakeDamage(float damage)
     {
+        
         health -= damage;
         UpdateHealthBar();
         if (health <= 0) Die();
@@ -188,7 +191,9 @@ public class PlayableCharacter : Character
         {
             // Debug.Log("ENDING GAME");
             // LevelEnd();
-            SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WinBrass, transform);
+            GameManager.Instance.levelFinished = true;
+           // SceneManager.LoadScene(collision.gameObject.GetComponent<LevelEnd>().nextLevel);
         }
 
         if (collision.gameObject.tag == "Enemy") {

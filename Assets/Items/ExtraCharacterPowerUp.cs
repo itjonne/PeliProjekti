@@ -24,6 +24,7 @@ public class ExtraCharacterPowerUp : PowerUp
         if (collision.gameObject.GetComponent<Character>() != null)
         {
             // Annetaan tolle characterille tämä poweruppi
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
             GivePowerUp(collision.gameObject.GetComponent<Character>());
             Destroy(this.gameObject);
         }

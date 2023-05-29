@@ -292,6 +292,7 @@ public class Squad : MonoBehaviour
             foreach (Character follower in followers) {
                 follower.GetComponent<Weapons>()?.Shoot(GetLeader().transform);
             }
+
         }
         // Siirret‰‰n hahmot oikeeseen paikkan
         for (int i = 0; i < positions.Count; i++)

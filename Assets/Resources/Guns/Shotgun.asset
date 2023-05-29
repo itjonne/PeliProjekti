@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f7c26c729192f4493ded4109d2d142, type: 3}
   m_Name: Shotgun
   m_EditorClassIdentifier: 
-  name: 
+  name: Shotgun
   damage: 10
   maxDistance: 50
+  audioClip: {fileID: 11400000, guid: e174ee5dc9d51594d9901f0ed0815ab5, type: 2}
   bulletPrefab: {fileID: 8306785530074399806, guid: 69ec65fd2a20c1445ab62925f84a585a, type: 3}
   currentAmmo: 10
   magSize: 10

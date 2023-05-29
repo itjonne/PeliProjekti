@@ -12,30 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d15ae218647a2d4f85e14306846c10c, type: 3}
   m_Name: sfx_Hitmarker
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: 73742205ac1d52c418a1beaa93b1ec95, type: 3}
-  files: []
-  useLibrary: 0
-  neverRepeat: 0
-  lastClipIndex: -1
-  category: OnHit
+  safeName: SpatialSound
+  presetDescription: '<Default Preset>
+
+    - Sound meant to be played in the game
+    world
+
+    - Spatialization is enabled
+
+    - Minor pitch shift is applied'
+  files:
+  - {fileID: 8300000, guid: 73742205ac1d52c418a1beaa93b1ec95, type: 3}
+  loopStart: 0
+  loopEnd: 0
+  bpm: 120
   relativeVolume: 1
-  spatialize: 0
+  spatialize: 1
   maxDistance: 0
-  priority: 128
-  startingPitch: 1
-  pitchShift: 0.101
-  playReversed: 0
+  priority: 192
+  startingPitch: 1.4
+  pitchShift: 0.05
+  loopMode: 0
   delay: 0
-  ignoreTimeScale: 0
-  fadeMode: 0
+  ignoreTimeScale: 1
+  maxPlayingInstances: 10
+  mixerGroupOverride: {fileID: 2609797869227875114, guid: 555edaf44a04f6341a9483f43608463d, type: 2}
+  fadeInOut: 0
   fadeInDuration: 0
   fadeOutDuration: 0
-  clipStartPosition: 0
-  clipEndPosition: 0
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: sfx_Hitmarker
   chorusFilter:
     enabled: 0
     dryMix: 0
@@ -79,3 +86,5 @@ MonoBehaviour:
     lFReference: 0
     diffusion: 0
     density: 0
+  neverRepeat: 0
+  lastClipIndex: -1
