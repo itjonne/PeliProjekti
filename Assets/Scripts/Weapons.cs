@@ -64,8 +64,8 @@ public class Weapons : MonoBehaviour
     private IEnumerator Reload()
     {
         //ReloadCircle.fillAmount = 1;
-        
 
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Reload, transform);
         reloading = true;  
         yield return new WaitForSeconds(reloadTime);        
         ammoLeft = magSize;
@@ -106,6 +106,8 @@ public class Weapons : MonoBehaviour
         {
             if (ammoLeft > 0 && reloading == false)  //reload ehto lis‰tty, ett‰ saadaan manuaalinen lataus toimimaan
             {
+
+                JSAM.AudioManager.PlaySound((gunData.audioClip), transform);
                 counter = 0;
                 // Debug.Log("T‰‰ll‰ ammutaan");
                 // int playerLevel = gameObject.GetComponent<Character>().level;

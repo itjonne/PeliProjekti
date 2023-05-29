@@ -1,3 +1,4 @@
+using JSAM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class GunData : ScriptableObject
     [Header("Shooting")]
     public float damage;
     public float maxDistance;
+    public SoundFileObject audioClip;
 
     public GameObject bulletPrefab;
 

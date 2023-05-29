@@ -36,6 +36,7 @@ public class GrenadePowerUp : PowerUp
             Debug.Log("Löydetttiin kranu");
 
             // Annetaan tolle characterille tämä poweruppi
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
             GivePowerUp(collision.gameObject.GetComponent<Character>());
             Destroy(this.gameObject);
         }

@@ -31,6 +31,7 @@ public class ExtraBulletPowerUp : PowerUp
         Debug.Log("COLLISION WITH " + collision.gameObject);
         if (collision.gameObject.GetComponent<Character>() != null)
         {
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
             Debug.Log("Löydetttiin character");
             // Annetaan tolle characterille tämä poweruppi
             GivePowerUp(collision.gameObject.GetComponent<Character>());
