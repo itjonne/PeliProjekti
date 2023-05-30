@@ -4884,9 +4884,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -505
     width: 307.5
-    height: 830
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!1001 &466431968
 PrefabInstance:
@@ -7820,9 +7820,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 400
-    height: 830
+    y: -485.15
+    width: 420
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &784538465
 BoxCollider:
@@ -10680,9 +10680,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -531
     width: 380
-    height: 830
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &1059608052
 BoxCollider:
@@ -11362,7 +11362,7 @@ Transform:
   - {fileID: 1058661409}
   - {fileID: 179392966}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1148744254
 PrefabInstance:
@@ -16495,9 +16495,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -505
     width: 400
-    height: 830
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &1693394296
 BoxCollider:
@@ -18707,9 +18707,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -505
     width: 400
-    height: 830
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &1991179896
 BoxCollider:
@@ -19832,9 +19832,9 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 400
-    height: 830
+    y: -528
+    width: 410
+    height: 603
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &2072784680
 BoxCollider:

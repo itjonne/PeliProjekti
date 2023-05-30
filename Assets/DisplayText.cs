@@ -16,14 +16,14 @@ public class DisplayText : MonoBehaviour {
 	public string Text = "Turn Back";
 
 	[Tooltip("This is the window Box's size. It will be mid screen. Add or reduce the X and Y to move the box in Pixels. ")]
-	public Rect BoxSize = new Rect( 0, 0, 200, 100);
+	public Rect BoxSize = new Rect( 0, -300, 200, 10);
 
 
 	[Space(10)]
 	[Tooltip("To edit the look of the text Go to Assets > Create > GUIskin. Add the new Guiskin to the Custom Skin proptery. If you select the GUIskin in your project tab you can now adjust the font, colour, size etc of the text")]
 	public GUISkin customSkin;
 
-
+	
 
 	// if this script is on an object with a collider display the Gui
 	void OnTriggerEnter(Collider collision) 
@@ -51,6 +51,8 @@ public class DisplayText : MonoBehaviour {
 	void OnGUI()
 	{
 
+		
+
 		if (customSkin != null)
 		{
 			GUI.skin = customSkin;
@@ -62,8 +64,9 @@ public class DisplayText : MonoBehaviour {
 			GUI.BeginGroup (new Rect ((Screen.width - BoxSize.width) / 2, (Screen.height - BoxSize.height) / 2, BoxSize.width, BoxSize.height));
 			// All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
 
+			GUI.Box(new Rect(BoxSize), " ");
 			GUI.Label(BoxSize, Text);
-
+		
 			// End the group we started above. This is very important to remember!
 			GUI.EndGroup ();
 

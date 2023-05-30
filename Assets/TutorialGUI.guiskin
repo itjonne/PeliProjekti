@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Font: {fileID: 0}
     m_FontSize: 0
     m_FontStyle: 0
-    m_Alignment: 1
+    m_Alignment: 7
     m_WordWrap: 0
     m_RichText: 1
     m_TextClipping: 1
@@ -271,7 +271,7 @@ MonoBehaviour:
     m_Font: {fileID: 0}
     m_FontSize: 20
     m_FontStyle: 0
-    m_Alignment: 1
+    m_Alignment: 7
     m_WordWrap: 1
     m_RichText: 1
     m_TextClipping: 1
@@ -405,7 +405,7 @@ MonoBehaviour:
     m_Font: {fileID: 0}
     m_FontSize: 0
     m_FontStyle: 0
-    m_Alignment: 0
+    m_Alignment: 4
     m_WordWrap: 1
     m_RichText: 0
     m_TextClipping: 1
