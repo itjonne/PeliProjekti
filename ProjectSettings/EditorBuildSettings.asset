@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Ossi_Level3.unity
     guid: ecc32f1879c275e48a50c2880e6a4a8c
   - enabled: 1
-    path: Assets/Scenes/Ossi_Level4.unity
+    path: Assets/Scenes/Ossi_FIN.unity
     guid: 4671ca9471b6df044abe79e0553e7a29
   m_configObjects: {}
