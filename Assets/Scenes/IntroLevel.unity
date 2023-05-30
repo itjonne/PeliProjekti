@@ -4879,8 +4879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuiOn: 0
-  Text: Welcome to Cannon Fodderlike!  Go LEFT if you are a rookie.         Go RIGHT
-    if you are a veteran.    Move with WASD.
+  Text: Welcome to Brass Tax!              Go LEFT if you are a rookie.          
+    Go RIGHT if you are a veteran.    Move with WASD.
   BoxSize:
     serializedVersion: 2
     x: 0
