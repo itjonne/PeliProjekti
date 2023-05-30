@@ -2859,8 +2859,8 @@ MonoBehaviour:
   bulletSpread: 0.1
   reloading: 0
   magSize: 30
-  reloadTime: 2.2
-  ammoLeft: 10
+  reloadTime: 2.5
+  ammoLeft: 30
   bulletLife: 2
   bulletSpeed: 35
 --- !u!114 &5284938203037680907
