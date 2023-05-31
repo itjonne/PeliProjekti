@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3276876993304631575, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 392bcf3655c32d948a371093d7e7cd96, type: 2}
+    - target: {fileID: 3276876993304631575, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3737847183765753219, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_Name
       value: ShitBucket-3000_v3.FixedHead 1
@@ -18,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4076972181672499001, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4076972181672499001, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,8 +100,8 @@ MonoBehaviour:
   aggroed: 0
   muzzle: {fileID: 1114415239541102972}
   bulletPrefab: {fileID: 8306785530074399806, guid: 44bd830b20f159d459c40d756be475df, type: 3}
-  shootingDistance: 10
-  fireRate: 0.01
+  shootingDistance: 8
+  fireRate: 0.1
   EnemySpread: 0.1
   bulletSpeed: 10
   AggroRange: 25
@@ -133,15 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 0}
-  animator: {fileID: 1772582308751211794}
+  animator: {fileID: 0}
 --- !u!4 &1114415239541102972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4221991291454651769, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
-  m_PrefabInstance: {fileID: 3882301290827703301}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1772582308751211794 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3276876993304631575, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
   m_PrefabInstance: {fileID: 3882301290827703301}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5553751638185662295 stripped
