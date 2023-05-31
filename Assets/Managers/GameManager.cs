@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     // Pelin ominaisuudet
     public bool gameIsPaused = false;
     public int enemiesKilled = 0;
+    public bool captainKilled = false;
 
     public bool gameHasEnded = false;
     public bool levelFinished = false;
@@ -64,6 +65,20 @@ public class GameManager : MonoBehaviour
          }      
     }
     */
+
+    // Tekee levelendin käytettäväks kun kapteeni kuolee
+    public void KillCaptain()
+    {
+        captainKilled = true;
+
+        Debug.LogWarning("CAPTAIN KILLED");
+
+        // Joutu tekemään tälläsen mutkan jos haluaa endin olevan piilotettu kentän alussa, tätä itää säätää
+        GameObject levelEnd = GameObject.FindGameObjectWithTag("EndObject");
+        levelEnd.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+        // TÄHÄN VOI TYÖNTÄÄ MITÄ TAHANSA
+        // Peli Loppuu / loppupalikkaa rakentuu tms
+    }
     public void KillEnemy(int amount)
     {
         enemiesKilled += amount;

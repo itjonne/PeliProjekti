@@ -4,25 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShitBucketEnemy : Enemy
+public class CaptainEnemy : Enemy
 {
     private Character target;
 
     [SerializeField] private Transform muzzle;
     private float distanceFromTarget;
     [SerializeField] public GameObject bulletPrefab;
-    [SerializeField] private float shootingDistance = 10f; // Kuinka kaukaa t?? alkaa ampumaan
+    [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa t?? alkaa ampumaan
 
     private float timeSinceLastShot;
-    public float fireRate = 0.1f;
+    public float fireRate = 2f;
 
     public float EnemySpread = 0.1f;
     public float bulletSpeed = 10f;
     public float AggroRange = 25f;
 
     private float SHOOTING_BLOCKER_DISTANCE = 2f; // TODO: T‰‰ m‰‰ritt‰‰ miten kaukana pelaajasta se ammunann blockkava asia on maksimissaan. Ei ihan 100% toimi.
-
-    [SerializeField] private GameObject helmet;
 
     public void Awake()
     {
@@ -42,21 +40,27 @@ public class ShitBucketEnemy : Enemy
 
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = shootingDistance;
+    }
 
-        Debug.Log("STARTING SHITBUCKET");
+    override public void Die()
+    {
+        //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Meaty, transform);
+        Destroy(GetComponent<Collider>());
+        Destroy(GetComponent<Rigidbody>());
+        Destroy(GetComponent<NavMeshAgent>());
+        movementSpeed = 0f;
+        gameObject.GetComponent<Enemy>().enabled = false;
+        gameObject.GetComponent<Anim_Enemy1>().OnDeath();
+        Destroy(gameObject, 20);
+
+        GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+        GameManager.Instance.KillCaptain();
     }
 
     private void CalculateDistanceFromTarget(Character target)
     {
         distanceFromTarget = Vector3.Distance(this.transform.position, target.transform.position);
-    }
-
-     private void  RotateSlowlyTowards(float speed, Vector3 position)
-    {
-        Vector3 direction = position - transform.position;
-        Quaternion toRotation = Quaternion.FromToRotation(transform.forward, direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, speed * Time.time);
-
     }
 
     public void MoveTo(Vector3 position)
@@ -88,7 +92,6 @@ public class ShitBucketEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        Debug.LogWarning("SHITBUCKEt HEALTH: "+ health);
         if (target != null)
         {
             if ((transform.position - target.transform.position).magnitude < AggroRange)
@@ -111,27 +114,22 @@ public class ShitBucketEnemy : Enemy
                     CalculateDistanceFromTarget(target);
                     if (distanceFromTarget > shootingDistance)
                     {
-                       helmet.transform.LookAt(target.transform.position);
-
+                        transform.LookAt(target.transform.position);
                         MoveTo(target.transform.position);
-                        // if (!coRoutineRunning) MoveTo(target.transform.position);
-                        //MoveTo(target.transform.position);
                     }
                     else // Ollaan tarpeeks l?hell?
                     {
                         // MoveTo(transform.position);
 
-                        helmet.transform.LookAt(target.transform.position);
+                        transform.LookAt(target.transform.position);
+
                         // Kurkataan jos jotain on v‰liss‰, ja liikutaan sit l‰hemm‰s kunnes voidaan ampua
                         RaycastHit hit;
                         if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - SHOOTING_BLOCKER_DISTANCE, -1))
                         {
                             Debug.Log("EI VOI AMPUA");
                             Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
-
-                            MoveTo(target.transform.position);
-                            // if (!coRoutineRunning) MoveTo(target.transform.position);
-                            // MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
+                            MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
                         }
                         else
                         {
@@ -191,12 +189,13 @@ public class ShitBucketEnemy : Enemy
 
     private void Shoot()
     {
-        // gameObject.GetComponent<Anim_Enemy1>().OnShoot();
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_EnemyGun, transform);
+        gameObject.GetComponent<Anim_Enemy1>().OnShoot();
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, transform.rotation);
         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-EnemySpread, EnemySpread), Random.Range(-EnemySpread, 0), Random.Range(-EnemySpread, EnemySpread))) * bulletSpeed;
         //ammoLeft--;
         //lastShot = Time.time;
-        Destroy(bullet, 1f);
+        Destroy(bullet, 3f);
     }
 
 
