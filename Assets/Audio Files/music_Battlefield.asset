@@ -15,7 +15,7 @@ MonoBehaviour:
   safeName: BGM
   presetDescription: <Default Preset>
   files:
-  - {fileID: 8300000, guid: b7d666d2066995547bf9a7cfa8b5a0c6, type: 3}
+  - {fileID: 8300000, guid: 56c42bcbbb22fa8429d314407cfba8cf, type: 3}
   loopStart: 23.250557
   loopEnd: 91.82041
   bpm: 160

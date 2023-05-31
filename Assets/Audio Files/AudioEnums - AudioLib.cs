@@ -17,7 +17,12 @@
         sfx_Hurt2,
         sfx_Hurt3,
         sfx_Hurt4,
-        sfx_Gauss
+        sfx_Gauss,
+        sfx_EnvHit,
+        sfx_GrenadeWhistle,
+        sfx_LMG,
+        sfx_Gore,
+        sfx_GrenadeThrow
     }
     public enum AudioLibMusic {
         music_Battlefield,
