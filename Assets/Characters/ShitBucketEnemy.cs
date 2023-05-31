@@ -20,6 +20,8 @@ public class ShitBucketEnemy : Enemy
     public float bulletSpeed = 10f;
     public float AggroRange = 25f;
 
+    private bool coRoutineRunning = false;
+
     private float SHOOTING_BLOCKER_DISTANCE = 2f; // TODO: Tää määrittää miten kaukana pelaajasta se ammunann blockkava asia on maksimissaan. Ei ihan 100% toimi.
 
     [SerializeField] private GameObject helmet;
@@ -49,6 +51,14 @@ public class ShitBucketEnemy : Enemy
     private void CalculateDistanceFromTarget(Character target)
     {
         distanceFromTarget = Vector3.Distance(this.transform.position, target.transform.position);
+    }
+
+     private void  RotateSlowlyTowards(float speed, Vector3 position)
+    {
+        Vector3 direction = position - transform.position;
+        Quaternion toRotation = Quaternion.FromToRotation(transform.forward, direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, speed * Time.time);
+
     }
 
     public void MoveTo(Vector3 position)
@@ -103,21 +113,27 @@ public class ShitBucketEnemy : Enemy
                     CalculateDistanceFromTarget(target);
                     if (distanceFromTarget > shootingDistance)
                     {
-                       transform.LookAt(target.transform.position);
+                       helmet.transform.LookAt(target.transform.position);
+
                         MoveTo(target.transform.position);
+                        // if (!coRoutineRunning) MoveTo(target.transform.position);
+                        //MoveTo(target.transform.position);
                     }
                     else // Ollaan tarpeeks l?hell?
                     {
                         // MoveTo(transform.position);
 
-                        transform.LookAt(target.transform.position);
+                        helmet.transform.LookAt(target.transform.position);
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
                         RaycastHit hit;
                         if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - SHOOTING_BLOCKER_DISTANCE, -1))
                         {
                             Debug.Log("EI VOI AMPUA");
                             Debug.DrawRay(muzzle.position, muzzle.forward * hit.distance, Color.yellow);
-                            MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
+
+                            MoveTo(target.transform.position);
+                            // if (!coRoutineRunning) MoveTo(target.transform.position);
+                            // MoveTo(target.transform.position); // TODO: Saattaa bugittaa introlevelint paikallaan olevat vihut
                         }
                         else
                         {

@@ -183,7 +183,6 @@ Transform:
   m_Children:
   - {fileID: 4910196603905034151}
   - {fileID: 5229396949404917580}
-  - {fileID: 4221991291454651769}
   - {fileID: 607615065647095657}
   - {fileID: 8338845067421673960}
   m_Father: {fileID: 0}
@@ -384,12 +383,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7906537585746027969}
-  m_LocalRotation: {x: -0, y: -0.017452449, z: -0, w: 0.99984777}
-  m_LocalPosition: {x: 0, y: 2.65, z: 2.24}
-  m_LocalScale: {x: 1.6666664, y: 1.6666665, z: 1.6666664}
+  m_LocalRotation: {x: -0.000000021852367, y: -0.017452449, z: 3.8143527e-10, w: 0.99984777}
+  m_LocalPosition: {x: -0.00001996008, y: 0.005319362, z: 0.022345304}
+  m_LocalScale: {x: 0.016633393, y: 0.016633397, z: 0.016633393}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4076972181672499001}
+  m_Father: {fileID: 8338845067421673960}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: -2, z: 0}
 --- !u!1001 &2846549368105361581
@@ -533,7 +532,10 @@ PrefabInstance:
       value: ShitBucket-3000_animation_v3_Head_r-90_0d-Yf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 42f9a7a813284404f80985d7035963de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4221991291454651769}
   m_SourcePrefab: {fileID: 100100000, guid: 42f9a7a813284404f80985d7035963de, type: 3}
 --- !u!4 &8338845067421673960 stripped
 Transform:
