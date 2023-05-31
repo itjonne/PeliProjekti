@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45156914, g: 0.42806652, b: 0.45680422, a: 1}
+  m_IndirectSpecularColor: {r: 0.45156962, g: 0.42806682, b: 0.45680517, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4884,7 +4884,7 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -733.95
     width: 307.5
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
@@ -7820,8 +7820,8 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 400
+    y: -712
+    width: 406.7
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &784538465
@@ -10680,7 +10680,7 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -755
     width: 380
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
@@ -12015,6 +12015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameIsPaused: 0
   enemiesKilled: 0
+  captainKilled: 0
   gameHasEnded: 0
   levelFinished: 0
   gameOverScreen: {fileID: 0}
@@ -16495,7 +16496,7 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -733.95
     width: 400
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
@@ -18707,7 +18708,7 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: -733.95
     width: 400
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
@@ -19832,8 +19833,8 @@ MonoBehaviour:
   BoxSize:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 400
+    y: -755
+    width: 405.6
     height: 830
   customSkin: {fileID: 11400000, guid: df0988ba5f5b7424aa6bbe77e615d57e, type: 2}
 --- !u!65 &2072784680
