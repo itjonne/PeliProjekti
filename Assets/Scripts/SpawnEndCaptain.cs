@@ -73,6 +73,6 @@ public class SpawnEndCaptain : MonoBehaviour
         KillsFont.fontSize = 18;
         KillsFont.normal.textColor = Color.white;
         KillsFont.alignment = TextAnchor.UpperCenter;
-        GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height / 20 - 40, 450, 50), "Vengeance time! Bag their captain and get to the exit!", KillsFont);
+        GUI.Label(new Rect(Screen.width / 2 - 200, Screen.height / 20 - 40, 450, 50), "Bag their captain and get to the exit!", KillsFont);
     }
 }

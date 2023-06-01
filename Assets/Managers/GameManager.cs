@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
         Debug.LogWarning("CAPTAIN KILLED");
 
         // Joutu tekemään tälläsen mutkan jos haluaa endin olevan piilotettu kentän alussa, tätä itää säätää
-        GameObject levelEnd = GameObject.FindGameObjectWithTag("EndObject");
-        levelEnd.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+        //GameObject levelEnd = GameObject.FindGameObjectWithTag("EndObject");
+        //levelEnd.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
         // TÄHÄN VOI TYÖNTÄÄ MITÄ TAHANSA
         // Peli Loppuu / loppupalikkaa rakentuu tms
     }
@@ -132,6 +132,36 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
+        //DEBUGGAUS-KOMENTOJA TESTAUSTA VARTEN NUMEROILLA PÄÄSEE HALUAMAAN KENTTÄÄN
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                   // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                    SceneManager.LoadScene("Level1_ALT");
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
+                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                    SceneManager.LoadScene("Ossi_Level2");
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.Alpha3))
+                {
+                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                    SceneManager.LoadScene("Ossi_Level3");
+
+                }
+
+                if (Input.GetKeyDown(KeyCode.Alpha4))
+                {
+                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                    SceneManager.LoadScene("Seppo_Level4");
+
+                }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
