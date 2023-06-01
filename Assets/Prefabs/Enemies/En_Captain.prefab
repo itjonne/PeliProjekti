@@ -265,7 +265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.0526316}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6951359618590583860
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8306785530074399806, guid: 49d99cf22cc75fe4782bf9b77b1c4b9c, type: 3}
   shootingDistance: 20
   characterHud: {fileID: 1040167636783641167}
-  canvasTransform: {fileID: 45608556572299302}
+  enemyCanvasTransform: {fileID: 45608556572299302}
   healthBar: {fileID: 9181956375950955772}
   fireRate: 0.25
   EnemySpread: 0.18
@@ -2543,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -22.75, y: -722}
+  m_AnchoredPosition: {x: 0, y: -800}
   m_SizeDelta: {x: 400, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7405556574360729152

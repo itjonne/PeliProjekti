@@ -15,7 +15,7 @@ public class CaptainEnemy : Enemy
     [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa t?? alkaa ampumaan
 
     [SerializeField] private GameObject characterHud;
-    [SerializeField] private Transform canvasTransform;
+    [SerializeField] private Transform enemyCanvasTransform;
     [SerializeField] private Image healthBar; //Annetaan kapteenille healthbar
 
     private float timeSinceLastShot;
@@ -194,11 +194,6 @@ public class CaptainEnemy : Enemy
 
     }
 
-    private void LateUpdate()
-    {
-        canvasTransform.LookAt(transform.position + Camera.main.transform.forward);
-    }
-
     private void NavMeshMover(Vector3 targetPos)
     {
         NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
@@ -239,6 +234,12 @@ public class CaptainEnemy : Enemy
     private void UpdateHealthBar()
     {
         healthBar.fillAmount = health / 600;
+    }
+
+
+    private void LateUpdate()
+    {
+        enemyCanvasTransform.LookAt(transform.position + Camera.main.transform.forward);
     }
 
 }

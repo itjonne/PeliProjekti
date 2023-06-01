@@ -7227,7 +7227,7 @@ GameObject:
   - component: {fileID: 502747056}
   - component: {fileID: 502747055}
   - component: {fileID: 502747054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8783,7 +8783,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1399
+    m_Bits: 4
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -26298,7 +26298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438600090099652126, guid: f4e2f5a054114184eaf7bf0f222e7fe2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.926178
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 2438600090099652126, guid: f4e2f5a054114184eaf7bf0f222e7fe2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26306,7 +26306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2438600090099652126, guid: f4e2f5a054114184eaf7bf0f222e7fe2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 132.00105
+      value: 128.4
       objectReference: {fileID: 0}
     - target: {fileID: 2438600090099652126, guid: f4e2f5a054114184eaf7bf0f222e7fe2, type: 3}
       propertyPath: m_LocalRotation.w
