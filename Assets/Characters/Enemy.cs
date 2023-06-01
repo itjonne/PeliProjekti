@@ -55,7 +55,7 @@ public abstract class Enemy : MonoBehaviour
         playerWhoDealtDamage = dd.shooter;
     }
 
-    public void SetHealth(int damage)
+    public virtual void SetHealth(int damage)
     {
         health += damage;
         if (health <= -25) GibDeath();  //Jos tulee liikaa damagea, muutetaan vihu punaiseksi usvaksi
@@ -80,7 +80,7 @@ public abstract class Enemy : MonoBehaviour
 
 }
  
-    public void GibDeath()
+    public virtual void GibDeath()
     {
 
 

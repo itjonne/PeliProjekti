@@ -2860,6 +2860,7 @@ MonoBehaviour:
   reloadTime: 1.6
   ammoLeft: 20
   bulletLife: 2.5
+  bulletSpeed: 25
 --- !u!114 &5284938203037680907
 MonoBehaviour:
   m_ObjectHideFlags: 0

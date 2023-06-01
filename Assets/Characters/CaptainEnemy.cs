@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CaptainEnemy : Enemy
 {
@@ -12,6 +13,10 @@ public class CaptainEnemy : Enemy
     private float distanceFromTarget;
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] private float shootingDistance = 20f; // Kuinka kaukaa t?? alkaa ampumaan
+
+    [SerializeField] private GameObject characterHud;
+    [SerializeField] private Transform canvasTransform;
+    [SerializeField] private Image healthBar; //Annetaan kapteenille healthbar
 
     private float timeSinceLastShot;
     public float fireRate = 2f;
@@ -52,10 +57,27 @@ public class CaptainEnemy : Enemy
         movementSpeed = 0f;
         gameObject.GetComponent<Enemy>().enabled = false;
         gameObject.GetComponent<Anim_Enemy1>().OnDeath();
+        Destroy(characterHud, 1f);
         Destroy(gameObject, 20);
 
         GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
         GameManager.Instance.KillCaptain();
+    }
+
+    //T‰m‰ alla oleva tehty ett‰ SpawnEndCaptain aktivoituu vaikka kapu gibattaisiin
+    override public void GibDeath()
+    {
+
+
+        var giblets = gameObject.GetComponent<Enemy>().gibs;
+
+        //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
+     
+        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek j‰lkeen
+        Destroy(gameObject);
+        GameManager.Instance.KillEnemy(1);
+        GameManager.Instance.KillCaptain();
+
     }
 
     private void CalculateDistanceFromTarget(Character target)
@@ -87,6 +109,16 @@ public class CaptainEnemy : Enemy
             }
         }
         target = closestCharacter;
+    }
+
+    //Kapteenille healthbarin p‰ivitys
+    public override void SetHealth(int damage)
+    {
+
+        health += damage;
+        if (health <= -25) GibDeath();  //Jos tulee liikaa damagea, muutetaan vihu punaiseksi usvaksi
+        else if (health <= 0) Die();
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -162,6 +194,11 @@ public class CaptainEnemy : Enemy
 
     }
 
+    private void LateUpdate()
+    {
+        canvasTransform.LookAt(transform.position + Camera.main.transform.forward);
+    }
+
     private void NavMeshMover(Vector3 targetPos)
     {
         NavMeshAgent agent = gameObject.GetComponent<NavMeshAgent>();
@@ -198,5 +235,10 @@ public class CaptainEnemy : Enemy
         Destroy(bullet, 3f);
     }
 
+
+    private void UpdateHealthBar()
+    {
+        healthBar.fillAmount = health / 600;
+    }
 
 }
