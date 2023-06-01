@@ -8,13 +8,21 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2281774579727236698, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
+      propertyPath: health
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 3737847183765753219, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_Name
-      value: ShitBucket-3000_v3.bones_animated.1
+      value: ShitBucket-3000_FINAL
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737847183765753219, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4076972181672499001, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4076972181672499001, guid: 402fc1f66f18f85448fc271d237dff68, type: 3}
       propertyPath: m_LocalPosition.x
