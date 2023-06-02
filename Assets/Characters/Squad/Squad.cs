@@ -332,6 +332,7 @@ public class Squad : MonoBehaviour
     // UI käpistely
     private void OnGUI()
     { 
+        /* EI TARVITA ENÄÄ
         for (int i = 0; i < squadData.Items.Count; i++)
         {
             GUI.contentColor = squadData.Items[i].isLeader ? Color.red : Color.green; // muutetaan väriä
@@ -340,10 +341,11 @@ public class Squad : MonoBehaviour
             GUI.Label(new Rect(10, 40 + (i * 60), 100, 20), "Level: " + squadData.Items[i].level.ToString());
             
         }
+        */
 
         GUI.contentColor = Color.white;
         
-        GUI.Label(new Rect(100, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
-        GUI.Label(new Rect(200, 10, 200, 20), "Formation: " + Formation.formationName);
+        GUI.Label(new Rect(10, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
+        GUI.Label(new Rect(100, 10, 200, 20), "Formation: " + Formation.formationName, largeFont);
     }
 }

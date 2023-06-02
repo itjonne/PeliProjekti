@@ -63,7 +63,7 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
-    public void Die()
+    public virtual void Die()
     {
         Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
         //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat

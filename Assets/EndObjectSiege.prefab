@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98710de761d39b44b925fd63dff5dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Ossi_Level4
+  nextLevel: Seppo_level4
 --- !u!1 &8471396100302049424
 GameObject:
   m_ObjectHideFlags: 0
