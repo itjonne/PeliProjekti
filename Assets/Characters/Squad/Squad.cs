@@ -79,7 +79,7 @@ public class Squad : MonoBehaviour
         largeFont.normal.textColor = Color.white;
     }
 
-    private int GetSquadSize()
+    public int GetSquadSize()
     {
         return squadData.Items.Count;
     }
@@ -166,7 +166,7 @@ public class Squad : MonoBehaviour
         character.gameObject.transform.parent = this.transform; // asetetaan kivasti siellä näkymässä siihen ryhmään
     }
 
-    private IEnumerator messageTimer(float seconds)
+    public IEnumerator messageTimer(float seconds)
     {
         showMaxSizeError = true;
         yield return new WaitForSeconds(seconds);
@@ -369,11 +369,12 @@ public class Squad : MonoBehaviour
         
         GUI.Label(new Rect(10, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
         GUI.Label(new Rect(100, 10, 200, 20), "Formation: " + Formation.formationName, largeFont);
+
+        // NÄyttää virheen kun ollaan täys
         if (showMaxSizeError)
         {
-            GUI.contentColor = Color.red;
             Debug.Log("PRINGINT EROR");
-            GUI.Label(new Rect(10, 100, 1000, 60), "ERROR: " + maxSizeError, largeFont);
+            GUI.Label(new Rect(10, 100, 1000, 60), maxSizeError, largeFont);
         }
         
     }

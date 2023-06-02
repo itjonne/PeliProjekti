@@ -23,6 +23,18 @@ public class ExtraCharacterPowerUp : PowerUp
         Debug.Log("COLLISION WITH " + collision.gameObject);
         if (collision.gameObject.GetComponent<Character>() != null)
         {
+            Squad squad = collision.gameObject.GetComponentInParent<Squad>();
+            if (squad != null)
+            {
+                int squadSize = squad.GetSquadSize();
+                if (squadSize >= squad.SQUAD_MAX_SIZE)
+                {
+
+                    Debug.LogError("PÄÄSTIIN TÄNNE");
+                    StartCoroutine(squad.messageTimer(2));
+                    return;
+                }
+            }
             // Annetaan tolle characterille tämä poweruppi
             JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
             GivePowerUp(collision.gameObject.GetComponent<Character>());
