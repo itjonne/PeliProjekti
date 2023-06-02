@@ -22,8 +22,15 @@ public class Squad : MonoBehaviour
 
     public int SQUAD_MAX_SIZE = 5;
 
-    private bool showMaxSizeError = false;
+    public bool showGrenadeMessage = false;
+    public bool showMaxSizeError = false;
+    public bool showbulletMessage = false;
+
     private string maxSizeError = "YOUR SQUAD IS FULL!";
+
+    private string grenadeMessage = "Grenades!";
+
+    private string bulletMessage = "Multishot!";
 
     public Formation Formation
     {
@@ -82,7 +89,7 @@ public class Squad : MonoBehaviour
         messageFont = new GUIStyle();
         messageFont.fontSize = 20;
         messageFont.alignment = TextAnchor.MiddleCenter;
-        messageFont.normal.textColor = Color.white;
+        messageFont.normal.textColor = new Color32(248, 231, 189, 254);
     }
 
     public int GetSquadSize()
@@ -172,12 +179,33 @@ public class Squad : MonoBehaviour
         character.gameObject.transform.parent = this.transform; // asetetaan kivasti siellä näkymässä siihen ryhmään
     }
 
+
     public IEnumerator messageTimer(float seconds)
     {
         showMaxSizeError = true;
         yield return new WaitForSeconds(seconds);
         showMaxSizeError = false;
         yield return null;
+    }
+
+    public IEnumerator GrenadeMessage()
+    {
+        showGrenadeMessage = true;
+        yield return new WaitForSeconds(1.25f);
+        showGrenadeMessage = false;
+        yield return null;
+
+        StopCoroutine(GrenadeMessage());
+    }
+
+    public IEnumerator BulletMessage()
+    {
+        showbulletMessage = true;
+        yield return new WaitForSeconds(1.25f);
+        showbulletMessage = false;
+        yield return null;
+
+        StopCoroutine(BulletMessage());
     }
 
     public void RemoveCharacter(Character character)
@@ -371,23 +399,34 @@ public class Squad : MonoBehaviour
         }
         */
 
-        GUI.contentColor = Color.white;
-        
+        GUI.contentColor = Color.white;        
         GUI.Label(new Rect(10, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
         GUI.Label(new Rect(10, 40, 200, 20), "Formation: " + Formation.formationName, largeFont);
 
         // NÄyttää virheen kun ollaan täys
         if (showMaxSizeError)
         {
-            Debug.Log("PRINGINT EROR");
 
-            //GUI.Label(new Rect(10, 100, 1000, 60), maxSizeError, largeFont);
-
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 150, 250, 50), " ");
-           
+            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 150, 250, 50), " ");           
             GUI.Label(new Rect(Screen.width / 2  -75 , Screen.height / 2 - 150, 200, 50), maxSizeError, messageFont);
 
         }
-        
+
+        if (showbulletMessage)
+        {
+          
+            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), " ");
+            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), bulletMessage, messageFont);
+
+        }
+
+        if (showGrenadeMessage)
+        {
+
+            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), " ");
+            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), grenadeMessage, messageFont);
+
+        }
+
     }
 }

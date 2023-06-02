@@ -32,10 +32,22 @@ public class ExtraBulletPowerUp : PowerUp
         if (collision.gameObject.GetComponent<Character>() != null)
         {
             JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
-            Debug.Log("Löydetttiin character");
+            Squad squad = collision.gameObject.GetComponentInParent<Squad>();
+            Debug.Log("Löydetttiin kranu");
+            StartCoroutine(squad.BulletMessage());
             // Annetaan tolle characterille tämä poweruppi
             GivePowerUp(collision.gameObject.GetComponent<Character>());
-            Destroy(this.gameObject);
+
+            Destroy(GetComponent<Collider>());
+            foreach (Transform child in transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            Destroy(this.gameObject, 3f);
+
+            
+      
         }
     }
 }
