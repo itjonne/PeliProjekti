@@ -108,6 +108,8 @@ public class ShootingEnemy : Enemy
                         transform.LookAt(target.transform.position);
 
                         // Kurkataan jos jotain on välissä, ja liikutaan sit lähemmäs kunnes voidaan ampua
+
+
                         RaycastHit hit;
                         if (Physics.Raycast(muzzle.position, muzzle.forward, out hit, distanceFromTarget - SHOOTING_BLOCKER_DISTANCE , -1))
                         {

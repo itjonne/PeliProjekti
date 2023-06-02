@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: aa2aae078968ac643849e3d286746e00, type: 2}
   health: 50
-  movementSpeed: 5
+  movementSpeed: 5.2
   gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   aggroed: 0
   muzzle: {fileID: 1631341806069715351}
@@ -2141,7 +2141,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 5.2
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 200

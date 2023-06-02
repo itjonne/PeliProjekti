@@ -2220,12 +2220,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: aa2aae078968ac643849e3d286746e00, type: 2}
   health: 30
-  movementSpeed: 3
+  movementSpeed: 3.5
   gibs: {fileID: 5487148090448043962, guid: 4060d82fe29c33642adef626cf9e54cb, type: 3}
   aggroed: 0
   muzzle: {fileID: 320811343239326498}
   bulletPrefab: {fileID: 8306785530074399806, guid: 6c8d8be39a1ef664487c1852bfd8acff, type: 3}
-  attackDistance: 1.5
+  attackDistance: 1.6
   attackRate: 2
   damage: 10
   attackTriggerName: Attack
@@ -2255,7 +2255,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 3.5
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 200
