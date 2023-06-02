@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     public LevelEnd levelEnd;
 
+    public bool debug = false;
+
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
 
@@ -109,7 +111,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(false);
 
         levelEnd = GetComponent<LevelEnd>();
-        
+        debug = false;
 
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
@@ -134,33 +136,56 @@ public class GameManager : MonoBehaviour
     {
 
         //DEBUGGAUS-KOMENTOJA TESTAUSTA VARTEN NUMEROILLA PÄÄSEE HALUAMAAN KENTTÄÄN
-                if (Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                   // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
-                    SceneManager.LoadScene("Level1_ALT");
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            debug = true;
+        }
 
-                }
 
-                if (Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
-                    SceneManager.LoadScene("Ossi_Level2");
+            if (Input.GetKeyDown(KeyCode.Alpha1) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("Level1_ALT");
 
-                }
+            }
 
-                if (Input.GetKeyDown(KeyCode.Alpha3))
-                {
-                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
-                    SceneManager.LoadScene("Ossi_Level3");
+            if (Input.GetKeyDown(KeyCode.Alpha2) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("Ossi_Level2");
 
-                }
+            }
 
-                if (Input.GetKeyDown(KeyCode.Alpha4))
-                {
-                    // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
-                    SceneManager.LoadScene("Seppo_Level4");
+            if (Input.GetKeyDown(KeyCode.Alpha3) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("Ossi_Level3");
 
-                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha4) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("Seppo_Level4");
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("Ossi_FIN");
+
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.Alpha6) && debug == true)
+            {
+                // SceneManager.LoadScene(SceneManager.GetSceneByName("Level1_ALT"));
+                SceneManager.LoadScene("TESTLEVEL");
+
+            }
+            
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

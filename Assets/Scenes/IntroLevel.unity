@@ -7815,8 +7815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GuiOn: 0
   Text: Change squad formation with "CTRL". Squad moves slower in Square formation.
-    Change active squad member with "TAB". Different squad members you come across
-    may have different weapons and attributes.
+    Change active squad member with "TAB". You can have a maximum of 5 soldiers in
+    your squad at once.
   BoxSize:
     serializedVersion: 2
     x: 0
@@ -13053,6 +13053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squadData: {fileID: 11400000, guid: fd2fda71435ad8e45ae0c845e6982a51, type: 2}
   grenadeAmount: 0
+  SQUAD_MAX_SIZE: 5
 --- !u!4 &1341160689
 Transform:
   m_ObjectHideFlags: 0
@@ -18724,7 +18725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991179894}
   m_LocalRotation: {x: -0, y: -0.0350787, z: -0, w: 0.9993846}
-  m_LocalPosition: {x: -9.4, y: 0.8, z: 13.06}
+  m_LocalPosition: {x: -9.4, y: 0.8, z: 15.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
