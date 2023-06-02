@@ -18,6 +18,12 @@ public class Squad : MonoBehaviour
     GUIStyle largeFont;
 
     private Vector3 leaderLastPos;
+
+    public int SQUAD_MAX_SIZE = 5;
+
+    private bool showMaxSizeError = false;
+    private string maxSizeError = "Maximum squad size reached";
+
     public Formation Formation
     {
         get
@@ -147,9 +153,25 @@ public class Squad : MonoBehaviour
     // Start is called before the first frame update
     public void AddCharacter(Character character)
     {
+        if (squadData.Items.Count >= SQUAD_MAX_SIZE)
+        {
+            Destroy(character.gameObject);
+            StartCoroutine(messageTimer(2));
+
+            return;
+        }
+
         squadData.Add(character);
         Formation.FormationSize += 1;
         character.gameObject.transform.parent = this.transform; // asetetaan kivasti siell‰ n‰kym‰ss‰ siihen ryhm‰‰n
+    }
+
+    private IEnumerator messageTimer(float seconds)
+    {
+        showMaxSizeError = true;
+        yield return new WaitForSeconds(seconds);
+        showMaxSizeError = false;
+        yield return null;
     }
 
     public void RemoveCharacter(Character character)
@@ -347,5 +369,12 @@ public class Squad : MonoBehaviour
         
         GUI.Label(new Rect(10, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
         GUI.Label(new Rect(100, 10, 200, 20), "Formation: " + Formation.formationName, largeFont);
+        if (showMaxSizeError)
+        {
+            GUI.contentColor = Color.red;
+            Debug.Log("PRINGINT EROR");
+            GUI.Label(new Rect(10, 100, 1000, 60), "ERROR: " + maxSizeError, largeFont);
+        }
+        
     }
 }
