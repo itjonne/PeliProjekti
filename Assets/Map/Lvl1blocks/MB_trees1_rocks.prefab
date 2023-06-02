@@ -117,7 +117,7 @@ MonoBehaviour:
   environmentDensity: 7
   helperObjects:
   - {fileID: 4792030278493402145, guid: 39af1b0403cd30946a447176dd4682c1, type: 3}
-  helperDensity: 3
+  helperDensity: 2
   enemyObjects:
   - {fileID: 7452232810351302265, guid: 18ef5a0cd582dc449b0d0abfc02fe90c, type: 3}
   - {fileID: 4220222231417818840, guid: 3bde32990b73b9d4c979127a878a62b8, type: 3}

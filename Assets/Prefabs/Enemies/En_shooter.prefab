@@ -1145,6 +1145,7 @@ MonoBehaviour:
   EnemySpread: 0.09
   bulletSpeed: 10
   AggroRange: 25
+  rayMask: -1
 --- !u!195 &30980865581237054
 NavMeshAgent:
   m_ObjectHideFlags: 0

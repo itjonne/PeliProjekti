@@ -196,7 +196,7 @@ public class ShitBucketEnemy : Enemy
         bullet.GetComponent<Rigidbody>().velocity = (muzzle.forward + new Vector3(Random.Range(-EnemySpread, EnemySpread), Random.Range(-EnemySpread, 0), Random.Range(-EnemySpread, EnemySpread))) * bulletSpeed;
         //ammoLeft--;
         //lastShot = Time.time;
-        Destroy(bullet, 0.6f);
+        Destroy(bullet, 0.75f);
     }
 
 

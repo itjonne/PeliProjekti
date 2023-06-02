@@ -102,8 +102,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8306785530074399806, guid: 44bd830b20f159d459c40d756be475df, type: 3}
   shootingDistance: 8
   fireRate: 0.1
-  EnemySpread: 0.1
-  bulletSpeed: 10
+  EnemySpread: 0.25
+  bulletSpeed: 11
   AggroRange: 25
   helmet: {fileID: 5553751638185662295}
 --- !u!195 &143662575
