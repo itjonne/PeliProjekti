@@ -213,6 +213,7 @@ public class PlayableCharacter : Character
     {
         Debug.Log("DEATH");
         gameObject.GetComponentInParent<Squad>().DestroyCharacter(this);
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Death, transform);
 
         Destroy(GetComponent<Collider>());
         Destroy(GetComponent<Rigidbody>());

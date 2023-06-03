@@ -3,29 +3,18 @@ using UnityEngine.UI;
 using JSAM;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class Options : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject pauseMenuUI;
+ 
+    public GameObject optionsMenuUI;
 
 
     public Slider sfxVolumeSlider;
     public Slider musicVolumeSlider;
 
-    private static PauseMenu instance;
+    private static Options instance;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+
 
 
 
@@ -34,41 +23,32 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuUI.SetActive(false);
-        GameIsPaused = false;
+        optionsMenuUI.SetActive(false);
+   
 
         LoadVolumeSettings();
 
         // Add listeners to the volume sliders
         sfxVolumeSlider.onValueChanged.AddListener(delegate { SaveVolumeSettings(); });
         musicVolumeSlider.onValueChanged.AddListener(delegate { SaveVolumeSettings(); });
-    
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-      
-
-    }
-
-    public void Pause()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-
+        optionsMenuUI.SetActive(false);
+        
+        
 
 
     }
+
 
     public void SetSFXVolume(float volume)
     {
@@ -93,20 +73,14 @@ public class PauseMenu : MonoBehaviour
         musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
     }
 
-    public void QuitGame()
-    {
-        Application.Quit(); // Quit the game
-    }
 
+    public GameObject optionsMenuCanvas;
 
-    public void ReturnToMainMenu()
+    public void CloseOptionsMenu()
     {
-        JSAM.AudioManager.StopAllSounds();
+        optionsMenuCanvas.SetActive(false);
         SaveVolumeSettings();
-        Resume();
-        SceneManager.LoadScene("MainMenu");
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene/
-        
     }
+
 
 }
