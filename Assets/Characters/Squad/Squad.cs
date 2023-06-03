@@ -22,15 +22,10 @@ public class Squad : MonoBehaviour
 
     public int SQUAD_MAX_SIZE = 5;
 
-    public bool showGrenadeMessage = false;
     public bool showMaxSizeError = false;
-    public bool showbulletMessage = false;
 
     private string maxSizeError = "YOUR SQUAD IS FULL!";
-
-    private string grenadeMessage = "Grenades!";
-
-    private string bulletMessage = "Multishot!";
+ 
 
     public Formation Formation
     {
@@ -188,25 +183,7 @@ public class Squad : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator GrenadeMessage()
-    {
-        showGrenadeMessage = true;
-        yield return new WaitForSeconds(1.25f);
-        showGrenadeMessage = false;
-        yield return null;
 
-        StopCoroutine(GrenadeMessage());
-    }
-
-    public IEnumerator BulletMessage()
-    {
-        showbulletMessage = true;
-        yield return new WaitForSeconds(1.25f);
-        showbulletMessage = false;
-        yield return null;
-
-        StopCoroutine(BulletMessage());
-    }
 
     public void RemoveCharacter(Character character)
     {
@@ -412,21 +389,6 @@ public class Squad : MonoBehaviour
 
         }
 
-        if (showbulletMessage)
-        {
-          
-            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), " ");
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), bulletMessage, messageFont);
-
-        }
-
-        if (showGrenadeMessage)
-        {
-
-            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), " ");
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 40), grenadeMessage, messageFont);
-
-        }
 
     }
 }

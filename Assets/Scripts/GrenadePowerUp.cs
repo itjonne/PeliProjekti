@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class GrenadePowerUp : PowerUp
 {
+
+    public bool showGrenadeMessage = false;
+    GUIStyle messageFont;
+    private string grenadeMessage = "Grenades!";
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        messageFont = new GUIStyle();
+        messageFont.fontSize = 20;
+        messageFont.alignment = TextAnchor.MiddleCenter;
+        messageFont.normal.textColor = new Color32(248, 231, 189, 254);
+
+
     }
 
     // Update is called once per frame
@@ -28,6 +38,15 @@ public class GrenadePowerUp : PowerUp
         
     }
 
+    public IEnumerator GrenadeMessage()
+    {
+        showGrenadeMessage = true;
+        yield return new WaitForSeconds(1.25f);
+        showGrenadeMessage = false;
+        yield return null;
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -36,7 +55,7 @@ public class GrenadePowerUp : PowerUp
         {
             Squad squad = collision.gameObject.GetComponentInParent<Squad>();
             Debug.Log("Löydetttiin kranu");
-            StartCoroutine(squad.GrenadeMessage());
+            StartCoroutine(GrenadeMessage());
 
             // Annetaan tolle characterille tämä poweruppi
             JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_WoodenBox, transform);
@@ -48,10 +67,21 @@ public class GrenadePowerUp : PowerUp
                 GameObject.Destroy(child.gameObject);
             }
 
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 3f); //tuhotaan viiveellä että coroutine ehtii terminoitua
             
                 
         
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (showGrenadeMessage)
+        {
+
+            GUI.Box(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 150, 120, 30), " ");
+            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 + 150, 120, 30), grenadeMessage, messageFont);
+
         }
     }
 
