@@ -14,6 +14,8 @@ public abstract class Enemy : MonoBehaviour
     private GameObject playerWhoDealtDamage;
     public bool aggroed = false;
 
+    bool isDead = false;
+
     public float Health => enemyData.health;
 
 
@@ -60,37 +62,47 @@ public abstract class Enemy : MonoBehaviour
         health += damage;
         if (health <= -25) GibDeath();  //Jos tulee liikaa damagea, muutetaan vihu punaiseksi usvaksi
         else if (health <= 0) Die();
-
+     
     }
 
     public virtual void Die()
     {
-        Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
-        //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
-        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Meaty, transform);
-        Destroy(GetComponent<Collider>());
-        Destroy(GetComponent<Rigidbody>());
-        Destroy(GetComponent<NavMeshAgent>());
-        movementSpeed = 0f;
-        gameObject.GetComponent<Enemy>().enabled = false;
-        gameObject.GetComponent<Anim_Enemy1>().OnDeath();
-        Destroy(gameObject, 20);
+   
 
-        GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+            //Debug.Log("PLAYERWHOKILLED" + playerWhoDealtDamage);
+            //if (playerWhoDealtDamage != null) playerWhoDealtDamage.GetComponent<Character>()?.GainExp(20); // Annetaan taposta expat
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Meaty, transform);
+            Destroy(GetComponent<Collider>());
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<NavMeshAgent>());
+            movementSpeed = 0f;
+            gameObject.GetComponent<Enemy>().enabled = false;
+            gameObject.GetComponent<Anim_Enemy1>().OnDeath();
+            Destroy(gameObject, 20);
+
+        if (!isDead) 
+        {
+            GameManager.Instance.KillEnemy(1); // Lis‰t‰‰n killcounteria
+            isDead = true;
+        }
+
 
 }
  
     public virtual void GibDeath()
     {
 
+            var giblets = gameObject.GetComponent<Enemy>().gibs;
+            //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
+            Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek j‰lkeen
+            Destroy(gameObject);
 
-       var giblets = gameObject.GetComponent<Enemy>().gibs;
-   
-       //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
+        if (!isDead)
+        {
+            GameManager.Instance.KillEnemy(1);
+            isDead = true;
+        }
 
-        Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek j‰lkeen
-        Destroy(gameObject);
-        GameManager.Instance.KillEnemy(1);
 
     }
 
