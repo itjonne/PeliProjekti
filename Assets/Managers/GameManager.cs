@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     public bool debug = false;
 
+    private AudioSource[] allAudioSources;
+
     /* ANTIN SYSTEEMI REFERENSSINÄ! -OSSI
      void Awake()
 
@@ -211,6 +213,7 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                StopAllAudio();
                 var levelEnd = FindObjectOfType<LevelEnd>();
                 SceneManager.LoadScene(levelEnd.GetComponent<LevelEnd>().nextLevel);
 
@@ -223,6 +226,15 @@ public class GameManager : MonoBehaviour
 
         
 
+    }
+
+    void StopAllAudio()
+    {
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        foreach (AudioSource audioS in allAudioSources)
+        {
+            audioS.Stop();
+        }
     }
 
     private void TogglePauseMenu()

@@ -31,11 +31,11 @@ MonoBehaviour:
   maxDistance: 0
   priority: 192
   startingPitch: 1.49
-  pitchShift: 0.05
+  pitchShift: 0
   loopMode: 0
   delay: 0
   ignoreTimeScale: 1
-  maxPlayingInstances: 10
+  maxPlayingInstances: 1
   mixerGroupOverride: {fileID: 2609797869227875114, guid: 555edaf44a04f6341a9483f43608463d, type: 2}
   fadeInOut: 0
   fadeInDuration: 0

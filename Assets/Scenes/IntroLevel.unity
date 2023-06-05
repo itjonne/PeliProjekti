@@ -11962,6 +11962,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 0}
   levelEndScreen: {fileID: 0}
   levelEnd: {fileID: 0}
+  debug: 0
 --- !u!4 &1213494249
 Transform:
   m_ObjectHideFlags: 0
@@ -13871,8 +13872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 11400000, guid: fd9115ffcb0e3814cae6bd6a575dac34, type: 2}
   advancedMode: 1
-  keepPlaybackPosition: 1
-  restartOnReplay: 1
+  keepPlaybackPosition: 0
+  restartOnReplay: 0
   stopInstantly: 0
   onStart: 0
   onEnable: 1
