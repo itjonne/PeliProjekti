@@ -16,13 +16,16 @@ public class Squad : MonoBehaviour
     private Camera camera;
 
     GUIStyle largeFont;
+    GUIStyle messageFont;
 
     private Vector3 leaderLastPos;
 
     public int SQUAD_MAX_SIZE = 5;
 
-    private bool showMaxSizeError = false;
-    private string maxSizeError = "Maximum squad size reached";
+    public bool showMaxSizeError = false;
+
+    private string maxSizeError = "YOUR SQUAD IS FULL!";
+ 
 
     public Formation Formation
     {
@@ -77,6 +80,11 @@ public class Squad : MonoBehaviour
         largeFont = new GUIStyle();
         largeFont.fontSize = 16;
         largeFont.normal.textColor = Color.white;
+
+        messageFont = new GUIStyle();
+        messageFont.fontSize = 20;
+        messageFont.alignment = TextAnchor.MiddleCenter;
+        messageFont.normal.textColor = new Color32(248, 231, 189, 254);
     }
 
     public int GetSquadSize()
@@ -166,6 +174,7 @@ public class Squad : MonoBehaviour
         character.gameObject.transform.parent = this.transform; // asetetaan kivasti siellä näkymässä siihen ryhmään
     }
 
+
     public IEnumerator messageTimer(float seconds)
     {
         showMaxSizeError = true;
@@ -173,6 +182,8 @@ public class Squad : MonoBehaviour
         showMaxSizeError = false;
         yield return null;
     }
+
+
 
     public void RemoveCharacter(Character character)
     {
@@ -365,17 +376,19 @@ public class Squad : MonoBehaviour
         }
         */
 
-        GUI.contentColor = Color.white;
-        
+        GUI.contentColor = Color.white;        
         GUI.Label(new Rect(10, 10, 100, 20), "Grenade: " + grenadeAmount.ToString(), largeFont);
-        GUI.Label(new Rect(100, 10, 200, 20), "Formation: " + Formation.formationName, largeFont);
+        GUI.Label(new Rect(10, 40, 200, 20), "Formation: " + Formation.formationName, largeFont);
 
         // NÄyttää virheen kun ollaan täys
         if (showMaxSizeError)
         {
-            Debug.Log("PRINGINT EROR");
-            GUI.Label(new Rect(10, 100, 1000, 60), maxSizeError, largeFont);
+
+            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 150, 250, 50), " ");           
+            GUI.Label(new Rect(Screen.width / 2  -75 , Screen.height / 2 - 150, 200, 50), maxSizeError, messageFont);
+
         }
-        
+
+
     }
 }

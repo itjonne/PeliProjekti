@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
         levelEnd = GetComponent<LevelEnd>();
         debug = false;
 
+        
+
         Debug.LogWarning("PELI ALKAA NY!");
         // Peli alkaa
 
@@ -199,6 +201,7 @@ public class GameManager : MonoBehaviour
         if (gameHasEnded == true && Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 1;
+            
             gameOverScreen.SetActive(false);
             StartCoroutine(GoToMenu());
         }
@@ -270,7 +273,8 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
-       
+
+        
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(MainMenu));
     }
 
