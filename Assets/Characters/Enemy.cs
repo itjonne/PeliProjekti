@@ -15,6 +15,7 @@ public abstract class Enemy : MonoBehaviour
     public bool aggroed = false;
 
     bool isDead = false;
+    bool isGib = false;
 
     public float Health => enemyData.health;
 
@@ -78,7 +79,7 @@ public abstract class Enemy : MonoBehaviour
             movementSpeed = 0f;
             gameObject.GetComponent<Enemy>().enabled = false;
             gameObject.GetComponent<Anim_Enemy1>().OnDeath();
-            Destroy(gameObject, 20);
+            Destroy(gameObject, 20f);
 
         if (!isDead) 
         {
@@ -91,22 +92,23 @@ public abstract class Enemy : MonoBehaviour
  
     public virtual void GibDeath()
     {
-        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Gore, transform);
-
+        
+        if (!isGib)  //Voi tulla vain yhdet gibletit
+        {
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Gore, transform);
             var giblets = gameObject.GetComponent<Enemy>().gibs;
             //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
             Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek j�lkeen
             Destroy(gameObject);
 
-        if (!isDead)
-        {
-            GameManager.Instance.KillEnemy(1);
-            isDead = true;
+            if (!isDead)
+            {
+                GameManager.Instance.KillEnemy(1);
+                isDead = true;
+            }
+
+            isGib = true;
         }
-
-   
-       //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
-
 
     }
 
