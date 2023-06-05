@@ -4879,8 +4879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GuiOn: 0
-  Text: Welcome to Cannon Fodderlike!  Go LEFT if you are a rookie.         Go RIGHT
-    if you are a veteran.    Move with WASD.
+  Text: Welcome to Brass Tax!                     Go LEFT if you are a rookie.        
+    Go RIGHT if you are a veteran.    Move with WASD.
   BoxSize:
     serializedVersion: 2
     x: 0
@@ -13206,13 +13206,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341160687}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf08f4233ad41e4b950c0df36fff20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FormationSize: 1
-  Spread: 1.5
+  Spread: 1.4
   formationName: Square
   _noise: 0
 --- !u!114 &1341160695
@@ -13222,7 +13222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341160687}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a46978c2f49bd24aa88b4ff4066b9b4, type: 3}
   m_Name: 
