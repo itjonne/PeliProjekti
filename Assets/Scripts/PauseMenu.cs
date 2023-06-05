@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
         sfxVolumeSlider.onValueChanged.AddListener(delegate { SaveVolumeSettings(); });
         musicVolumeSlider.onValueChanged.AddListener(delegate { SaveVolumeSettings(); });
     
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -101,10 +101,11 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        JSAM.AudioManager.StopAllSounds();
         SaveVolumeSettings();
         Resume();
         SceneManager.LoadScene("MainMenu");
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); // Unload the current scene/
         
     }
 

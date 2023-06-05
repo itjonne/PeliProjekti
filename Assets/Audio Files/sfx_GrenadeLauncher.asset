@@ -36,7 +36,7 @@ MonoBehaviour:
   delay: 0
   ignoreTimeScale: 1
   maxPlayingInstances: 10
-  mixerGroupOverride: {fileID: 2609797869227875114, guid: 555edaf44a04f6341a9483f43608463d, type: 2}
+  mixerGroupOverride: {fileID: 3009304221352927752, guid: 555edaf44a04f6341a9483f43608463d, type: 2}
   fadeInOut: 0
   fadeInDuration: 0
   fadeOutDuration: 0

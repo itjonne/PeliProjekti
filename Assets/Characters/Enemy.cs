@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      //  JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
+      
 
         // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, t?ss? vois olla puukotus
         if (other.GetComponent<Character>())
@@ -82,7 +82,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (!isDead) 
         {
-            GameManager.Instance.KillEnemy(1); // Lisätään killcounteria
+            GameManager.Instance.KillEnemy(1); // Lisï¿½tï¿½ï¿½n killcounteria
             isDead = true;
         }
 
@@ -91,10 +91,11 @@ public abstract class Enemy : MonoBehaviour
  
     public virtual void GibDeath()
     {
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Gore, transform);
 
             var giblets = gameObject.GetComponent<Enemy>().gibs;
             //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
-            Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek jälkeen
+            Destroy(Instantiate(giblets.gameObject, transform.position, Quaternion.identity), 20f); //gibletit kohdalle, katoavat 20 sek jï¿½lkeen
             Destroy(gameObject);
 
         if (!isDead)
@@ -102,6 +103,9 @@ public abstract class Enemy : MonoBehaviour
             GameManager.Instance.KillEnemy(1);
             isDead = true;
         }
+        var giblets = gameObject.GetComponent<Enemy>().gibs;
+   
+       //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
 
 
     }

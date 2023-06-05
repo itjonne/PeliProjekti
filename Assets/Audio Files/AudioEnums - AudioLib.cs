@@ -6,7 +6,7 @@
         sfx_HealthPack,
         sfx_Hitmarker,
         sfx_Reload,
-        sfx_Shotgun,
+        sfx_shotgun,
         sfx_Slash,
         sfx_SMG,
         sfx_WoodenBox,
@@ -17,7 +17,15 @@
         sfx_Hurt2,
         sfx_Hurt3,
         sfx_Hurt4,
-        sfx_Gauss
+        sfx_Gauss,
+        sfx_EnvHit,
+        sfx_GrenadeWhistle,
+        sfx_LMG,
+        sfx_Gore,
+        sfx_GrenadeThrow,
+        sfx_Death,
+        sfx_Flame,
+        sfx_Click
     }
     public enum AudioLibMusic {
         music_Battlefield,
