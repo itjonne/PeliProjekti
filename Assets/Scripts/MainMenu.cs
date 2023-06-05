@@ -25,10 +25,7 @@ public class MainMenu : MonoBehaviour
 
 
         StopAllAudio();
- 
 
-    // T�� nyt nollaa pelin jos menee main menuun
-    Squad squad = FindObjectOfType<Squad>();
 
         if (squad != null)
         {

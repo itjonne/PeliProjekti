@@ -103,7 +103,7 @@ public abstract class Enemy : MonoBehaviour
             GameManager.Instance.KillEnemy(1);
             isDead = true;
         }
-        var giblets = gameObject.GetComponent<Enemy>().gibs;
+
    
        //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
 
