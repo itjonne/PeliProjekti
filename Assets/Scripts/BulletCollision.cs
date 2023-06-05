@@ -19,6 +19,8 @@ public class BulletCollision : MonoBehaviour
         {
             Debug.Log("Osu seinille");
 
+            JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_EnvHit, transform);
+
             Destroy(Instantiate(envImpact.gameObject, transform.position, Quaternion.identity), 2f);
            
             envImpact.GetComponent<ParticleSystem>().Play();

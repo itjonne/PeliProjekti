@@ -13872,11 +13872,11 @@ MonoBehaviour:
   audio: {fileID: 11400000, guid: fd9115ffcb0e3814cae6bd6a575dac34, type: 2}
   advancedMode: 1
   keepPlaybackPosition: 1
-  restartOnReplay: 0
+  restartOnReplay: 1
   stopInstantly: 0
-  onStart: 1
-  onEnable: 0
-  onDisable: 0
+  onStart: 0
+  onEnable: 1
+  onDisable: 2
   onDestroy: 2
   fadeBehaviour: 0
   fadeTime: 0

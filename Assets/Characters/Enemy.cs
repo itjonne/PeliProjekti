@@ -23,7 +23,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-      //  JSAM.AudioManager.PlaySound(Sounds.sfx_Hitmarker);
+      
 
         // Jos kollisio tapahtuu pelaajan kanssa. Pelaajalla taitaa olla oma handleri, t?ss? vois olla puukotus
         if (other.GetComponent<Character>())
@@ -82,9 +82,9 @@ public abstract class Enemy : MonoBehaviour
  
     public virtual void GibDeath()
     {
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_Gore, transform);
 
-
-       var giblets = gameObject.GetComponent<Enemy>().gibs;
+        var giblets = gameObject.GetComponent<Enemy>().gibs;
    
        //var giblets = GameObject.FindGanmeObjectsWithTag("Gibs");
 

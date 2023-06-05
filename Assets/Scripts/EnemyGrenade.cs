@@ -34,6 +34,7 @@ public class EnemyGrenade : MonoBehaviour
     }
     void Explode()
     {
+        JSAM.AudioManager.PlaySound(AudioLibSounds.sfx_GrenadeBoom, transform);
         //Show effect //ja poistetaan myös objekti 3 sekunnin päästä
         Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 4f);
 
